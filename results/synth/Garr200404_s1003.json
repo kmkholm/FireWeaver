@@ -1,0 +1,632 @@
+{
+ "id": "Garr200404_s1003",
+ "n_intents": 30,
+ "n_gt_rules": 56,
+ "n_zones": 16,
+ "rules": {
+  "eq": false,
+  "mismatch": 0.05225,
+  "n_rules": 63,
+  "fail": 0,
+  "s": 69.38191199302673,
+  "calls": 1,
+  "prompt": 1288,
+  "completion": 1959
+ },
+ "ir0": {
+  "eq": false,
+  "mismatch": 0.00075,
+  "n_rules": 54,
+  "fail": 0,
+  "s": 81.50722908973694,
+  "calls": 31,
+  "prompt": 20381,
+  "completion": 1121,
+  "intent_acc": 0.9666666666666667
+ },
+ "ir": {
+  "eq": true,
+  "mismatch": 0.0,
+  "n_rules": 56,
+  "fail": 0,
+  "s": 69.8373544216156,
+  "calls": 30,
+  "prompt": 33196,
+  "completion": 761,
+  "intent_acc": 1.0
+ },
+ "fw": {
+  "eq": true,
+  "mismatch": 0.0,
+  "n_rules": 56,
+  "fail": 0,
+  "s": 210.52142095565796,
+  "verify_s": 140.68406701087952,
+  "calls": 71,
+  "verify_calls": 41,
+  "flagged": 3,
+  "accepted": 0,
+  "repairs": [
+   {
+    "k": 6,
+    "was_ok": true,
+    "now_ok": true,
+    "history": [
+     1,
+     1,
+     1
+    ],
+    "calls": 2,
+    "accepted": false
+   },
+   {
+    "k": 8,
+    "was_ok": true,
+    "now_ok": true,
+    "history": [
+     2,
+     2,
+     2
+    ],
+    "calls": 2,
+    "accepted": false
+   },
+   {
+    "k": 27,
+    "was_ok": true,
+    "now_ok": true,
+    "history": [
+     2,
+     0
+    ],
+    "calls": 3,
+    "accepted": false,
+    "diff": 2,
+    "win_new": 1,
+    "win_old": 1
+   }
+  ],
+  "intent_acc": 1.0
+ },
+ "ir_out": [
+  {
+   "type": "isolate",
+   "src": "hr",
+   "allowed": [
+    [
+     "cameras",
+     "https"
+    ],
+    [
+     "backup",
+     "https"
+    ]
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "dns-servers",
+   "dst": "partners",
+   "svcs": [
+    "rdp",
+    "postgres",
+    "imap"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "edge-cache",
+   "dst": "partners",
+   "svcs": [
+    "http"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "printers",
+   "dst": "voip",
+   "svcs": [
+    "smtp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "library",
+   "dst": "cameras",
+   "svcs": [
+    "imap"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "finance",
+   "dst": "nvr",
+   "svcs": [
+    "mysql",
+    "ssh",
+    "smb"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "dns-servers",
+   "allowed": [
+    [
+     "backup",
+     "syslog"
+    ],
+    [
+     "library",
+     "dns"
+    ]
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "edge-cache",
+   "dst": "research",
+   "svcs": [
+    "https"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "student-lab",
+   "allowed": [
+    [
+     "nvr",
+     "dns"
+    ],
+    [
+     "partners",
+     "ntp"
+    ]
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "hr",
+   "dst": "finance",
+   "svcs": [
+    "dns"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "partners",
+   "dst": "nvr"
+  },
+  {
+   "type": "block",
+   "src": "library",
+   "dst": "edge-cache"
+  },
+  {
+   "type": "block",
+   "src": "edge-cache",
+   "dst": "research"
+  },
+  {
+   "type": "allow",
+   "src": "nvr",
+   "dst": "student-lab",
+   "svcs": [
+    "smtp"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "printers",
+   "allowed": [
+    [
+     "hr",
+     "ntp"
+    ]
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "printers",
+   "dst": "finance",
+   "svcs": [
+    "dns"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "backup",
+   "svcs": [
+    "ntp",
+    "https"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "library",
+   "dst": "dev-lab",
+   "svcs": [
+    "snmp",
+    "mysql",
+    "dns"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "edge-cache",
+   "dst": "printers",
+   "svcs": [
+    "imap",
+    "ssh",
+    "mysql"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "library",
+   "dst": "finance",
+   "svcs": [
+    "ldap",
+    "smtp",
+    "https"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "hr",
+   "dst": "student-lab"
+  },
+  {
+   "type": "allow_except",
+   "src": "library",
+   "dst": "database",
+   "broad": "any-udp",
+   "ex": [
+    "tftp",
+    "snmp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "backup",
+   "dst": "dev-lab",
+   "svcs": [
+    "rdp"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "library",
+   "allowed": [
+    [
+     "student-lab",
+     "syslog"
+    ]
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "engineering",
+   "allowed": [
+    [
+     "dev-lab",
+     "https"
+    ]
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "dns-servers",
+   "svcs": [
+    "http",
+    "ntp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "partners",
+   "dst": "dev-lab",
+   "svcs": [
+    "smtp",
+    "http"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "backup",
+   "allowed": [
+    [
+     "printers",
+     "https"
+    ],
+    [
+     "edge-cache",
+     "ntp"
+    ]
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "hr",
+   "dst": "student-lab",
+   "svcs": [
+    "snmp"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "cameras",
+   "dst": "nvr"
+  }
+ ],
+ "fw_out": [
+  {
+   "type": "isolate",
+   "src": "hr",
+   "allowed": [
+    [
+     "cameras",
+     "https"
+    ],
+    [
+     "backup",
+     "https"
+    ]
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "dns-servers",
+   "dst": "partners",
+   "svcs": [
+    "rdp",
+    "postgres",
+    "imap"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "edge-cache",
+   "dst": "partners",
+   "svcs": [
+    "http"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "printers",
+   "dst": "voip",
+   "svcs": [
+    "smtp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "library",
+   "dst": "cameras",
+   "svcs": [
+    "imap"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "finance",
+   "dst": "nvr",
+   "svcs": [
+    "mysql",
+    "ssh",
+    "smb"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "dns-servers",
+   "allowed": [
+    [
+     "backup",
+     "syslog"
+    ],
+    [
+     "library",
+     "dns"
+    ]
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "edge-cache",
+   "dst": "research",
+   "svcs": [
+    "https"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "student-lab",
+   "allowed": [
+    [
+     "nvr",
+     "dns"
+    ],
+    [
+     "partners",
+     "ntp"
+    ]
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "hr",
+   "dst": "finance",
+   "svcs": [
+    "dns"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "partners",
+   "dst": "nvr"
+  },
+  {
+   "type": "block",
+   "src": "library",
+   "dst": "edge-cache"
+  },
+  {
+   "type": "block",
+   "src": "edge-cache",
+   "dst": "research"
+  },
+  {
+   "type": "allow",
+   "src": "nvr",
+   "dst": "student-lab",
+   "svcs": [
+    "smtp"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "printers",
+   "allowed": [
+    [
+     "hr",
+     "ntp"
+    ]
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "printers",
+   "dst": "finance",
+   "svcs": [
+    "dns"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "backup",
+   "svcs": [
+    "ntp",
+    "https"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "library",
+   "dst": "dev-lab",
+   "svcs": [
+    "snmp",
+    "mysql",
+    "dns"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "edge-cache",
+   "dst": "printers",
+   "svcs": [
+    "imap",
+    "ssh",
+    "mysql"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "library",
+   "dst": "finance",
+   "svcs": [
+    "ldap",
+    "smtp",
+    "https"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "hr",
+   "dst": "student-lab"
+  },
+  {
+   "type": "allow_except",
+   "src": "library",
+   "dst": "database",
+   "broad": "any-udp",
+   "ex": [
+    "tftp",
+    "snmp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "backup",
+   "dst": "dev-lab",
+   "svcs": [
+    "rdp"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "library",
+   "allowed": [
+    [
+     "student-lab",
+     "syslog"
+    ]
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "engineering",
+   "allowed": [
+    [
+     "dev-lab",
+     "https"
+    ]
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "dns-servers",
+   "svcs": [
+    "http",
+    "ntp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "partners",
+   "dst": "dev-lab",
+   "svcs": [
+    "smtp",
+    "http"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "backup",
+   "allowed": [
+    [
+     "printers",
+     "https"
+    ],
+    [
+     "edge-cache",
+     "ntp"
+    ]
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "hr",
+   "dst": "student-lab",
+   "svcs": [
+    "snmp"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "cameras",
+   "dst": "nvr"
+  }
+ ],
+ "wall_s": 362.082807302475
+}

@@ -1,0 +1,210 @@
+{
+ "id": "Uunet_s1050",
+ "n_intents": 8,
+ "n_gt_rules": 14,
+ "n_zones": 10,
+ "rules": {
+  "eq": false,
+  "mismatch": 0.00075,
+  "n_rules": 14,
+  "fail": 0,
+  "s": 16.761414051055908,
+  "calls": 1,
+  "prompt": 701,
+  "completion": 452
+ },
+ "ir0": {
+  "eq": false,
+  "mismatch": 0.00325,
+  "n_rules": 11,
+  "fail": 0,
+  "s": 26.959161281585693,
+  "calls": 8,
+  "prompt": 5122,
+  "completion": 326,
+  "intent_acc": 0.625
+ },
+ "ir": {
+  "eq": true,
+  "mismatch": 0.0,
+  "n_rules": 14,
+  "fail": 0,
+  "s": 24.24823784828186,
+  "calls": 8,
+  "prompt": 8730,
+  "completion": 204,
+  "intent_acc": 1.0
+ },
+ "fw": {
+  "eq": true,
+  "mismatch": 0.0,
+  "n_rules": 14,
+  "fail": 0,
+  "s": 61.35387563705444,
+  "verify_s": 37.10563850402832,
+  "calls": 19,
+  "verify_calls": 11,
+  "flagged": 1,
+  "accepted": 0,
+  "repairs": [
+   {
+    "k": 0,
+    "was_ok": true,
+    "now_ok": true,
+    "history": [
+     1,
+     1,
+     1
+    ],
+    "calls": 2,
+    "accepted": false
+   }
+  ],
+  "intent_acc": 1.0
+ },
+ "ir_out": [
+  {
+   "type": "isolate",
+   "src": "dns-servers",
+   "allowed": [
+    [
+     "backup",
+     "dns"
+    ]
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "nvr",
+   "svcs": [
+    "https"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "backup",
+   "svcs": [
+    "https"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "ops",
+   "dst": "student-lab",
+   "svcs": [
+    "syslog",
+    "ssh"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "ops",
+   "allowed": [
+    [
+     "dns-servers",
+     "https"
+    ]
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "scada",
+   "dst": "ops",
+   "svcs": [
+    "dns"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "scada",
+   "dst": "student-lab",
+   "broad": "high-tcp",
+   "ex": [
+    "mysql"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "scada",
+   "dst": "dns-servers",
+   "svcs": [
+    "imap",
+    "ntp",
+    "postgres"
+   ]
+  }
+ ],
+ "fw_out": [
+  {
+   "type": "isolate",
+   "src": "dns-servers",
+   "allowed": [
+    [
+     "backup",
+     "dns"
+    ]
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "nvr",
+   "svcs": [
+    "https"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "backup",
+   "svcs": [
+    "https"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "ops",
+   "dst": "student-lab",
+   "svcs": [
+    "syslog",
+    "ssh"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "ops",
+   "allowed": [
+    [
+     "dns-servers",
+     "https"
+    ]
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "scada",
+   "dst": "ops",
+   "svcs": [
+    "dns"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "scada",
+   "dst": "student-lab",
+   "broad": "high-tcp",
+   "ex": [
+    "mysql"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "scada",
+   "dst": "dns-servers",
+   "svcs": [
+    "imap",
+    "ntp",
+    "postgres"
+   ]
+  }
+ ],
+ "wall_s": 105.3082389831543
+}

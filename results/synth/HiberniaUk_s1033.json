@@ -1,0 +1,311 @@
+{
+ "id": "HiberniaUk_s1033",
+ "n_intents": 16,
+ "n_gt_rules": 28,
+ "n_zones": 10,
+ "rules": {
+  "eq": false,
+  "mismatch": 0.002,
+  "n_rules": 28,
+  "fail": 0,
+  "s": 31.003745079040527,
+  "calls": 1,
+  "prompt": 881,
+  "completion": 877
+ },
+ "ir0": {
+  "eq": false,
+  "mismatch": 0.00525,
+  "n_rules": 25,
+  "fail": 0,
+  "s": 41.21338438987732,
+  "calls": 16,
+  "prompt": 10177,
+  "completion": 540,
+  "intent_acc": 0.8125
+ },
+ "ir": {
+  "eq": true,
+  "mismatch": 0.0,
+  "n_rules": 28,
+  "fail": 0,
+  "s": 37.52005100250244,
+  "calls": 16,
+  "prompt": 17393,
+  "completion": 405,
+  "intent_acc": 1.0
+ },
+ "fw": {
+  "eq": true,
+  "mismatch": 0.0,
+  "n_rules": 28,
+  "fail": 0,
+  "s": 94.5556914806366,
+  "verify_s": 57.03564095497131,
+  "calls": 33,
+  "verify_calls": 17,
+  "flagged": 0,
+  "accepted": 0,
+  "repairs": [],
+  "intent_acc": 1.0
+ },
+ "ir_out": [
+  {
+   "type": "block",
+   "src": "research",
+   "dst": "vpn-users"
+  },
+  {
+   "type": "public",
+   "dst": "guest-wifi",
+   "svcs": [
+    "http",
+    "dns"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "guest-wifi",
+   "dst": "admin",
+   "svcs": [
+    "dns"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "mail",
+   "dst": "iot-sensors",
+   "svcs": [
+    "smtp",
+    "imap",
+    "mysql"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "admin",
+   "dst": "mail",
+   "broad": "any-tcp",
+   "ex": [
+    "smb",
+    "telnet"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "research",
+   "dst": "mail"
+  },
+  {
+   "type": "block",
+   "src": "research",
+   "dst": "edge-cache"
+  },
+  {
+   "type": "allow",
+   "src": "iot-sensors",
+   "dst": "engineering",
+   "svcs": [
+    "rdp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "edge-cache",
+   "dst": "dev-lab",
+   "svcs": [
+    "rdp"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "printers",
+   "dst": "edge-cache"
+  },
+  {
+   "type": "allow_except",
+   "src": "guest-wifi",
+   "dst": "edge-cache",
+   "broad": "any-tcp",
+   "ex": [
+    "telnet",
+    "rdp",
+    "ftp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "research",
+   "dst": "vpn-users",
+   "svcs": [
+    "ssh"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "iot-sensors",
+   "allowed": [
+    [
+     "edge-cache",
+     "dns"
+    ]
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "edge-cache",
+   "dst": "dev-lab",
+   "svcs": [
+    "smtp",
+    "rdp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "engineering",
+   "dst": "edge-cache",
+   "svcs": [
+    "smtp",
+    "dns"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "admin",
+   "svcs": [
+    "dns",
+    "https"
+   ]
+  }
+ ],
+ "fw_out": [
+  {
+   "type": "block",
+   "src": "research",
+   "dst": "vpn-users"
+  },
+  {
+   "type": "public",
+   "dst": "guest-wifi",
+   "svcs": [
+    "http",
+    "dns"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "guest-wifi",
+   "dst": "admin",
+   "svcs": [
+    "dns"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "mail",
+   "dst": "iot-sensors",
+   "svcs": [
+    "smtp",
+    "imap",
+    "mysql"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "admin",
+   "dst": "mail",
+   "broad": "any-tcp",
+   "ex": [
+    "smb",
+    "telnet"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "research",
+   "dst": "mail"
+  },
+  {
+   "type": "block",
+   "src": "research",
+   "dst": "edge-cache"
+  },
+  {
+   "type": "allow",
+   "src": "iot-sensors",
+   "dst": "engineering",
+   "svcs": [
+    "rdp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "edge-cache",
+   "dst": "dev-lab",
+   "svcs": [
+    "rdp"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "printers",
+   "dst": "edge-cache"
+  },
+  {
+   "type": "allow_except",
+   "src": "guest-wifi",
+   "dst": "edge-cache",
+   "broad": "any-tcp",
+   "ex": [
+    "telnet",
+    "rdp",
+    "ftp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "research",
+   "dst": "vpn-users",
+   "svcs": [
+    "ssh"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "iot-sensors",
+   "allowed": [
+    [
+     "edge-cache",
+     "dns"
+    ]
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "edge-cache",
+   "dst": "dev-lab",
+   "svcs": [
+    "smtp",
+    "rdp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "engineering",
+   "dst": "edge-cache",
+   "svcs": [
+    "smtp",
+    "dns"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "admin",
+   "svcs": [
+    "dns",
+    "https"
+   ]
+  }
+ ],
+ "wall_s": 167.077410697937
+}

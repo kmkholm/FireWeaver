@@ -1,0 +1,202 @@
+{
+ "id": "Garr200908_s1017",
+ "n_intents": 8,
+ "n_gt_rules": 14,
+ "n_zones": 6,
+ "rules": {
+  "eq": false,
+  "mismatch": 0.00175,
+  "n_rules": 14,
+  "fail": 0,
+  "s": 16.141347885131836,
+  "calls": 1,
+  "prompt": 677,
+  "completion": 442
+ },
+ "ir0": {
+  "eq": false,
+  "mismatch": 0.00175,
+  "n_rules": 13,
+  "fail": 0,
+  "s": 16.38430666923523,
+  "calls": 8,
+  "prompt": 4969,
+  "completion": 207,
+  "intent_acc": 0.875
+ },
+ "ir": {
+  "eq": true,
+  "mismatch": 0.0,
+  "n_rules": 14,
+  "fail": 0,
+  "s": 16.14749765396118,
+  "calls": 8,
+  "prompt": 8577,
+  "completion": 194,
+  "intent_acc": 1.0
+ },
+ "fw": {
+  "eq": true,
+  "mismatch": 0.0,
+  "n_rules": 14,
+  "fail": 0,
+  "s": 60.854405641555786,
+  "verify_s": 44.70690870285034,
+  "calls": 19,
+  "verify_calls": 11,
+  "flagged": 1,
+  "accepted": 0,
+  "repairs": [
+   {
+    "k": 7,
+    "was_ok": true,
+    "now_ok": true,
+    "history": [
+     1,
+     1,
+     1
+    ],
+    "calls": 2,
+    "accepted": false
+   }
+  ],
+  "intent_acc": 1.0
+ },
+ "ir_out": [
+  {
+   "type": "public",
+   "dst": "iot-sensors",
+   "svcs": [
+    "https",
+    "ntp"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "backup",
+   "svcs": [
+    "https"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "dev-lab",
+   "dst": "backup",
+   "svcs": [
+    "dns",
+    "ldap",
+    "smtp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "research",
+   "dst": "backup",
+   "svcs": [
+    "smtp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "backup",
+   "dst": "dev-lab",
+   "svcs": [
+    "rtsp",
+    "dns"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "iot-sensors",
+   "dst": "partners",
+   "svcs": [
+    "syslog",
+    "postgres"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "monitoring",
+   "dst": "partners"
+  },
+  {
+   "type": "isolate",
+   "src": "monitoring",
+   "allowed": [
+    [
+     "research",
+     "syslog"
+    ]
+   ]
+  }
+ ],
+ "fw_out": [
+  {
+   "type": "public",
+   "dst": "iot-sensors",
+   "svcs": [
+    "https",
+    "ntp"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "backup",
+   "svcs": [
+    "https"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "dev-lab",
+   "dst": "backup",
+   "svcs": [
+    "dns",
+    "ldap",
+    "smtp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "research",
+   "dst": "backup",
+   "svcs": [
+    "smtp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "backup",
+   "dst": "dev-lab",
+   "svcs": [
+    "rtsp",
+    "dns"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "iot-sensors",
+   "dst": "partners",
+   "svcs": [
+    "syslog",
+    "postgres"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "monitoring",
+   "dst": "partners"
+  },
+  {
+   "type": "isolate",
+   "src": "monitoring",
+   "allowed": [
+    [
+     "research",
+     "syslog"
+    ]
+   ]
+  }
+ ],
+ "wall_s": 93.56658172607422
+}

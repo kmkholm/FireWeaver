@@ -1,0 +1,321 @@
+{
+ "id": "Bbnplanet_s1002",
+ "n_intents": 16,
+ "n_gt_rules": 30,
+ "n_zones": 10,
+ "rules": {
+  "eq": false,
+  "mismatch": 0.11125,
+  "n_rules": 31,
+  "fail": 0,
+  "s": 33.1399872303009,
+  "calls": 1,
+  "prompt": 931,
+  "completion": 974
+ },
+ "ir0": {
+  "eq": true,
+  "mismatch": 0.0,
+  "n_rules": 30,
+  "fail": 0,
+  "s": 19.462614059448242,
+  "calls": 16,
+  "prompt": 10211,
+  "completion": 572,
+  "intent_acc": 1.0
+ },
+ "ir": {
+  "eq": true,
+  "mismatch": 0.0,
+  "n_rules": 30,
+  "fail": 0,
+  "s": 14.028282403945923,
+  "calls": 16,
+  "prompt": 17427,
+  "completion": 403,
+  "intent_acc": 1.0
+ },
+ "fw": {
+  "eq": true,
+  "mismatch": 0.0,
+  "n_rules": 30,
+  "fail": 0,
+  "s": 44.027989864349365,
+  "verify_s": 29.99970769882202,
+  "calls": 32,
+  "verify_calls": 16,
+  "flagged": 0,
+  "accepted": 0,
+  "repairs": [],
+  "intent_acc": 1.0
+ },
+ "ir_out": [
+  {
+   "type": "allow",
+   "src": "database",
+   "dst": "edge-cache",
+   "svcs": [
+    "rtsp",
+    "ssh",
+    "ntp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "partners",
+   "dst": "iot-sensors",
+   "svcs": [
+    "mysql",
+    "ntp",
+    "rtsp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "dev-lab",
+   "dst": "iot-sensors",
+   "svcs": [
+    "smb"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "admin",
+   "dst": "engineering",
+   "svcs": [
+    "postgres",
+    "imap"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "partners",
+   "dst": "cameras",
+   "svcs": [
+    "smb",
+    "rtsp",
+    "rdp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "monitoring",
+   "dst": "partners",
+   "svcs": [
+    "ldap",
+    "https"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "partners",
+   "dst": "iot-sensors",
+   "svcs": [
+    "smtp",
+    "rtsp",
+    "syslog"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "student-lab",
+   "dst": "partners"
+  },
+  {
+   "type": "block",
+   "src": "edge-cache",
+   "dst": "monitoring"
+  },
+  {
+   "type": "allow",
+   "src": "engineering",
+   "dst": "admin",
+   "svcs": [
+    "imap",
+    "smtp"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "edge-cache",
+   "svcs": [
+    "ntp"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "admin",
+   "dst": "dev-lab"
+  },
+  {
+   "type": "public",
+   "dst": "engineering",
+   "svcs": [
+    "http",
+    "ntp"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "partners",
+   "allowed": [
+    [
+     "admin",
+     "https"
+    ]
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "monitoring",
+   "dst": "iot-sensors",
+   "svcs": [
+    "https",
+    "rtsp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "engineering",
+   "dst": "cameras",
+   "svcs": [
+    "rtsp"
+   ]
+  }
+ ],
+ "fw_out": [
+  {
+   "type": "allow",
+   "src": "database",
+   "dst": "edge-cache",
+   "svcs": [
+    "rtsp",
+    "ssh",
+    "ntp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "partners",
+   "dst": "iot-sensors",
+   "svcs": [
+    "mysql",
+    "ntp",
+    "rtsp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "dev-lab",
+   "dst": "iot-sensors",
+   "svcs": [
+    "smb"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "admin",
+   "dst": "engineering",
+   "svcs": [
+    "postgres",
+    "imap"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "partners",
+   "dst": "cameras",
+   "svcs": [
+    "smb",
+    "rtsp",
+    "rdp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "monitoring",
+   "dst": "partners",
+   "svcs": [
+    "ldap",
+    "https"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "partners",
+   "dst": "iot-sensors",
+   "svcs": [
+    "smtp",
+    "rtsp",
+    "syslog"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "student-lab",
+   "dst": "partners"
+  },
+  {
+   "type": "block",
+   "src": "edge-cache",
+   "dst": "monitoring"
+  },
+  {
+   "type": "allow",
+   "src": "engineering",
+   "dst": "admin",
+   "svcs": [
+    "imap",
+    "smtp"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "edge-cache",
+   "svcs": [
+    "ntp"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "admin",
+   "dst": "dev-lab"
+  },
+  {
+   "type": "public",
+   "dst": "engineering",
+   "svcs": [
+    "http",
+    "ntp"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "partners",
+   "allowed": [
+    [
+     "admin",
+     "https"
+    ]
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "monitoring",
+   "dst": "iot-sensors",
+   "svcs": [
+    "https",
+    "rtsp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "engineering",
+   "dst": "cameras",
+   "svcs": [
+    "rtsp"
+   ]
+  }
+ ],
+ "wall_s": 97.02926731109619
+}

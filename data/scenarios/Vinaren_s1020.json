@@ -1,0 +1,774 @@
+{
+ "id": "Vinaren_s1020",
+ "topology": "Vinaren",
+ "n_nodes": 25,
+ "edges": [
+  [
+   0,
+   7
+  ],
+  [
+   1,
+   7
+  ],
+  [
+   2,
+   7
+  ],
+  [
+   3,
+   17
+  ],
+  [
+   4,
+   13
+  ],
+  [
+   5,
+   15
+  ],
+  [
+   6,
+   7
+  ],
+  [
+   7,
+   8
+  ],
+  [
+   7,
+   14
+  ],
+  [
+   7,
+   16
+  ],
+  [
+   7,
+   17
+  ],
+  [
+   9,
+   10
+  ],
+  [
+   9,
+   21
+  ],
+  [
+   10,
+   11
+  ],
+  [
+   10,
+   20
+  ],
+  [
+   10,
+   13
+  ],
+  [
+   11,
+   19
+  ],
+  [
+   11,
+   12
+  ],
+  [
+   11,
+   13
+  ],
+  [
+   13,
+   14
+  ],
+  [
+   13,
+   22
+  ],
+  [
+   13,
+   23
+  ],
+  [
+   13,
+   24
+  ],
+  [
+   14,
+   17
+  ],
+  [
+   14,
+   15
+  ],
+  [
+   17,
+   18
+  ]
+ ],
+ "zones": {
+  "vpn-users": {
+   "router": 12,
+   "prefixes": [
+    "101.101.120.0/21",
+    "24.50.57.128/25",
+    "74.222.6.0/23"
+   ]
+  },
+  "nvr": {
+   "router": 2,
+   "prefixes": [
+    "227.25.14.0/23"
+   ]
+  },
+  "mail": {
+   "router": 4,
+   "prefixes": [
+    "5.100.149.128/25",
+    "54.153.153.0/25"
+   ]
+  },
+  "edge-cache": {
+   "router": 22,
+   "prefixes": [
+    "205.228.188.0/22",
+    "218.45.4.128/25",
+    "189.223.36.0/25"
+   ]
+  },
+  "library": {
+   "router": 18,
+   "prefixes": [
+    "107.137.220.0/23",
+    "127.206.89.0/24",
+    "61.122.4.192/26"
+   ]
+  },
+  "hr": {
+   "router": 1,
+   "prefixes": [
+    "233.5.220.0/25",
+    "21.215.0.0/16"
+   ]
+  }
+ },
+ "zone_text": [
+  "vpn-users: hosts 101.101.120.0/21, 24.50.57.128/25, 74.222.6.0/23 attached to router R12",
+  "nvr: hosts 227.25.14.0/23 attached to router R2",
+  "mail: hosts 5.100.149.128/25, 54.153.153.0/25 attached to router R4",
+  "edge-cache: hosts 205.228.188.0/22, 218.45.4.128/25, 189.223.36.0/25 attached to router R22",
+  "library: hosts 107.137.220.0/23, 127.206.89.0/24, 61.122.4.192/26 attached to router R18",
+  "hr: hosts 233.5.220.0/25, 21.215.0.0/16 attached to router R1"
+ ],
+ "intents": [
+  {
+   "type": "block",
+   "src": "vpn-users",
+   "dst": "edge-cache"
+  },
+  {
+   "type": "allow",
+   "src": "edge-cache",
+   "dst": "library",
+   "svcs": [
+    "mysql"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "vpn-users",
+   "dst": "library",
+   "svcs": [
+    "http"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "vpn-users",
+   "svcs": [
+    "dns"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "mail",
+   "dst": "library",
+   "svcs": [
+    "ssh"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "mail",
+   "allowed": [
+    [
+     "vpn-users",
+     "dns"
+    ],
+    [
+     "library",
+     "syslog"
+    ]
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "hr",
+   "dst": "edge-cache",
+   "svcs": [
+    "http"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "vpn-users",
+   "dst": "edge-cache",
+   "svcs": [
+    "postgres"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "edge-cache",
+   "svcs": [
+    "http"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "nvr",
+   "svcs": [
+    "dns",
+    "https"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "hr",
+   "dst": "mail",
+   "svcs": [
+    "mysql"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "nvr",
+   "dst": "edge-cache",
+   "svcs": [
+    "mysql"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "nvr",
+   "dst": "library",
+   "svcs": [
+    "https",
+    "mysql",
+    "imap"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "nvr",
+   "allowed": [
+    [
+     "hr",
+     "ntp"
+    ]
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "library",
+   "dst": "hr",
+   "svcs": [
+    "ssh"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "hr",
+   "svcs": [
+    "dns"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "vpn-users",
+   "svcs": [
+    "ntp",
+    "dns"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "nvr",
+   "svcs": [
+    "https"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "hr",
+   "svcs": [
+    "http",
+    "https"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "library",
+   "dst": "hr",
+   "svcs": [
+    "ssh"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "library",
+   "dst": "hr",
+   "svcs": [
+    "syslog",
+    "snmp",
+    "smtp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "vpn-users",
+   "dst": "hr",
+   "svcs": [
+    "rtsp"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "edge-cache",
+   "dst": "library"
+  },
+  {
+   "type": "allow",
+   "src": "library",
+   "dst": "edge-cache",
+   "svcs": [
+    "http",
+    "https",
+    "rtsp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "nvr",
+   "dst": "vpn-users",
+   "svcs": [
+    "syslog"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "vpn-users",
+   "dst": "library",
+   "svcs": [
+    "syslog",
+    "smb"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "edge-cache",
+   "dst": "library",
+   "svcs": [
+    "ssh"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "edge-cache",
+   "dst": "nvr",
+   "broad": "high-tcp",
+   "ex": [
+    "postgres",
+    "mysql"
+   ]
+  }
+ ],
+ "nl": [
+  "No packet from vpn-users may enter edge-cache, even for services open to everyone.",
+  "Allow edge-cache to connect to library using MySQL (TCP 3306).",
+  "library must accept HTTP (TCP 80) from vpn-users.",
+  "vpn-users offers DNS over UDP 53 to every zone.",
+  "Hosts in mail may reach library over SSH (TCP 22).",
+  "Restrict mail so that its only permitted destinations are vpn-users on DNS over UDP 53; library on syslog (UDP 514); drop all other traffic it originates.",
+  "edge-cache must accept HTTP (TCP 80) from hr.",
+  "edge-cache must accept PostgreSQL (TCP 5432) from vpn-users.",
+  "Any zone may connect to edge-cache over HTTP (TCP 80).",
+  "nvr offers DNS over UDP 53 and HTTPS (TCP 443) to every zone.",
+  "Hosts in hr may reach mail over MySQL (TCP 3306).",
+  "edge-cache must accept MySQL (TCP 3306) from nvr.",
+  "Hosts in nvr may reach library over HTTPS (TCP 443) and MySQL (TCP 3306) and IMAP (TCP 143).",
+  "Restrict nvr so that its only permitted destinations are hr on NTP (UDP 123); drop all other traffic it originates.",
+  "Hosts in library may reach hr over SSH (TCP 22).",
+  "Any zone may connect to hr over DNS over UDP 53.",
+  "Any zone may connect to vpn-users over NTP (UDP 123) and DNS over UDP 53.",
+  "Any zone may connect to nvr over HTTPS (TCP 443).",
+  "Make HTTP (TCP 80) and HTTPS (TCP 443) on hr reachable from all internal zones.",
+  "Allow library to connect to hr using SSH (TCP 22).",
+  "Hosts in library may reach hr over syslog (UDP 514) and SNMP (UDP 161) and SMTP (TCP 25).",
+  "Allow vpn-users to connect to hr using RTSP (TCP 554).",
+  "No packet from edge-cache may enter library, even for services open to everyone.",
+  "edge-cache must accept HTTP (TCP 80) and HTTPS (TCP 443) and RTSP (TCP 554) from library.",
+  "vpn-users must accept syslog (UDP 514) from nvr.",
+  "Allow vpn-users to connect to library using syslog (UDP 514) and SMB (TCP 445).",
+  "Hosts in edge-cache may reach library over SSH (TCP 22).",
+  "Permit TCP ports 1024-65535 from edge-cache to nvr but deny PostgreSQL (TCP 5432), MySQL (TCP 3306)."
+ ],
+ "gt": [
+  {
+   "src": "vpn-users",
+   "dst": "edge-cache",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "edge-cache",
+   "dst": "library",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "edge-cache",
+   "dst": "nvr",
+   "proto": "tcp",
+   "dlo": 5432,
+   "dhi": 5432,
+   "action": "deny"
+  },
+  {
+   "src": "edge-cache",
+   "dst": "nvr",
+   "proto": "tcp",
+   "dlo": 3306,
+   "dhi": 3306,
+   "action": "deny"
+  },
+  {
+   "src": "edge-cache",
+   "dst": "library",
+   "proto": "tcp",
+   "dlo": 3306,
+   "dhi": 3306,
+   "action": "permit"
+  },
+  {
+   "src": "vpn-users",
+   "dst": "library",
+   "proto": "tcp",
+   "dlo": 80,
+   "dhi": 80,
+   "action": "permit"
+  },
+  {
+   "src": "mail",
+   "dst": "library",
+   "proto": "tcp",
+   "dlo": 22,
+   "dhi": 22,
+   "action": "permit"
+  },
+  {
+   "src": "hr",
+   "dst": "edge-cache",
+   "proto": "tcp",
+   "dlo": 80,
+   "dhi": 80,
+   "action": "permit"
+  },
+  {
+   "src": "vpn-users",
+   "dst": "edge-cache",
+   "proto": "tcp",
+   "dlo": 5432,
+   "dhi": 5432,
+   "action": "permit"
+  },
+  {
+   "src": "hr",
+   "dst": "mail",
+   "proto": "tcp",
+   "dlo": 3306,
+   "dhi": 3306,
+   "action": "permit"
+  },
+  {
+   "src": "nvr",
+   "dst": "edge-cache",
+   "proto": "tcp",
+   "dlo": 3306,
+   "dhi": 3306,
+   "action": "permit"
+  },
+  {
+   "src": "nvr",
+   "dst": "library",
+   "proto": "tcp",
+   "dlo": 443,
+   "dhi": 443,
+   "action": "permit"
+  },
+  {
+   "src": "nvr",
+   "dst": "library",
+   "proto": "tcp",
+   "dlo": 3306,
+   "dhi": 3306,
+   "action": "permit"
+  },
+  {
+   "src": "nvr",
+   "dst": "library",
+   "proto": "tcp",
+   "dlo": 143,
+   "dhi": 143,
+   "action": "permit"
+  },
+  {
+   "src": "library",
+   "dst": "hr",
+   "proto": "tcp",
+   "dlo": 22,
+   "dhi": 22,
+   "action": "permit"
+  },
+  {
+   "src": "library",
+   "dst": "hr",
+   "proto": "tcp",
+   "dlo": 22,
+   "dhi": 22,
+   "action": "permit"
+  },
+  {
+   "src": "library",
+   "dst": "hr",
+   "proto": "udp",
+   "dlo": 514,
+   "dhi": 514,
+   "action": "permit"
+  },
+  {
+   "src": "library",
+   "dst": "hr",
+   "proto": "udp",
+   "dlo": 161,
+   "dhi": 161,
+   "action": "permit"
+  },
+  {
+   "src": "library",
+   "dst": "hr",
+   "proto": "tcp",
+   "dlo": 25,
+   "dhi": 25,
+   "action": "permit"
+  },
+  {
+   "src": "vpn-users",
+   "dst": "hr",
+   "proto": "tcp",
+   "dlo": 554,
+   "dhi": 554,
+   "action": "permit"
+  },
+  {
+   "src": "library",
+   "dst": "edge-cache",
+   "proto": "tcp",
+   "dlo": 80,
+   "dhi": 80,
+   "action": "permit"
+  },
+  {
+   "src": "library",
+   "dst": "edge-cache",
+   "proto": "tcp",
+   "dlo": 443,
+   "dhi": 443,
+   "action": "permit"
+  },
+  {
+   "src": "library",
+   "dst": "edge-cache",
+   "proto": "tcp",
+   "dlo": 554,
+   "dhi": 554,
+   "action": "permit"
+  },
+  {
+   "src": "nvr",
+   "dst": "vpn-users",
+   "proto": "udp",
+   "dlo": 514,
+   "dhi": 514,
+   "action": "permit"
+  },
+  {
+   "src": "vpn-users",
+   "dst": "library",
+   "proto": "udp",
+   "dlo": 514,
+   "dhi": 514,
+   "action": "permit"
+  },
+  {
+   "src": "vpn-users",
+   "dst": "library",
+   "proto": "tcp",
+   "dlo": 445,
+   "dhi": 445,
+   "action": "permit"
+  },
+  {
+   "src": "edge-cache",
+   "dst": "library",
+   "proto": "tcp",
+   "dlo": 22,
+   "dhi": 22,
+   "action": "permit"
+  },
+  {
+   "src": "edge-cache",
+   "dst": "nvr",
+   "proto": "tcp",
+   "dlo": 1024,
+   "dhi": 65535,
+   "action": "permit"
+  },
+  {
+   "src": "mail",
+   "dst": "vpn-users",
+   "proto": "udp",
+   "dlo": 53,
+   "dhi": 53,
+   "action": "permit"
+  },
+  {
+   "src": "mail",
+   "dst": "library",
+   "proto": "udp",
+   "dlo": 514,
+   "dhi": 514,
+   "action": "permit"
+  },
+  {
+   "src": "nvr",
+   "dst": "hr",
+   "proto": "udp",
+   "dlo": 123,
+   "dhi": 123,
+   "action": "permit"
+  },
+  {
+   "src": "mail",
+   "dst": "*",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "nvr",
+   "dst": "*",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "*",
+   "dst": "vpn-users",
+   "proto": "udp",
+   "dlo": 53,
+   "dhi": 53,
+   "action": "permit"
+  },
+  {
+   "src": "*",
+   "dst": "edge-cache",
+   "proto": "tcp",
+   "dlo": 80,
+   "dhi": 80,
+   "action": "permit"
+  },
+  {
+   "src": "*",
+   "dst": "nvr",
+   "proto": "udp",
+   "dlo": 53,
+   "dhi": 53,
+   "action": "permit"
+  },
+  {
+   "src": "*",
+   "dst": "nvr",
+   "proto": "tcp",
+   "dlo": 443,
+   "dhi": 443,
+   "action": "permit"
+  },
+  {
+   "src": "*",
+   "dst": "hr",
+   "proto": "udp",
+   "dlo": 53,
+   "dhi": 53,
+   "action": "permit"
+  },
+  {
+   "src": "*",
+   "dst": "vpn-users",
+   "proto": "udp",
+   "dlo": 123,
+   "dhi": 123,
+   "action": "permit"
+  },
+  {
+   "src": "*",
+   "dst": "vpn-users",
+   "proto": "udp",
+   "dlo": 53,
+   "dhi": 53,
+   "action": "permit"
+  },
+  {
+   "src": "*",
+   "dst": "nvr",
+   "proto": "tcp",
+   "dlo": 443,
+   "dhi": 443,
+   "action": "permit"
+  },
+  {
+   "src": "*",
+   "dst": "hr",
+   "proto": "tcp",
+   "dlo": 80,
+   "dhi": 80,
+   "action": "permit"
+  },
+  {
+   "src": "*",
+   "dst": "hr",
+   "proto": "tcp",
+   "dlo": 443,
+   "dhi": 443,
+   "action": "permit"
+  }
+ ]
+}

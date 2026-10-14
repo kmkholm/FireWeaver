@@ -1,0 +1,66 @@
+{
+ "id": "Ntelos_s1046",
+ "up": {
+  "n_routers": 47,
+  "n_links": 58,
+  "n_zones": 6,
+  "setup_s": 69.80698418617249,
+  "converged": true,
+  "converge_s": 4.250094413757324,
+  "ecmp_nexthops": 1037
+ },
+ "deploy_fireweaver": {
+  "cfgset": "fireweaver",
+  "deploy_s": 23.617117643356323,
+  "per_router_max_s": 10.397948265075684,
+  "rules_installed": 390,
+  "rules_expected": 390
+ },
+ "probe_fireweaver": {
+  "n": 1206,
+  "delivered": 188,
+  "send_s": 5.783596754074097
+ },
+ "conf_fireweaver": {
+  "n": 1206,
+  "conform": 1206,
+  "leaks": 0,
+  "wrongly_blocked": 0
+ },
+ "deploy_ecmp1": {
+  "cfgset": "ecmp1",
+  "deploy_s": 22.23266291618347,
+  "per_router_max_s": 9.808377504348755,
+  "rules_installed": 390,
+  "rules_expected": 390
+ },
+ "probe_ecmp1": {
+  "n": 1206,
+  "delivered": 224,
+  "send_s": 257.72015714645386
+ },
+ "conf_ecmp1": {
+  "n": 1206,
+  "conform": 1170,
+  "leaks": 36,
+  "wrongly_blocked": 0
+ },
+ "deploy_none": {
+  "cfgset": "none",
+  "deploy_s": 23.764641284942627,
+  "per_router_max_s": 12.34018325805664,
+  "rules_installed": 0,
+  "rules_expected": 0
+ },
+ "probe_none": {
+  "n": 1206,
+  "delivered": 1206,
+  "send_s": 0.9649863243103027
+ },
+ "conf_none": {
+  "n": 1206,
+  "conform": 188,
+  "leaks": 1018,
+  "wrongly_blocked": 0
+ }
+}

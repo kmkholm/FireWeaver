@@ -1,0 +1,66 @@
+{
+ "id": "Aarnet_s1039",
+ "up": {
+  "n_routers": 19,
+  "n_links": 24,
+  "n_zones": 6,
+  "setup_s": 36.444249391555786,
+  "converged": true,
+  "converge_s": 7.3183746337890625,
+  "ecmp_nexthops": 312
+ },
+ "deploy_fireweaver": {
+  "cfgset": "fireweaver",
+  "deploy_s": 11.946865797042847,
+  "per_router_max_s": 6.782216787338257,
+  "rules_installed": 455,
+  "rules_expected": 455
+ },
+ "probe_fireweaver": {
+  "n": 1762,
+  "delivered": 360,
+  "send_s": 6.305903911590576
+ },
+ "conf_fireweaver": {
+  "n": 1762,
+  "conform": 1762,
+  "leaks": 0,
+  "wrongly_blocked": 0
+ },
+ "deploy_ecmp1": {
+  "cfgset": "ecmp1",
+  "deploy_s": 11.424912691116333,
+  "per_router_max_s": 6.325242757797241,
+  "rules_installed": 455,
+  "rules_expected": 455
+ },
+ "probe_ecmp1": {
+  "n": 1762,
+  "delivered": 365,
+  "send_s": 6.373534917831421
+ },
+ "conf_ecmp1": {
+  "n": 1762,
+  "conform": 1757,
+  "leaks": 5,
+  "wrongly_blocked": 0
+ },
+ "deploy_none": {
+  "cfgset": "none",
+  "deploy_s": 11.082271337509155,
+  "per_router_max_s": 5.794428110122681,
+  "rules_installed": 0,
+  "rules_expected": 0
+ },
+ "probe_none": {
+  "n": 1762,
+  "delivered": 1762,
+  "send_s": 1.6355781555175781
+ },
+ "conf_none": {
+  "n": 1762,
+  "conform": 360,
+  "leaks": 1402,
+  "wrongly_blocked": 0
+ }
+}

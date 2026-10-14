@@ -1,0 +1,1065 @@
+{
+ "id": "BtEurope_s1032",
+ "topology": "BtEurope",
+ "n_nodes": 24,
+ "edges": [
+  [
+   0,
+   1
+  ],
+  [
+   0,
+   10
+  ],
+  [
+   0,
+   7
+  ],
+  [
+   0,
+   21
+  ],
+  [
+   0,
+   5
+  ],
+  [
+   1,
+   2
+  ],
+  [
+   1,
+   3
+  ],
+  [
+   1,
+   4
+  ],
+  [
+   1,
+   5
+  ],
+  [
+   1,
+   12
+  ],
+  [
+   1,
+   14
+  ],
+  [
+   1,
+   15
+  ],
+  [
+   1,
+   17
+  ],
+  [
+   1,
+   18
+  ],
+  [
+   1,
+   20
+  ],
+  [
+   1,
+   22
+  ],
+  [
+   1,
+   23
+  ],
+  [
+   3,
+   5
+  ],
+  [
+   5,
+   6
+  ],
+  [
+   5,
+   7
+  ],
+  [
+   5,
+   11
+  ],
+  [
+   5,
+   15
+  ],
+  [
+   5,
+   16
+  ],
+  [
+   5,
+   17
+  ],
+  [
+   5,
+   19
+  ],
+  [
+   6,
+   7
+  ],
+  [
+   7,
+   8
+  ],
+  [
+   7,
+   9
+  ],
+  [
+   10,
+   17
+  ],
+  [
+   11,
+   17
+  ],
+  [
+   12,
+   17
+  ],
+  [
+   13,
+   16
+  ],
+  [
+   13,
+   17
+  ],
+  [
+   14,
+   17
+  ],
+  [
+   16,
+   17
+  ],
+  [
+   17,
+   18
+  ],
+  [
+   19,
+   20
+  ]
+ ],
+ "zones": {
+  "ops": {
+   "router": 22,
+   "prefixes": [
+    "215.245.124.0/23"
+   ]
+  },
+  "printers": {
+   "router": 4,
+   "prefixes": [
+    "233.194.222.0/23",
+    "211.7.0.0/16",
+    "206.82.241.32/28"
+   ]
+  },
+  "student-lab": {
+   "router": 9,
+   "prefixes": [
+    "187.134.108.0/22",
+    "171.43.132.0/25"
+   ]
+  },
+  "library": {
+   "router": 23,
+   "prefixes": [
+    "15.55.0.0/16",
+    "8.146.219.96/27",
+    "133.56.201.192/26"
+   ]
+  },
+  "voip": {
+   "router": 8,
+   "prefixes": [
+    "173.238.44.0/22",
+    "33.207.199.0/24"
+   ]
+  },
+  "finance": {
+   "router": 21,
+   "prefixes": [
+    "232.5.136.0/22",
+    "119.250.86.0/25"
+   ]
+  },
+  "admin": {
+   "router": 2,
+   "prefixes": [
+    "80.21.12.160/27",
+    "252.192.5.0/24"
+   ]
+  },
+  "iot-sensors": {
+   "router": 6,
+   "prefixes": [
+    "43.31.128.0/17",
+    "181.89.245.128/25"
+   ]
+  },
+  "guest-wifi": {
+   "router": 12,
+   "prefixes": [
+    "131.71.88.0/21",
+    "110.50.212.0/25",
+    "159.202.131.0/24"
+   ]
+  },
+  "backup": {
+   "router": 20,
+   "prefixes": [
+    "132.248.246.0/23",
+    "28.80.200.64/27",
+    "1.187.104.0/27"
+   ]
+  },
+  "dmz-web": {
+   "router": 18,
+   "prefixes": [
+    "148.220.0.0/16",
+    "239.146.50.64/26",
+    "131.96.240.0/20"
+   ]
+  },
+  "nvr": {
+   "router": 11,
+   "prefixes": [
+    "155.38.0.0/16",
+    "206.164.0.0/16"
+   ]
+  },
+  "dev-lab": {
+   "router": 13,
+   "prefixes": [
+    "87.73.152.0/23"
+   ]
+  },
+  "engineering": {
+   "router": 10,
+   "prefixes": [
+    "100.239.36.240/28",
+    "87.112.0.0/16"
+   ]
+  },
+  "database": {
+   "router": 15,
+   "prefixes": [
+    "145.5.68.0/22",
+    "29.244.100.0/23",
+    "248.76.0.0/17"
+   ]
+  },
+  "partners": {
+   "router": 3,
+   "prefixes": [
+    "99.96.14.128/25",
+    "133.56.159.192/26",
+    "83.143.64.192/27"
+   ]
+  }
+ },
+ "zone_text": [
+  "ops: hosts 215.245.124.0/23 attached to router R22",
+  "printers: hosts 233.194.222.0/23, 211.7.0.0/16, 206.82.241.32/28 attached to router R4",
+  "student-lab: hosts 187.134.108.0/22, 171.43.132.0/25 attached to router R9",
+  "library: hosts 15.55.0.0/16, 8.146.219.96/27, 133.56.201.192/26 attached to router R23",
+  "voip: hosts 173.238.44.0/22, 33.207.199.0/24 attached to router R8",
+  "finance: hosts 232.5.136.0/22, 119.250.86.0/25 attached to router R21",
+  "admin: hosts 80.21.12.160/27, 252.192.5.0/24 attached to router R2",
+  "iot-sensors: hosts 43.31.128.0/17, 181.89.245.128/25 attached to router R6",
+  "guest-wifi: hosts 131.71.88.0/21, 110.50.212.0/25, 159.202.131.0/24 attached to router R12",
+  "backup: hosts 132.248.246.0/23, 28.80.200.64/27, 1.187.104.0/27 attached to router R20",
+  "dmz-web: hosts 148.220.0.0/16, 239.146.50.64/26, 131.96.240.0/20 attached to router R18",
+  "nvr: hosts 155.38.0.0/16, 206.164.0.0/16 attached to router R11",
+  "dev-lab: hosts 87.73.152.0/23 attached to router R13",
+  "engineering: hosts 100.239.36.240/28, 87.112.0.0/16 attached to router R10",
+  "database: hosts 145.5.68.0/22, 29.244.100.0/23, 248.76.0.0/17 attached to router R15",
+  "partners: hosts 99.96.14.128/25, 133.56.159.192/26, 83.143.64.192/27 attached to router R3"
+ ],
+ "intents": [
+  {
+   "type": "allow",
+   "src": "guest-wifi",
+   "dst": "engineering",
+   "svcs": [
+    "ssh",
+    "rtsp"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "student-lab",
+   "svcs": [
+    "https",
+    "ntp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "printers",
+   "dst": "iot-sensors",
+   "svcs": [
+    "smtp",
+    "rtsp",
+    "ldap"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "student-lab",
+   "dst": "dev-lab",
+   "svcs": [
+    "imap"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "backup",
+   "dst": "printers"
+  },
+  {
+   "type": "allow",
+   "src": "printers",
+   "dst": "dev-lab",
+   "svcs": [
+    "mysql",
+    "syslog"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "partners",
+   "dst": "backup",
+   "svcs": [
+    "http",
+    "https"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "admin",
+   "allowed": [
+    [
+     "ops",
+     "dns"
+    ],
+    [
+     "backup",
+     "syslog"
+    ]
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "iot-sensors",
+   "dst": "voip",
+   "svcs": [
+    "smb",
+    "https"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "dev-lab",
+   "dst": "admin",
+   "svcs": [
+    "smb"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "engineering",
+   "dst": "printers",
+   "svcs": [
+    "smb",
+    "rtsp",
+    "https"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "ops",
+   "dst": "database"
+  },
+  {
+   "type": "block",
+   "src": "database",
+   "dst": "library"
+  },
+  {
+   "type": "block",
+   "src": "dmz-web",
+   "dst": "ops"
+  },
+  {
+   "type": "allow",
+   "src": "partners",
+   "dst": "ops",
+   "svcs": [
+    "imap"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "dev-lab",
+   "allowed": [
+    [
+     "ops",
+     "https"
+    ]
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "dmz-web",
+   "dst": "dev-lab",
+   "svcs": [
+    "rdp",
+    "smb"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "dmz-web",
+   "dst": "engineering",
+   "svcs": [
+    "imap",
+    "ssh"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "library",
+   "dst": "finance",
+   "svcs": [
+    "rdp",
+    "ssh"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "admin",
+   "dst": "finance",
+   "broad": "any-tcp",
+   "ex": [
+    "smb",
+    "telnet"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "finance",
+   "dst": "ops",
+   "svcs": [
+    "snmp"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "backup",
+   "svcs": [
+    "dns",
+    "https"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "engineering",
+   "dst": "printers",
+   "svcs": [
+    "postgres",
+    "rdp",
+    "imap"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "voip",
+   "svcs": [
+    "ntp",
+    "http"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "iot-sensors",
+   "dst": "dev-lab",
+   "broad": "high-tcp",
+   "ex": [
+    "rdp",
+    "mysql"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "printers",
+   "dst": "dmz-web",
+   "svcs": [
+    "ldap"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "admin",
+   "dst": "backup",
+   "svcs": [
+    "smb",
+    "http"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "dmz-web",
+   "dst": "dev-lab"
+  },
+  {
+   "type": "allow_except",
+   "src": "backup",
+   "dst": "guest-wifi",
+   "broad": "any-tcp",
+   "ex": [
+    "rdp",
+    "smb"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "partners",
+   "allowed": [
+    [
+     "ops",
+     "https"
+    ],
+    [
+     "backup",
+     "syslog"
+    ]
+   ]
+  },
+  {
+   "type": "block",
+   "src": "engineering",
+   "dst": "printers"
+  }
+ ],
+ "nl": [
+  "Allow guest-wifi to connect to engineering using SSH (TCP 22) and RTSP (TCP 554).",
+  "Make HTTPS (TCP 443) and NTP (UDP 123) on student-lab reachable from all internal zones.",
+  "iot-sensors must accept SMTP (TCP 25) and RTSP (TCP 554) and LDAP (TCP 389) from printers.",
+  "Hosts in student-lab may reach dev-lab over IMAP (TCP 143).",
+  "backup must never reach printers, regardless of any other rule.",
+  "Allow printers to connect to dev-lab using MySQL (TCP 3306) and syslog (UDP 514).",
+  "Allow partners to connect to backup using HTTP (TCP 80) and HTTPS (TCP 443).",
+  "admin is isolated: it may only reach ops on DNS over UDP 53; backup on syslog (UDP 514), and nothing else.",
+  "Allow iot-sensors to connect to voip using SMB (TCP 445) and HTTPS (TCP 443).",
+  "Hosts in dev-lab may reach admin over SMB (TCP 445).",
+  "Hosts in engineering may reach printers over SMB (TCP 445) and RTSP (TCP 554) and HTTPS (TCP 443).",
+  "No packet from ops may enter database, even for services open to everyone.",
+  "Deny all traffic from database to library (this overrides any public service).",
+  "dmz-web must never reach ops, regardless of any other rule.",
+  "ops must accept IMAP (TCP 143) from partners.",
+  "Restrict dev-lab so that its only permitted destinations are ops on HTTPS (TCP 443); drop all other traffic it originates.",
+  "Allow dmz-web to connect to dev-lab using RDP (TCP 3389) and SMB (TCP 445).",
+  "Allow dmz-web to connect to engineering using IMAP (TCP 143) and SSH (TCP 22).",
+  "finance must accept RDP (TCP 3389) and SSH (TCP 22) from library.",
+  "Block SMB (TCP 445), Telnet (TCP 23) from admin to finance; the rest of any TCP port between them is allowed.",
+  "Allow finance to connect to ops using SNMP (UDP 161).",
+  "Make DNS over UDP 53 and HTTPS (TCP 443) on backup reachable from all internal zones.",
+  "printers must accept PostgreSQL (TCP 5432) and RDP (TCP 3389) and IMAP (TCP 143) from engineering.",
+  "voip offers NTP (UDP 123) and HTTP (TCP 80) to every zone.",
+  "Block RDP (TCP 3389), MySQL (TCP 3306) from iot-sensors to dev-lab; the rest of TCP ports 1024-65535 between them is allowed.",
+  "Hosts in printers may reach dmz-web over LDAP (TCP 389).",
+  "Allow admin to connect to backup using SMB (TCP 445) and HTTP (TCP 80).",
+  "Deny all traffic from dmz-web to dev-lab (this overrides any public service).",
+  "Block RDP (TCP 3389), SMB (TCP 445) from backup to guest-wifi; the rest of any TCP port between them is allowed.",
+  "partners is isolated: it may only reach ops on HTTPS (TCP 443); backup on syslog (UDP 514), and nothing else.",
+  "Deny all traffic from engineering to printers (this overrides any public service)."
+ ],
+ "gt": [
+  {
+   "src": "backup",
+   "dst": "printers",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "ops",
+   "dst": "database",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "database",
+   "dst": "library",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "dmz-web",
+   "dst": "ops",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "dmz-web",
+   "dst": "dev-lab",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "engineering",
+   "dst": "printers",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "admin",
+   "dst": "finance",
+   "proto": "tcp",
+   "dlo": 445,
+   "dhi": 445,
+   "action": "deny"
+  },
+  {
+   "src": "admin",
+   "dst": "finance",
+   "proto": "tcp",
+   "dlo": 23,
+   "dhi": 23,
+   "action": "deny"
+  },
+  {
+   "src": "iot-sensors",
+   "dst": "dev-lab",
+   "proto": "tcp",
+   "dlo": 3389,
+   "dhi": 3389,
+   "action": "deny"
+  },
+  {
+   "src": "iot-sensors",
+   "dst": "dev-lab",
+   "proto": "tcp",
+   "dlo": 3306,
+   "dhi": 3306,
+   "action": "deny"
+  },
+  {
+   "src": "backup",
+   "dst": "guest-wifi",
+   "proto": "tcp",
+   "dlo": 3389,
+   "dhi": 3389,
+   "action": "deny"
+  },
+  {
+   "src": "backup",
+   "dst": "guest-wifi",
+   "proto": "tcp",
+   "dlo": 445,
+   "dhi": 445,
+   "action": "deny"
+  },
+  {
+   "src": "guest-wifi",
+   "dst": "engineering",
+   "proto": "tcp",
+   "dlo": 22,
+   "dhi": 22,
+   "action": "permit"
+  },
+  {
+   "src": "guest-wifi",
+   "dst": "engineering",
+   "proto": "tcp",
+   "dlo": 554,
+   "dhi": 554,
+   "action": "permit"
+  },
+  {
+   "src": "printers",
+   "dst": "iot-sensors",
+   "proto": "tcp",
+   "dlo": 25,
+   "dhi": 25,
+   "action": "permit"
+  },
+  {
+   "src": "printers",
+   "dst": "iot-sensors",
+   "proto": "tcp",
+   "dlo": 554,
+   "dhi": 554,
+   "action": "permit"
+  },
+  {
+   "src": "printers",
+   "dst": "iot-sensors",
+   "proto": "tcp",
+   "dlo": 389,
+   "dhi": 389,
+   "action": "permit"
+  },
+  {
+   "src": "student-lab",
+   "dst": "dev-lab",
+   "proto": "tcp",
+   "dlo": 143,
+   "dhi": 143,
+   "action": "permit"
+  },
+  {
+   "src": "printers",
+   "dst": "dev-lab",
+   "proto": "tcp",
+   "dlo": 3306,
+   "dhi": 3306,
+   "action": "permit"
+  },
+  {
+   "src": "printers",
+   "dst": "dev-lab",
+   "proto": "udp",
+   "dlo": 514,
+   "dhi": 514,
+   "action": "permit"
+  },
+  {
+   "src": "partners",
+   "dst": "backup",
+   "proto": "tcp",
+   "dlo": 80,
+   "dhi": 80,
+   "action": "permit"
+  },
+  {
+   "src": "partners",
+   "dst": "backup",
+   "proto": "tcp",
+   "dlo": 443,
+   "dhi": 443,
+   "action": "permit"
+  },
+  {
+   "src": "iot-sensors",
+   "dst": "voip",
+   "proto": "tcp",
+   "dlo": 445,
+   "dhi": 445,
+   "action": "permit"
+  },
+  {
+   "src": "iot-sensors",
+   "dst": "voip",
+   "proto": "tcp",
+   "dlo": 443,
+   "dhi": 443,
+   "action": "permit"
+  },
+  {
+   "src": "dev-lab",
+   "dst": "admin",
+   "proto": "tcp",
+   "dlo": 445,
+   "dhi": 445,
+   "action": "permit"
+  },
+  {
+   "src": "engineering",
+   "dst": "printers",
+   "proto": "tcp",
+   "dlo": 445,
+   "dhi": 445,
+   "action": "permit"
+  },
+  {
+   "src": "engineering",
+   "dst": "printers",
+   "proto": "tcp",
+   "dlo": 554,
+   "dhi": 554,
+   "action": "permit"
+  },
+  {
+   "src": "engineering",
+   "dst": "printers",
+   "proto": "tcp",
+   "dlo": 443,
+   "dhi": 443,
+   "action": "permit"
+  },
+  {
+   "src": "partners",
+   "dst": "ops",
+   "proto": "tcp",
+   "dlo": 143,
+   "dhi": 143,
+   "action": "permit"
+  },
+  {
+   "src": "dmz-web",
+   "dst": "dev-lab",
+   "proto": "tcp",
+   "dlo": 3389,
+   "dhi": 3389,
+   "action": "permit"
+  },
+  {
+   "src": "dmz-web",
+   "dst": "dev-lab",
+   "proto": "tcp",
+   "dlo": 445,
+   "dhi": 445,
+   "action": "permit"
+  },
+  {
+   "src": "dmz-web",
+   "dst": "engineering",
+   "proto": "tcp",
+   "dlo": 143,
+   "dhi": 143,
+   "action": "permit"
+  },
+  {
+   "src": "dmz-web",
+   "dst": "engineering",
+   "proto": "tcp",
+   "dlo": 22,
+   "dhi": 22,
+   "action": "permit"
+  },
+  {
+   "src": "library",
+   "dst": "finance",
+   "proto": "tcp",
+   "dlo": 3389,
+   "dhi": 3389,
+   "action": "permit"
+  },
+  {
+   "src": "library",
+   "dst": "finance",
+   "proto": "tcp",
+   "dlo": 22,
+   "dhi": 22,
+   "action": "permit"
+  },
+  {
+   "src": "admin",
+   "dst": "finance",
+   "proto": "tcp",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "permit"
+  },
+  {
+   "src": "finance",
+   "dst": "ops",
+   "proto": "udp",
+   "dlo": 161,
+   "dhi": 161,
+   "action": "permit"
+  },
+  {
+   "src": "engineering",
+   "dst": "printers",
+   "proto": "tcp",
+   "dlo": 5432,
+   "dhi": 5432,
+   "action": "permit"
+  },
+  {
+   "src": "engineering",
+   "dst": "printers",
+   "proto": "tcp",
+   "dlo": 3389,
+   "dhi": 3389,
+   "action": "permit"
+  },
+  {
+   "src": "engineering",
+   "dst": "printers",
+   "proto": "tcp",
+   "dlo": 143,
+   "dhi": 143,
+   "action": "permit"
+  },
+  {
+   "src": "iot-sensors",
+   "dst": "dev-lab",
+   "proto": "tcp",
+   "dlo": 1024,
+   "dhi": 65535,
+   "action": "permit"
+  },
+  {
+   "src": "printers",
+   "dst": "dmz-web",
+   "proto": "tcp",
+   "dlo": 389,
+   "dhi": 389,
+   "action": "permit"
+  },
+  {
+   "src": "admin",
+   "dst": "backup",
+   "proto": "tcp",
+   "dlo": 445,
+   "dhi": 445,
+   "action": "permit"
+  },
+  {
+   "src": "admin",
+   "dst": "backup",
+   "proto": "tcp",
+   "dlo": 80,
+   "dhi": 80,
+   "action": "permit"
+  },
+  {
+   "src": "backup",
+   "dst": "guest-wifi",
+   "proto": "tcp",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "permit"
+  },
+  {
+   "src": "admin",
+   "dst": "ops",
+   "proto": "udp",
+   "dlo": 53,
+   "dhi": 53,
+   "action": "permit"
+  },
+  {
+   "src": "admin",
+   "dst": "backup",
+   "proto": "udp",
+   "dlo": 514,
+   "dhi": 514,
+   "action": "permit"
+  },
+  {
+   "src": "dev-lab",
+   "dst": "ops",
+   "proto": "tcp",
+   "dlo": 443,
+   "dhi": 443,
+   "action": "permit"
+  },
+  {
+   "src": "partners",
+   "dst": "ops",
+   "proto": "tcp",
+   "dlo": 443,
+   "dhi": 443,
+   "action": "permit"
+  },
+  {
+   "src": "partners",
+   "dst": "backup",
+   "proto": "udp",
+   "dlo": 514,
+   "dhi": 514,
+   "action": "permit"
+  },
+  {
+   "src": "admin",
+   "dst": "*",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "dev-lab",
+   "dst": "*",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "partners",
+   "dst": "*",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "*",
+   "dst": "student-lab",
+   "proto": "tcp",
+   "dlo": 443,
+   "dhi": 443,
+   "action": "permit"
+  },
+  {
+   "src": "*",
+   "dst": "student-lab",
+   "proto": "udp",
+   "dlo": 123,
+   "dhi": 123,
+   "action": "permit"
+  },
+  {
+   "src": "*",
+   "dst": "backup",
+   "proto": "udp",
+   "dlo": 53,
+   "dhi": 53,
+   "action": "permit"
+  },
+  {
+   "src": "*",
+   "dst": "backup",
+   "proto": "tcp",
+   "dlo": 443,
+   "dhi": 443,
+   "action": "permit"
+  },
+  {
+   "src": "*",
+   "dst": "voip",
+   "proto": "udp",
+   "dlo": 123,
+   "dhi": 123,
+   "action": "permit"
+  },
+  {
+   "src": "*",
+   "dst": "voip",
+   "proto": "tcp",
+   "dlo": 80,
+   "dhi": 80,
+   "action": "permit"
+  }
+ ]
+}

@@ -1,0 +1,340 @@
+{
+ "id": "Internode_s1057",
+ "n_intents": 16,
+ "n_gt_rules": 29,
+ "n_zones": 16,
+ "rules": {
+  "eq": false,
+  "mismatch": 0.00875,
+  "n_rules": 28,
+  "fail": 0,
+  "s": 30.335067987442017,
+  "calls": 1,
+  "prompt": 901,
+  "completion": 858
+ },
+ "ir0": {
+  "eq": false,
+  "mismatch": 0.00125,
+  "n_rules": 25,
+  "fail": 0,
+  "s": 49.88958978652954,
+  "calls": 16,
+  "prompt": 10443,
+  "completion": 601,
+  "intent_acc": 0.875
+ },
+ "ir": {
+  "eq": true,
+  "mismatch": 0.0,
+  "n_rules": 29,
+  "fail": 0,
+  "s": 43.510416746139526,
+  "calls": 16,
+  "prompt": 17659,
+  "completion": 403,
+  "intent_acc": 1.0
+ },
+ "fw": {
+  "eq": true,
+  "mismatch": 0.0,
+  "n_rules": 29,
+  "fail": 0,
+  "s": 115.45544195175171,
+  "verify_s": 71.94502592086792,
+  "calls": 36,
+  "verify_calls": 20,
+  "flagged": 1,
+  "accepted": 0,
+  "repairs": [
+   {
+    "k": 3,
+    "was_ok": true,
+    "now_ok": true,
+    "history": [
+     2,
+     2,
+     2
+    ],
+    "calls": 2,
+    "accepted": false
+   }
+  ],
+  "intent_acc": 1.0
+ },
+ "ir_out": [
+  {
+   "type": "allow",
+   "src": "cameras",
+   "dst": "hr",
+   "svcs": [
+    "ntp",
+    "ssh"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "backup",
+   "dst": "ops",
+   "svcs": [
+    "postgres",
+    "rtsp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "hr",
+   "dst": "ops",
+   "svcs": [
+    "ntp"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "cameras",
+   "allowed": [
+    [
+     "database",
+     "https"
+    ],
+    [
+     "library",
+     "syslog"
+    ]
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "research",
+   "dst": "hr",
+   "svcs": [
+    "smb",
+    "ssh",
+    "mysql"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "backup",
+   "dst": "student-lab",
+   "svcs": [
+    "smb",
+    "rdp"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "cameras",
+   "dst": "backup"
+  },
+  {
+   "type": "allow",
+   "src": "engineering",
+   "dst": "research",
+   "svcs": [
+    "ldap"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "library",
+   "dst": "finance",
+   "svcs": [
+    "ldap"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "backup",
+   "dst": "research"
+  },
+  {
+   "type": "allow",
+   "src": "nvr",
+   "dst": "admin",
+   "svcs": [
+    "dns"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "dmz-web",
+   "svcs": [
+    "http",
+    "ntp"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "nvr",
+   "dst": "ops"
+  },
+  {
+   "type": "allow",
+   "src": "backup",
+   "dst": "engineering",
+   "svcs": [
+    "https",
+    "postgres"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "mail",
+   "dst": "finance",
+   "broad": "any-udp",
+   "ex": [
+    "tftp",
+    "snmp"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "mail",
+   "dst": "database",
+   "broad": "any-udp",
+   "ex": [
+    "tftp",
+    "snmp"
+   ]
+  }
+ ],
+ "fw_out": [
+  {
+   "type": "allow",
+   "src": "cameras",
+   "dst": "hr",
+   "svcs": [
+    "ntp",
+    "ssh"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "backup",
+   "dst": "ops",
+   "svcs": [
+    "postgres",
+    "rtsp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "hr",
+   "dst": "ops",
+   "svcs": [
+    "ntp"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "cameras",
+   "allowed": [
+    [
+     "database",
+     "https"
+    ],
+    [
+     "library",
+     "syslog"
+    ]
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "research",
+   "dst": "hr",
+   "svcs": [
+    "smb",
+    "ssh",
+    "mysql"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "backup",
+   "dst": "student-lab",
+   "svcs": [
+    "smb",
+    "rdp"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "cameras",
+   "dst": "backup"
+  },
+  {
+   "type": "allow",
+   "src": "engineering",
+   "dst": "research",
+   "svcs": [
+    "ldap"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "library",
+   "dst": "finance",
+   "svcs": [
+    "ldap"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "backup",
+   "dst": "research"
+  },
+  {
+   "type": "allow",
+   "src": "nvr",
+   "dst": "admin",
+   "svcs": [
+    "dns"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "dmz-web",
+   "svcs": [
+    "http",
+    "ntp"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "nvr",
+   "dst": "ops"
+  },
+  {
+   "type": "allow",
+   "src": "backup",
+   "dst": "engineering",
+   "svcs": [
+    "https",
+    "postgres"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "mail",
+   "dst": "finance",
+   "broad": "any-udp",
+   "ex": [
+    "tftp",
+    "snmp"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "mail",
+   "dst": "database",
+   "broad": "any-udp",
+   "ex": [
+    "tftp",
+    "snmp"
+   ]
+  }
+ ],
+ "wall_s": 195.94496822357178
+}

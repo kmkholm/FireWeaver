@@ -1,0 +1,299 @@
+{
+ "id": "Claranet_s1013",
+ "n_intents": 16,
+ "n_gt_rules": 25,
+ "n_zones": 16,
+ "rules": {
+  "eq": false,
+  "mismatch": 0.00925,
+  "n_rules": 26,
+  "fail": 0,
+  "s": 28.255727291107178,
+  "calls": 1,
+  "prompt": 887,
+  "completion": 821
+ },
+ "ir0": {
+  "eq": true,
+  "mismatch": 0.0,
+  "n_rules": 25,
+  "fail": 0,
+  "s": 14.73075270652771,
+  "calls": 16,
+  "prompt": 10549,
+  "completion": 411,
+  "intent_acc": 1.0
+ },
+ "ir": {
+  "eq": true,
+  "mismatch": 0.0,
+  "n_rules": 25,
+  "fail": 0,
+  "s": 13.349096536636353,
+  "calls": 16,
+  "prompt": 17765,
+  "completion": 382,
+  "intent_acc": 1.0
+ },
+ "fw": {
+  "eq": true,
+  "mismatch": 0.0,
+  "n_rules": 25,
+  "fail": 0,
+  "s": 44.78994393348694,
+  "verify_s": 31.440847635269165,
+  "calls": 32,
+  "verify_calls": 16,
+  "flagged": 0,
+  "accepted": 0,
+  "repairs": [],
+  "intent_acc": 1.0
+ },
+ "ir_out": [
+  {
+   "type": "allow",
+   "src": "ops",
+   "dst": "dev-lab",
+   "svcs": [
+    "smb",
+    "syslog"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "backup",
+   "dst": "research",
+   "svcs": [
+    "http",
+    "dns"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "ops",
+   "svcs": [
+    "ntp",
+    "dns"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "scada",
+   "dst": "printers",
+   "svcs": [
+    "https",
+    "ntp"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "research",
+   "dst": "scada"
+  },
+  {
+   "type": "allow",
+   "src": "engineering",
+   "dst": "scada",
+   "svcs": [
+    "mysql",
+    "rdp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "partners",
+   "dst": "dns-servers",
+   "svcs": [
+    "ntp"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "vpn-users",
+   "svcs": [
+    "https"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "partners",
+   "svcs": [
+    "http",
+    "ntp"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "library",
+   "dst": "student-lab"
+  },
+  {
+   "type": "allow",
+   "src": "research",
+   "dst": "ntp-servers",
+   "svcs": [
+    "dns"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "ntp-servers",
+   "dst": "database",
+   "svcs": [
+    "syslog",
+    "dns",
+    "mysql"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "dev-lab",
+   "dst": "dmz-web",
+   "svcs": [
+    "rtsp",
+    "rdp"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "backup",
+   "dst": "dev-lab"
+  },
+  {
+   "type": "public",
+   "dst": "printers",
+   "svcs": [
+    "dns"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "guest-wifi",
+   "dst": "ntp-servers"
+  }
+ ],
+ "fw_out": [
+  {
+   "type": "allow",
+   "src": "ops",
+   "dst": "dev-lab",
+   "svcs": [
+    "smb",
+    "syslog"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "backup",
+   "dst": "research",
+   "svcs": [
+    "http",
+    "dns"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "ops",
+   "svcs": [
+    "ntp",
+    "dns"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "scada",
+   "dst": "printers",
+   "svcs": [
+    "https",
+    "ntp"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "research",
+   "dst": "scada"
+  },
+  {
+   "type": "allow",
+   "src": "engineering",
+   "dst": "scada",
+   "svcs": [
+    "mysql",
+    "rdp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "partners",
+   "dst": "dns-servers",
+   "svcs": [
+    "ntp"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "vpn-users",
+   "svcs": [
+    "https"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "partners",
+   "svcs": [
+    "http",
+    "ntp"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "library",
+   "dst": "student-lab"
+  },
+  {
+   "type": "allow",
+   "src": "research",
+   "dst": "ntp-servers",
+   "svcs": [
+    "dns"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "ntp-servers",
+   "dst": "database",
+   "svcs": [
+    "syslog",
+    "dns",
+    "mysql"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "dev-lab",
+   "dst": "dmz-web",
+   "svcs": [
+    "rtsp",
+    "rdp"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "backup",
+   "dst": "dev-lab"
+  },
+  {
+   "type": "public",
+   "dst": "printers",
+   "svcs": [
+    "dns"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "guest-wifi",
+   "dst": "ntp-servers"
+  }
+ ],
+ "wall_s": 88.40869903564453
+}

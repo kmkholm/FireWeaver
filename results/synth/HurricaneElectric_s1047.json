@@ -1,0 +1,339 @@
+{
+ "id": "HurricaneElectric_s1047",
+ "n_intents": 16,
+ "n_gt_rules": 32,
+ "n_zones": 10,
+ "rules": {
+  "eq": false,
+  "mismatch": 0.01175,
+  "n_rules": 31,
+  "fail": 0,
+  "s": 36.01779866218567,
+  "calls": 1,
+  "prompt": 915,
+  "completion": 950
+ },
+ "ir0": {
+  "eq": false,
+  "mismatch": 0.0005,
+  "n_rules": 27,
+  "fail": 0,
+  "s": 51.121920585632324,
+  "calls": 17,
+  "prompt": 10784,
+  "completion": 695,
+  "intent_acc": 0.875
+ },
+ "ir": {
+  "eq": true,
+  "mismatch": 0.0,
+  "n_rules": 32,
+  "fail": 0,
+  "s": 38.66850733757019,
+  "calls": 16,
+  "prompt": 17322,
+  "completion": 398,
+  "intent_acc": 0.9375
+ },
+ "fw": {
+  "eq": true,
+  "mismatch": 0.0,
+  "n_rules": 32,
+  "fail": 0,
+  "s": 99.66863083839417,
+  "verify_s": 61.00012421607971,
+  "calls": 34,
+  "verify_calls": 18,
+  "flagged": 0,
+  "accepted": 0,
+  "repairs": [],
+  "intent_acc": 0.9375
+ },
+ "ir_out": [
+  {
+   "type": "public",
+   "dst": "edge-cache",
+   "svcs": [
+    "https",
+    "dns"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "backup",
+   "dst": "database",
+   "svcs": [
+    "postgres",
+    "rtsp",
+    "imap"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "engineering",
+   "svcs": [
+    "http"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "edge-cache",
+   "svcs": [
+    "dns"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "printers",
+   "allowed": [
+    [
+     "cameras",
+     "https"
+    ],
+    [
+     "edge-cache",
+     "https"
+    ]
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "printers",
+   "svcs": [
+    "dns",
+    "https"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "nvr",
+   "dst": "printers",
+   "broad": "high-tcp",
+   "ex": [
+    "mysql",
+    "rdp",
+    "postgres"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "finance",
+   "dst": "engineering",
+   "svcs": [
+    "rtsp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "nvr",
+   "dst": "partners",
+   "svcs": [
+    "postgres"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "finance",
+   "dst": "partners"
+  },
+  {
+   "type": "allow",
+   "src": "finance",
+   "dst": "cameras",
+   "svcs": [
+    "syslog",
+    "dns"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "engineering",
+   "dst": "backup",
+   "broad": "high-tcp",
+   "ex": [
+    "mysql",
+    "postgres",
+    "rdp"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "partners",
+   "allowed": [
+    [
+     "mail",
+     "dns"
+    ]
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "finance",
+   "dst": "database",
+   "svcs": [
+    "ntp",
+    "smtp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "backup",
+   "dst": "finance",
+   "svcs": [
+    "https"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "engineering",
+   "svcs": [
+    "http",
+    "ntp"
+   ]
+  }
+ ],
+ "fw_out": [
+  {
+   "type": "public",
+   "dst": "edge-cache",
+   "svcs": [
+    "https",
+    "dns"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "backup",
+   "dst": "database",
+   "svcs": [
+    "postgres",
+    "rtsp",
+    "imap"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "engineering",
+   "svcs": [
+    "http"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "edge-cache",
+   "svcs": [
+    "dns"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "printers",
+   "allowed": [
+    [
+     "cameras",
+     "https"
+    ],
+    [
+     "edge-cache",
+     "https"
+    ]
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "printers",
+   "svcs": [
+    "dns",
+    "https"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "nvr",
+   "dst": "printers",
+   "broad": "high-tcp",
+   "ex": [
+    "mysql",
+    "rdp",
+    "postgres"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "finance",
+   "dst": "engineering",
+   "svcs": [
+    "rtsp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "nvr",
+   "dst": "partners",
+   "svcs": [
+    "postgres"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "finance",
+   "dst": "partners"
+  },
+  {
+   "type": "allow",
+   "src": "finance",
+   "dst": "cameras",
+   "svcs": [
+    "syslog",
+    "dns"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "engineering",
+   "dst": "backup",
+   "broad": "high-tcp",
+   "ex": [
+    "mysql",
+    "postgres",
+    "rdp"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "partners",
+   "allowed": [
+    [
+     "mail",
+     "dns"
+    ]
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "finance",
+   "dst": "database",
+   "svcs": [
+    "ntp",
+    "smtp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "backup",
+   "dst": "finance",
+   "svcs": [
+    "https"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "engineering",
+   "svcs": [
+    "http",
+    "ntp"
+   ]
+  }
+ ],
+ "wall_s": 187.20553135871887
+}

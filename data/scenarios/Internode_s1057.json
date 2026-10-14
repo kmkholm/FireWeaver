@@ -1,0 +1,833 @@
+{
+ "id": "Internode_s1057",
+ "topology": "Internode",
+ "n_nodes": 66,
+ "edges": [
+  [
+   0,
+   1
+  ],
+  [
+   0,
+   3
+  ],
+  [
+   1,
+   2
+  ],
+  [
+   1,
+   6
+  ],
+  [
+   1,
+   38
+  ],
+  [
+   1,
+   7
+  ],
+  [
+   1,
+   8
+  ],
+  [
+   2,
+   3
+  ],
+  [
+   2,
+   4
+  ],
+  [
+   2,
+   5
+  ],
+  [
+   2,
+   14
+  ],
+  [
+   3,
+   9
+  ],
+  [
+   3,
+   10
+  ],
+  [
+   3,
+   11
+  ],
+  [
+   3,
+   13
+  ],
+  [
+   11,
+   12
+  ],
+  [
+   11,
+   13
+  ],
+  [
+   11,
+   17
+  ],
+  [
+   11,
+   18
+  ],
+  [
+   11,
+   22
+  ],
+  [
+   12,
+   19
+  ],
+  [
+   12,
+   20
+  ],
+  [
+   12,
+   14
+  ],
+  [
+   13,
+   32
+  ],
+  [
+   13,
+   33
+  ],
+  [
+   13,
+   14
+  ],
+  [
+   13,
+   15
+  ],
+  [
+   13,
+   29
+  ],
+  [
+   13,
+   30
+  ],
+  [
+   13,
+   31
+  ],
+  [
+   14,
+   16
+  ],
+  [
+   14,
+   18
+  ],
+  [
+   14,
+   26
+  ],
+  [
+   14,
+   27
+  ],
+  [
+   14,
+   28
+  ],
+  [
+   15,
+   16
+  ],
+  [
+   16,
+   34
+  ],
+  [
+   16,
+   35
+  ],
+  [
+   17,
+   21
+  ],
+  [
+   18,
+   24
+  ],
+  [
+   18,
+   25
+  ],
+  [
+   18,
+   23
+  ],
+  [
+   29,
+   36
+  ],
+  [
+   29,
+   37
+  ],
+  [
+   29,
+   55
+  ],
+  [
+   29,
+   56
+  ],
+  [
+   29,
+   57
+  ],
+  [
+   29,
+   58
+  ],
+  [
+   29,
+   59
+  ],
+  [
+   29,
+   60
+  ],
+  [
+   29,
+   61
+  ],
+  [
+   29,
+   31
+  ],
+  [
+   30,
+   41
+  ],
+  [
+   30,
+   42
+  ],
+  [
+   30,
+   43
+  ],
+  [
+   30,
+   38
+  ],
+  [
+   31,
+   32
+  ],
+  [
+   31,
+   37
+  ],
+  [
+   31,
+   47
+  ],
+  [
+   31,
+   48
+  ],
+  [
+   31,
+   49
+  ],
+  [
+   31,
+   50
+  ],
+  [
+   31,
+   51
+  ],
+  [
+   31,
+   52
+  ],
+  [
+   31,
+   53
+  ],
+  [
+   31,
+   54
+  ],
+  [
+   32,
+   45
+  ],
+  [
+   32,
+   44
+  ],
+  [
+   32,
+   46
+  ],
+  [
+   36,
+   62
+  ],
+  [
+   36,
+   37
+  ],
+  [
+   37,
+   64
+  ],
+  [
+   37,
+   65
+  ],
+  [
+   37,
+   38
+  ],
+  [
+   37,
+   63
+  ],
+  [
+   38,
+   40
+  ],
+  [
+   38,
+   39
+  ]
+ ],
+ "zones": {
+  "dmz-web": {
+   "router": 8,
+   "prefixes": [
+    "35.165.162.0/25"
+   ]
+  },
+  "ops": {
+   "router": 47,
+   "prefixes": [
+    "177.183.108.0/22",
+    "176.85.0.0/16"
+   ]
+  },
+  "finance": {
+   "router": 49,
+   "prefixes": [
+    "20.213.101.128/27",
+    "185.53.67.96/27",
+    "33.160.216.48/28"
+   ]
+  },
+  "cameras": {
+   "router": 20,
+   "prefixes": [
+    "19.126.138.64/26"
+   ]
+  },
+  "database": {
+   "router": 19,
+   "prefixes": [
+    "145.84.127.192/28",
+    "228.37.72.0/22"
+   ]
+  },
+  "dns-servers": {
+   "router": 33,
+   "prefixes": [
+    "94.245.84.0/23",
+    "34.211.38.0/23"
+   ]
+  },
+  "engineering": {
+   "router": 26,
+   "prefixes": [
+    "84.32.160.0/19",
+    "81.114.172.0/24",
+    "177.237.48.0/21"
+   ]
+  },
+  "research": {
+   "router": 40,
+   "prefixes": [
+    "101.17.0.0/16",
+    "237.242.6.128/25"
+   ]
+  },
+  "mail": {
+   "router": 57,
+   "prefixes": [
+    "212.225.152.0/23"
+   ]
+  },
+  "student-lab": {
+   "router": 27,
+   "prefixes": [
+    "96.141.80.0/24"
+   ]
+  },
+  "library": {
+   "router": 44,
+   "prefixes": [
+    "137.111.220.0/25",
+    "91.166.102.0/23"
+   ]
+  },
+  "printers": {
+   "router": 54,
+   "prefixes": [
+    "235.183.187.128/25"
+   ]
+  },
+  "backup": {
+   "router": 53,
+   "prefixes": [
+    "196.233.49.0/25",
+    "174.218.89.128/27",
+    "0.6.242.0/23"
+   ]
+  },
+  "nvr": {
+   "router": 50,
+   "prefixes": [
+    "41.151.251.176/28",
+    "58.155.106.128/25"
+   ]
+  },
+  "admin": {
+   "router": 9,
+   "prefixes": [
+    "7.154.125.224/27"
+   ]
+  },
+  "hr": {
+   "router": 22,
+   "prefixes": [
+    "82.197.96.0/22",
+    "188.206.223.192/26"
+   ]
+  }
+ },
+ "zone_text": [
+  "dmz-web: hosts 35.165.162.0/25 attached to router R8",
+  "ops: hosts 177.183.108.0/22, 176.85.0.0/16 attached to router R47",
+  "finance: hosts 20.213.101.128/27, 185.53.67.96/27, 33.160.216.48/28 attached to router R49",
+  "cameras: hosts 19.126.138.64/26 attached to router R20",
+  "database: hosts 145.84.127.192/28, 228.37.72.0/22 attached to router R19",
+  "dns-servers: hosts 94.245.84.0/23, 34.211.38.0/23 attached to router R33",
+  "engineering: hosts 84.32.160.0/19, 81.114.172.0/24, 177.237.48.0/21 attached to router R26",
+  "research: hosts 101.17.0.0/16, 237.242.6.128/25 attached to router R40",
+  "mail: hosts 212.225.152.0/23 attached to router R57",
+  "student-lab: hosts 96.141.80.0/24 attached to router R27",
+  "library: hosts 137.111.220.0/25, 91.166.102.0/23 attached to router R44",
+  "printers: hosts 235.183.187.128/25 attached to router R54",
+  "backup: hosts 196.233.49.0/25, 174.218.89.128/27, 0.6.242.0/23 attached to router R53",
+  "nvr: hosts 41.151.251.176/28, 58.155.106.128/25 attached to router R50",
+  "admin: hosts 7.154.125.224/27 attached to router R9",
+  "hr: hosts 82.197.96.0/22, 188.206.223.192/26 attached to router R22"
+ ],
+ "intents": [
+  {
+   "type": "allow",
+   "src": "cameras",
+   "dst": "hr",
+   "svcs": [
+    "ntp",
+    "ssh"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "backup",
+   "dst": "ops",
+   "svcs": [
+    "postgres",
+    "rtsp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "hr",
+   "dst": "ops",
+   "svcs": [
+    "ntp"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "cameras",
+   "allowed": [
+    [
+     "database",
+     "https"
+    ],
+    [
+     "library",
+     "syslog"
+    ]
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "research",
+   "dst": "hr",
+   "svcs": [
+    "smb",
+    "ssh",
+    "mysql"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "backup",
+   "dst": "student-lab",
+   "svcs": [
+    "smb",
+    "rdp"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "cameras",
+   "dst": "backup"
+  },
+  {
+   "type": "allow",
+   "src": "engineering",
+   "dst": "research",
+   "svcs": [
+    "ldap"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "library",
+   "dst": "finance",
+   "svcs": [
+    "ldap"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "backup",
+   "dst": "research"
+  },
+  {
+   "type": "allow",
+   "src": "nvr",
+   "dst": "admin",
+   "svcs": [
+    "dns"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "dmz-web",
+   "svcs": [
+    "http",
+    "ntp"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "nvr",
+   "dst": "ops"
+  },
+  {
+   "type": "allow",
+   "src": "backup",
+   "dst": "engineering",
+   "svcs": [
+    "https",
+    "postgres"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "mail",
+   "dst": "finance",
+   "broad": "any-udp",
+   "ex": [
+    "tftp",
+    "snmp"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "mail",
+   "dst": "database",
+   "broad": "any-udp",
+   "ex": [
+    "tftp",
+    "snmp"
+   ]
+  }
+ ],
+ "nl": [
+  "hr must accept NTP (UDP 123) and SSH (TCP 22) from cameras.",
+  "ops must accept PostgreSQL (TCP 5432) and RTSP (TCP 554) from backup.",
+  "ops must accept NTP (UDP 123) from hr.",
+  "Restrict cameras so that its only permitted destinations are database on HTTPS (TCP 443); library on syslog (UDP 514); drop all other traffic it originates.",
+  "Allow research to connect to hr using SMB (TCP 445) and SSH (TCP 22) and MySQL (TCP 3306).",
+  "student-lab must accept SMB (TCP 445) and RDP (TCP 3389) from backup.",
+  "No packet from cameras may enter backup, even for services open to everyone.",
+  "Allow engineering to connect to research using LDAP (TCP 389).",
+  "finance must accept LDAP (TCP 389) from library.",
+  "Deny all traffic from backup to research (this overrides any public service).",
+  "Allow nvr to connect to admin using DNS over UDP 53.",
+  "Make HTTP (TCP 80) and NTP (UDP 123) on dmz-web reachable from all internal zones.",
+  "Deny all traffic from nvr to ops (this overrides any public service).",
+  "Hosts in backup may reach engineering over HTTPS (TCP 443) and PostgreSQL (TCP 5432).",
+  "Permit any UDP port from mail to finance but deny TFTP (UDP 69), SNMP (UDP 161).",
+  "Block TFTP (UDP 69), SNMP (UDP 161) from mail to database; the rest of any UDP port between them is allowed."
+ ],
+ "gt": [
+  {
+   "src": "cameras",
+   "dst": "backup",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "backup",
+   "dst": "research",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "nvr",
+   "dst": "ops",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "mail",
+   "dst": "finance",
+   "proto": "udp",
+   "dlo": 69,
+   "dhi": 69,
+   "action": "deny"
+  },
+  {
+   "src": "mail",
+   "dst": "finance",
+   "proto": "udp",
+   "dlo": 161,
+   "dhi": 161,
+   "action": "deny"
+  },
+  {
+   "src": "mail",
+   "dst": "database",
+   "proto": "udp",
+   "dlo": 69,
+   "dhi": 69,
+   "action": "deny"
+  },
+  {
+   "src": "mail",
+   "dst": "database",
+   "proto": "udp",
+   "dlo": 161,
+   "dhi": 161,
+   "action": "deny"
+  },
+  {
+   "src": "cameras",
+   "dst": "hr",
+   "proto": "udp",
+   "dlo": 123,
+   "dhi": 123,
+   "action": "permit"
+  },
+  {
+   "src": "cameras",
+   "dst": "hr",
+   "proto": "tcp",
+   "dlo": 22,
+   "dhi": 22,
+   "action": "permit"
+  },
+  {
+   "src": "backup",
+   "dst": "ops",
+   "proto": "tcp",
+   "dlo": 5432,
+   "dhi": 5432,
+   "action": "permit"
+  },
+  {
+   "src": "backup",
+   "dst": "ops",
+   "proto": "tcp",
+   "dlo": 554,
+   "dhi": 554,
+   "action": "permit"
+  },
+  {
+   "src": "hr",
+   "dst": "ops",
+   "proto": "udp",
+   "dlo": 123,
+   "dhi": 123,
+   "action": "permit"
+  },
+  {
+   "src": "research",
+   "dst": "hr",
+   "proto": "tcp",
+   "dlo": 445,
+   "dhi": 445,
+   "action": "permit"
+  },
+  {
+   "src": "research",
+   "dst": "hr",
+   "proto": "tcp",
+   "dlo": 22,
+   "dhi": 22,
+   "action": "permit"
+  },
+  {
+   "src": "research",
+   "dst": "hr",
+   "proto": "tcp",
+   "dlo": 3306,
+   "dhi": 3306,
+   "action": "permit"
+  },
+  {
+   "src": "backup",
+   "dst": "student-lab",
+   "proto": "tcp",
+   "dlo": 445,
+   "dhi": 445,
+   "action": "permit"
+  },
+  {
+   "src": "backup",
+   "dst": "student-lab",
+   "proto": "tcp",
+   "dlo": 3389,
+   "dhi": 3389,
+   "action": "permit"
+  },
+  {
+   "src": "engineering",
+   "dst": "research",
+   "proto": "tcp",
+   "dlo": 389,
+   "dhi": 389,
+   "action": "permit"
+  },
+  {
+   "src": "library",
+   "dst": "finance",
+   "proto": "tcp",
+   "dlo": 389,
+   "dhi": 389,
+   "action": "permit"
+  },
+  {
+   "src": "nvr",
+   "dst": "admin",
+   "proto": "udp",
+   "dlo": 53,
+   "dhi": 53,
+   "action": "permit"
+  },
+  {
+   "src": "backup",
+   "dst": "engineering",
+   "proto": "tcp",
+   "dlo": 443,
+   "dhi": 443,
+   "action": "permit"
+  },
+  {
+   "src": "backup",
+   "dst": "engineering",
+   "proto": "tcp",
+   "dlo": 5432,
+   "dhi": 5432,
+   "action": "permit"
+  },
+  {
+   "src": "mail",
+   "dst": "finance",
+   "proto": "udp",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "permit"
+  },
+  {
+   "src": "mail",
+   "dst": "database",
+   "proto": "udp",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "permit"
+  },
+  {
+   "src": "cameras",
+   "dst": "database",
+   "proto": "tcp",
+   "dlo": 443,
+   "dhi": 443,
+   "action": "permit"
+  },
+  {
+   "src": "cameras",
+   "dst": "library",
+   "proto": "udp",
+   "dlo": 514,
+   "dhi": 514,
+   "action": "permit"
+  },
+  {
+   "src": "cameras",
+   "dst": "*",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "*",
+   "dst": "dmz-web",
+   "proto": "tcp",
+   "dlo": 80,
+   "dhi": 80,
+   "action": "permit"
+  },
+  {
+   "src": "*",
+   "dst": "dmz-web",
+   "proto": "udp",
+   "dlo": 123,
+   "dhi": 123,
+   "action": "permit"
+  }
+ ]
+}

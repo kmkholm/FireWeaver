@@ -1,0 +1,74 @@
+Aarnet_s1026                 f=2.0 clean=True checks=98 rules=178 verify=3.5s | net-detect 10/10 local 9 | 14s
+Aarnet_s1039                 f=1.5 clean=True checks=48 rules=455 verify=3.1s | net-detect 10/10 local 9 | 23s
+Arn_s1034                    f=3.0 clean=True checks=90 rules=571 verify=3.9s | net-detect 9/9 local 9 | 28s
+Bbnplanet_s1002              f=1.5 clean=True checks=94 rules=536 verify=5.2s | net-detect 10/10 local 9 | 35s
+Bbnplanet_s1028              f=2.0 clean=True checks=32 rules=259 verify=1.6s | net-detect 10/10 local 9 | 7s
+Belnet2003_s1014             f=2.0 clean=True checks=160 rules=780 verify=8.9s | net-detect 10/10 local 9 | 53s
+Belnet2004_s1006             f=3.0 clean=True checks=40 rules=122 verify=0.7s | net-detect 10/10 local 9 | 5s
+Belnet2005_s1054             f=1.5 clean=True checks=576 rules=1091 verify=25.8s | net-detect 10/10 local 9 | 134s
+BtEurope_s1012               f=3.0 clean=True checks=38 rules=147 verify=0.8s | net-detect 8/10 local 9 | 4s
+BtEurope_s1032               f=1.5 clean=True checks=354 rules=1858 verify=32.7s | net-detect 10/10 local 9 | 212s
+BtLatinAmerica_s1051         f=3.0 clean=True checks=30 rules=893 verify=4.2s | net-detect 7/9 local 9 | 27s
+Cernet_s1005                 f=2.0 clean=True checks=340 rules=888 verify=16.8s | net-detect 10/10 local 9 | 102s
+Cesnet1999_s1048             f=1.5 clean=True checks=240 rules=1147 verify=23.3s | net-detect 9/9 local 9 | 120s
+Claranet_s1013               f=2.0 clean=True checks=254 rules=1624 verify=37.9s | net-detect 10/10 local 9 | 229s
+Digex_s1052                  f=3.0 clean=True checks=32 rules=242 verify=1.2s | net-detect 9/10 local 9 | 8s
+EliBackbone_s1008            f=1.5 clean=True checks=138 rules=554 verify=8.5s | net-detect 10/10 local 9 | 58s
+Eunetworks_s1053             f=2.0 clean=True checks=250 rules=1255 verify=35.7s | net-detect 10/10 local 9 | 233s
+Evolink_s1042                f=4.0 clean=True checks=38 rules=121 verify=0.8s | net-detect 10/10 local 9 | 4s
+Gambia_s1041                 f=1.5 clean=True checks=246 rules=974 verify=13.6s | net-detect 10/10 local 9 | 97s
+Garr200109_s1023             f=2.0 clean=True checks=90 rules=598 verify=6.0s | net-detect 7/9 local 9 | 37s
+Garr200212_s1044             f=4.0 clean=True checks=36 rules=246 verify=1.7s | net-detect 9/10 local 9 | 10s
+Garr200404_s1003             f=1.5 clean=True checks=240 rules=1150 verify=18.9s | net-detect 9/9 local 9 | 82s
+Garr200404_s1045             f=1.5 clean=True checks=240 rules=1750 verify=22.4s | net-detect 9/9 local 9 | 151s
+Garr200902_s1056             f=6.0 clean=True checks=38 rules=421 verify=2.3s | net-detect 9/10 local 9 | 14s
+Garr200908_s1017             f=6.0 clean=True checks=68 rules=227 verify=2.4s | net-detect 10/10 local 9 | 11s
+Garr201102_s1035             f=2.0 clean=True checks=434 rules=1425 verify=39.2s | net-detect 10/10 local 9 | 196s
+Garr201105_s1019             f=3.0 clean=True checks=128 rules=642 verify=6.6s | net-detect 10/10 local 9 | 38s
+Garr201105_s1025             f=4.0 clean=True checks=140 rules=619 verify=6.6s | net-detect 10/10 local 9 | 48s
+Garr201109_s1011             f=3.0 clean=True checks=166 rules=572 verify=8.1s | net-detect 10/10 local 9 | 46s
+Garr201201_s1016             f=4.0 clean=True checks=156 rules=749 verify=9.6s | net-detect 9/10 local 9 | 56s
+Geant2010_s1018              f=1.5 clean=True checks=154 rules=355 verify=3.5s | net-detect 10/10 local 9 | 16s
+Globenet_s1055               f=3.0 clean=True checks=30 rules=240 verify=0.9s | net-detect 9/9 local 9 | 4s
+Harnet_s1022                 f=1.5 clean=True checks=130 rules=342 verify=3.5s | net-detect 10/10 local 9 | 19s
+HiberniaGlobal_s1030         f=2.0 clean=True checks=454 rules=614 verify=24.7s | net-detect 10/10 local 9 | 145s
+HiberniaUk_s1033             f=1.5 clean=True checks=90 rules=636 verify=5.3s | net-detect 9/9 local 9 | 35s
+Highwinds_s1058              f=1.5 clean=True checks=272 rules=452 verify=10.7s | net-detect 10/10 local 9 | 76s
+HurricaneElectric_s1047      f=1.5 clean=True checks=118 rules=500 verify=4.8s | net-detect 9/10 local 9 | 30s
+HurricaneElectric_s1059      f=1.5 clean=True checks=112 rules=852 verify=6.7s | net-detect 9/10 local 9 | 55s
+Iinet_s1031                  f=3.0 clean=True checks=112 rules=465 verify=3.9s | net-detect 10/10 local 9 | 19s
+Internode_s1057              f=3.0 clean=True checks=322 rules=923 verify=12.3s | net-detect 10/10 local 9 | 63s
+Karen_s1001                  f=1.5 clean=True checks=122 rules=444 verify=4.0s | net-detect 10/10 local 9 | 26s
+KentmanApr2007_s1010         f=1.5 clean=True checks=318 rules=1379 verify=16.9s | net-detect 10/10 local 9 | 133s
+KentmanJul2005_s1015         f=1.5 clean=True checks=242 rules=1461 verify=23.7s | net-detect 7/10 local 9 | 161s
+Latnet_s1037                 f=3.0 clean=True checks=268 rules=1286 verify=13.7s | net-detect 9/10 local 9 | 102s
+Myren_s1027                  f=3.0 clean=True checks=92 rules=418 verify=2.2s | net-detect 9/10 local 9 | 20s
+Navigata_s1004               f=1.5 clean=True checks=384 rules=1503 verify=43.7s | net-detect 10/10 local 9 | 236s
+Navigata_s1029               f=1.5 clean=True checks=154 rules=569 verify=6.4s | net-detect 10/10 local 9 | 46s
+Ntelos_s1046                 f=2.0 clean=True checks=56 rules=390 verify=2.6s | net-detect 9/10 local 9 | 19s
+Oxford_s1009                 f=2.0 clean=True checks=38 rules=422 verify=2.0s | net-detect 10/10 local 9 | 12s
+RedBestel_s1024              f=3.0 clean=True checks=140 rules=516 verify=5.7s | net-detect 10/10 local 9 | 35s
+Traceback (most recent call last):
+  File "D:\Drive D\Ajloun Papers\FireWeaver 2026\code\eval_deploy.py", line 78, in <module>
+    main(int(sys.argv[1]) if len(sys.argv) > 1 else 60)
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Drive D\Ajloun Papers\FireWeaver 2026\code\eval_deploy.py", line 69, in main
+    sc = json.load(open(fp)); t = time.time(); r = run(sc, rng); r["wall_s"] = time.time() - t; rows.append(r)
+                                                   ~~~^^^^^^^^^
+  File "D:\Drive D\Ajloun Papers\FireWeaver 2026\code\eval_deploy.py", line 47, in run
+    ok_m, cex_m, dt_m, _ = verify_network(gt, zones, P, mc)
+                           ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "D:\Drive D\Ajloun Papers\FireWeaver 2026\code\netverify.py", line 98, in verify_network
+    dst=str(ipa.ip_address(m.eval(D).as_long())), proto=m.eval(Pr).as_long(),
+                                                        ^^^^^^^^^^^^^^^^^^
+AttributeError: 'BitVecRef' object has no attribute 'as_long'
+RoedunetFibre_s1000          f=3.0 clean=True checks=32 rules=205 verify=0.8s | net-detect 9/10 local 9 | 4s
+Sago_s1036                   f=1.5 clean=True checks=90 rules=385 verify=3.3s | net-detect 9/9 local 9 | 22s
+Sinet_s1021                  f=3.0 clean=True checks=284 rules=842 verify=11.2s | net-detect 10/10 local 9 | 55s
+Sinet_s1040                  f=6.0 clean=True checks=110 rules=758 verify=6.6s | net-detect 10/10 local 9 | 49s
+TLex_s1043                   f=1.5 clean=True checks=94 rules=583 verify=4.2s | net-detect 9/10 local 9 | 29s
+Uninet_s1038                 f=1.5 clean=True checks=158 rules=524 verify=7.3s | net-detect 9/10 local 9 | 53s
+UsSignal_s1049               f=1.5 clean=True checks=328 rules=1368 verify=22.7s | net-detect 10/10 local 9 | 138s
+Uunet_s1050                  f=3.0 clean=True checks=210 rules=516 verify=7.3s | net-detect 10/10 local 9 | 55s
+Vinaren_s1007                f=1.5 clean=True checks=240 rules=1175 verify=14.0s | net-detect 9/9 local 9 | 90s
+Vinaren_s1020                f=3.0 clean=True checks=30 rules=478 verify=1.8s | net-detect 6/9 local 9 | 13s

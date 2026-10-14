@@ -1,0 +1,631 @@
+{
+ "id": "Cesnet1999_s1048",
+ "topology": "Cesnet1999",
+ "n_nodes": 13,
+ "edges": [
+  [
+   0,
+   2
+  ],
+  [
+   1,
+   2
+  ],
+  [
+   2,
+   3
+  ],
+  [
+   2,
+   4
+  ],
+  [
+   2,
+   5
+  ],
+  [
+   2,
+   6
+  ],
+  [
+   2,
+   7
+  ],
+  [
+   2,
+   9
+  ],
+  [
+   2,
+   12
+  ],
+  [
+   8,
+   9
+  ],
+  [
+   9,
+   11
+  ],
+  [
+   9,
+   10
+  ]
+ ],
+ "zones": {
+  "cameras": {
+   "router": 7,
+   "prefixes": [
+    "124.57.52.0/22",
+    "150.28.2.128/25",
+    "60.146.114.128/28"
+   ]
+  },
+  "database": {
+   "router": 12,
+   "prefixes": [
+    "230.143.78.0/24",
+    "252.123.160.224/28"
+   ]
+  },
+  "engineering": {
+   "router": 5,
+   "prefixes": [
+    "206.88.128.0/24"
+   ]
+  },
+  "edge-cache": {
+   "router": 2,
+   "prefixes": [
+    "34.164.180.0/22"
+   ]
+  },
+  "dev-lab": {
+   "router": 5,
+   "prefixes": [
+    "65.57.32.0/19",
+    "217.220.53.128/28"
+   ]
+  },
+  "iot-sensors": {
+   "router": 11,
+   "prefixes": [
+    "251.243.160.0/23",
+    "201.200.210.0/23"
+   ]
+  },
+  "research": {
+   "router": 1,
+   "prefixes": [
+    "167.110.81.0/24"
+   ]
+  },
+  "student-lab": {
+   "router": 3,
+   "prefixes": [
+    "23.136.178.0/23",
+    "227.229.0.0/17"
+   ]
+  },
+  "mail": {
+   "router": 0,
+   "prefixes": [
+    "228.121.187.0/25",
+    "63.168.180.0/28",
+    "48.11.92.0/24"
+   ]
+  },
+  "scada": {
+   "router": 0,
+   "prefixes": [
+    "233.230.198.0/23"
+   ]
+  },
+  "monitoring": {
+   "router": 4,
+   "prefixes": [
+    "33.129.236.0/23",
+    "253.202.203.128/25",
+    "225.161.151.0/24"
+   ]
+  },
+  "nvr": {
+   "router": 0,
+   "prefixes": [
+    "189.94.226.0/23",
+    "86.94.56.0/21",
+    "68.239.208.0/22"
+   ]
+  },
+  "vpn-users": {
+   "router": 7,
+   "prefixes": [
+    "194.146.128.0/19"
+   ]
+  },
+  "dns-servers": {
+   "router": 1,
+   "prefixes": [
+    "103.228.205.0/24",
+    "220.108.132.16/28",
+    "77.148.0.0/16"
+   ]
+  },
+  "backup": {
+   "router": 2,
+   "prefixes": [
+    "117.136.22.0/23",
+    "25.24.159.192/26",
+    "113.81.132.96/27"
+   ]
+  },
+  "hr": {
+   "router": 3,
+   "prefixes": [
+    "181.50.139.128/25"
+   ]
+  }
+ },
+ "zone_text": [
+  "cameras: hosts 124.57.52.0/22, 150.28.2.128/25, 60.146.114.128/28 attached to router R7",
+  "database: hosts 230.143.78.0/24, 252.123.160.224/28 attached to router R12",
+  "engineering: hosts 206.88.128.0/24 attached to router R5",
+  "edge-cache: hosts 34.164.180.0/22 attached to router R2",
+  "dev-lab: hosts 65.57.32.0/19, 217.220.53.128/28 attached to router R5",
+  "iot-sensors: hosts 251.243.160.0/23, 201.200.210.0/23 attached to router R11",
+  "research: hosts 167.110.81.0/24 attached to router R1",
+  "student-lab: hosts 23.136.178.0/23, 227.229.0.0/17 attached to router R3",
+  "mail: hosts 228.121.187.0/25, 63.168.180.0/28, 48.11.92.0/24 attached to router R0",
+  "scada: hosts 233.230.198.0/23 attached to router R0",
+  "monitoring: hosts 33.129.236.0/23, 253.202.203.128/25, 225.161.151.0/24 attached to router R4",
+  "nvr: hosts 189.94.226.0/23, 86.94.56.0/21, 68.239.208.0/22 attached to router R0",
+  "vpn-users: hosts 194.146.128.0/19 attached to router R7",
+  "dns-servers: hosts 103.228.205.0/24, 220.108.132.16/28, 77.148.0.0/16 attached to router R1",
+  "backup: hosts 117.136.22.0/23, 25.24.159.192/26, 113.81.132.96/27 attached to router R2",
+  "hr: hosts 181.50.139.128/25 attached to router R3"
+ ],
+ "intents": [
+  {
+   "type": "isolate",
+   "src": "dns-servers",
+   "allowed": [
+    [
+     "scada",
+     "https"
+    ],
+    [
+     "engineering",
+     "dns"
+    ]
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "research",
+   "dst": "edge-cache",
+   "svcs": [
+    "syslog",
+    "ntp",
+    "imap"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "database",
+   "dst": "dns-servers"
+  },
+  {
+   "type": "allow",
+   "src": "backup",
+   "dst": "hr",
+   "svcs": [
+    "http",
+    "imap",
+    "syslog"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "research",
+   "allowed": [
+    [
+     "database",
+     "https"
+    ],
+    [
+     "dev-lab",
+     "syslog"
+    ]
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "backup",
+   "allowed": [
+    [
+     "mail",
+     "ntp"
+    ]
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "vpn-users",
+   "svcs": [
+    "ntp",
+    "http"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "dev-lab",
+   "dst": "cameras",
+   "svcs": [
+    "smb",
+    "ldap"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "dev-lab",
+   "allowed": [
+    [
+     "hr",
+     "ntp"
+    ],
+    [
+     "dns-servers",
+     "ntp"
+    ]
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "dns-servers",
+   "svcs": [
+    "https"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "dns-servers",
+   "dst": "mail",
+   "svcs": [
+    "postgres",
+    "ldap",
+    "imap"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "cameras",
+   "dst": "vpn-users",
+   "svcs": [
+    "rtsp",
+    "imap"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "edge-cache",
+   "dst": "nvr",
+   "svcs": [
+    "https"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "mail",
+   "allowed": [
+    [
+     "vpn-users",
+     "https"
+    ],
+    [
+     "backup",
+     "ntp"
+    ]
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "database",
+   "dst": "dev-lab",
+   "broad": "high-tcp",
+   "ex": [
+    "postgres"
+   ]
+  }
+ ],
+ "nl": [
+  "Apart from scada on HTTPS (TCP 443); engineering on DNS over UDP 53, all traffic originating in dns-servers must be dropped.",
+  "Allow research to connect to edge-cache using syslog (UDP 514) and NTP (UDP 123) and IMAP (TCP 143).",
+  "Deny all traffic from database to dns-servers (this overrides any public service).",
+  "Allow backup to connect to hr using HTTP (TCP 80) and IMAP (TCP 143) and syslog (UDP 514).",
+  "Restrict research so that its only permitted destinations are database on HTTPS (TCP 443); dev-lab on syslog (UDP 514); drop all other traffic it originates.",
+  "Apart from mail on NTP (UDP 123), all traffic originating in backup must be dropped.",
+  "Make NTP (UDP 123) and HTTP (TCP 80) on vpn-users reachable from all internal zones.",
+  "Allow dev-lab to connect to cameras using SMB (TCP 445) and LDAP (TCP 389).",
+  "Apart from hr on NTP (UDP 123); dns-servers on NTP (UDP 123), all traffic originating in dev-lab must be dropped.",
+  "Any zone may connect to dns-servers over HTTPS (TCP 443).",
+  "Allow dns-servers to connect to mail using PostgreSQL (TCP 5432) and LDAP (TCP 389) and IMAP (TCP 143).",
+  "Hosts in cameras may reach vpn-users over RTSP (TCP 554) and IMAP (TCP 143).",
+  "Allow edge-cache to connect to nvr using HTTPS (TCP 443).",
+  "mail is isolated: it may only reach vpn-users on HTTPS (TCP 443); backup on NTP (UDP 123), and nothing else.",
+  "database may use TCP ports 1024-65535 towards dev-lab, except PostgreSQL (TCP 5432), which must be blocked."
+ ],
+ "gt": [
+  {
+   "src": "database",
+   "dst": "dns-servers",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "database",
+   "dst": "dev-lab",
+   "proto": "tcp",
+   "dlo": 5432,
+   "dhi": 5432,
+   "action": "deny"
+  },
+  {
+   "src": "research",
+   "dst": "edge-cache",
+   "proto": "udp",
+   "dlo": 514,
+   "dhi": 514,
+   "action": "permit"
+  },
+  {
+   "src": "research",
+   "dst": "edge-cache",
+   "proto": "udp",
+   "dlo": 123,
+   "dhi": 123,
+   "action": "permit"
+  },
+  {
+   "src": "research",
+   "dst": "edge-cache",
+   "proto": "tcp",
+   "dlo": 143,
+   "dhi": 143,
+   "action": "permit"
+  },
+  {
+   "src": "backup",
+   "dst": "hr",
+   "proto": "tcp",
+   "dlo": 80,
+   "dhi": 80,
+   "action": "permit"
+  },
+  {
+   "src": "backup",
+   "dst": "hr",
+   "proto": "tcp",
+   "dlo": 143,
+   "dhi": 143,
+   "action": "permit"
+  },
+  {
+   "src": "backup",
+   "dst": "hr",
+   "proto": "udp",
+   "dlo": 514,
+   "dhi": 514,
+   "action": "permit"
+  },
+  {
+   "src": "dev-lab",
+   "dst": "cameras",
+   "proto": "tcp",
+   "dlo": 445,
+   "dhi": 445,
+   "action": "permit"
+  },
+  {
+   "src": "dev-lab",
+   "dst": "cameras",
+   "proto": "tcp",
+   "dlo": 389,
+   "dhi": 389,
+   "action": "permit"
+  },
+  {
+   "src": "dns-servers",
+   "dst": "mail",
+   "proto": "tcp",
+   "dlo": 5432,
+   "dhi": 5432,
+   "action": "permit"
+  },
+  {
+   "src": "dns-servers",
+   "dst": "mail",
+   "proto": "tcp",
+   "dlo": 389,
+   "dhi": 389,
+   "action": "permit"
+  },
+  {
+   "src": "dns-servers",
+   "dst": "mail",
+   "proto": "tcp",
+   "dlo": 143,
+   "dhi": 143,
+   "action": "permit"
+  },
+  {
+   "src": "cameras",
+   "dst": "vpn-users",
+   "proto": "tcp",
+   "dlo": 554,
+   "dhi": 554,
+   "action": "permit"
+  },
+  {
+   "src": "cameras",
+   "dst": "vpn-users",
+   "proto": "tcp",
+   "dlo": 143,
+   "dhi": 143,
+   "action": "permit"
+  },
+  {
+   "src": "edge-cache",
+   "dst": "nvr",
+   "proto": "tcp",
+   "dlo": 443,
+   "dhi": 443,
+   "action": "permit"
+  },
+  {
+   "src": "database",
+   "dst": "dev-lab",
+   "proto": "tcp",
+   "dlo": 1024,
+   "dhi": 65535,
+   "action": "permit"
+  },
+  {
+   "src": "dns-servers",
+   "dst": "scada",
+   "proto": "tcp",
+   "dlo": 443,
+   "dhi": 443,
+   "action": "permit"
+  },
+  {
+   "src": "dns-servers",
+   "dst": "engineering",
+   "proto": "udp",
+   "dlo": 53,
+   "dhi": 53,
+   "action": "permit"
+  },
+  {
+   "src": "research",
+   "dst": "database",
+   "proto": "tcp",
+   "dlo": 443,
+   "dhi": 443,
+   "action": "permit"
+  },
+  {
+   "src": "research",
+   "dst": "dev-lab",
+   "proto": "udp",
+   "dlo": 514,
+   "dhi": 514,
+   "action": "permit"
+  },
+  {
+   "src": "backup",
+   "dst": "mail",
+   "proto": "udp",
+   "dlo": 123,
+   "dhi": 123,
+   "action": "permit"
+  },
+  {
+   "src": "dev-lab",
+   "dst": "hr",
+   "proto": "udp",
+   "dlo": 123,
+   "dhi": 123,
+   "action": "permit"
+  },
+  {
+   "src": "dev-lab",
+   "dst": "dns-servers",
+   "proto": "udp",
+   "dlo": 123,
+   "dhi": 123,
+   "action": "permit"
+  },
+  {
+   "src": "mail",
+   "dst": "vpn-users",
+   "proto": "tcp",
+   "dlo": 443,
+   "dhi": 443,
+   "action": "permit"
+  },
+  {
+   "src": "mail",
+   "dst": "backup",
+   "proto": "udp",
+   "dlo": 123,
+   "dhi": 123,
+   "action": "permit"
+  },
+  {
+   "src": "dns-servers",
+   "dst": "*",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "research",
+   "dst": "*",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "backup",
+   "dst": "*",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "dev-lab",
+   "dst": "*",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "mail",
+   "dst": "*",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "*",
+   "dst": "vpn-users",
+   "proto": "udp",
+   "dlo": 123,
+   "dhi": 123,
+   "action": "permit"
+  },
+  {
+   "src": "*",
+   "dst": "vpn-users",
+   "proto": "tcp",
+   "dlo": 80,
+   "dhi": 80,
+   "action": "permit"
+  },
+  {
+   "src": "*",
+   "dst": "dns-servers",
+   "proto": "tcp",
+   "dlo": 443,
+   "dhi": 443,
+   "action": "permit"
+  }
+ ]
+}

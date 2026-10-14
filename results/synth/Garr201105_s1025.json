@@ -1,0 +1,608 @@
+{
+ "id": "Garr201105_s1025",
+ "n_intents": 27,
+ "n_gt_rules": 57,
+ "n_zones": 10,
+ "rules": {
+  "eq": false,
+  "mismatch": 0.04425,
+  "n_rules": 67,
+  "fail": 0,
+  "s": 216.16582226753235,
+  "calls": 2,
+  "prompt": 3449,
+  "completion": 6169
+ },
+ "ir0": {
+  "eq": false,
+  "mismatch": 0.01025,
+  "n_rules": 50,
+  "fail": 0,
+  "s": 105.86770701408386,
+  "calls": 30,
+  "prompt": 19776,
+  "completion": 1319,
+  "intent_acc": 0.8148148148148148
+ },
+ "ir": {
+  "eq": true,
+  "mismatch": 0.0,
+  "n_rules": 57,
+  "fail": 0,
+  "s": 86.67745351791382,
+  "calls": 28,
+  "prompt": 30802,
+  "completion": 793,
+  "intent_acc": 1.0
+ },
+ "fw": {
+  "eq": false,
+  "mismatch": 0.0005,
+  "n_rules": 59,
+  "fail": 0,
+  "s": 253.920175075531,
+  "verify_s": 167.24272203445435,
+  "calls": 66,
+  "verify_calls": 38,
+  "flagged": 3,
+  "accepted": 1,
+  "repairs": [
+   {
+    "k": 2,
+    "was_ok": true,
+    "now_ok": true,
+    "history": [
+     1,
+     0
+    ],
+    "calls": 2,
+    "accepted": false,
+    "diff": 1,
+    "win_new": 0,
+    "win_old": 1
+   },
+   {
+    "k": 4,
+    "was_ok": true,
+    "now_ok": false,
+    "history": [
+     2,
+     0
+    ],
+    "calls": 3,
+    "accepted": true,
+    "diff": 2,
+    "win_new": 2,
+    "win_old": 0
+   },
+   {
+    "k": 6,
+    "was_ok": true,
+    "now_ok": true,
+    "history": [
+     2,
+     2,
+     2
+    ],
+    "calls": 2,
+    "accepted": false
+   }
+  ],
+  "intent_acc": 0.9629629629629629
+ },
+ "ir_out": [
+  {
+   "type": "allow",
+   "src": "edge-cache",
+   "dst": "dmz-web",
+   "svcs": [
+    "ntp"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "student-lab",
+   "dst": "iot-sensors",
+   "broad": "any-udp",
+   "ex": [
+    "snmp"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "voip",
+   "allowed": [
+    [
+     "edge-cache",
+     "https"
+    ],
+    [
+     "scada",
+     "dns"
+    ]
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "student-lab",
+   "dst": "library",
+   "broad": "any-udp",
+   "ex": [
+    "tftp",
+    "snmp"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "iot-sensors",
+   "allowed": [
+    [
+     "dmz-web",
+     "dns"
+    ],
+    [
+     "edge-cache",
+     "syslog"
+    ]
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "dev-lab",
+   "dst": "voip",
+   "svcs": [
+    "rdp"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "library",
+   "allowed": [
+    [
+     "voip",
+     "ntp"
+    ],
+    [
+     "edge-cache",
+     "dns"
+    ]
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "library",
+   "dst": "scada",
+   "svcs": [
+    "ldap"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "edge-cache",
+   "dst": "vpn-users",
+   "svcs": [
+    "https"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "dmz-web",
+   "dst": "library",
+   "svcs": [
+    "snmp",
+    "smtp",
+    "rdp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "scada",
+   "dst": "edge-cache",
+   "svcs": [
+    "smtp",
+    "snmp",
+    "ssh"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "edge-cache",
+   "svcs": [
+    "http",
+    "https"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "edge-cache",
+   "dst": "student-lab",
+   "svcs": [
+    "imap"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "iot-sensors",
+   "svcs": [
+    "dns"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "voip",
+   "dst": "edge-cache",
+   "svcs": [
+    "rdp",
+    "smb",
+    "mysql"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "voip",
+   "dst": "vpn-users",
+   "svcs": [
+    "rdp",
+    "rtsp",
+    "postgres"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "vpn-users",
+   "dst": "voip",
+   "svcs": [
+    "imap"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "dev-lab",
+   "dst": "scada"
+  },
+  {
+   "type": "public",
+   "dst": "iot-sensors",
+   "svcs": [
+    "dns",
+    "ntp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "student-lab",
+   "dst": "dmz-web",
+   "svcs": [
+    "rdp",
+    "http",
+    "snmp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "dev-lab",
+   "dst": "student-lab",
+   "svcs": [
+    "imap",
+    "ldap"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "scada",
+   "dst": "edge-cache",
+   "svcs": [
+    "imap",
+    "ldap",
+    "rtsp"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "voip",
+   "dst": "iot-sensors",
+   "broad": "high-tcp",
+   "ex": [
+    "mysql",
+    "rdp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "admin",
+   "dst": "edge-cache",
+   "svcs": [
+    "ssh"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "admin",
+   "svcs": [
+    "dns",
+    "ntp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "vpn-users",
+   "dst": "voip",
+   "svcs": [
+    "ssh",
+    "smb",
+    "syslog"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "edge-cache",
+   "dst": "dmz-web",
+   "broad": "high-tcp",
+   "ex": [
+    "postgres"
+   ]
+  }
+ ],
+ "fw_out": [
+  {
+   "type": "allow",
+   "src": "edge-cache",
+   "dst": "dmz-web",
+   "svcs": [
+    "ntp"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "student-lab",
+   "dst": "iot-sensors",
+   "broad": "any-udp",
+   "ex": [
+    "snmp"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "voip",
+   "allowed": [
+    [
+     "edge-cache",
+     "https"
+    ],
+    [
+     "scada",
+     "dns"
+    ]
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "student-lab",
+   "dst": "library",
+   "broad": "any-udp",
+   "ex": [
+    "tftp",
+    "snmp"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "iot-sensors",
+   "allowed": [
+    [
+     "dmz-web",
+     "dns"
+    ],
+    [
+     "edge-cache",
+     "syslog"
+    ],
+    [
+     "edge-cache",
+     "dns"
+    ],
+    [
+     "dmz-web",
+     "syslog"
+    ]
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "dev-lab",
+   "dst": "voip",
+   "svcs": [
+    "rdp"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "library",
+   "allowed": [
+    [
+     "voip",
+     "ntp"
+    ],
+    [
+     "edge-cache",
+     "dns"
+    ]
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "library",
+   "dst": "scada",
+   "svcs": [
+    "ldap"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "edge-cache",
+   "dst": "vpn-users",
+   "svcs": [
+    "https"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "dmz-web",
+   "dst": "library",
+   "svcs": [
+    "snmp",
+    "smtp",
+    "rdp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "scada",
+   "dst": "edge-cache",
+   "svcs": [
+    "smtp",
+    "snmp",
+    "ssh"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "edge-cache",
+   "svcs": [
+    "http",
+    "https"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "edge-cache",
+   "dst": "student-lab",
+   "svcs": [
+    "imap"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "iot-sensors",
+   "svcs": [
+    "dns"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "voip",
+   "dst": "edge-cache",
+   "svcs": [
+    "rdp",
+    "smb",
+    "mysql"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "voip",
+   "dst": "vpn-users",
+   "svcs": [
+    "rdp",
+    "rtsp",
+    "postgres"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "vpn-users",
+   "dst": "voip",
+   "svcs": [
+    "imap"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "dev-lab",
+   "dst": "scada"
+  },
+  {
+   "type": "public",
+   "dst": "iot-sensors",
+   "svcs": [
+    "dns",
+    "ntp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "student-lab",
+   "dst": "dmz-web",
+   "svcs": [
+    "rdp",
+    "http",
+    "snmp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "dev-lab",
+   "dst": "student-lab",
+   "svcs": [
+    "imap",
+    "ldap"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "scada",
+   "dst": "edge-cache",
+   "svcs": [
+    "imap",
+    "ldap",
+    "rtsp"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "voip",
+   "dst": "iot-sensors",
+   "broad": "high-tcp",
+   "ex": [
+    "mysql",
+    "rdp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "admin",
+   "dst": "edge-cache",
+   "svcs": [
+    "ssh"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "admin",
+   "svcs": [
+    "dns",
+    "ntp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "vpn-users",
+   "dst": "voip",
+   "svcs": [
+    "ssh",
+    "smb",
+    "syslog"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "edge-cache",
+   "dst": "dmz-web",
+   "broad": "high-tcp",
+   "ex": [
+    "postgres"
+   ]
+  }
+ ],
+ "wall_s": 576.4326872825623
+}

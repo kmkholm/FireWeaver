@@ -1,0 +1,446 @@
+{
+ "id": "Iinet_s1031",
+ "topology": "Iinet",
+ "n_nodes": 31,
+ "edges": [
+  [
+   0,
+   1
+  ],
+  [
+   1,
+   2
+  ],
+  [
+   1,
+   4
+  ],
+  [
+   1,
+   14
+  ],
+  [
+   1,
+   6
+  ],
+  [
+   2,
+   4
+  ],
+  [
+   2,
+   5
+  ],
+  [
+   2,
+   9
+  ],
+  [
+   2,
+   10
+  ],
+  [
+   2,
+   11
+  ],
+  [
+   2,
+   12
+  ],
+  [
+   2,
+   13
+  ],
+  [
+   3,
+   24
+  ],
+  [
+   3,
+   25
+  ],
+  [
+   3,
+   4
+  ],
+  [
+   3,
+   5
+  ],
+  [
+   4,
+   7
+  ],
+  [
+   4,
+   26
+  ],
+  [
+   4,
+   27
+  ],
+  [
+   4,
+   29
+  ],
+  [
+   5,
+   6
+  ],
+  [
+   5,
+   7
+  ],
+  [
+   5,
+   8
+  ],
+  [
+   5,
+   21
+  ],
+  [
+   5,
+   22
+  ],
+  [
+   5,
+   23
+  ],
+  [
+   5,
+   28
+  ],
+  [
+   5,
+   29
+  ],
+  [
+   5,
+   30
+  ],
+  [
+   6,
+   16
+  ],
+  [
+   6,
+   17
+  ],
+  [
+   6,
+   15
+  ],
+  [
+   7,
+   18
+  ],
+  [
+   7,
+   19
+  ],
+  [
+   8,
+   20
+  ]
+ ],
+ "zones": {
+  "printers": {
+   "router": 18,
+   "prefixes": [
+    "135.149.125.128/25",
+    "87.253.146.0/23"
+   ]
+  },
+  "engineering": {
+   "router": 9,
+   "prefixes": [
+    "11.178.230.0/23",
+    "33.49.30.0/24",
+    "240.7.2.0/23"
+   ]
+  },
+  "student-lab": {
+   "router": 14,
+   "prefixes": [
+    "64.204.96.0/22"
+   ]
+  },
+  "partners": {
+   "router": 11,
+   "prefixes": [
+    "248.122.128.0/17",
+    "68.162.68.0/22",
+    "107.240.248.0/21"
+   ]
+  },
+  "guest-wifi": {
+   "router": 17,
+   "prefixes": [
+    "168.247.38.0/23",
+    "245.207.41.96/27"
+   ]
+  },
+  "edge-cache": {
+   "router": 10,
+   "prefixes": [
+    "150.203.249.0/24"
+   ]
+  },
+  "mail": {
+   "router": 12,
+   "prefixes": [
+    "77.108.81.128/25"
+   ]
+  },
+  "admin": {
+   "router": 28,
+   "prefixes": [
+    "119.61.222.0/24",
+    "98.178.122.0/23"
+   ]
+  },
+  "backup": {
+   "router": 23,
+   "prefixes": [
+    "117.92.170.96/27",
+    "255.93.151.0/24",
+    "127.33.154.0/25"
+   ]
+  },
+  "monitoring": {
+   "router": 30,
+   "prefixes": [
+    "78.248.171.0/27"
+   ]
+  }
+ },
+ "zone_text": [
+  "printers: hosts 135.149.125.128/25, 87.253.146.0/23 attached to router R18",
+  "engineering: hosts 11.178.230.0/23, 33.49.30.0/24, 240.7.2.0/23 attached to router R9",
+  "student-lab: hosts 64.204.96.0/22 attached to router R14",
+  "partners: hosts 248.122.128.0/17, 68.162.68.0/22, 107.240.248.0/21 attached to router R11",
+  "guest-wifi: hosts 168.247.38.0/23, 245.207.41.96/27 attached to router R17",
+  "edge-cache: hosts 150.203.249.0/24 attached to router R10",
+  "mail: hosts 77.108.81.128/25 attached to router R12",
+  "admin: hosts 119.61.222.0/24, 98.178.122.0/23 attached to router R28",
+  "backup: hosts 117.92.170.96/27, 255.93.151.0/24, 127.33.154.0/25 attached to router R23",
+  "monitoring: hosts 78.248.171.0/27 attached to router R30"
+ ],
+ "intents": [
+  {
+   "type": "allow",
+   "src": "printers",
+   "dst": "backup",
+   "svcs": [
+    "http"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "engineering",
+   "dst": "partners",
+   "svcs": [
+    "rdp",
+    "dns"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "monitoring",
+   "dst": "partners",
+   "svcs": [
+    "rdp",
+    "ntp",
+    "imap"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "partners",
+   "allowed": [
+    [
+     "mail",
+     "dns"
+    ],
+    [
+     "edge-cache",
+     "ntp"
+    ]
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "student-lab",
+   "svcs": [
+    "ntp",
+    "http"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "backup",
+   "dst": "engineering",
+   "svcs": [
+    "mysql",
+    "ssh"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "admin",
+   "dst": "guest-wifi",
+   "svcs": [
+    "http"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "admin",
+   "svcs": [
+    "ntp",
+    "dns"
+   ]
+  }
+ ],
+ "nl": [
+  "Allow printers to connect to backup using HTTP (TCP 80).",
+  "Allow engineering to connect to partners using RDP (TCP 3389) and DNS over UDP 53.",
+  "Allow monitoring to connect to partners using RDP (TCP 3389) and NTP (UDP 123) and IMAP (TCP 143).",
+  "Apart from mail on DNS over UDP 53; edge-cache on NTP (UDP 123), all traffic originating in partners must be dropped.",
+  "Make NTP (UDP 123) and HTTP (TCP 80) on student-lab reachable from all internal zones.",
+  "Hosts in backup may reach engineering over MySQL (TCP 3306) and SSH (TCP 22).",
+  "guest-wifi must accept HTTP (TCP 80) from admin.",
+  "admin offers NTP (UDP 123) and DNS over UDP 53 to every zone."
+ ],
+ "gt": [
+  {
+   "src": "printers",
+   "dst": "backup",
+   "proto": "tcp",
+   "dlo": 80,
+   "dhi": 80,
+   "action": "permit"
+  },
+  {
+   "src": "engineering",
+   "dst": "partners",
+   "proto": "tcp",
+   "dlo": 3389,
+   "dhi": 3389,
+   "action": "permit"
+  },
+  {
+   "src": "engineering",
+   "dst": "partners",
+   "proto": "udp",
+   "dlo": 53,
+   "dhi": 53,
+   "action": "permit"
+  },
+  {
+   "src": "monitoring",
+   "dst": "partners",
+   "proto": "tcp",
+   "dlo": 3389,
+   "dhi": 3389,
+   "action": "permit"
+  },
+  {
+   "src": "monitoring",
+   "dst": "partners",
+   "proto": "udp",
+   "dlo": 123,
+   "dhi": 123,
+   "action": "permit"
+  },
+  {
+   "src": "monitoring",
+   "dst": "partners",
+   "proto": "tcp",
+   "dlo": 143,
+   "dhi": 143,
+   "action": "permit"
+  },
+  {
+   "src": "backup",
+   "dst": "engineering",
+   "proto": "tcp",
+   "dlo": 3306,
+   "dhi": 3306,
+   "action": "permit"
+  },
+  {
+   "src": "backup",
+   "dst": "engineering",
+   "proto": "tcp",
+   "dlo": 22,
+   "dhi": 22,
+   "action": "permit"
+  },
+  {
+   "src": "admin",
+   "dst": "guest-wifi",
+   "proto": "tcp",
+   "dlo": 80,
+   "dhi": 80,
+   "action": "permit"
+  },
+  {
+   "src": "partners",
+   "dst": "mail",
+   "proto": "udp",
+   "dlo": 53,
+   "dhi": 53,
+   "action": "permit"
+  },
+  {
+   "src": "partners",
+   "dst": "edge-cache",
+   "proto": "udp",
+   "dlo": 123,
+   "dhi": 123,
+   "action": "permit"
+  },
+  {
+   "src": "partners",
+   "dst": "*",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "*",
+   "dst": "student-lab",
+   "proto": "udp",
+   "dlo": 123,
+   "dhi": 123,
+   "action": "permit"
+  },
+  {
+   "src": "*",
+   "dst": "student-lab",
+   "proto": "tcp",
+   "dlo": 80,
+   "dhi": 80,
+   "action": "permit"
+  },
+  {
+   "src": "*",
+   "dst": "admin",
+   "proto": "udp",
+   "dlo": 123,
+   "dhi": 123,
+   "action": "permit"
+  },
+  {
+   "src": "*",
+   "dst": "admin",
+   "proto": "udp",
+   "dlo": 53,
+   "dhi": 53,
+   "action": "permit"
+  }
+ ]
+}

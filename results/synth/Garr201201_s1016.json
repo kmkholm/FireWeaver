@@ -1,0 +1,581 @@
+{
+ "id": "Garr201201_s1016",
+ "n_intents": 30,
+ "n_gt_rules": 56,
+ "n_zones": 10,
+ "rules": {
+  "eq": false,
+  "mismatch": 0.03625,
+  "n_rules": 0,
+  "fail": 1,
+  "s": 423.8945095539093,
+  "calls": 3,
+  "prompt": 6210,
+  "completion": 12000
+ },
+ "ir0": {
+  "eq": false,
+  "mismatch": 0.001,
+  "n_rules": 55,
+  "fail": 0,
+  "s": 69.70280289649963,
+  "calls": 31,
+  "prompt": 19913,
+  "completion": 1000,
+  "intent_acc": 0.9333333333333333
+ },
+ "ir": {
+  "eq": true,
+  "mismatch": 0.0,
+  "n_rules": 56,
+  "fail": 0,
+  "s": 129.706768989563,
+  "calls": 30,
+  "prompt": 32744,
+  "completion": 783,
+  "intent_acc": 1.0
+ },
+ "fw": {
+  "eq": true,
+  "mismatch": 0.0,
+  "n_rules": 56,
+  "fail": 0,
+  "s": 222.6286096572876,
+  "verify_s": 92.92184138298035,
+  "calls": 60,
+  "verify_calls": 30,
+  "flagged": 0,
+  "accepted": 0,
+  "repairs": [],
+  "intent_acc": 1.0
+ },
+ "ir_out": [
+  {
+   "type": "allow",
+   "src": "edge-cache",
+   "dst": "vpn-users",
+   "svcs": [
+    "smtp"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "vpn-users",
+   "allowed": [
+    [
+     "scada",
+     "syslog"
+    ]
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "guest-wifi",
+   "svcs": [
+    "http"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "voip",
+   "dst": "scada",
+   "svcs": [
+    "ldap",
+    "mysql"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "edge-cache",
+   "dst": "library",
+   "svcs": [
+    "ldap",
+    "smb"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "dev-lab",
+   "allowed": [
+    [
+     "voip",
+     "dns"
+    ],
+    [
+     "research",
+     "dns"
+    ]
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "vpn-users",
+   "dst": "guest-wifi",
+   "svcs": [
+    "rdp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "voip",
+   "dst": "vpn-users",
+   "svcs": [
+    "imap",
+    "snmp"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "edge-cache",
+   "allowed": [
+    [
+     "library",
+     "https"
+    ],
+    [
+     "vpn-users",
+     "https"
+    ]
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "edge-cache",
+   "dst": "vpn-users",
+   "svcs": [
+    "ssh",
+    "ldap"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "vpn-users",
+   "svcs": [
+    "ntp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "backup",
+   "dst": "edge-cache",
+   "svcs": [
+    "ldap"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "edge-cache",
+   "dst": "voip",
+   "broad": "high-tcp",
+   "ex": [
+    "rdp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "research",
+   "dst": "dev-lab",
+   "svcs": [
+    "dns"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "backup",
+   "dst": "dev-lab",
+   "svcs": [
+    "syslog"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "library",
+   "dst": "dev-lab",
+   "svcs": [
+    "https",
+    "ssh",
+    "syslog"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "vpn-users",
+   "svcs": [
+    "dns"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "guest-wifi",
+   "dst": "scada",
+   "broad": "any-udp",
+   "ex": [
+    "tftp"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "dev-lab",
+   "svcs": [
+    "dns",
+    "https"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "scada",
+   "dst": "voip",
+   "svcs": [
+    "dns",
+    "https",
+    "smtp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "scada",
+   "dst": "backup",
+   "svcs": [
+    "ssh"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "edge-cache",
+   "dst": "research"
+  },
+  {
+   "type": "allow",
+   "src": "vpn-users",
+   "dst": "voip",
+   "svcs": [
+    "ssh",
+    "https",
+    "imap"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "edge-cache",
+   "svcs": [
+    "ntp"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "edge-cache",
+   "dst": "dev-lab"
+  },
+  {
+   "type": "public",
+   "dst": "library",
+   "svcs": [
+    "ntp",
+    "https"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "guest-wifi",
+   "dst": "dev-lab",
+   "svcs": [
+    "ldap",
+    "https"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "vpn-users",
+   "dst": "edge-cache",
+   "svcs": [
+    "ssh",
+    "https",
+    "mysql"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "vpn-users",
+   "svcs": [
+    "https",
+    "dns"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "research",
+   "dst": "dev-lab",
+   "broad": "any-tcp",
+   "ex": [
+    "rdp",
+    "telnet",
+    "ftp"
+   ]
+  }
+ ],
+ "fw_out": [
+  {
+   "type": "allow",
+   "src": "edge-cache",
+   "dst": "vpn-users",
+   "svcs": [
+    "smtp"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "vpn-users",
+   "allowed": [
+    [
+     "scada",
+     "syslog"
+    ]
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "guest-wifi",
+   "svcs": [
+    "http"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "voip",
+   "dst": "scada",
+   "svcs": [
+    "ldap",
+    "mysql"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "edge-cache",
+   "dst": "library",
+   "svcs": [
+    "ldap",
+    "smb"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "dev-lab",
+   "allowed": [
+    [
+     "voip",
+     "dns"
+    ],
+    [
+     "research",
+     "dns"
+    ]
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "vpn-users",
+   "dst": "guest-wifi",
+   "svcs": [
+    "rdp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "voip",
+   "dst": "vpn-users",
+   "svcs": [
+    "imap",
+    "snmp"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "edge-cache",
+   "allowed": [
+    [
+     "library",
+     "https"
+    ],
+    [
+     "vpn-users",
+     "https"
+    ]
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "edge-cache",
+   "dst": "vpn-users",
+   "svcs": [
+    "ssh",
+    "ldap"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "vpn-users",
+   "svcs": [
+    "ntp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "backup",
+   "dst": "edge-cache",
+   "svcs": [
+    "ldap"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "edge-cache",
+   "dst": "voip",
+   "broad": "high-tcp",
+   "ex": [
+    "rdp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "research",
+   "dst": "dev-lab",
+   "svcs": [
+    "dns"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "backup",
+   "dst": "dev-lab",
+   "svcs": [
+    "syslog"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "library",
+   "dst": "dev-lab",
+   "svcs": [
+    "https",
+    "ssh",
+    "syslog"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "vpn-users",
+   "svcs": [
+    "dns"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "guest-wifi",
+   "dst": "scada",
+   "broad": "any-udp",
+   "ex": [
+    "tftp"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "dev-lab",
+   "svcs": [
+    "dns",
+    "https"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "scada",
+   "dst": "voip",
+   "svcs": [
+    "dns",
+    "https",
+    "smtp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "scada",
+   "dst": "backup",
+   "svcs": [
+    "ssh"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "edge-cache",
+   "dst": "research"
+  },
+  {
+   "type": "allow",
+   "src": "vpn-users",
+   "dst": "voip",
+   "svcs": [
+    "ssh",
+    "https",
+    "imap"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "edge-cache",
+   "svcs": [
+    "ntp"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "edge-cache",
+   "dst": "dev-lab"
+  },
+  {
+   "type": "public",
+   "dst": "library",
+   "svcs": [
+    "ntp",
+    "https"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "guest-wifi",
+   "dst": "dev-lab",
+   "svcs": [
+    "ldap",
+    "https"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "vpn-users",
+   "dst": "edge-cache",
+   "svcs": [
+    "ssh",
+    "https",
+    "mysql"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "vpn-users",
+   "svcs": [
+    "https",
+    "dns"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "research",
+   "dst": "dev-lab",
+   "broad": "any-tcp",
+   "ex": [
+    "rdp",
+    "telnet",
+    "ftp"
+   ]
+  }
+ ],
+ "wall_s": 716.8043386936188
+}

@@ -1,0 +1,189 @@
+{
+ "id": "Garr200212_s1044",
+ "n_intents": 8,
+ "n_gt_rules": 18,
+ "n_zones": 6,
+ "rules": {
+  "eq": false,
+  "mismatch": 0.02225,
+  "n_rules": 24,
+  "fail": 0,
+  "s": 169.23244404792786,
+  "calls": 2,
+  "prompt": 2209,
+  "completion": 4773
+ },
+ "ir0": {
+  "eq": false,
+  "mismatch": 0.0025,
+  "n_rules": 15,
+  "fail": 0,
+  "s": 23.363611459732056,
+  "calls": 8,
+  "prompt": 5017,
+  "completion": 367,
+  "intent_acc": 0.875
+ },
+ "ir": {
+  "eq": true,
+  "mismatch": 0.0,
+  "n_rules": 18,
+  "fail": 0,
+  "s": 18.343562126159668,
+  "calls": 8,
+  "prompt": 8625,
+  "completion": 209,
+  "intent_acc": 1.0
+ },
+ "fw": {
+  "eq": true,
+  "mismatch": 0.0,
+  "n_rules": 18,
+  "fail": 0,
+  "s": 46.56569170951843,
+  "verify_s": 28.222130298614502,
+  "calls": 16,
+  "verify_calls": 8,
+  "flagged": 0,
+  "accepted": 0,
+  "repairs": [],
+  "intent_acc": 1.0
+ },
+ "ir_out": [
+  {
+   "type": "public",
+   "dst": "finance",
+   "svcs": [
+    "ntp",
+    "http"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "guest-wifi",
+   "dst": "backup"
+  },
+  {
+   "type": "allow_except",
+   "src": "mail",
+   "dst": "backup",
+   "broad": "high-tcp",
+   "ex": [
+    "postgres",
+    "mysql",
+    "rdp"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "backup",
+   "dst": "guest-wifi"
+  },
+  {
+   "type": "public",
+   "dst": "mail",
+   "svcs": [
+    "ntp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "hr",
+   "dst": "dns-servers",
+   "svcs": [
+    "ldap",
+    "rdp",
+    "rtsp"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "backup",
+   "dst": "mail",
+   "broad": "high-tcp",
+   "ex": [
+    "mysql",
+    "rdp",
+    "postgres"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "guest-wifi",
+   "dst": "mail",
+   "svcs": [
+    "mysql",
+    "snmp"
+   ]
+  }
+ ],
+ "fw_out": [
+  {
+   "type": "public",
+   "dst": "finance",
+   "svcs": [
+    "ntp",
+    "http"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "guest-wifi",
+   "dst": "backup"
+  },
+  {
+   "type": "allow_except",
+   "src": "mail",
+   "dst": "backup",
+   "broad": "high-tcp",
+   "ex": [
+    "postgres",
+    "mysql",
+    "rdp"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "backup",
+   "dst": "guest-wifi"
+  },
+  {
+   "type": "public",
+   "dst": "mail",
+   "svcs": [
+    "ntp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "hr",
+   "dst": "dns-servers",
+   "svcs": [
+    "ldap",
+    "rdp",
+    "rtsp"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "backup",
+   "dst": "mail",
+   "broad": "high-tcp",
+   "ex": [
+    "mysql",
+    "rdp",
+    "postgres"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "guest-wifi",
+   "dst": "mail",
+   "svcs": [
+    "mysql",
+    "snmp"
+   ]
+  }
+ ],
+ "wall_s": 239.34972882270813
+}

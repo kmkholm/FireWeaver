@@ -1,0 +1,510 @@
+{
+ "id": "RoedunetFibre_s1000",
+ "topology": "RoedunetFibre",
+ "n_nodes": 48,
+ "edges": [
+  [
+   0,
+   1
+  ],
+  [
+   0,
+   4
+  ],
+  [
+   1,
+   43
+  ],
+  [
+   2,
+   3
+  ],
+  [
+   2,
+   4
+  ],
+  [
+   2,
+   43
+  ],
+  [
+   2,
+   44
+  ],
+  [
+   2,
+   28
+  ],
+  [
+   2,
+   29
+  ],
+  [
+   4,
+   5
+  ],
+  [
+   5,
+   6
+  ],
+  [
+   5,
+   7
+  ],
+  [
+   6,
+   8
+  ],
+  [
+   7,
+   10
+  ],
+  [
+   7,
+   30
+  ],
+  [
+   9,
+   12
+  ],
+  [
+   10,
+   12
+  ],
+  [
+   11,
+   12
+  ],
+  [
+   12,
+   16
+  ],
+  [
+   12,
+   13
+  ],
+  [
+   14,
+   16
+  ],
+  [
+   15,
+   16
+  ],
+  [
+   16,
+   34
+  ],
+  [
+   16,
+   46
+  ],
+  [
+   16,
+   47
+  ],
+  [
+   17,
+   46
+  ],
+  [
+   18,
+   46
+  ],
+  [
+   19,
+   46
+  ],
+  [
+   20,
+   46
+  ],
+  [
+   20,
+   22
+  ],
+  [
+   21,
+   22
+  ],
+  [
+   22,
+   23
+  ],
+  [
+   23,
+   24
+  ],
+  [
+   24,
+   41
+  ],
+  [
+   24,
+   27
+  ],
+  [
+   25,
+   42
+  ],
+  [
+   26,
+   42
+  ],
+  [
+   26,
+   43
+  ],
+  [
+   30,
+   44
+  ],
+  [
+   31,
+   34
+  ],
+  [
+   31,
+   45
+  ],
+  [
+   31,
+   39
+  ],
+  [
+   32,
+   40
+  ],
+  [
+   32,
+   33
+  ],
+  [
+   33,
+   34
+  ],
+  [
+   34,
+   35
+  ],
+  [
+   35,
+   36
+  ],
+  [
+   36,
+   37
+  ],
+  [
+   37,
+   42
+  ],
+  [
+   38,
+   39
+  ],
+  [
+   40,
+   44
+  ],
+  [
+   44,
+   45
+  ]
+ ],
+ "zones": {
+  "backup": {
+   "router": 41,
+   "prefixes": [
+    "224.195.103.0/24",
+    "186.17.253.0/24",
+    "87.192.30.32/27"
+   ]
+  },
+  "ntp-servers": {
+   "router": 38,
+   "prefixes": [
+    "134.97.168.0/22"
+   ]
+  },
+  "dmz-web": {
+   "router": 21,
+   "prefixes": [
+    "141.180.20.192/27",
+    "202.159.71.0/24",
+    "105.160.0.0/16"
+   ]
+  },
+  "nvr": {
+   "router": 3,
+   "prefixes": [
+    "240.7.4.0/22"
+   ]
+  },
+  "admin": {
+   "router": 11,
+   "prefixes": [
+    "224.100.34.128/25",
+    "21.182.130.0/23"
+   ]
+  },
+  "dev-lab": {
+   "router": 15,
+   "prefixes": [
+    "142.45.81.0/24",
+    "130.107.0.0/16",
+    "208.40.46.208/28"
+   ]
+  }
+ },
+ "zone_text": [
+  "backup: hosts 224.195.103.0/24, 186.17.253.0/24, 87.192.30.32/27 attached to router R41",
+  "ntp-servers: hosts 134.97.168.0/22 attached to router R38",
+  "dmz-web: hosts 141.180.20.192/27, 202.159.71.0/24, 105.160.0.0/16 attached to router R21",
+  "nvr: hosts 240.7.4.0/22 attached to router R3",
+  "admin: hosts 224.100.34.128/25, 21.182.130.0/23 attached to router R11",
+  "dev-lab: hosts 142.45.81.0/24, 130.107.0.0/16, 208.40.46.208/28 attached to router R15"
+ ],
+ "intents": [
+  {
+   "type": "allow",
+   "src": "backup",
+   "dst": "nvr",
+   "svcs": [
+    "postgres",
+    "http"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "nvr",
+   "dst": "backup",
+   "svcs": [
+    "rdp",
+    "snmp",
+    "smb"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "ntp-servers",
+   "dst": "dmz-web",
+   "broad": "high-tcp",
+   "ex": [
+    "postgres",
+    "mysql",
+    "rdp"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "ntp-servers",
+   "allowed": [
+    [
+     "dmz-web",
+     "https"
+    ],
+    [
+     "dev-lab",
+     "https"
+    ]
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "dmz-web",
+   "dst": "backup",
+   "svcs": [
+    "syslog",
+    "rdp"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "nvr",
+   "dst": "dmz-web"
+  },
+  {
+   "type": "allow",
+   "src": "backup",
+   "dst": "nvr",
+   "svcs": [
+    "smb",
+    "http",
+    "mysql"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "backup",
+   "dst": "dmz-web",
+   "svcs": [
+    "snmp"
+   ]
+  }
+ ],
+ "nl": [
+  "nvr must accept PostgreSQL (TCP 5432) and HTTP (TCP 80) from backup.",
+  "Allow nvr to connect to backup using RDP (TCP 3389) and SNMP (UDP 161) and SMB (TCP 445).",
+  "Block PostgreSQL (TCP 5432), MySQL (TCP 3306), RDP (TCP 3389) from ntp-servers to dmz-web; the rest of TCP ports 1024-65535 between them is allowed.",
+  "ntp-servers is isolated: it may only reach dmz-web on HTTPS (TCP 443); dev-lab on HTTPS (TCP 443), and nothing else.",
+  "Hosts in dmz-web may reach backup over syslog (UDP 514) and RDP (TCP 3389).",
+  "Deny all traffic from nvr to dmz-web (this overrides any public service).",
+  "Hosts in backup may reach nvr over SMB (TCP 445) and HTTP (TCP 80) and MySQL (TCP 3306).",
+  "Hosts in backup may reach dmz-web over SNMP (UDP 161)."
+ ],
+ "gt": [
+  {
+   "src": "nvr",
+   "dst": "dmz-web",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "ntp-servers",
+   "dst": "dmz-web",
+   "proto": "tcp",
+   "dlo": 5432,
+   "dhi": 5432,
+   "action": "deny"
+  },
+  {
+   "src": "ntp-servers",
+   "dst": "dmz-web",
+   "proto": "tcp",
+   "dlo": 3306,
+   "dhi": 3306,
+   "action": "deny"
+  },
+  {
+   "src": "ntp-servers",
+   "dst": "dmz-web",
+   "proto": "tcp",
+   "dlo": 3389,
+   "dhi": 3389,
+   "action": "deny"
+  },
+  {
+   "src": "backup",
+   "dst": "nvr",
+   "proto": "tcp",
+   "dlo": 5432,
+   "dhi": 5432,
+   "action": "permit"
+  },
+  {
+   "src": "backup",
+   "dst": "nvr",
+   "proto": "tcp",
+   "dlo": 80,
+   "dhi": 80,
+   "action": "permit"
+  },
+  {
+   "src": "nvr",
+   "dst": "backup",
+   "proto": "tcp",
+   "dlo": 3389,
+   "dhi": 3389,
+   "action": "permit"
+  },
+  {
+   "src": "nvr",
+   "dst": "backup",
+   "proto": "udp",
+   "dlo": 161,
+   "dhi": 161,
+   "action": "permit"
+  },
+  {
+   "src": "nvr",
+   "dst": "backup",
+   "proto": "tcp",
+   "dlo": 445,
+   "dhi": 445,
+   "action": "permit"
+  },
+  {
+   "src": "ntp-servers",
+   "dst": "dmz-web",
+   "proto": "tcp",
+   "dlo": 1024,
+   "dhi": 65535,
+   "action": "permit"
+  },
+  {
+   "src": "dmz-web",
+   "dst": "backup",
+   "proto": "udp",
+   "dlo": 514,
+   "dhi": 514,
+   "action": "permit"
+  },
+  {
+   "src": "dmz-web",
+   "dst": "backup",
+   "proto": "tcp",
+   "dlo": 3389,
+   "dhi": 3389,
+   "action": "permit"
+  },
+  {
+   "src": "backup",
+   "dst": "nvr",
+   "proto": "tcp",
+   "dlo": 445,
+   "dhi": 445,
+   "action": "permit"
+  },
+  {
+   "src": "backup",
+   "dst": "nvr",
+   "proto": "tcp",
+   "dlo": 80,
+   "dhi": 80,
+   "action": "permit"
+  },
+  {
+   "src": "backup",
+   "dst": "nvr",
+   "proto": "tcp",
+   "dlo": 3306,
+   "dhi": 3306,
+   "action": "permit"
+  },
+  {
+   "src": "backup",
+   "dst": "dmz-web",
+   "proto": "udp",
+   "dlo": 161,
+   "dhi": 161,
+   "action": "permit"
+  },
+  {
+   "src": "ntp-servers",
+   "dst": "dmz-web",
+   "proto": "tcp",
+   "dlo": 443,
+   "dhi": 443,
+   "action": "permit"
+  },
+  {
+   "src": "ntp-servers",
+   "dst": "dev-lab",
+   "proto": "tcp",
+   "dlo": 443,
+   "dhi": 443,
+   "action": "permit"
+  },
+  {
+   "src": "ntp-servers",
+   "dst": "*",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  }
+ ]
+}

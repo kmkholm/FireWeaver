@@ -1,0 +1,609 @@
+{
+ "id": "Sinet_s1021",
+ "n_intents": 30,
+ "n_gt_rules": 63,
+ "n_zones": 16,
+ "rules": {
+  "eq": false,
+  "mismatch": 0.0125,
+  "n_rules": 52,
+  "fail": 0,
+  "s": 58.378527879714966,
+  "calls": 1,
+  "prompt": 1381,
+  "completion": 1633
+ },
+ "ir0": {
+  "eq": false,
+  "mismatch": 0.003,
+  "n_rules": 59,
+  "fail": 0,
+  "s": 73.84847164154053,
+  "calls": 31,
+  "prompt": 20501,
+  "completion": 1021,
+  "intent_acc": 0.9
+ },
+ "ir": {
+  "eq": true,
+  "mismatch": 0.0,
+  "n_rules": 63,
+  "fail": 0,
+  "s": 67.1860682964325,
+  "calls": 31,
+  "prompt": 34487,
+  "completion": 804,
+  "intent_acc": 1.0
+ },
+ "fw": {
+  "eq": true,
+  "mismatch": 0.0,
+  "n_rules": 63,
+  "fail": 0,
+  "s": 397.3935558795929,
+  "verify_s": 330.207487821579,
+  "calls": 63,
+  "verify_calls": 32,
+  "flagged": 0,
+  "accepted": 0,
+  "repairs": [],
+  "intent_acc": 1.0
+ },
+ "ir_out": [
+  {
+   "type": "block",
+   "src": "cameras",
+   "dst": "mail"
+  },
+  {
+   "type": "allow",
+   "src": "cameras",
+   "dst": "dmz-web",
+   "svcs": [
+    "ldap"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "mail",
+   "dst": "monitoring",
+   "svcs": [
+    "mysql",
+    "rtsp"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "cameras",
+   "svcs": [
+    "ntp",
+    "http"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "vpn-users",
+   "allowed": [
+    [
+     "hr",
+     "ntp"
+    ],
+    [
+     "scada",
+     "ntp"
+    ]
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "database",
+   "dst": "guest-wifi",
+   "svcs": [
+    "https",
+    "mysql"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "dmz-web",
+   "dst": "guest-wifi",
+   "broad": "any-tcp",
+   "ex": [
+    "rdp"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "ntp-servers",
+   "dst": "research"
+  },
+  {
+   "type": "allow",
+   "src": "finance",
+   "dst": "ops",
+   "svcs": [
+    "ldap"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "dmz-web",
+   "dst": "ntp-servers",
+   "svcs": [
+    "syslog",
+    "dns",
+    "ldap"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "cameras",
+   "allowed": [
+    [
+     "admin",
+     "ntp"
+    ],
+    [
+     "finance",
+     "dns"
+    ]
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "finance",
+   "dst": "monitoring",
+   "svcs": [
+    "smtp"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "database",
+   "dst": "dmz-web",
+   "broad": "any-tcp",
+   "ex": [
+    "telnet",
+    "smb",
+    "rdp"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "voip",
+   "allowed": [
+    [
+     "cameras",
+     "dns"
+    ]
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "monitoring",
+   "dst": "admin",
+   "svcs": [
+    "mysql",
+    "ssh",
+    "ldap"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "dmz-web",
+   "dst": "admin",
+   "svcs": [
+    "postgres",
+    "dns",
+    "mysql"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "printers",
+   "dst": "guest-wifi",
+   "svcs": [
+    "ntp",
+    "dns"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "guest-wifi",
+   "dst": "vpn-users",
+   "svcs": [
+    "smb",
+    "dns"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "research",
+   "dst": "admin",
+   "svcs": [
+    "dns",
+    "ntp",
+    "postgres"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "finance",
+   "dst": "research",
+   "svcs": [
+    "dns",
+    "mysql",
+    "postgres"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "ops",
+   "allowed": [
+    [
+     "finance",
+     "https"
+    ]
+   ]
+  },
+  {
+   "type": "block",
+   "src": "admin",
+   "dst": "database"
+  },
+  {
+   "type": "isolate",
+   "src": "monitoring",
+   "allowed": [
+    [
+     "admin",
+     "https"
+    ],
+    [
+     "mail",
+     "ntp"
+    ]
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "mail",
+   "svcs": [
+    "ntp"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "admin",
+   "dst": "mail"
+  },
+  {
+   "type": "allow",
+   "src": "admin",
+   "dst": "ops",
+   "svcs": [
+    "imap",
+    "smtp",
+    "ssh"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "database",
+   "dst": "ntp-servers",
+   "svcs": [
+    "ntp",
+    "smtp",
+    "imap"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "mail",
+   "svcs": [
+    "https"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "cameras",
+   "dst": "ops",
+   "svcs": [
+    "smb"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "ntp-servers",
+   "allowed": [
+    [
+     "research",
+     "dns"
+    ],
+    [
+     "database",
+     "dns"
+    ]
+   ]
+  }
+ ],
+ "fw_out": [
+  {
+   "type": "block",
+   "src": "cameras",
+   "dst": "mail"
+  },
+  {
+   "type": "allow",
+   "src": "cameras",
+   "dst": "dmz-web",
+   "svcs": [
+    "ldap"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "mail",
+   "dst": "monitoring",
+   "svcs": [
+    "mysql",
+    "rtsp"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "cameras",
+   "svcs": [
+    "ntp",
+    "http"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "vpn-users",
+   "allowed": [
+    [
+     "hr",
+     "ntp"
+    ],
+    [
+     "scada",
+     "ntp"
+    ]
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "database",
+   "dst": "guest-wifi",
+   "svcs": [
+    "https",
+    "mysql"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "dmz-web",
+   "dst": "guest-wifi",
+   "broad": "any-tcp",
+   "ex": [
+    "rdp"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "ntp-servers",
+   "dst": "research"
+  },
+  {
+   "type": "allow",
+   "src": "finance",
+   "dst": "ops",
+   "svcs": [
+    "ldap"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "dmz-web",
+   "dst": "ntp-servers",
+   "svcs": [
+    "syslog",
+    "dns",
+    "ldap"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "cameras",
+   "allowed": [
+    [
+     "admin",
+     "ntp"
+    ],
+    [
+     "finance",
+     "dns"
+    ]
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "finance",
+   "dst": "monitoring",
+   "svcs": [
+    "smtp"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "database",
+   "dst": "dmz-web",
+   "broad": "any-tcp",
+   "ex": [
+    "telnet",
+    "smb",
+    "rdp"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "voip",
+   "allowed": [
+    [
+     "cameras",
+     "dns"
+    ]
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "monitoring",
+   "dst": "admin",
+   "svcs": [
+    "mysql",
+    "ssh",
+    "ldap"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "dmz-web",
+   "dst": "admin",
+   "svcs": [
+    "postgres",
+    "dns",
+    "mysql"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "printers",
+   "dst": "guest-wifi",
+   "svcs": [
+    "ntp",
+    "dns"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "guest-wifi",
+   "dst": "vpn-users",
+   "svcs": [
+    "smb",
+    "dns"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "research",
+   "dst": "admin",
+   "svcs": [
+    "dns",
+    "ntp",
+    "postgres"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "finance",
+   "dst": "research",
+   "svcs": [
+    "dns",
+    "mysql",
+    "postgres"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "ops",
+   "allowed": [
+    [
+     "finance",
+     "https"
+    ]
+   ]
+  },
+  {
+   "type": "block",
+   "src": "admin",
+   "dst": "database"
+  },
+  {
+   "type": "isolate",
+   "src": "monitoring",
+   "allowed": [
+    [
+     "admin",
+     "https"
+    ],
+    [
+     "mail",
+     "ntp"
+    ]
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "mail",
+   "svcs": [
+    "ntp"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "admin",
+   "dst": "mail"
+  },
+  {
+   "type": "allow",
+   "src": "admin",
+   "dst": "ops",
+   "svcs": [
+    "imap",
+    "smtp",
+    "ssh"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "database",
+   "dst": "ntp-servers",
+   "svcs": [
+    "ntp",
+    "smtp",
+    "imap"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "mail",
+   "svcs": [
+    "https"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "cameras",
+   "dst": "ops",
+   "svcs": [
+    "smb"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "ntp-servers",
+   "allowed": [
+    [
+     "research",
+     "dns"
+    ],
+    [
+     "database",
+     "dns"
+    ]
+   ]
+  }
+ ],
+ "wall_s": 530.2449960708618
+}

@@ -1,0 +1,387 @@
+{
+ "id": "Belnet2004_s1006",
+ "topology": "Belnet2004",
+ "n_nodes": 23,
+ "edges": [
+  [
+   0,
+   16
+  ],
+  [
+   0,
+   14
+  ],
+  [
+   1,
+   16
+  ],
+  [
+   1,
+   14
+  ],
+  [
+   2,
+   16
+  ],
+  [
+   2,
+   14
+  ],
+  [
+   3,
+   16
+  ],
+  [
+   3,
+   14
+  ],
+  [
+   4,
+   16
+  ],
+  [
+   4,
+   14
+  ],
+  [
+   5,
+   16
+  ],
+  [
+   5,
+   14
+  ],
+  [
+   6,
+   16
+  ],
+  [
+   6,
+   14
+  ],
+  [
+   7,
+   16
+  ],
+  [
+   7,
+   14
+  ],
+  [
+   8,
+   16
+  ],
+  [
+   8,
+   14
+  ],
+  [
+   9,
+   16
+  ],
+  [
+   9,
+   14
+  ],
+  [
+   9,
+   21
+  ],
+  [
+   9,
+   22
+  ],
+  [
+   9,
+   15
+  ],
+  [
+   10,
+   16
+  ],
+  [
+   10,
+   14
+  ],
+  [
+   11,
+   16
+  ],
+  [
+   11,
+   14
+  ],
+  [
+   12,
+   16
+  ],
+  [
+   12,
+   14
+  ],
+  [
+   13,
+   16
+  ],
+  [
+   13,
+   14
+  ],
+  [
+   14,
+   15
+  ],
+  [
+   14,
+   16
+  ],
+  [
+   15,
+   16
+  ],
+  [
+   15,
+   17
+  ],
+  [
+   15,
+   18
+  ],
+  [
+   15,
+   19
+  ],
+  [
+   15,
+   20
+  ],
+  [
+   15,
+   22
+  ]
+ ],
+ "zones": {
+  "printers": {
+   "router": 20,
+   "prefixes": [
+    "106.231.181.0/24"
+   ]
+  },
+  "voip": {
+   "router": 18,
+   "prefixes": [
+    "248.180.215.128/25",
+    "143.147.170.192/28",
+    "81.189.118.224/27"
+   ]
+  },
+  "monitoring": {
+   "router": 21,
+   "prefixes": [
+    "106.228.132.64/26",
+    "22.99.243.0/26"
+   ]
+  },
+  "iot-sensors": {
+   "router": 17,
+   "prefixes": [
+    "58.151.211.224/27"
+   ]
+  },
+  "edge-cache": {
+   "router": 19,
+   "prefixes": [
+    "177.220.72.0/24",
+    "173.253.168.160/27"
+   ]
+  },
+  "cameras": {
+   "router": 12,
+   "prefixes": [
+    "160.162.5.0/25"
+   ]
+  }
+ },
+ "zone_text": [
+  "printers: hosts 106.231.181.0/24 attached to router R20",
+  "voip: hosts 248.180.215.128/25, 143.147.170.192/28, 81.189.118.224/27 attached to router R18",
+  "monitoring: hosts 106.228.132.64/26, 22.99.243.0/26 attached to router R21",
+  "iot-sensors: hosts 58.151.211.224/27 attached to router R17",
+  "edge-cache: hosts 177.220.72.0/24, 173.253.168.160/27 attached to router R19",
+  "cameras: hosts 160.162.5.0/25 attached to router R12"
+ ],
+ "intents": [
+  {
+   "type": "allow",
+   "src": "iot-sensors",
+   "dst": "printers",
+   "svcs": [
+    "smtp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "printers",
+   "dst": "voip",
+   "svcs": [
+    "rdp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "voip",
+   "dst": "cameras",
+   "svcs": [
+    "mysql",
+    "postgres"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "voip",
+   "dst": "printers",
+   "svcs": [
+    "postgres",
+    "dns"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "edge-cache",
+   "dst": "cameras",
+   "svcs": [
+    "postgres",
+    "rtsp",
+    "https"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "printers",
+   "dst": "voip"
+  },
+  {
+   "type": "allow",
+   "src": "monitoring",
+   "dst": "edge-cache",
+   "svcs": [
+    "ldap"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "voip",
+   "svcs": [
+    "ntp"
+   ]
+  }
+ ],
+ "nl": [
+  "printers must accept SMTP (TCP 25) from iot-sensors.",
+  "Allow printers to connect to voip using RDP (TCP 3389).",
+  "Allow voip to connect to cameras using MySQL (TCP 3306) and PostgreSQL (TCP 5432).",
+  "Hosts in voip may reach printers over PostgreSQL (TCP 5432) and DNS over UDP 53.",
+  "Hosts in edge-cache may reach cameras over PostgreSQL (TCP 5432) and RTSP (TCP 554) and HTTPS (TCP 443).",
+  "printers must never reach voip, regardless of any other rule.",
+  "Hosts in monitoring may reach edge-cache over LDAP (TCP 389).",
+  "Any zone may connect to voip over NTP (UDP 123)."
+ ],
+ "gt": [
+  {
+   "src": "printers",
+   "dst": "voip",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "iot-sensors",
+   "dst": "printers",
+   "proto": "tcp",
+   "dlo": 25,
+   "dhi": 25,
+   "action": "permit"
+  },
+  {
+   "src": "printers",
+   "dst": "voip",
+   "proto": "tcp",
+   "dlo": 3389,
+   "dhi": 3389,
+   "action": "permit"
+  },
+  {
+   "src": "voip",
+   "dst": "cameras",
+   "proto": "tcp",
+   "dlo": 3306,
+   "dhi": 3306,
+   "action": "permit"
+  },
+  {
+   "src": "voip",
+   "dst": "cameras",
+   "proto": "tcp",
+   "dlo": 5432,
+   "dhi": 5432,
+   "action": "permit"
+  },
+  {
+   "src": "voip",
+   "dst": "printers",
+   "proto": "tcp",
+   "dlo": 5432,
+   "dhi": 5432,
+   "action": "permit"
+  },
+  {
+   "src": "voip",
+   "dst": "printers",
+   "proto": "udp",
+   "dlo": 53,
+   "dhi": 53,
+   "action": "permit"
+  },
+  {
+   "src": "edge-cache",
+   "dst": "cameras",
+   "proto": "tcp",
+   "dlo": 5432,
+   "dhi": 5432,
+   "action": "permit"
+  },
+  {
+   "src": "edge-cache",
+   "dst": "cameras",
+   "proto": "tcp",
+   "dlo": 554,
+   "dhi": 554,
+   "action": "permit"
+  },
+  {
+   "src": "edge-cache",
+   "dst": "cameras",
+   "proto": "tcp",
+   "dlo": 443,
+   "dhi": 443,
+   "action": "permit"
+  },
+  {
+   "src": "monitoring",
+   "dst": "edge-cache",
+   "proto": "tcp",
+   "dlo": 389,
+   "dhi": 389,
+   "action": "permit"
+  },
+  {
+   "src": "*",
+   "dst": "voip",
+   "proto": "udp",
+   "dlo": 123,
+   "dhi": 123,
+   "action": "permit"
+  }
+ ]
+}

@@ -1,0 +1,1003 @@
+{
+ "id": "Uninet_s1038",
+ "topology": "Uninet",
+ "n_nodes": 13,
+ "edges": [
+  [
+   0,
+   1
+  ],
+  [
+   0,
+   2
+  ],
+  [
+   1,
+   9
+  ],
+  [
+   1,
+   2
+  ],
+  [
+   2,
+   5
+  ],
+  [
+   2,
+   9
+  ],
+  [
+   3,
+   4
+  ],
+  [
+   3,
+   5
+  ],
+  [
+   4,
+   6
+  ],
+  [
+   5,
+   12
+  ],
+  [
+   5,
+   6
+  ],
+  [
+   6,
+   9
+  ],
+  [
+   7,
+   9
+  ],
+  [
+   7,
+   10
+  ],
+  [
+   8,
+   9
+  ],
+  [
+   8,
+   11
+  ],
+  [
+   9,
+   10
+  ],
+  [
+   10,
+   11
+  ]
+ ],
+ "zones": {
+  "printers": {
+   "router": 12,
+   "prefixes": [
+    "51.89.78.160/27",
+    "72.60.5.0/28"
+   ]
+  },
+  "admin": {
+   "router": 0,
+   "prefixes": [
+    "15.115.160.0/20"
+   ]
+  },
+  "vpn-users": {
+   "router": 3,
+   "prefixes": [
+    "14.99.39.0/24"
+   ]
+  },
+  "student-lab": {
+   "router": 11,
+   "prefixes": [
+    "156.122.224.0/24",
+    "46.155.179.128/25",
+    "206.165.126.128/25"
+   ]
+  },
+  "ntp-servers": {
+   "router": 4,
+   "prefixes": [
+    "234.139.149.0/25",
+    "77.148.148.0/23"
+   ]
+  },
+  "guest-wifi": {
+   "router": 8,
+   "prefixes": [
+    "158.150.234.0/23",
+    "47.166.0.0/20"
+   ]
+  },
+  "dns-servers": {
+   "router": 7,
+   "prefixes": [
+    "8.180.201.128/25"
+   ]
+  },
+  "database": {
+   "router": 1,
+   "prefixes": [
+    "117.92.200.0/23"
+   ]
+  },
+  "backup": {
+   "router": 10,
+   "prefixes": [
+    "61.240.38.0/23",
+    "209.119.80.0/20",
+    "34.35.171.128/25"
+   ]
+  },
+  "engineering": {
+   "router": 6,
+   "prefixes": [
+    "236.59.22.0/24"
+   ]
+  }
+ },
+ "zone_text": [
+  "printers: hosts 51.89.78.160/27, 72.60.5.0/28 attached to router R12",
+  "admin: hosts 15.115.160.0/20 attached to router R0",
+  "vpn-users: hosts 14.99.39.0/24 attached to router R3",
+  "student-lab: hosts 156.122.224.0/24, 46.155.179.128/25, 206.165.126.128/25 attached to router R11",
+  "ntp-servers: hosts 234.139.149.0/25, 77.148.148.0/23 attached to router R4",
+  "guest-wifi: hosts 158.150.234.0/23, 47.166.0.0/20 attached to router R8",
+  "dns-servers: hosts 8.180.201.128/25 attached to router R7",
+  "database: hosts 117.92.200.0/23 attached to router R1",
+  "backup: hosts 61.240.38.0/23, 209.119.80.0/20, 34.35.171.128/25 attached to router R10",
+  "engineering: hosts 236.59.22.0/24 attached to router R6"
+ ],
+ "intents": [
+  {
+   "type": "block",
+   "src": "dns-servers",
+   "dst": "engineering"
+  },
+  {
+   "type": "public",
+   "dst": "database",
+   "svcs": [
+    "dns"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "guest-wifi",
+   "allowed": [
+    [
+     "engineering",
+     "syslog"
+    ]
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "student-lab",
+   "dst": "ntp-servers",
+   "svcs": [
+    "ldap",
+    "smb"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "printers",
+   "dst": "guest-wifi",
+   "svcs": [
+    "postgres",
+    "mysql"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "backup",
+   "dst": "dns-servers",
+   "svcs": [
+    "dns",
+    "snmp",
+    "ssh"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "dns-servers",
+   "dst": "admin",
+   "broad": "any-udp",
+   "ex": [
+    "snmp",
+    "tftp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "backup",
+   "dst": "database",
+   "svcs": [
+    "ssh",
+    "dns",
+    "rtsp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "vpn-users",
+   "dst": "engineering",
+   "svcs": [
+    "ssh",
+    "imap"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "vpn-users",
+   "dst": "guest-wifi",
+   "svcs": [
+    "syslog",
+    "http"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "backup",
+   "allowed": [
+    [
+     "printers",
+     "https"
+    ],
+    [
+     "printers",
+     "https"
+    ]
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "vpn-users",
+   "dst": "backup",
+   "svcs": [
+    "smb",
+    "syslog",
+    "postgres"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "admin",
+   "allowed": [
+    [
+     "ntp-servers",
+     "syslog"
+    ]
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "admin",
+   "dst": "database",
+   "svcs": [
+    "postgres",
+    "ssh"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "printers",
+   "svcs": [
+    "dns"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "database",
+   "dst": "admin",
+   "svcs": [
+    "ldap",
+    "snmp"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "guest-wifi",
+   "svcs": [
+    "ntp",
+    "dns"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "engineering",
+   "dst": "vpn-users",
+   "broad": "any-tcp",
+   "ex": [
+    "rdp",
+    "ftp",
+    "smb"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "engineering",
+   "svcs": [
+    "https"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "guest-wifi",
+   "svcs": [
+    "ntp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "dns-servers",
+   "dst": "database",
+   "svcs": [
+    "rtsp",
+    "smtp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "ntp-servers",
+   "dst": "database",
+   "svcs": [
+    "postgres",
+    "rdp",
+    "ntp"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "dns-servers",
+   "dst": "printers",
+   "broad": "high-tcp",
+   "ex": [
+    "rdp",
+    "postgres",
+    "mysql"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "vpn-users",
+   "dst": "admin",
+   "svcs": [
+    "postgres",
+    "mysql"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "ntp-servers",
+   "dst": "vpn-users",
+   "svcs": [
+    "https",
+    "imap",
+    "rtsp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "guest-wifi",
+   "dst": "engineering",
+   "svcs": [
+    "mysql",
+    "postgres"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "backup",
+   "dst": "ntp-servers",
+   "svcs": [
+    "dns",
+    "http",
+    "ldap"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "dns-servers",
+   "dst": "ntp-servers"
+  },
+  {
+   "type": "allow",
+   "src": "student-lab",
+   "dst": "vpn-users",
+   "svcs": [
+    "rtsp",
+    "ldap",
+    "smb"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "ntp-servers",
+   "svcs": [
+    "dns",
+    "ntp"
+   ]
+  }
+ ],
+ "nl": [
+  "No packet from dns-servers may enter engineering, even for services open to everyone.",
+  "Any zone may connect to database over DNS over UDP 53.",
+  "guest-wifi is isolated: it may only reach engineering on syslog (UDP 514), and nothing else.",
+  "Hosts in student-lab may reach ntp-servers over LDAP (TCP 389) and SMB (TCP 445).",
+  "guest-wifi must accept PostgreSQL (TCP 5432) and MySQL (TCP 3306) from printers.",
+  "dns-servers must accept DNS over UDP 53 and SNMP (UDP 161) and SSH (TCP 22) from backup.",
+  "Permit any UDP port from dns-servers to admin but deny SNMP (UDP 161), TFTP (UDP 69).",
+  "database must accept SSH (TCP 22) and DNS over UDP 53 and RTSP (TCP 554) from backup.",
+  "Hosts in vpn-users may reach engineering over SSH (TCP 22) and IMAP (TCP 143).",
+  "Allow vpn-users to connect to guest-wifi using syslog (UDP 514) and HTTP (TCP 80).",
+  "backup is isolated: it may only reach printers on HTTPS (TCP 443); printers on HTTPS (TCP 443), and nothing else.",
+  "Hosts in vpn-users may reach backup over SMB (TCP 445) and syslog (UDP 514) and PostgreSQL (TCP 5432).",
+  "Restrict admin so that its only permitted destinations are ntp-servers on syslog (UDP 514); drop all other traffic it originates.",
+  "Allow admin to connect to database using PostgreSQL (TCP 5432) and SSH (TCP 22).",
+  "Make DNS over UDP 53 on printers reachable from all internal zones.",
+  "Hosts in database may reach admin over LDAP (TCP 389) and SNMP (UDP 161).",
+  "Make NTP (UDP 123) and DNS over UDP 53 on guest-wifi reachable from all internal zones.",
+  "engineering may use any TCP port towards vpn-users, except RDP (TCP 3389), FTP (TCP 21), SMB (TCP 445), which must be blocked.",
+  "Any zone may connect to engineering over HTTPS (TCP 443).",
+  "Any zone may connect to guest-wifi over NTP (UDP 123).",
+  "database must accept RTSP (TCP 554) and SMTP (TCP 25) from dns-servers.",
+  "Hosts in ntp-servers may reach database over PostgreSQL (TCP 5432) and RDP (TCP 3389) and NTP (UDP 123).",
+  "dns-servers may use TCP ports 1024-65535 towards printers, except RDP (TCP 3389), PostgreSQL (TCP 5432), MySQL (TCP 3306), which must be blocked.",
+  "Hosts in vpn-users may reach admin over PostgreSQL (TCP 5432) and MySQL (TCP 3306).",
+  "vpn-users must accept HTTPS (TCP 443) and IMAP (TCP 143) and RTSP (TCP 554) from ntp-servers.",
+  "Allow guest-wifi to connect to engineering using MySQL (TCP 3306) and PostgreSQL (TCP 5432).",
+  "ntp-servers must accept DNS over UDP 53 and HTTP (TCP 80) and LDAP (TCP 389) from backup.",
+  "No packet from dns-servers may enter ntp-servers, even for services open to everyone.",
+  "Allow student-lab to connect to vpn-users using RTSP (TCP 554) and LDAP (TCP 389) and SMB (TCP 445).",
+  "Make DNS over UDP 53 and NTP (UDP 123) on ntp-servers reachable from all internal zones."
+ ],
+ "gt": [
+  {
+   "src": "dns-servers",
+   "dst": "engineering",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "dns-servers",
+   "dst": "ntp-servers",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "dns-servers",
+   "dst": "admin",
+   "proto": "udp",
+   "dlo": 161,
+   "dhi": 161,
+   "action": "deny"
+  },
+  {
+   "src": "dns-servers",
+   "dst": "admin",
+   "proto": "udp",
+   "dlo": 69,
+   "dhi": 69,
+   "action": "deny"
+  },
+  {
+   "src": "engineering",
+   "dst": "vpn-users",
+   "proto": "tcp",
+   "dlo": 3389,
+   "dhi": 3389,
+   "action": "deny"
+  },
+  {
+   "src": "engineering",
+   "dst": "vpn-users",
+   "proto": "tcp",
+   "dlo": 21,
+   "dhi": 21,
+   "action": "deny"
+  },
+  {
+   "src": "engineering",
+   "dst": "vpn-users",
+   "proto": "tcp",
+   "dlo": 445,
+   "dhi": 445,
+   "action": "deny"
+  },
+  {
+   "src": "dns-servers",
+   "dst": "printers",
+   "proto": "tcp",
+   "dlo": 3389,
+   "dhi": 3389,
+   "action": "deny"
+  },
+  {
+   "src": "dns-servers",
+   "dst": "printers",
+   "proto": "tcp",
+   "dlo": 5432,
+   "dhi": 5432,
+   "action": "deny"
+  },
+  {
+   "src": "dns-servers",
+   "dst": "printers",
+   "proto": "tcp",
+   "dlo": 3306,
+   "dhi": 3306,
+   "action": "deny"
+  },
+  {
+   "src": "student-lab",
+   "dst": "ntp-servers",
+   "proto": "tcp",
+   "dlo": 389,
+   "dhi": 389,
+   "action": "permit"
+  },
+  {
+   "src": "student-lab",
+   "dst": "ntp-servers",
+   "proto": "tcp",
+   "dlo": 445,
+   "dhi": 445,
+   "action": "permit"
+  },
+  {
+   "src": "printers",
+   "dst": "guest-wifi",
+   "proto": "tcp",
+   "dlo": 5432,
+   "dhi": 5432,
+   "action": "permit"
+  },
+  {
+   "src": "printers",
+   "dst": "guest-wifi",
+   "proto": "tcp",
+   "dlo": 3306,
+   "dhi": 3306,
+   "action": "permit"
+  },
+  {
+   "src": "backup",
+   "dst": "dns-servers",
+   "proto": "udp",
+   "dlo": 53,
+   "dhi": 53,
+   "action": "permit"
+  },
+  {
+   "src": "backup",
+   "dst": "dns-servers",
+   "proto": "udp",
+   "dlo": 161,
+   "dhi": 161,
+   "action": "permit"
+  },
+  {
+   "src": "backup",
+   "dst": "dns-servers",
+   "proto": "tcp",
+   "dlo": 22,
+   "dhi": 22,
+   "action": "permit"
+  },
+  {
+   "src": "dns-servers",
+   "dst": "admin",
+   "proto": "udp",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "permit"
+  },
+  {
+   "src": "backup",
+   "dst": "database",
+   "proto": "tcp",
+   "dlo": 22,
+   "dhi": 22,
+   "action": "permit"
+  },
+  {
+   "src": "backup",
+   "dst": "database",
+   "proto": "udp",
+   "dlo": 53,
+   "dhi": 53,
+   "action": "permit"
+  },
+  {
+   "src": "backup",
+   "dst": "database",
+   "proto": "tcp",
+   "dlo": 554,
+   "dhi": 554,
+   "action": "permit"
+  },
+  {
+   "src": "vpn-users",
+   "dst": "engineering",
+   "proto": "tcp",
+   "dlo": 22,
+   "dhi": 22,
+   "action": "permit"
+  },
+  {
+   "src": "vpn-users",
+   "dst": "engineering",
+   "proto": "tcp",
+   "dlo": 143,
+   "dhi": 143,
+   "action": "permit"
+  },
+  {
+   "src": "vpn-users",
+   "dst": "guest-wifi",
+   "proto": "udp",
+   "dlo": 514,
+   "dhi": 514,
+   "action": "permit"
+  },
+  {
+   "src": "vpn-users",
+   "dst": "guest-wifi",
+   "proto": "tcp",
+   "dlo": 80,
+   "dhi": 80,
+   "action": "permit"
+  },
+  {
+   "src": "vpn-users",
+   "dst": "backup",
+   "proto": "tcp",
+   "dlo": 445,
+   "dhi": 445,
+   "action": "permit"
+  },
+  {
+   "src": "vpn-users",
+   "dst": "backup",
+   "proto": "udp",
+   "dlo": 514,
+   "dhi": 514,
+   "action": "permit"
+  },
+  {
+   "src": "vpn-users",
+   "dst": "backup",
+   "proto": "tcp",
+   "dlo": 5432,
+   "dhi": 5432,
+   "action": "permit"
+  },
+  {
+   "src": "admin",
+   "dst": "database",
+   "proto": "tcp",
+   "dlo": 5432,
+   "dhi": 5432,
+   "action": "permit"
+  },
+  {
+   "src": "admin",
+   "dst": "database",
+   "proto": "tcp",
+   "dlo": 22,
+   "dhi": 22,
+   "action": "permit"
+  },
+  {
+   "src": "database",
+   "dst": "admin",
+   "proto": "tcp",
+   "dlo": 389,
+   "dhi": 389,
+   "action": "permit"
+  },
+  {
+   "src": "database",
+   "dst": "admin",
+   "proto": "udp",
+   "dlo": 161,
+   "dhi": 161,
+   "action": "permit"
+  },
+  {
+   "src": "engineering",
+   "dst": "vpn-users",
+   "proto": "tcp",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "permit"
+  },
+  {
+   "src": "dns-servers",
+   "dst": "database",
+   "proto": "tcp",
+   "dlo": 554,
+   "dhi": 554,
+   "action": "permit"
+  },
+  {
+   "src": "dns-servers",
+   "dst": "database",
+   "proto": "tcp",
+   "dlo": 25,
+   "dhi": 25,
+   "action": "permit"
+  },
+  {
+   "src": "ntp-servers",
+   "dst": "database",
+   "proto": "tcp",
+   "dlo": 5432,
+   "dhi": 5432,
+   "action": "permit"
+  },
+  {
+   "src": "ntp-servers",
+   "dst": "database",
+   "proto": "tcp",
+   "dlo": 3389,
+   "dhi": 3389,
+   "action": "permit"
+  },
+  {
+   "src": "ntp-servers",
+   "dst": "database",
+   "proto": "udp",
+   "dlo": 123,
+   "dhi": 123,
+   "action": "permit"
+  },
+  {
+   "src": "dns-servers",
+   "dst": "printers",
+   "proto": "tcp",
+   "dlo": 1024,
+   "dhi": 65535,
+   "action": "permit"
+  },
+  {
+   "src": "vpn-users",
+   "dst": "admin",
+   "proto": "tcp",
+   "dlo": 5432,
+   "dhi": 5432,
+   "action": "permit"
+  },
+  {
+   "src": "vpn-users",
+   "dst": "admin",
+   "proto": "tcp",
+   "dlo": 3306,
+   "dhi": 3306,
+   "action": "permit"
+  },
+  {
+   "src": "ntp-servers",
+   "dst": "vpn-users",
+   "proto": "tcp",
+   "dlo": 443,
+   "dhi": 443,
+   "action": "permit"
+  },
+  {
+   "src": "ntp-servers",
+   "dst": "vpn-users",
+   "proto": "tcp",
+   "dlo": 143,
+   "dhi": 143,
+   "action": "permit"
+  },
+  {
+   "src": "ntp-servers",
+   "dst": "vpn-users",
+   "proto": "tcp",
+   "dlo": 554,
+   "dhi": 554,
+   "action": "permit"
+  },
+  {
+   "src": "guest-wifi",
+   "dst": "engineering",
+   "proto": "tcp",
+   "dlo": 3306,
+   "dhi": 3306,
+   "action": "permit"
+  },
+  {
+   "src": "guest-wifi",
+   "dst": "engineering",
+   "proto": "tcp",
+   "dlo": 5432,
+   "dhi": 5432,
+   "action": "permit"
+  },
+  {
+   "src": "backup",
+   "dst": "ntp-servers",
+   "proto": "udp",
+   "dlo": 53,
+   "dhi": 53,
+   "action": "permit"
+  },
+  {
+   "src": "backup",
+   "dst": "ntp-servers",
+   "proto": "tcp",
+   "dlo": 80,
+   "dhi": 80,
+   "action": "permit"
+  },
+  {
+   "src": "backup",
+   "dst": "ntp-servers",
+   "proto": "tcp",
+   "dlo": 389,
+   "dhi": 389,
+   "action": "permit"
+  },
+  {
+   "src": "student-lab",
+   "dst": "vpn-users",
+   "proto": "tcp",
+   "dlo": 554,
+   "dhi": 554,
+   "action": "permit"
+  },
+  {
+   "src": "student-lab",
+   "dst": "vpn-users",
+   "proto": "tcp",
+   "dlo": 389,
+   "dhi": 389,
+   "action": "permit"
+  },
+  {
+   "src": "student-lab",
+   "dst": "vpn-users",
+   "proto": "tcp",
+   "dlo": 445,
+   "dhi": 445,
+   "action": "permit"
+  },
+  {
+   "src": "guest-wifi",
+   "dst": "engineering",
+   "proto": "udp",
+   "dlo": 514,
+   "dhi": 514,
+   "action": "permit"
+  },
+  {
+   "src": "backup",
+   "dst": "printers",
+   "proto": "tcp",
+   "dlo": 443,
+   "dhi": 443,
+   "action": "permit"
+  },
+  {
+   "src": "backup",
+   "dst": "printers",
+   "proto": "tcp",
+   "dlo": 443,
+   "dhi": 443,
+   "action": "permit"
+  },
+  {
+   "src": "admin",
+   "dst": "ntp-servers",
+   "proto": "udp",
+   "dlo": 514,
+   "dhi": 514,
+   "action": "permit"
+  },
+  {
+   "src": "guest-wifi",
+   "dst": "*",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "backup",
+   "dst": "*",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "admin",
+   "dst": "*",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "*",
+   "dst": "database",
+   "proto": "udp",
+   "dlo": 53,
+   "dhi": 53,
+   "action": "permit"
+  },
+  {
+   "src": "*",
+   "dst": "printers",
+   "proto": "udp",
+   "dlo": 53,
+   "dhi": 53,
+   "action": "permit"
+  },
+  {
+   "src": "*",
+   "dst": "guest-wifi",
+   "proto": "udp",
+   "dlo": 123,
+   "dhi": 123,
+   "action": "permit"
+  },
+  {
+   "src": "*",
+   "dst": "guest-wifi",
+   "proto": "udp",
+   "dlo": 53,
+   "dhi": 53,
+   "action": "permit"
+  },
+  {
+   "src": "*",
+   "dst": "engineering",
+   "proto": "tcp",
+   "dlo": 443,
+   "dhi": 443,
+   "action": "permit"
+  },
+  {
+   "src": "*",
+   "dst": "guest-wifi",
+   "proto": "udp",
+   "dlo": 123,
+   "dhi": 123,
+   "action": "permit"
+  },
+  {
+   "src": "*",
+   "dst": "ntp-servers",
+   "proto": "udp",
+   "dlo": 53,
+   "dhi": 53,
+   "action": "permit"
+  },
+  {
+   "src": "*",
+   "dst": "ntp-servers",
+   "proto": "udp",
+   "dlo": 123,
+   "dhi": 123,
+   "action": "permit"
+  }
+ ]
+}

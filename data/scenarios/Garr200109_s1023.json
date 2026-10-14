@@ -1,0 +1,1008 @@
+{
+ "id": "Garr200109_s1023",
+ "topology": "Garr200109",
+ "n_nodes": 22,
+ "edges": [
+  [
+   0,
+   16
+  ],
+  [
+   1,
+   12
+  ],
+  [
+   2,
+   12
+  ],
+  [
+   3,
+   4
+  ],
+  [
+   4,
+   5
+  ],
+  [
+   4,
+   6
+  ],
+  [
+   4,
+   8
+  ],
+  [
+   4,
+   12
+  ],
+  [
+   4,
+   16
+  ],
+  [
+   4,
+   19
+  ],
+  [
+   7,
+   8
+  ],
+  [
+   8,
+   9
+  ],
+  [
+   8,
+   12
+  ],
+  [
+   8,
+   16
+  ],
+  [
+   8,
+   18
+  ],
+  [
+   8,
+   21
+  ],
+  [
+   10,
+   12
+  ],
+  [
+   11,
+   12
+  ],
+  [
+   12,
+   13
+  ],
+  [
+   12,
+   14
+  ],
+  [
+   12,
+   16
+  ],
+  [
+   12,
+   20
+  ],
+  [
+   15,
+   16
+  ],
+  [
+   16,
+   17
+  ]
+ ],
+ "zones": {
+  "finance": {
+   "router": 6,
+   "prefixes": [
+    "84.174.60.0/23",
+    "33.185.240.0/20"
+   ]
+  },
+  "mail": {
+   "router": 11,
+   "prefixes": [
+    "28.90.236.32/27",
+    "230.3.200.0/23"
+   ]
+  },
+  "dev-lab": {
+   "router": 7,
+   "prefixes": [
+    "233.77.146.240/28"
+   ]
+  },
+  "partners": {
+   "router": 5,
+   "prefixes": [
+    "95.103.0.0/16",
+    "95.145.96.0/20"
+   ]
+  },
+  "vpn-users": {
+   "router": 17,
+   "prefixes": [
+    "197.166.131.128/25",
+    "19.119.2.0/23",
+    "151.211.138.0/24"
+   ]
+  },
+  "dmz-web": {
+   "router": 13,
+   "prefixes": [
+    "251.138.135.0/25"
+   ]
+  },
+  "dns-servers": {
+   "router": 20,
+   "prefixes": [
+    "208.57.45.96/27"
+   ]
+  },
+  "backup": {
+   "router": 18,
+   "prefixes": [
+    "238.107.128.0/17"
+   ]
+  },
+  "nvr": {
+   "router": 0,
+   "prefixes": [
+    "178.129.112.0/24",
+    "233.77.144.0/23",
+    "62.159.180.0/24"
+   ]
+  },
+  "student-lab": {
+   "router": 10,
+   "prefixes": [
+    "72.69.96.0/20",
+    "199.78.160.0/19",
+    "139.19.41.0/24"
+   ]
+  }
+ },
+ "zone_text": [
+  "finance: hosts 84.174.60.0/23, 33.185.240.0/20 attached to router R6",
+  "mail: hosts 28.90.236.32/27, 230.3.200.0/23 attached to router R11",
+  "dev-lab: hosts 233.77.146.240/28 attached to router R7",
+  "partners: hosts 95.103.0.0/16, 95.145.96.0/20 attached to router R5",
+  "vpn-users: hosts 197.166.131.128/25, 19.119.2.0/23, 151.211.138.0/24 attached to router R17",
+  "dmz-web: hosts 251.138.135.0/25 attached to router R13",
+  "dns-servers: hosts 208.57.45.96/27 attached to router R20",
+  "backup: hosts 238.107.128.0/17 attached to router R18",
+  "nvr: hosts 178.129.112.0/24, 233.77.144.0/23, 62.159.180.0/24 attached to router R0",
+  "student-lab: hosts 72.69.96.0/20, 199.78.160.0/19, 139.19.41.0/24 attached to router R10"
+ ],
+ "intents": [
+  {
+   "type": "allow",
+   "src": "nvr",
+   "dst": "backup",
+   "svcs": [
+    "rdp",
+    "syslog"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "student-lab",
+   "dst": "partners",
+   "broad": "any-tcp",
+   "ex": [
+    "ftp",
+    "smb",
+    "rdp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "partners",
+   "dst": "backup",
+   "svcs": [
+    "ldap",
+    "dns"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "backup",
+   "allowed": [
+    [
+     "finance",
+     "https"
+    ],
+    [
+     "finance",
+     "https"
+    ]
+   ]
+  },
+  {
+   "type": "block",
+   "src": "nvr",
+   "dst": "dmz-web"
+  },
+  {
+   "type": "isolate",
+   "src": "vpn-users",
+   "allowed": [
+    [
+     "finance",
+     "dns"
+    ],
+    [
+     "partners",
+     "ntp"
+    ]
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "backup",
+   "dst": "mail",
+   "svcs": [
+    "postgres",
+    "dns",
+    "mysql"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "mail",
+   "dst": "backup",
+   "svcs": [
+    "rtsp",
+    "http"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "dns-servers",
+   "dst": "partners",
+   "svcs": [
+    "http"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "backup",
+   "dst": "dns-servers",
+   "broad": "any-tcp",
+   "ex": [
+    "smb",
+    "ftp",
+    "rdp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "dmz-web",
+   "dst": "mail",
+   "svcs": [
+    "imap",
+    "rtsp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "mail",
+   "dst": "dev-lab",
+   "svcs": [
+    "ldap"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "vpn-users",
+   "svcs": [
+    "https",
+    "ntp"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "student-lab",
+   "svcs": [
+    "https"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "mail",
+   "dst": "finance",
+   "svcs": [
+    "dns",
+    "https"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "dmz-web",
+   "allowed": [
+    [
+     "mail",
+     "syslog"
+    ],
+    [
+     "student-lab",
+     "https"
+    ]
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "student-lab",
+   "allowed": [
+    [
+     "dev-lab",
+     "https"
+    ],
+    [
+     "partners",
+     "https"
+    ]
+   ]
+  },
+  {
+   "type": "block",
+   "src": "vpn-users",
+   "dst": "dns-servers"
+  },
+  {
+   "type": "public",
+   "dst": "backup",
+   "svcs": [
+    "http",
+    "ntp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "vpn-users",
+   "dst": "finance",
+   "svcs": [
+    "http",
+    "ssh"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "finance",
+   "dst": "dev-lab",
+   "svcs": [
+    "ntp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "dmz-web",
+   "dst": "student-lab",
+   "svcs": [
+    "rdp",
+    "snmp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "vpn-users",
+   "dst": "mail",
+   "svcs": [
+    "https",
+    "dns"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "student-lab",
+   "dst": "finance",
+   "svcs": [
+    "rdp",
+    "ldap"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "nvr",
+   "dst": "dns-servers",
+   "svcs": [
+    "syslog",
+    "rdp"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "vpn-users",
+   "dst": "partners",
+   "broad": "any-udp",
+   "ex": [
+    "tftp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "finance",
+   "dst": "dmz-web",
+   "svcs": [
+    "https"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "dev-lab",
+   "dst": "mail"
+  },
+  {
+   "type": "allow_except",
+   "src": "dmz-web",
+   "dst": "mail",
+   "broad": "any-udp",
+   "ex": [
+    "tftp"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "nvr",
+   "dst": "backup"
+  },
+  {
+   "type": "allow_except",
+   "src": "dmz-web",
+   "dst": "student-lab",
+   "broad": "high-tcp",
+   "ex": [
+    "mysql",
+    "postgres"
+   ]
+  }
+ ],
+ "nl": [
+  "Hosts in nvr may reach backup over RDP (TCP 3389) and syslog (UDP 514).",
+  "student-lab may use any TCP port towards partners, except FTP (TCP 21), SMB (TCP 445), RDP (TCP 3389), which must be blocked.",
+  "Allow partners to connect to backup using LDAP (TCP 389) and DNS over UDP 53.",
+  "backup is isolated: it may only reach finance on HTTPS (TCP 443); finance on HTTPS (TCP 443), and nothing else.",
+  "Deny all traffic from nvr to dmz-web (this overrides any public service).",
+  "Restrict vpn-users so that its only permitted destinations are finance on DNS over UDP 53; partners on NTP (UDP 123); drop all other traffic it originates.",
+  "Hosts in backup may reach mail over PostgreSQL (TCP 5432) and DNS over UDP 53 and MySQL (TCP 3306).",
+  "backup must accept RTSP (TCP 554) and HTTP (TCP 80) from mail.",
+  "Hosts in dns-servers may reach partners over HTTP (TCP 80).",
+  "Block SMB (TCP 445), FTP (TCP 21), RDP (TCP 3389) from backup to dns-servers; the rest of any TCP port between them is allowed.",
+  "mail must accept IMAP (TCP 143) and RTSP (TCP 554) from dmz-web.",
+  "dev-lab must accept LDAP (TCP 389) from mail.",
+  "Make HTTPS (TCP 443) and NTP (UDP 123) on vpn-users reachable from all internal zones.",
+  "Make HTTPS (TCP 443) on student-lab reachable from all internal zones.",
+  "finance must accept DNS over UDP 53 and HTTPS (TCP 443) from mail.",
+  "Apart from mail on syslog (UDP 514); student-lab on HTTPS (TCP 443), all traffic originating in dmz-web must be dropped.",
+  "Apart from dev-lab on HTTPS (TCP 443); partners on HTTPS (TCP 443), all traffic originating in student-lab must be dropped.",
+  "vpn-users must never reach dns-servers, regardless of any other rule.",
+  "backup offers HTTP (TCP 80) and NTP (UDP 123) to every zone.",
+  "finance must accept HTTP (TCP 80) and SSH (TCP 22) from vpn-users.",
+  "dev-lab must accept NTP (UDP 123) from finance.",
+  "Hosts in dmz-web may reach student-lab over RDP (TCP 3389) and SNMP (UDP 161).",
+  "Hosts in vpn-users may reach mail over HTTPS (TCP 443) and DNS over UDP 53.",
+  "Hosts in student-lab may reach finance over RDP (TCP 3389) and LDAP (TCP 389).",
+  "Hosts in nvr may reach dns-servers over syslog (UDP 514) and RDP (TCP 3389).",
+  "Block TFTP (UDP 69) from vpn-users to partners; the rest of any UDP port between them is allowed.",
+  "Hosts in finance may reach dmz-web over HTTPS (TCP 443).",
+  "dev-lab must never reach mail, regardless of any other rule.",
+  "dmz-web may use any UDP port towards mail, except TFTP (UDP 69), which must be blocked.",
+  "Deny all traffic from nvr to backup (this overrides any public service).",
+  "dmz-web may use TCP ports 1024-65535 towards student-lab, except MySQL (TCP 3306), PostgreSQL (TCP 5432), which must be blocked."
+ ],
+ "gt": [
+  {
+   "src": "nvr",
+   "dst": "dmz-web",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "vpn-users",
+   "dst": "dns-servers",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "dev-lab",
+   "dst": "mail",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "nvr",
+   "dst": "backup",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "student-lab",
+   "dst": "partners",
+   "proto": "tcp",
+   "dlo": 21,
+   "dhi": 21,
+   "action": "deny"
+  },
+  {
+   "src": "student-lab",
+   "dst": "partners",
+   "proto": "tcp",
+   "dlo": 445,
+   "dhi": 445,
+   "action": "deny"
+  },
+  {
+   "src": "student-lab",
+   "dst": "partners",
+   "proto": "tcp",
+   "dlo": 3389,
+   "dhi": 3389,
+   "action": "deny"
+  },
+  {
+   "src": "backup",
+   "dst": "dns-servers",
+   "proto": "tcp",
+   "dlo": 445,
+   "dhi": 445,
+   "action": "deny"
+  },
+  {
+   "src": "backup",
+   "dst": "dns-servers",
+   "proto": "tcp",
+   "dlo": 21,
+   "dhi": 21,
+   "action": "deny"
+  },
+  {
+   "src": "backup",
+   "dst": "dns-servers",
+   "proto": "tcp",
+   "dlo": 3389,
+   "dhi": 3389,
+   "action": "deny"
+  },
+  {
+   "src": "vpn-users",
+   "dst": "partners",
+   "proto": "udp",
+   "dlo": 69,
+   "dhi": 69,
+   "action": "deny"
+  },
+  {
+   "src": "dmz-web",
+   "dst": "mail",
+   "proto": "udp",
+   "dlo": 69,
+   "dhi": 69,
+   "action": "deny"
+  },
+  {
+   "src": "dmz-web",
+   "dst": "student-lab",
+   "proto": "tcp",
+   "dlo": 3306,
+   "dhi": 3306,
+   "action": "deny"
+  },
+  {
+   "src": "dmz-web",
+   "dst": "student-lab",
+   "proto": "tcp",
+   "dlo": 5432,
+   "dhi": 5432,
+   "action": "deny"
+  },
+  {
+   "src": "nvr",
+   "dst": "backup",
+   "proto": "tcp",
+   "dlo": 3389,
+   "dhi": 3389,
+   "action": "permit"
+  },
+  {
+   "src": "nvr",
+   "dst": "backup",
+   "proto": "udp",
+   "dlo": 514,
+   "dhi": 514,
+   "action": "permit"
+  },
+  {
+   "src": "student-lab",
+   "dst": "partners",
+   "proto": "tcp",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "permit"
+  },
+  {
+   "src": "partners",
+   "dst": "backup",
+   "proto": "tcp",
+   "dlo": 389,
+   "dhi": 389,
+   "action": "permit"
+  },
+  {
+   "src": "partners",
+   "dst": "backup",
+   "proto": "udp",
+   "dlo": 53,
+   "dhi": 53,
+   "action": "permit"
+  },
+  {
+   "src": "backup",
+   "dst": "mail",
+   "proto": "tcp",
+   "dlo": 5432,
+   "dhi": 5432,
+   "action": "permit"
+  },
+  {
+   "src": "backup",
+   "dst": "mail",
+   "proto": "udp",
+   "dlo": 53,
+   "dhi": 53,
+   "action": "permit"
+  },
+  {
+   "src": "backup",
+   "dst": "mail",
+   "proto": "tcp",
+   "dlo": 3306,
+   "dhi": 3306,
+   "action": "permit"
+  },
+  {
+   "src": "mail",
+   "dst": "backup",
+   "proto": "tcp",
+   "dlo": 554,
+   "dhi": 554,
+   "action": "permit"
+  },
+  {
+   "src": "mail",
+   "dst": "backup",
+   "proto": "tcp",
+   "dlo": 80,
+   "dhi": 80,
+   "action": "permit"
+  },
+  {
+   "src": "dns-servers",
+   "dst": "partners",
+   "proto": "tcp",
+   "dlo": 80,
+   "dhi": 80,
+   "action": "permit"
+  },
+  {
+   "src": "backup",
+   "dst": "dns-servers",
+   "proto": "tcp",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "permit"
+  },
+  {
+   "src": "dmz-web",
+   "dst": "mail",
+   "proto": "tcp",
+   "dlo": 143,
+   "dhi": 143,
+   "action": "permit"
+  },
+  {
+   "src": "dmz-web",
+   "dst": "mail",
+   "proto": "tcp",
+   "dlo": 554,
+   "dhi": 554,
+   "action": "permit"
+  },
+  {
+   "src": "mail",
+   "dst": "dev-lab",
+   "proto": "tcp",
+   "dlo": 389,
+   "dhi": 389,
+   "action": "permit"
+  },
+  {
+   "src": "mail",
+   "dst": "finance",
+   "proto": "udp",
+   "dlo": 53,
+   "dhi": 53,
+   "action": "permit"
+  },
+  {
+   "src": "mail",
+   "dst": "finance",
+   "proto": "tcp",
+   "dlo": 443,
+   "dhi": 443,
+   "action": "permit"
+  },
+  {
+   "src": "vpn-users",
+   "dst": "finance",
+   "proto": "tcp",
+   "dlo": 80,
+   "dhi": 80,
+   "action": "permit"
+  },
+  {
+   "src": "vpn-users",
+   "dst": "finance",
+   "proto": "tcp",
+   "dlo": 22,
+   "dhi": 22,
+   "action": "permit"
+  },
+  {
+   "src": "finance",
+   "dst": "dev-lab",
+   "proto": "udp",
+   "dlo": 123,
+   "dhi": 123,
+   "action": "permit"
+  },
+  {
+   "src": "dmz-web",
+   "dst": "student-lab",
+   "proto": "tcp",
+   "dlo": 3389,
+   "dhi": 3389,
+   "action": "permit"
+  },
+  {
+   "src": "dmz-web",
+   "dst": "student-lab",
+   "proto": "udp",
+   "dlo": 161,
+   "dhi": 161,
+   "action": "permit"
+  },
+  {
+   "src": "vpn-users",
+   "dst": "mail",
+   "proto": "tcp",
+   "dlo": 443,
+   "dhi": 443,
+   "action": "permit"
+  },
+  {
+   "src": "vpn-users",
+   "dst": "mail",
+   "proto": "udp",
+   "dlo": 53,
+   "dhi": 53,
+   "action": "permit"
+  },
+  {
+   "src": "student-lab",
+   "dst": "finance",
+   "proto": "tcp",
+   "dlo": 3389,
+   "dhi": 3389,
+   "action": "permit"
+  },
+  {
+   "src": "student-lab",
+   "dst": "finance",
+   "proto": "tcp",
+   "dlo": 389,
+   "dhi": 389,
+   "action": "permit"
+  },
+  {
+   "src": "nvr",
+   "dst": "dns-servers",
+   "proto": "udp",
+   "dlo": 514,
+   "dhi": 514,
+   "action": "permit"
+  },
+  {
+   "src": "nvr",
+   "dst": "dns-servers",
+   "proto": "tcp",
+   "dlo": 3389,
+   "dhi": 3389,
+   "action": "permit"
+  },
+  {
+   "src": "vpn-users",
+   "dst": "partners",
+   "proto": "udp",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "permit"
+  },
+  {
+   "src": "finance",
+   "dst": "dmz-web",
+   "proto": "tcp",
+   "dlo": 443,
+   "dhi": 443,
+   "action": "permit"
+  },
+  {
+   "src": "dmz-web",
+   "dst": "mail",
+   "proto": "udp",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "permit"
+  },
+  {
+   "src": "dmz-web",
+   "dst": "student-lab",
+   "proto": "tcp",
+   "dlo": 1024,
+   "dhi": 65535,
+   "action": "permit"
+  },
+  {
+   "src": "backup",
+   "dst": "finance",
+   "proto": "tcp",
+   "dlo": 443,
+   "dhi": 443,
+   "action": "permit"
+  },
+  {
+   "src": "backup",
+   "dst": "finance",
+   "proto": "tcp",
+   "dlo": 443,
+   "dhi": 443,
+   "action": "permit"
+  },
+  {
+   "src": "vpn-users",
+   "dst": "finance",
+   "proto": "udp",
+   "dlo": 53,
+   "dhi": 53,
+   "action": "permit"
+  },
+  {
+   "src": "vpn-users",
+   "dst": "partners",
+   "proto": "udp",
+   "dlo": 123,
+   "dhi": 123,
+   "action": "permit"
+  },
+  {
+   "src": "dmz-web",
+   "dst": "mail",
+   "proto": "udp",
+   "dlo": 514,
+   "dhi": 514,
+   "action": "permit"
+  },
+  {
+   "src": "dmz-web",
+   "dst": "student-lab",
+   "proto": "tcp",
+   "dlo": 443,
+   "dhi": 443,
+   "action": "permit"
+  },
+  {
+   "src": "student-lab",
+   "dst": "dev-lab",
+   "proto": "tcp",
+   "dlo": 443,
+   "dhi": 443,
+   "action": "permit"
+  },
+  {
+   "src": "student-lab",
+   "dst": "partners",
+   "proto": "tcp",
+   "dlo": 443,
+   "dhi": 443,
+   "action": "permit"
+  },
+  {
+   "src": "backup",
+   "dst": "*",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "vpn-users",
+   "dst": "*",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "dmz-web",
+   "dst": "*",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "student-lab",
+   "dst": "*",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "*",
+   "dst": "vpn-users",
+   "proto": "tcp",
+   "dlo": 443,
+   "dhi": 443,
+   "action": "permit"
+  },
+  {
+   "src": "*",
+   "dst": "vpn-users",
+   "proto": "udp",
+   "dlo": 123,
+   "dhi": 123,
+   "action": "permit"
+  },
+  {
+   "src": "*",
+   "dst": "student-lab",
+   "proto": "tcp",
+   "dlo": 443,
+   "dhi": 443,
+   "action": "permit"
+  },
+  {
+   "src": "*",
+   "dst": "backup",
+   "proto": "tcp",
+   "dlo": 80,
+   "dhi": 80,
+   "action": "permit"
+  },
+  {
+   "src": "*",
+   "dst": "backup",
+   "proto": "udp",
+   "dlo": 123,
+   "dhi": 123,
+   "action": "permit"
+  }
+ ]
+}

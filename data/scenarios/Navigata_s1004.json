@@ -1,0 +1,924 @@
+{
+ "id": "Navigata_s1004",
+ "topology": "Navigata",
+ "n_nodes": 13,
+ "edges": [
+  [
+   0,
+   1
+  ],
+  [
+   0,
+   2
+  ],
+  [
+   0,
+   3
+  ],
+  [
+   0,
+   4
+  ],
+  [
+   0,
+   5
+  ],
+  [
+   0,
+   6
+  ],
+  [
+   0,
+   8
+  ],
+  [
+   3,
+   4
+  ],
+  [
+   3,
+   5
+  ],
+  [
+   3,
+   6
+  ],
+  [
+   5,
+   9
+  ],
+  [
+   5,
+   7
+  ],
+  [
+   6,
+   9
+  ],
+  [
+   6,
+   7
+  ],
+  [
+   9,
+   10
+  ],
+  [
+   9,
+   11
+  ],
+  [
+   9,
+   12
+  ]
+ ],
+ "zones": {
+  "ntp-servers": {
+   "router": 7,
+   "prefixes": [
+    "197.27.181.0/24"
+   ]
+  },
+  "mail": {
+   "router": 7,
+   "prefixes": [
+    "40.64.62.128/26",
+    "165.181.43.48/28",
+    "232.50.198.0/24"
+   ]
+  },
+  "dev-lab": {
+   "router": 12,
+   "prefixes": [
+    "10.233.219.0/27",
+    "178.129.94.0/24"
+   ]
+  },
+  "hr": {
+   "router": 8,
+   "prefixes": [
+    "241.149.108.0/22",
+    "48.171.60.0/22"
+   ]
+  },
+  "partners": {
+   "router": 11,
+   "prefixes": [
+    "51.151.119.160/28",
+    "116.89.141.0/24"
+   ]
+  },
+  "research": {
+   "router": 0,
+   "prefixes": [
+    "0.27.179.32/27",
+    "235.87.81.0/24"
+   ]
+  },
+  "guest-wifi": {
+   "router": 6,
+   "prefixes": [
+    "155.95.88.0/23",
+    "100.90.116.16/28",
+    "46.240.186.0/27"
+   ]
+  },
+  "iot-sensors": {
+   "router": 5,
+   "prefixes": [
+    "5.184.225.128/26"
+   ]
+  },
+  "finance": {
+   "router": 6,
+   "prefixes": [
+    "66.25.4.0/22",
+    "145.2.252.0/25"
+   ]
+  },
+  "voip": {
+   "router": 3,
+   "prefixes": [
+    "225.24.32.64/26",
+    "41.149.124.0/23",
+    "95.194.25.0/24"
+   ]
+  },
+  "vpn-users": {
+   "router": 12,
+   "prefixes": [
+    "46.155.179.128/25",
+    "235.205.68.0/22",
+    "37.231.86.128/26"
+   ]
+  },
+  "ops": {
+   "router": 0,
+   "prefixes": [
+    "152.165.248.0/24"
+   ]
+  },
+  "cameras": {
+   "router": 10,
+   "prefixes": [
+    "227.160.175.0/24",
+    "233.5.249.64/26"
+   ]
+  },
+  "printers": {
+   "router": 5,
+   "prefixes": [
+    "82.55.0.0/16",
+    "87.213.180.0/23",
+    "93.45.69.0/27"
+   ]
+  },
+  "monitoring": {
+   "router": 4,
+   "prefixes": [
+    "156.38.52.0/24"
+   ]
+  },
+  "edge-cache": {
+   "router": 3,
+   "prefixes": [
+    "150.106.188.0/24",
+    "19.2.142.0/23"
+   ]
+  }
+ },
+ "zone_text": [
+  "ntp-servers: hosts 197.27.181.0/24 attached to router R7",
+  "mail: hosts 40.64.62.128/26, 165.181.43.48/28, 232.50.198.0/24 attached to router R7",
+  "dev-lab: hosts 10.233.219.0/27, 178.129.94.0/24 attached to router R12",
+  "hr: hosts 241.149.108.0/22, 48.171.60.0/22 attached to router R8",
+  "partners: hosts 51.151.119.160/28, 116.89.141.0/24 attached to router R11",
+  "research: hosts 0.27.179.32/27, 235.87.81.0/24 attached to router R0",
+  "guest-wifi: hosts 155.95.88.0/23, 100.90.116.16/28, 46.240.186.0/27 attached to router R6",
+  "iot-sensors: hosts 5.184.225.128/26 attached to router R5",
+  "finance: hosts 66.25.4.0/22, 145.2.252.0/25 attached to router R6",
+  "voip: hosts 225.24.32.64/26, 41.149.124.0/23, 95.194.25.0/24 attached to router R3",
+  "vpn-users: hosts 46.155.179.128/25, 235.205.68.0/22, 37.231.86.128/26 attached to router R12",
+  "ops: hosts 152.165.248.0/24 attached to router R0",
+  "cameras: hosts 227.160.175.0/24, 233.5.249.64/26 attached to router R10",
+  "printers: hosts 82.55.0.0/16, 87.213.180.0/23, 93.45.69.0/27 attached to router R5",
+  "monitoring: hosts 156.38.52.0/24 attached to router R4",
+  "edge-cache: hosts 150.106.188.0/24, 19.2.142.0/23 attached to router R3"
+ ],
+ "intents": [
+  {
+   "type": "allow_except",
+   "src": "finance",
+   "dst": "guest-wifi",
+   "broad": "any-tcp",
+   "ex": [
+    "telnet"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "printers",
+   "dst": "research",
+   "svcs": [
+    "rdp",
+    "rtsp",
+    "imap"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "ntp-servers",
+   "dst": "monitoring",
+   "broad": "any-tcp",
+   "ex": [
+    "ftp"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "guest-wifi",
+   "svcs": [
+    "http",
+    "ntp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "partners",
+   "dst": "guest-wifi",
+   "svcs": [
+    "imap",
+    "ldap"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "mail",
+   "dst": "printers",
+   "svcs": [
+    "ssh"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "mail",
+   "dst": "monitoring",
+   "svcs": [
+    "ssh"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "guest-wifi",
+   "dst": "voip"
+  },
+  {
+   "type": "isolate",
+   "src": "finance",
+   "allowed": [
+    [
+     "partners",
+     "syslog"
+    ],
+    [
+     "cameras",
+     "syslog"
+    ]
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "mail",
+   "dst": "guest-wifi",
+   "svcs": [
+    "snmp",
+    "mysql",
+    "postgres"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "ops",
+   "dst": "finance",
+   "broad": "high-tcp",
+   "ex": [
+    "postgres",
+    "rdp"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "vpn-users",
+   "svcs": [
+    "http"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "printers",
+   "svcs": [
+    "dns"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "finance",
+   "dst": "ops",
+   "svcs": [
+    "dns",
+    "mysql"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "voip",
+   "allowed": [
+    [
+     "guest-wifi",
+     "syslog"
+    ]
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "mail",
+   "dst": "edge-cache",
+   "svcs": [
+    "snmp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "ops",
+   "dst": "vpn-users",
+   "svcs": [
+    "http"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "partners",
+   "dst": "iot-sensors",
+   "svcs": [
+    "snmp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "research",
+   "dst": "mail",
+   "svcs": [
+    "smtp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "dev-lab",
+   "dst": "cameras",
+   "svcs": [
+    "ldap",
+    "dns"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "guest-wifi",
+   "dst": "ops",
+   "svcs": [
+    "https"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "monitoring",
+   "allowed": [
+    [
+     "cameras",
+     "dns"
+    ]
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "voip",
+   "dst": "iot-sensors",
+   "broad": "any-tcp",
+   "ex": [
+    "rdp",
+    "smb",
+    "telnet"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "ntp-servers",
+   "dst": "cameras",
+   "svcs": [
+    "https",
+    "syslog"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "cameras",
+   "svcs": [
+    "http"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "mail",
+   "dst": "vpn-users"
+  },
+  {
+   "type": "allow_except",
+   "src": "iot-sensors",
+   "dst": "printers",
+   "broad": "any-udp",
+   "ex": [
+    "tftp"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "research",
+   "dst": "guest-wifi"
+  },
+  {
+   "type": "allow",
+   "src": "hr",
+   "dst": "vpn-users",
+   "svcs": [
+    "imap"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "ntp-servers",
+   "dst": "research",
+   "svcs": [
+    "ldap",
+    "rdp",
+    "https"
+   ]
+  }
+ ],
+ "nl": [
+  "Block Telnet (TCP 23) from finance to guest-wifi; the rest of any TCP port between them is allowed.",
+  "Allow printers to connect to research using RDP (TCP 3389) and RTSP (TCP 554) and IMAP (TCP 143).",
+  "Permit any TCP port from ntp-servers to monitoring but deny FTP (TCP 21).",
+  "guest-wifi offers HTTP (TCP 80) and NTP (UDP 123) to every zone.",
+  "Allow partners to connect to guest-wifi using IMAP (TCP 143) and LDAP (TCP 389).",
+  "printers must accept SSH (TCP 22) from mail.",
+  "Hosts in mail may reach monitoring over SSH (TCP 22).",
+  "Deny all traffic from guest-wifi to voip (this overrides any public service).",
+  "finance is isolated: it may only reach partners on syslog (UDP 514); cameras on syslog (UDP 514), and nothing else.",
+  "guest-wifi must accept SNMP (UDP 161) and MySQL (TCP 3306) and PostgreSQL (TCP 5432) from mail.",
+  "ops may use TCP ports 1024-65535 towards finance, except PostgreSQL (TCP 5432), RDP (TCP 3389), which must be blocked.",
+  "Any zone may connect to vpn-users over HTTP (TCP 80).",
+  "Any zone may connect to printers over DNS over UDP 53.",
+  "Hosts in finance may reach ops over DNS over UDP 53 and MySQL (TCP 3306).",
+  "Restrict voip so that its only permitted destinations are guest-wifi on syslog (UDP 514); drop all other traffic it originates.",
+  "Allow mail to connect to edge-cache using SNMP (UDP 161).",
+  "vpn-users must accept HTTP (TCP 80) from ops.",
+  "Hosts in partners may reach iot-sensors over SNMP (UDP 161).",
+  "mail must accept SMTP (TCP 25) from research.",
+  "Allow dev-lab to connect to cameras using LDAP (TCP 389) and DNS over UDP 53.",
+  "ops must accept HTTPS (TCP 443) from guest-wifi.",
+  "monitoring is isolated: it may only reach cameras on DNS over UDP 53, and nothing else.",
+  "voip may use any TCP port towards iot-sensors, except RDP (TCP 3389), SMB (TCP 445), Telnet (TCP 23), which must be blocked.",
+  "Allow ntp-servers to connect to cameras using HTTPS (TCP 443) and syslog (UDP 514).",
+  "Make HTTP (TCP 80) on cameras reachable from all internal zones.",
+  "Deny all traffic from mail to vpn-users (this overrides any public service).",
+  "iot-sensors may use any UDP port towards printers, except TFTP (UDP 69), which must be blocked.",
+  "No packet from research may enter guest-wifi, even for services open to everyone.",
+  "Allow hr to connect to vpn-users using IMAP (TCP 143).",
+  "Allow ntp-servers to connect to research using LDAP (TCP 389) and RDP (TCP 3389) and HTTPS (TCP 443)."
+ ],
+ "gt": [
+  {
+   "src": "guest-wifi",
+   "dst": "voip",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "mail",
+   "dst": "vpn-users",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "research",
+   "dst": "guest-wifi",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "finance",
+   "dst": "guest-wifi",
+   "proto": "tcp",
+   "dlo": 23,
+   "dhi": 23,
+   "action": "deny"
+  },
+  {
+   "src": "ntp-servers",
+   "dst": "monitoring",
+   "proto": "tcp",
+   "dlo": 21,
+   "dhi": 21,
+   "action": "deny"
+  },
+  {
+   "src": "ops",
+   "dst": "finance",
+   "proto": "tcp",
+   "dlo": 5432,
+   "dhi": 5432,
+   "action": "deny"
+  },
+  {
+   "src": "ops",
+   "dst": "finance",
+   "proto": "tcp",
+   "dlo": 3389,
+   "dhi": 3389,
+   "action": "deny"
+  },
+  {
+   "src": "voip",
+   "dst": "iot-sensors",
+   "proto": "tcp",
+   "dlo": 3389,
+   "dhi": 3389,
+   "action": "deny"
+  },
+  {
+   "src": "voip",
+   "dst": "iot-sensors",
+   "proto": "tcp",
+   "dlo": 445,
+   "dhi": 445,
+   "action": "deny"
+  },
+  {
+   "src": "voip",
+   "dst": "iot-sensors",
+   "proto": "tcp",
+   "dlo": 23,
+   "dhi": 23,
+   "action": "deny"
+  },
+  {
+   "src": "iot-sensors",
+   "dst": "printers",
+   "proto": "udp",
+   "dlo": 69,
+   "dhi": 69,
+   "action": "deny"
+  },
+  {
+   "src": "finance",
+   "dst": "guest-wifi",
+   "proto": "tcp",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "permit"
+  },
+  {
+   "src": "printers",
+   "dst": "research",
+   "proto": "tcp",
+   "dlo": 3389,
+   "dhi": 3389,
+   "action": "permit"
+  },
+  {
+   "src": "printers",
+   "dst": "research",
+   "proto": "tcp",
+   "dlo": 554,
+   "dhi": 554,
+   "action": "permit"
+  },
+  {
+   "src": "printers",
+   "dst": "research",
+   "proto": "tcp",
+   "dlo": 143,
+   "dhi": 143,
+   "action": "permit"
+  },
+  {
+   "src": "ntp-servers",
+   "dst": "monitoring",
+   "proto": "tcp",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "permit"
+  },
+  {
+   "src": "partners",
+   "dst": "guest-wifi",
+   "proto": "tcp",
+   "dlo": 143,
+   "dhi": 143,
+   "action": "permit"
+  },
+  {
+   "src": "partners",
+   "dst": "guest-wifi",
+   "proto": "tcp",
+   "dlo": 389,
+   "dhi": 389,
+   "action": "permit"
+  },
+  {
+   "src": "mail",
+   "dst": "printers",
+   "proto": "tcp",
+   "dlo": 22,
+   "dhi": 22,
+   "action": "permit"
+  },
+  {
+   "src": "mail",
+   "dst": "monitoring",
+   "proto": "tcp",
+   "dlo": 22,
+   "dhi": 22,
+   "action": "permit"
+  },
+  {
+   "src": "mail",
+   "dst": "guest-wifi",
+   "proto": "udp",
+   "dlo": 161,
+   "dhi": 161,
+   "action": "permit"
+  },
+  {
+   "src": "mail",
+   "dst": "guest-wifi",
+   "proto": "tcp",
+   "dlo": 3306,
+   "dhi": 3306,
+   "action": "permit"
+  },
+  {
+   "src": "mail",
+   "dst": "guest-wifi",
+   "proto": "tcp",
+   "dlo": 5432,
+   "dhi": 5432,
+   "action": "permit"
+  },
+  {
+   "src": "ops",
+   "dst": "finance",
+   "proto": "tcp",
+   "dlo": 1024,
+   "dhi": 65535,
+   "action": "permit"
+  },
+  {
+   "src": "finance",
+   "dst": "ops",
+   "proto": "udp",
+   "dlo": 53,
+   "dhi": 53,
+   "action": "permit"
+  },
+  {
+   "src": "finance",
+   "dst": "ops",
+   "proto": "tcp",
+   "dlo": 3306,
+   "dhi": 3306,
+   "action": "permit"
+  },
+  {
+   "src": "mail",
+   "dst": "edge-cache",
+   "proto": "udp",
+   "dlo": 161,
+   "dhi": 161,
+   "action": "permit"
+  },
+  {
+   "src": "ops",
+   "dst": "vpn-users",
+   "proto": "tcp",
+   "dlo": 80,
+   "dhi": 80,
+   "action": "permit"
+  },
+  {
+   "src": "partners",
+   "dst": "iot-sensors",
+   "proto": "udp",
+   "dlo": 161,
+   "dhi": 161,
+   "action": "permit"
+  },
+  {
+   "src": "research",
+   "dst": "mail",
+   "proto": "tcp",
+   "dlo": 25,
+   "dhi": 25,
+   "action": "permit"
+  },
+  {
+   "src": "dev-lab",
+   "dst": "cameras",
+   "proto": "tcp",
+   "dlo": 389,
+   "dhi": 389,
+   "action": "permit"
+  },
+  {
+   "src": "dev-lab",
+   "dst": "cameras",
+   "proto": "udp",
+   "dlo": 53,
+   "dhi": 53,
+   "action": "permit"
+  },
+  {
+   "src": "guest-wifi",
+   "dst": "ops",
+   "proto": "tcp",
+   "dlo": 443,
+   "dhi": 443,
+   "action": "permit"
+  },
+  {
+   "src": "voip",
+   "dst": "iot-sensors",
+   "proto": "tcp",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "permit"
+  },
+  {
+   "src": "ntp-servers",
+   "dst": "cameras",
+   "proto": "tcp",
+   "dlo": 443,
+   "dhi": 443,
+   "action": "permit"
+  },
+  {
+   "src": "ntp-servers",
+   "dst": "cameras",
+   "proto": "udp",
+   "dlo": 514,
+   "dhi": 514,
+   "action": "permit"
+  },
+  {
+   "src": "iot-sensors",
+   "dst": "printers",
+   "proto": "udp",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "permit"
+  },
+  {
+   "src": "hr",
+   "dst": "vpn-users",
+   "proto": "tcp",
+   "dlo": 143,
+   "dhi": 143,
+   "action": "permit"
+  },
+  {
+   "src": "ntp-servers",
+   "dst": "research",
+   "proto": "tcp",
+   "dlo": 389,
+   "dhi": 389,
+   "action": "permit"
+  },
+  {
+   "src": "ntp-servers",
+   "dst": "research",
+   "proto": "tcp",
+   "dlo": 3389,
+   "dhi": 3389,
+   "action": "permit"
+  },
+  {
+   "src": "ntp-servers",
+   "dst": "research",
+   "proto": "tcp",
+   "dlo": 443,
+   "dhi": 443,
+   "action": "permit"
+  },
+  {
+   "src": "finance",
+   "dst": "partners",
+   "proto": "udp",
+   "dlo": 514,
+   "dhi": 514,
+   "action": "permit"
+  },
+  {
+   "src": "finance",
+   "dst": "cameras",
+   "proto": "udp",
+   "dlo": 514,
+   "dhi": 514,
+   "action": "permit"
+  },
+  {
+   "src": "voip",
+   "dst": "guest-wifi",
+   "proto": "udp",
+   "dlo": 514,
+   "dhi": 514,
+   "action": "permit"
+  },
+  {
+   "src": "monitoring",
+   "dst": "cameras",
+   "proto": "udp",
+   "dlo": 53,
+   "dhi": 53,
+   "action": "permit"
+  },
+  {
+   "src": "finance",
+   "dst": "*",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "voip",
+   "dst": "*",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "monitoring",
+   "dst": "*",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "*",
+   "dst": "guest-wifi",
+   "proto": "tcp",
+   "dlo": 80,
+   "dhi": 80,
+   "action": "permit"
+  },
+  {
+   "src": "*",
+   "dst": "guest-wifi",
+   "proto": "udp",
+   "dlo": 123,
+   "dhi": 123,
+   "action": "permit"
+  },
+  {
+   "src": "*",
+   "dst": "vpn-users",
+   "proto": "tcp",
+   "dlo": 80,
+   "dhi": 80,
+   "action": "permit"
+  },
+  {
+   "src": "*",
+   "dst": "printers",
+   "proto": "udp",
+   "dlo": 53,
+   "dhi": 53,
+   "action": "permit"
+  },
+  {
+   "src": "*",
+   "dst": "cameras",
+   "proto": "tcp",
+   "dlo": 80,
+   "dhi": 80,
+   "action": "permit"
+  }
+ ]
+}

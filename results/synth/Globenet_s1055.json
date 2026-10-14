@@ -1,0 +1,213 @@
+{
+ "id": "Globenet_s1055",
+ "n_intents": 8,
+ "n_gt_rules": 18,
+ "n_zones": 6,
+ "rules": {
+  "eq": false,
+  "mismatch": 0.01125,
+  "n_rules": 16,
+  "fail": 0,
+  "s": 18.722335815429688,
+  "calls": 1,
+  "prompt": 719,
+  "completion": 519
+ },
+ "ir0": {
+  "eq": false,
+  "mismatch": 0.0175,
+  "n_rules": 13,
+  "fail": 0,
+  "s": 22.279397010803223,
+  "calls": 9,
+  "prompt": 5697,
+  "completion": 347,
+  "intent_acc": 0.625
+ },
+ "ir": {
+  "eq": true,
+  "mismatch": 0.0,
+  "n_rules": 18,
+  "fail": 0,
+  "s": 17.17728543281555,
+  "calls": 8,
+  "prompt": 8626,
+  "completion": 222,
+  "intent_acc": 1.0
+ },
+ "fw": {
+  "eq": true,
+  "mismatch": 0.0,
+  "n_rules": 18,
+  "fail": 0,
+  "s": 47.28489303588867,
+  "verify_s": 30.1076078414917,
+  "calls": 16,
+  "verify_calls": 8,
+  "flagged": 0,
+  "accepted": 0,
+  "repairs": [],
+  "intent_acc": 1.0
+ },
+ "ir_out": [
+  {
+   "type": "isolate",
+   "src": "ntp-servers",
+   "allowed": [
+    [
+     "ops",
+     "ntp"
+    ],
+    [
+     "dns-servers",
+     "ntp"
+    ]
+   ]
+  },
+  {
+   "type": "block",
+   "src": "mail",
+   "dst": "dns-servers"
+  },
+  {
+   "type": "isolate",
+   "src": "cameras",
+   "allowed": [
+    [
+     "ops",
+     "syslog"
+    ]
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "voip",
+   "dst": "ntp-servers",
+   "svcs": [
+    "smtp"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "dns-servers",
+   "dst": "cameras",
+   "broad": "any-tcp",
+   "ex": [
+    "rdp",
+    "ftp",
+    "telnet"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "mail",
+   "allowed": [
+    [
+     "dns-servers",
+     "ntp"
+    ]
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "ops",
+   "allowed": [
+    [
+     "dns-servers",
+     "dns"
+    ]
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "ntp-servers",
+   "dst": "cameras",
+   "svcs": [
+    "ssh",
+    "smtp",
+    "syslog"
+   ]
+  }
+ ],
+ "fw_out": [
+  {
+   "type": "isolate",
+   "src": "ntp-servers",
+   "allowed": [
+    [
+     "ops",
+     "ntp"
+    ],
+    [
+     "dns-servers",
+     "ntp"
+    ]
+   ]
+  },
+  {
+   "type": "block",
+   "src": "mail",
+   "dst": "dns-servers"
+  },
+  {
+   "type": "isolate",
+   "src": "cameras",
+   "allowed": [
+    [
+     "ops",
+     "syslog"
+    ]
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "voip",
+   "dst": "ntp-servers",
+   "svcs": [
+    "smtp"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "dns-servers",
+   "dst": "cameras",
+   "broad": "any-tcp",
+   "ex": [
+    "rdp",
+    "ftp",
+    "telnet"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "mail",
+   "allowed": [
+    [
+     "dns-servers",
+     "ntp"
+    ]
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "ops",
+   "allowed": [
+    [
+     "dns-servers",
+     "dns"
+    ]
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "ntp-servers",
+   "dst": "cameras",
+   "svcs": [
+    "ssh",
+    "smtp",
+    "syslog"
+   ]
+  }
+ ],
+ "wall_s": 88.49094772338867
+}

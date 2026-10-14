@@ -1,0 +1,317 @@
+{
+ "id": "Karen_s1001",
+ "n_intents": 16,
+ "n_gt_rules": 30,
+ "n_zones": 10,
+ "rules": {
+  "eq": false,
+  "mismatch": 0.0145,
+  "n_rules": 30,
+  "fail": 0,
+  "s": 33.83416795730591,
+  "calls": 1,
+  "prompt": 906,
+  "completion": 959
+ },
+ "ir0": {
+  "eq": false,
+  "mismatch": 0.00075,
+  "n_rules": 28,
+  "fail": 0,
+  "s": 48.566771030426025,
+  "calls": 16,
+  "prompt": 10217,
+  "completion": 532,
+  "intent_acc": 0.9375
+ },
+ "ir": {
+  "eq": true,
+  "mismatch": 0.0,
+  "n_rules": 30,
+  "fail": 0,
+  "s": 39.17664313316345,
+  "calls": 16,
+  "prompt": 17433,
+  "completion": 413,
+  "intent_acc": 1.0
+ },
+ "fw": {
+  "eq": true,
+  "mismatch": 0.0,
+  "n_rules": 30,
+  "fail": 0,
+  "s": 108.60352182388306,
+  "verify_s": 69.42687916755676,
+  "calls": 35,
+  "verify_calls": 19,
+  "flagged": 0,
+  "accepted": 0,
+  "repairs": [],
+  "intent_acc": 1.0
+ },
+ "ir_out": [
+  {
+   "type": "allow_except",
+   "src": "engineering",
+   "dst": "student-lab",
+   "broad": "any-tcp",
+   "ex": [
+    "smb"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "edge-cache",
+   "dst": "cameras"
+  },
+  {
+   "type": "allow",
+   "src": "engineering",
+   "dst": "dns-servers",
+   "svcs": [
+    "rdp",
+    "ldap"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "engineering",
+   "dst": "cameras",
+   "svcs": [
+    "ntp",
+    "rdp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "backup",
+   "dst": "dns-servers",
+   "svcs": [
+    "ldap",
+    "ntp",
+    "ssh"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "hr",
+   "allowed": [
+    [
+     "guest-wifi",
+     "syslog"
+    ],
+    [
+     "partners",
+     "ntp"
+    ]
+   ]
+  },
+  {
+   "type": "block",
+   "src": "cameras",
+   "dst": "engineering"
+  },
+  {
+   "type": "block",
+   "src": "engineering",
+   "dst": "guest-wifi"
+  },
+  {
+   "type": "block",
+   "src": "cameras",
+   "dst": "student-lab"
+  },
+  {
+   "type": "allow_except",
+   "src": "dns-servers",
+   "dst": "backup",
+   "broad": "any-udp",
+   "ex": [
+    "snmp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "cameras",
+   "dst": "edge-cache",
+   "svcs": [
+    "rdp",
+    "http",
+    "smb"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "guest-wifi",
+   "dst": "dns-servers",
+   "broad": "any-tcp",
+   "ex": [
+    "smb"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "guest-wifi",
+   "svcs": [
+    "ntp",
+    "https"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "engineering",
+   "dst": "edge-cache"
+  },
+  {
+   "type": "isolate",
+   "src": "cameras",
+   "allowed": [
+    [
+     "partners",
+     "ntp"
+    ]
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "hr",
+   "svcs": [
+    "http",
+    "ntp"
+   ]
+  }
+ ],
+ "fw_out": [
+  {
+   "type": "allow_except",
+   "src": "engineering",
+   "dst": "student-lab",
+   "broad": "any-tcp",
+   "ex": [
+    "smb"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "edge-cache",
+   "dst": "cameras"
+  },
+  {
+   "type": "allow",
+   "src": "engineering",
+   "dst": "dns-servers",
+   "svcs": [
+    "rdp",
+    "ldap"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "engineering",
+   "dst": "cameras",
+   "svcs": [
+    "ntp",
+    "rdp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "backup",
+   "dst": "dns-servers",
+   "svcs": [
+    "ldap",
+    "ntp",
+    "ssh"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "hr",
+   "allowed": [
+    [
+     "guest-wifi",
+     "syslog"
+    ],
+    [
+     "partners",
+     "ntp"
+    ]
+   ]
+  },
+  {
+   "type": "block",
+   "src": "cameras",
+   "dst": "engineering"
+  },
+  {
+   "type": "block",
+   "src": "engineering",
+   "dst": "guest-wifi"
+  },
+  {
+   "type": "block",
+   "src": "cameras",
+   "dst": "student-lab"
+  },
+  {
+   "type": "allow_except",
+   "src": "dns-servers",
+   "dst": "backup",
+   "broad": "any-udp",
+   "ex": [
+    "snmp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "cameras",
+   "dst": "edge-cache",
+   "svcs": [
+    "rdp",
+    "http",
+    "smb"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "guest-wifi",
+   "dst": "dns-servers",
+   "broad": "any-tcp",
+   "ex": [
+    "smb"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "guest-wifi",
+   "svcs": [
+    "ntp",
+    "https"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "engineering",
+   "dst": "edge-cache"
+  },
+  {
+   "type": "isolate",
+   "src": "cameras",
+   "allowed": [
+    [
+     "partners",
+     "ntp"
+    ]
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "hr",
+   "svcs": [
+    "http",
+    "ntp"
+   ]
+  }
+ ],
+ "wall_s": 191.27665948867798
+}

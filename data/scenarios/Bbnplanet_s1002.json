@@ -1,0 +1,597 @@
+{
+ "id": "Bbnplanet_s1002",
+ "topology": "Bbnplanet",
+ "n_nodes": 27,
+ "edges": [
+  [
+   0,
+   1
+  ],
+  [
+   1,
+   8
+  ],
+  [
+   1,
+   2
+  ],
+  [
+   1,
+   4
+  ],
+  [
+   3,
+   4
+  ],
+  [
+   4,
+   5
+  ],
+  [
+   4,
+   25
+  ],
+  [
+   5,
+   9
+  ],
+  [
+   5,
+   6
+  ],
+  [
+   5,
+   7
+  ],
+  [
+   8,
+   18
+  ],
+  [
+   9,
+   10
+  ],
+  [
+   9,
+   11
+  ],
+  [
+   9,
+   13
+  ],
+  [
+   12,
+   13
+  ],
+  [
+   13,
+   25
+  ],
+  [
+   14,
+   15
+  ],
+  [
+   15,
+   16
+  ],
+  [
+   15,
+   17
+  ],
+  [
+   15,
+   18
+  ],
+  [
+   15,
+   22
+  ],
+  [
+   18,
+   19
+  ],
+  [
+   18,
+   20
+  ],
+  [
+   21,
+   22
+  ],
+  [
+   22,
+   25
+  ],
+  [
+   22,
+   23
+  ],
+  [
+   24,
+   25
+  ],
+  [
+   25,
+   26
+  ]
+ ],
+ "zones": {
+  "cameras": {
+   "router": 16,
+   "prefixes": [
+    "87.186.60.0/25"
+   ]
+  },
+  "edge-cache": {
+   "router": 23,
+   "prefixes": [
+    "119.44.200.0/22",
+    "89.179.174.0/24",
+    "196.99.128.0/17"
+   ]
+  },
+  "iot-sensors": {
+   "router": 26,
+   "prefixes": [
+    "226.16.201.0/24",
+    "208.56.125.224/28"
+   ]
+  },
+  "student-lab": {
+   "router": 24,
+   "prefixes": [
+    "223.198.62.0/23",
+    "29.228.248.0/25",
+    "29.220.156.16/28"
+   ]
+  },
+  "engineering": {
+   "router": 7,
+   "prefixes": [
+    "115.169.168.0/24",
+    "133.149.18.128/26"
+   ]
+  },
+  "monitoring": {
+   "router": 19,
+   "prefixes": [
+    "159.137.123.0/24",
+    "191.72.255.224/27",
+    "135.126.175.0/24"
+   ]
+  },
+  "partners": {
+   "router": 6,
+   "prefixes": [
+    "103.17.26.0/23"
+   ]
+  },
+  "database": {
+   "router": 20,
+   "prefixes": [
+    "81.25.66.0/23",
+    "200.119.102.0/24"
+   ]
+  },
+  "dev-lab": {
+   "router": 14,
+   "prefixes": [
+    "248.178.33.0/24",
+    "85.43.119.192/26"
+   ]
+  },
+  "admin": {
+   "router": 11,
+   "prefixes": [
+    "87.73.152.0/23"
+   ]
+  }
+ },
+ "zone_text": [
+  "cameras: hosts 87.186.60.0/25 attached to router R16",
+  "edge-cache: hosts 119.44.200.0/22, 89.179.174.0/24, 196.99.128.0/17 attached to router R23",
+  "iot-sensors: hosts 226.16.201.0/24, 208.56.125.224/28 attached to router R26",
+  "student-lab: hosts 223.198.62.0/23, 29.228.248.0/25, 29.220.156.16/28 attached to router R24",
+  "engineering: hosts 115.169.168.0/24, 133.149.18.128/26 attached to router R7",
+  "monitoring: hosts 159.137.123.0/24, 191.72.255.224/27, 135.126.175.0/24 attached to router R19",
+  "partners: hosts 103.17.26.0/23 attached to router R6",
+  "database: hosts 81.25.66.0/23, 200.119.102.0/24 attached to router R20",
+  "dev-lab: hosts 248.178.33.0/24, 85.43.119.192/26 attached to router R14",
+  "admin: hosts 87.73.152.0/23 attached to router R11"
+ ],
+ "intents": [
+  {
+   "type": "allow",
+   "src": "database",
+   "dst": "edge-cache",
+   "svcs": [
+    "rtsp",
+    "ssh",
+    "ntp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "partners",
+   "dst": "iot-sensors",
+   "svcs": [
+    "mysql",
+    "ntp",
+    "rtsp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "dev-lab",
+   "dst": "iot-sensors",
+   "svcs": [
+    "smb"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "admin",
+   "dst": "engineering",
+   "svcs": [
+    "postgres",
+    "imap"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "partners",
+   "dst": "cameras",
+   "svcs": [
+    "smb",
+    "rtsp",
+    "rdp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "monitoring",
+   "dst": "partners",
+   "svcs": [
+    "ldap",
+    "https"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "partners",
+   "dst": "iot-sensors",
+   "svcs": [
+    "smtp",
+    "rtsp",
+    "syslog"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "student-lab",
+   "dst": "partners"
+  },
+  {
+   "type": "block",
+   "src": "edge-cache",
+   "dst": "monitoring"
+  },
+  {
+   "type": "allow",
+   "src": "engineering",
+   "dst": "admin",
+   "svcs": [
+    "imap",
+    "smtp"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "edge-cache",
+   "svcs": [
+    "ntp"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "admin",
+   "dst": "dev-lab"
+  },
+  {
+   "type": "public",
+   "dst": "engineering",
+   "svcs": [
+    "http",
+    "ntp"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "partners",
+   "allowed": [
+    [
+     "admin",
+     "https"
+    ]
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "monitoring",
+   "dst": "iot-sensors",
+   "svcs": [
+    "https",
+    "rtsp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "engineering",
+   "dst": "cameras",
+   "svcs": [
+    "rtsp"
+   ]
+  }
+ ],
+ "nl": [
+  "Allow database to connect to edge-cache using RTSP (TCP 554) and SSH (TCP 22) and NTP (UDP 123).",
+  "Hosts in partners may reach iot-sensors over MySQL (TCP 3306) and NTP (UDP 123) and RTSP (TCP 554).",
+  "Hosts in dev-lab may reach iot-sensors over SMB (TCP 445).",
+  "engineering must accept PostgreSQL (TCP 5432) and IMAP (TCP 143) from admin.",
+  "Allow partners to connect to cameras using SMB (TCP 445) and RTSP (TCP 554) and RDP (TCP 3389).",
+  "Hosts in monitoring may reach partners over LDAP (TCP 389) and HTTPS (TCP 443).",
+  "Allow partners to connect to iot-sensors using SMTP (TCP 25) and RTSP (TCP 554) and syslog (UDP 514).",
+  "student-lab must never reach partners, regardless of any other rule.",
+  "Deny all traffic from edge-cache to monitoring (this overrides any public service).",
+  "Allow engineering to connect to admin using IMAP (TCP 143) and SMTP (TCP 25).",
+  "Make NTP (UDP 123) on edge-cache reachable from all internal zones.",
+  "No packet from admin may enter dev-lab, even for services open to everyone.",
+  "engineering offers HTTP (TCP 80) and NTP (UDP 123) to every zone.",
+  "Restrict partners so that its only permitted destinations are admin on HTTPS (TCP 443); drop all other traffic it originates.",
+  "Allow monitoring to connect to iot-sensors using HTTPS (TCP 443) and RTSP (TCP 554).",
+  "Hosts in engineering may reach cameras over RTSP (TCP 554)."
+ ],
+ "gt": [
+  {
+   "src": "student-lab",
+   "dst": "partners",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "edge-cache",
+   "dst": "monitoring",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "admin",
+   "dst": "dev-lab",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "database",
+   "dst": "edge-cache",
+   "proto": "tcp",
+   "dlo": 554,
+   "dhi": 554,
+   "action": "permit"
+  },
+  {
+   "src": "database",
+   "dst": "edge-cache",
+   "proto": "tcp",
+   "dlo": 22,
+   "dhi": 22,
+   "action": "permit"
+  },
+  {
+   "src": "database",
+   "dst": "edge-cache",
+   "proto": "udp",
+   "dlo": 123,
+   "dhi": 123,
+   "action": "permit"
+  },
+  {
+   "src": "partners",
+   "dst": "iot-sensors",
+   "proto": "tcp",
+   "dlo": 3306,
+   "dhi": 3306,
+   "action": "permit"
+  },
+  {
+   "src": "partners",
+   "dst": "iot-sensors",
+   "proto": "udp",
+   "dlo": 123,
+   "dhi": 123,
+   "action": "permit"
+  },
+  {
+   "src": "partners",
+   "dst": "iot-sensors",
+   "proto": "tcp",
+   "dlo": 554,
+   "dhi": 554,
+   "action": "permit"
+  },
+  {
+   "src": "dev-lab",
+   "dst": "iot-sensors",
+   "proto": "tcp",
+   "dlo": 445,
+   "dhi": 445,
+   "action": "permit"
+  },
+  {
+   "src": "admin",
+   "dst": "engineering",
+   "proto": "tcp",
+   "dlo": 5432,
+   "dhi": 5432,
+   "action": "permit"
+  },
+  {
+   "src": "admin",
+   "dst": "engineering",
+   "proto": "tcp",
+   "dlo": 143,
+   "dhi": 143,
+   "action": "permit"
+  },
+  {
+   "src": "partners",
+   "dst": "cameras",
+   "proto": "tcp",
+   "dlo": 445,
+   "dhi": 445,
+   "action": "permit"
+  },
+  {
+   "src": "partners",
+   "dst": "cameras",
+   "proto": "tcp",
+   "dlo": 554,
+   "dhi": 554,
+   "action": "permit"
+  },
+  {
+   "src": "partners",
+   "dst": "cameras",
+   "proto": "tcp",
+   "dlo": 3389,
+   "dhi": 3389,
+   "action": "permit"
+  },
+  {
+   "src": "monitoring",
+   "dst": "partners",
+   "proto": "tcp",
+   "dlo": 389,
+   "dhi": 389,
+   "action": "permit"
+  },
+  {
+   "src": "monitoring",
+   "dst": "partners",
+   "proto": "tcp",
+   "dlo": 443,
+   "dhi": 443,
+   "action": "permit"
+  },
+  {
+   "src": "partners",
+   "dst": "iot-sensors",
+   "proto": "tcp",
+   "dlo": 25,
+   "dhi": 25,
+   "action": "permit"
+  },
+  {
+   "src": "partners",
+   "dst": "iot-sensors",
+   "proto": "tcp",
+   "dlo": 554,
+   "dhi": 554,
+   "action": "permit"
+  },
+  {
+   "src": "partners",
+   "dst": "iot-sensors",
+   "proto": "udp",
+   "dlo": 514,
+   "dhi": 514,
+   "action": "permit"
+  },
+  {
+   "src": "engineering",
+   "dst": "admin",
+   "proto": "tcp",
+   "dlo": 143,
+   "dhi": 143,
+   "action": "permit"
+  },
+  {
+   "src": "engineering",
+   "dst": "admin",
+   "proto": "tcp",
+   "dlo": 25,
+   "dhi": 25,
+   "action": "permit"
+  },
+  {
+   "src": "monitoring",
+   "dst": "iot-sensors",
+   "proto": "tcp",
+   "dlo": 443,
+   "dhi": 443,
+   "action": "permit"
+  },
+  {
+   "src": "monitoring",
+   "dst": "iot-sensors",
+   "proto": "tcp",
+   "dlo": 554,
+   "dhi": 554,
+   "action": "permit"
+  },
+  {
+   "src": "engineering",
+   "dst": "cameras",
+   "proto": "tcp",
+   "dlo": 554,
+   "dhi": 554,
+   "action": "permit"
+  },
+  {
+   "src": "partners",
+   "dst": "admin",
+   "proto": "tcp",
+   "dlo": 443,
+   "dhi": 443,
+   "action": "permit"
+  },
+  {
+   "src": "partners",
+   "dst": "*",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "*",
+   "dst": "edge-cache",
+   "proto": "udp",
+   "dlo": 123,
+   "dhi": 123,
+   "action": "permit"
+  },
+  {
+   "src": "*",
+   "dst": "engineering",
+   "proto": "tcp",
+   "dlo": 80,
+   "dhi": 80,
+   "action": "permit"
+  },
+  {
+   "src": "*",
+   "dst": "engineering",
+   "proto": "udp",
+   "dlo": 123,
+   "dhi": 123,
+   "action": "permit"
+  }
+ ]
+}

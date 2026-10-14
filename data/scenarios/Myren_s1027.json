@@ -1,0 +1,431 @@
+{
+ "id": "Myren_s1027",
+ "topology": "Myren",
+ "n_nodes": 37,
+ "edges": [
+  [
+   0,
+   1
+  ],
+  [
+   0,
+   2
+  ],
+  [
+   0,
+   3
+  ],
+  [
+   0,
+   4
+  ],
+  [
+   0,
+   5
+  ],
+  [
+   0,
+   18
+  ],
+  [
+   0,
+   19
+  ],
+  [
+   0,
+   20
+  ],
+  [
+   0,
+   21
+  ],
+  [
+   0,
+   22
+  ],
+  [
+   0,
+   23
+  ],
+  [
+   0,
+   24
+  ],
+  [
+   0,
+   25
+  ],
+  [
+   0,
+   26
+  ],
+  [
+   0,
+   27
+  ],
+  [
+   0,
+   28
+  ],
+  [
+   1,
+   6
+  ],
+  [
+   1,
+   7
+  ],
+  [
+   2,
+   29
+  ],
+  [
+   2,
+   30
+  ],
+  [
+   2,
+   31
+  ],
+  [
+   2,
+   5
+  ],
+  [
+   3,
+   32
+  ],
+  [
+   3,
+   33
+  ],
+  [
+   3,
+   34
+  ],
+  [
+   3,
+   35
+  ],
+  [
+   3,
+   5
+  ],
+  [
+   4,
+   8
+  ],
+  [
+   4,
+   9
+  ],
+  [
+   4,
+   10
+  ],
+  [
+   4,
+   5
+  ],
+  [
+   5,
+   36
+  ],
+  [
+   5,
+   11
+  ],
+  [
+   5,
+   12
+  ],
+  [
+   5,
+   13
+  ],
+  [
+   5,
+   14
+  ],
+  [
+   5,
+   15
+  ],
+  [
+   5,
+   16
+  ],
+  [
+   5,
+   17
+  ]
+ ],
+ "zones": {
+  "backup": {
+   "router": 25,
+   "prefixes": [
+    "94.209.172.0/22"
+   ]
+  },
+  "printers": {
+   "router": 28,
+   "prefixes": [
+    "248.240.168.0/21",
+    "78.176.163.0/24"
+   ]
+  },
+  "engineering": {
+   "router": 8,
+   "prefixes": [
+    "72.83.203.144/28",
+    "229.240.29.176/28",
+    "243.103.39.0/24"
+   ]
+  },
+  "hr": {
+   "router": 22,
+   "prefixes": [
+    "113.221.37.64/26",
+    "231.179.177.0/25",
+    "43.160.135.0/24"
+   ]
+  },
+  "iot-sensors": {
+   "router": 24,
+   "prefixes": [
+    "9.148.102.128/25",
+    "3.185.120.0/25",
+    "196.71.56.0/23"
+   ]
+  },
+  "research": {
+   "router": 7,
+   "prefixes": [
+    "72.197.41.96/27"
+   ]
+  },
+  "dns-servers": {
+   "router": 20,
+   "prefixes": [
+    "58.148.64.0/19"
+   ]
+  },
+  "guest-wifi": {
+   "router": 21,
+   "prefixes": [
+    "117.92.170.128/25",
+    "178.129.92.0/22",
+    "197.88.185.128/25"
+   ]
+  },
+  "library": {
+   "router": 33,
+   "prefixes": [
+    "211.213.192.0/18"
+   ]
+  },
+  "dmz-web": {
+   "router": 14,
+   "prefixes": [
+    "142.22.240.48/28",
+    "229.13.224.0/19",
+    "98.149.198.0/24"
+   ]
+  }
+ },
+ "zone_text": [
+  "backup: hosts 94.209.172.0/22 attached to router R25",
+  "printers: hosts 248.240.168.0/21, 78.176.163.0/24 attached to router R28",
+  "engineering: hosts 72.83.203.144/28, 229.240.29.176/28, 243.103.39.0/24 attached to router R8",
+  "hr: hosts 113.221.37.64/26, 231.179.177.0/25, 43.160.135.0/24 attached to router R22",
+  "iot-sensors: hosts 9.148.102.128/25, 3.185.120.0/25, 196.71.56.0/23 attached to router R24",
+  "research: hosts 72.197.41.96/27 attached to router R7",
+  "dns-servers: hosts 58.148.64.0/19 attached to router R20",
+  "guest-wifi: hosts 117.92.170.128/25, 178.129.92.0/22, 197.88.185.128/25 attached to router R21",
+  "library: hosts 211.213.192.0/18 attached to router R33",
+  "dmz-web: hosts 142.22.240.48/28, 229.13.224.0/19, 98.149.198.0/24 attached to router R14"
+ ],
+ "intents": [
+  {
+   "type": "block",
+   "src": "dns-servers",
+   "dst": "iot-sensors"
+  },
+  {
+   "type": "block",
+   "src": "research",
+   "dst": "hr"
+  },
+  {
+   "type": "allow",
+   "src": "dmz-web",
+   "dst": "dns-servers",
+   "svcs": [
+    "smtp",
+    "https",
+    "ntp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "dns-servers",
+   "dst": "hr",
+   "svcs": [
+    "ldap",
+    "syslog"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "guest-wifi",
+   "allowed": [
+    [
+     "iot-sensors",
+     "dns"
+    ],
+    [
+     "research",
+     "syslog"
+    ]
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "library",
+   "dst": "backup",
+   "svcs": [
+    "smtp",
+    "smb",
+    "snmp"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "engineering",
+   "dst": "dmz-web"
+  }
+ ],
+ "nl": [
+  "No packet from dns-servers may enter iot-sensors, even for services open to everyone.",
+  "Deny all traffic from research to hr (this overrides any public service).",
+  "dns-servers must accept SMTP (TCP 25) and HTTPS (TCP 443) and NTP (UDP 123) from dmz-web.",
+  "hr must accept LDAP (TCP 389) and syslog (UDP 514) from dns-servers.",
+  "guest-wifi is isolated: it may only reach iot-sensors on DNS over UDP 53; research on syslog (UDP 514), and nothing else.",
+  "Hosts in library may reach backup over SMTP (TCP 25) and SMB (TCP 445) and SNMP (UDP 161).",
+  "engineering must never reach dmz-web, regardless of any other rule."
+ ],
+ "gt": [
+  {
+   "src": "dns-servers",
+   "dst": "iot-sensors",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "research",
+   "dst": "hr",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "engineering",
+   "dst": "dmz-web",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "dmz-web",
+   "dst": "dns-servers",
+   "proto": "tcp",
+   "dlo": 25,
+   "dhi": 25,
+   "action": "permit"
+  },
+  {
+   "src": "dmz-web",
+   "dst": "dns-servers",
+   "proto": "tcp",
+   "dlo": 443,
+   "dhi": 443,
+   "action": "permit"
+  },
+  {
+   "src": "dmz-web",
+   "dst": "dns-servers",
+   "proto": "udp",
+   "dlo": 123,
+   "dhi": 123,
+   "action": "permit"
+  },
+  {
+   "src": "dns-servers",
+   "dst": "hr",
+   "proto": "tcp",
+   "dlo": 389,
+   "dhi": 389,
+   "action": "permit"
+  },
+  {
+   "src": "dns-servers",
+   "dst": "hr",
+   "proto": "udp",
+   "dlo": 514,
+   "dhi": 514,
+   "action": "permit"
+  },
+  {
+   "src": "library",
+   "dst": "backup",
+   "proto": "tcp",
+   "dlo": 25,
+   "dhi": 25,
+   "action": "permit"
+  },
+  {
+   "src": "library",
+   "dst": "backup",
+   "proto": "tcp",
+   "dlo": 445,
+   "dhi": 445,
+   "action": "permit"
+  },
+  {
+   "src": "library",
+   "dst": "backup",
+   "proto": "udp",
+   "dlo": 161,
+   "dhi": 161,
+   "action": "permit"
+  },
+  {
+   "src": "guest-wifi",
+   "dst": "iot-sensors",
+   "proto": "udp",
+   "dlo": 53,
+   "dhi": 53,
+   "action": "permit"
+  },
+  {
+   "src": "guest-wifi",
+   "dst": "research",
+   "proto": "udp",
+   "dlo": 514,
+   "dhi": 514,
+   "action": "permit"
+  },
+  {
+   "src": "guest-wifi",
+   "dst": "*",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  }
+ ]
+}

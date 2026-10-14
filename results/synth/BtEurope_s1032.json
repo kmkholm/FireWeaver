@@ -1,0 +1,616 @@
+{
+ "id": "BtEurope_s1032",
+ "n_intents": 31,
+ "n_gt_rules": 59,
+ "n_zones": 16,
+ "rules": {
+  "eq": false,
+  "mismatch": 0.01425,
+  "n_rules": 49,
+  "fail": 0,
+  "s": 51.6438570022583,
+  "calls": 1,
+  "prompt": 1369,
+  "completion": 1512
+ },
+ "ir0": {
+  "eq": false,
+  "mismatch": 0.00575,
+  "n_rules": 53,
+  "fail": 0,
+  "s": 41.67777943611145,
+  "calls": 33,
+  "prompt": 21967,
+  "completion": 1222,
+  "intent_acc": 0.9032258064516129
+ },
+ "ir": {
+  "eq": true,
+  "mismatch": 0.0,
+  "n_rules": 59,
+  "fail": 0,
+  "s": 27.392680644989014,
+  "calls": 31,
+  "prompt": 34477,
+  "completion": 807,
+  "intent_acc": 1.0
+ },
+ "fw": {
+  "eq": true,
+  "mismatch": 0.0,
+  "n_rules": 60,
+  "fail": 0,
+  "s": 99.23744559288025,
+  "verify_s": 71.8447654247284,
+  "calls": 68,
+  "verify_calls": 37,
+  "flagged": 2,
+  "accepted": 1,
+  "repairs": [
+   {
+    "k": 7,
+    "was_ok": true,
+    "now_ok": true,
+    "history": [
+     2,
+     2,
+     2
+    ],
+    "calls": 2,
+    "accepted": false
+   },
+   {
+    "k": 29,
+    "was_ok": true,
+    "now_ok": false,
+    "history": [
+     1,
+     0
+    ],
+    "calls": 2,
+    "accepted": true,
+    "diff": 1,
+    "win_new": 1,
+    "win_old": 0
+   }
+  ],
+  "intent_acc": 0.967741935483871
+ },
+ "ir_out": [
+  {
+   "type": "allow",
+   "src": "guest-wifi",
+   "dst": "engineering",
+   "svcs": [
+    "ssh",
+    "rtsp"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "student-lab",
+   "svcs": [
+    "https",
+    "ntp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "printers",
+   "dst": "iot-sensors",
+   "svcs": [
+    "smtp",
+    "rtsp",
+    "ldap"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "student-lab",
+   "dst": "dev-lab",
+   "svcs": [
+    "imap"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "backup",
+   "dst": "printers"
+  },
+  {
+   "type": "allow",
+   "src": "printers",
+   "dst": "dev-lab",
+   "svcs": [
+    "mysql",
+    "syslog"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "partners",
+   "dst": "backup",
+   "svcs": [
+    "http",
+    "https"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "admin",
+   "allowed": [
+    [
+     "ops",
+     "dns"
+    ],
+    [
+     "backup",
+     "syslog"
+    ]
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "iot-sensors",
+   "dst": "voip",
+   "svcs": [
+    "smb",
+    "https"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "dev-lab",
+   "dst": "admin",
+   "svcs": [
+    "smb"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "engineering",
+   "dst": "printers",
+   "svcs": [
+    "smb",
+    "rtsp",
+    "https"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "ops",
+   "dst": "database"
+  },
+  {
+   "type": "block",
+   "src": "database",
+   "dst": "library"
+  },
+  {
+   "type": "block",
+   "src": "dmz-web",
+   "dst": "ops"
+  },
+  {
+   "type": "allow",
+   "src": "partners",
+   "dst": "ops",
+   "svcs": [
+    "imap"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "dev-lab",
+   "allowed": [
+    [
+     "ops",
+     "https"
+    ]
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "dmz-web",
+   "dst": "dev-lab",
+   "svcs": [
+    "rdp",
+    "smb"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "dmz-web",
+   "dst": "engineering",
+   "svcs": [
+    "imap",
+    "ssh"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "library",
+   "dst": "finance",
+   "svcs": [
+    "rdp",
+    "ssh"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "admin",
+   "dst": "finance",
+   "broad": "any-tcp",
+   "ex": [
+    "smb",
+    "telnet"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "finance",
+   "dst": "ops",
+   "svcs": [
+    "snmp"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "backup",
+   "svcs": [
+    "dns",
+    "https"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "engineering",
+   "dst": "printers",
+   "svcs": [
+    "postgres",
+    "rdp",
+    "imap"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "voip",
+   "svcs": [
+    "ntp",
+    "http"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "iot-sensors",
+   "dst": "dev-lab",
+   "broad": "high-tcp",
+   "ex": [
+    "rdp",
+    "mysql"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "printers",
+   "dst": "dmz-web",
+   "svcs": [
+    "ldap"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "admin",
+   "dst": "backup",
+   "svcs": [
+    "smb",
+    "http"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "dmz-web",
+   "dst": "dev-lab"
+  },
+  {
+   "type": "allow_except",
+   "src": "backup",
+   "dst": "guest-wifi",
+   "broad": "any-tcp",
+   "ex": [
+    "rdp",
+    "smb"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "partners",
+   "allowed": [
+    [
+     "ops",
+     "https"
+    ],
+    [
+     "backup",
+     "syslog"
+    ]
+   ]
+  },
+  {
+   "type": "block",
+   "src": "engineering",
+   "dst": "printers"
+  }
+ ],
+ "fw_out": [
+  {
+   "type": "allow",
+   "src": "guest-wifi",
+   "dst": "engineering",
+   "svcs": [
+    "ssh",
+    "rtsp"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "student-lab",
+   "svcs": [
+    "https",
+    "ntp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "printers",
+   "dst": "iot-sensors",
+   "svcs": [
+    "smtp",
+    "rtsp",
+    "ldap"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "student-lab",
+   "dst": "dev-lab",
+   "svcs": [
+    "imap"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "backup",
+   "dst": "printers"
+  },
+  {
+   "type": "allow",
+   "src": "printers",
+   "dst": "dev-lab",
+   "svcs": [
+    "mysql",
+    "syslog"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "partners",
+   "dst": "backup",
+   "svcs": [
+    "http",
+    "https"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "admin",
+   "allowed": [
+    [
+     "ops",
+     "dns"
+    ],
+    [
+     "backup",
+     "syslog"
+    ]
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "iot-sensors",
+   "dst": "voip",
+   "svcs": [
+    "smb",
+    "https"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "dev-lab",
+   "dst": "admin",
+   "svcs": [
+    "smb"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "engineering",
+   "dst": "printers",
+   "svcs": [
+    "smb",
+    "rtsp",
+    "https"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "ops",
+   "dst": "database"
+  },
+  {
+   "type": "block",
+   "src": "database",
+   "dst": "library"
+  },
+  {
+   "type": "block",
+   "src": "dmz-web",
+   "dst": "ops"
+  },
+  {
+   "type": "allow",
+   "src": "partners",
+   "dst": "ops",
+   "svcs": [
+    "imap"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "dev-lab",
+   "allowed": [
+    [
+     "ops",
+     "https"
+    ]
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "dmz-web",
+   "dst": "dev-lab",
+   "svcs": [
+    "rdp",
+    "smb"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "dmz-web",
+   "dst": "engineering",
+   "svcs": [
+    "imap",
+    "ssh"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "library",
+   "dst": "finance",
+   "svcs": [
+    "rdp",
+    "ssh"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "admin",
+   "dst": "finance",
+   "broad": "any-tcp",
+   "ex": [
+    "smb",
+    "telnet"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "finance",
+   "dst": "ops",
+   "svcs": [
+    "snmp"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "backup",
+   "svcs": [
+    "dns",
+    "https"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "engineering",
+   "dst": "printers",
+   "svcs": [
+    "postgres",
+    "rdp",
+    "imap"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "voip",
+   "svcs": [
+    "ntp",
+    "http"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "iot-sensors",
+   "dst": "dev-lab",
+   "broad": "high-tcp",
+   "ex": [
+    "rdp",
+    "mysql"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "printers",
+   "dst": "dmz-web",
+   "svcs": [
+    "ldap"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "admin",
+   "dst": "backup",
+   "svcs": [
+    "smb",
+    "http"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "dmz-web",
+   "dst": "dev-lab"
+  },
+  {
+   "type": "allow_except",
+   "src": "backup",
+   "dst": "guest-wifi",
+   "broad": "any-tcp",
+   "ex": [
+    "rdp",
+    "smb"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "partners",
+   "allowed": [
+    [
+     "ops",
+     "https"
+    ],
+    [
+     "backup",
+     "syslog"
+    ],
+    [
+     "backup",
+     "https"
+    ]
+   ]
+  },
+  {
+   "type": "block",
+   "src": "engineering",
+   "dst": "printers"
+  }
+ ],
+ "wall_s": 193.3520212173462
+}

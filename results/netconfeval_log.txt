@@ -1,0 +1,27 @@
+translation 0 {'batch_s': 9.407044410705566, 'ir_s': 2.186150550842285, 'batch_exact': True, 'ir_exact': True}
+translation 20 {'batch_s': 2.699347972869873, 'ir_s': 2.2075157165527344, 'batch_exact': True, 'ir_exact': True}
+translation 40 {'batch_s': 2.4824178218841553, 'ir_s': 2.7148234844207764, 'batch_exact': True, 'ir_exact': True}
+translation 60 {'batch_s': 2.999436140060425, 'ir_s': 3.459822654724121, 'batch_exact': True, 'ir_exact': True}
+translation 80 {'batch_s': 3.937023878097534, 'ir_s': 3.613604784011841, 'batch_exact': True, 'ir_exact': True}
+translation 100 {'batch_s': 2.4175240993499756, 'ir_s': 4.006849527359009, 'batch_exact': False, 'ir_exact': True}
+translation 120 {'batch_s': 3.051302671432495, 'ir_s': 5.828350305557251, 'batch_exact': True, 'ir_exact': True}
+translation 140 {'batch_s': 3.900023937225342, 'ir_s': 4.709506273269653, 'batch_exact': True, 'ir_exact': True}
+translation 160 {'batch_s': 5.122882843017578, 'ir_s': 12.484254360198975, 'batch_exact': True, 'ir_exact': True}
+translation 180 {'batch_s': 17.644860982894897, 'ir_s': 65.6083447933197, 'batch_exact': False, 'ir_exact': True}
+translation 200 {'batch_s': 3.67325758934021, 'ir_s': 9.910969018936157, 'batch_exact': False, 'ir_exact': True}
+translation 220 {'batch_s': 4.371630430221558, 'ir_s': 12.3871328830719, 'batch_exact': True, 'ir_exact': True}
+translation 240 {'batch_s': 4.307878255844116, 'ir_s': 9.20494270324707, 'batch_exact': True, 'ir_exact': True}
+translation 260 {'batch_s': 8.51262903213501, 'ir_s': 19.74053406715393, 'batch_exact': True, 'ir_exact': True}
+translation 280 {'batch_s': 39.33554983139038, 'ir_s': 123.21293306350708, 'batch_exact': False, 'ir_exact': True}
+translation 300 {'batch_s': 8.778243780136108, 'ir_s': 18.938647270202637, 'batch_exact': False, 'ir_exact': True}
+translation 320 {'batch_s': 17.885528564453125, 'ir_s': 30.74200987815857, 'batch_exact': False, 'ir_exact': True}
+conflict 0 {'batch_s': 0.5143587589263916, 'ir_s': 2.1071627140045166, 'label': True, 'batch_pred': True, 'ir_pred': True}
+conflict 20 {'batch_s': 0.38828444480895996, 'ir_s': 2.1197352409362793, 'label': True, 'batch_pred': True, 'ir_pred': True}
+conflict 40 {'batch_s': 0.39449143409729004, 'ir_s': 2.172260046005249, 'label': True, 'batch_pred': True, 'ir_pred': True}
+conflict 60 {'batch_s': 0.3848412036895752, 'ir_s': 2.1181888580322266, 'label': True, 'batch_pred': True, 'ir_pred': True}
+conflict 80 {'batch_s': 0.39366722106933594, 'ir_s': 2.1161231994628906, 'label': True, 'batch_pred': True, 'ir_pred': True}
+conflict 100 {'batch_s': 0.3917350769042969, 'ir_s': 3.1253573894500732, 'label': True, 'batch_pred': True, 'ir_pred': True}
+conflict 120 {'batch_s': 0.4041590690612793, 'ir_s': 3.1796069145202637, 'label': True, 'batch_pred': True, 'ir_pred': True}
+conflict 140 {'batch_s': 0.3995544910430908, 'ir_s': 3.110988140106201, 'label': True, 'batch_pred': True, 'ir_pred': True}
+conflict 160 {'batch_s': 0.4754970073699951, 'ir_s': 6.268423795700073, 'label': True, 'batch_pred': True, 'ir_pred': True}
+conflict 180 {'batch_s': 0.6865384578704834, 'ir_s': 21.601508855819702, 'label': True, 'batch_pred': False, 'ir_pred': True}

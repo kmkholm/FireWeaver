@@ -1,0 +1,1169 @@
+{
+ "id": "Garr200902_s1056",
+ "topology": "Garr200902",
+ "n_nodes": 54,
+ "edges": [
+  [
+   0,
+   50
+  ],
+  [
+   1,
+   45
+  ],
+  [
+   2,
+   6
+  ],
+  [
+   2,
+   49
+  ],
+  [
+   2,
+   44
+  ],
+  [
+   2,
+   14
+  ],
+  [
+   2,
+   16
+  ],
+  [
+   2,
+   17
+  ],
+  [
+   2,
+   18
+  ],
+  [
+   2,
+   53
+  ],
+  [
+   2,
+   22
+  ],
+  [
+   2,
+   30
+  ],
+  [
+   3,
+   42
+  ],
+  [
+   3,
+   43
+  ],
+  [
+   3,
+   44
+  ],
+  [
+   3,
+   38
+  ],
+  [
+   4,
+   49
+  ],
+  [
+   5,
+   50
+  ],
+  [
+   6,
+   48
+  ],
+  [
+   6,
+   45
+  ],
+  [
+   6,
+   46
+  ],
+  [
+   7,
+   20
+  ],
+  [
+   8,
+   44
+  ],
+  [
+   9,
+   42
+  ],
+  [
+   10,
+   42
+  ],
+  [
+   11,
+   44
+  ],
+  [
+   12,
+   42
+  ],
+  [
+   13,
+   16
+  ],
+  [
+   14,
+   21
+  ],
+  [
+   15,
+   16
+  ],
+  [
+   16,
+   18
+  ],
+  [
+   18,
+   33
+  ],
+  [
+   18,
+   19
+  ],
+  [
+   18,
+   20
+  ],
+  [
+   18,
+   21
+  ],
+  [
+   18,
+   22
+  ],
+  [
+   20,
+   49
+  ],
+  [
+   23,
+   30
+  ],
+  [
+   24,
+   25
+  ],
+  [
+   25,
+   49
+  ],
+  [
+   25,
+   26
+  ],
+  [
+   25,
+   27
+  ],
+  [
+   25,
+   28
+  ],
+  [
+   25,
+   30
+  ],
+  [
+   29,
+   30
+  ],
+  [
+   30,
+   33
+  ],
+  [
+   31,
+   33
+  ],
+  [
+   32,
+   33
+  ],
+  [
+   32,
+   51
+  ],
+  [
+   33,
+   34
+  ],
+  [
+   33,
+   35
+  ],
+  [
+   36,
+   44
+  ],
+  [
+   37,
+   44
+  ],
+  [
+   38,
+   39
+  ],
+  [
+   39,
+   40
+  ],
+  [
+   39,
+   49
+  ],
+  [
+   39,
+   42
+  ],
+  [
+   41,
+   50
+  ],
+  [
+   42,
+   44
+  ],
+  [
+   42,
+   49
+  ],
+  [
+   42,
+   50
+  ],
+  [
+   43,
+   44
+  ],
+  [
+   44,
+   45
+  ],
+  [
+   44,
+   46
+  ],
+  [
+   44,
+   50
+  ],
+  [
+   47,
+   48
+  ],
+  [
+   48,
+   49
+  ],
+  [
+   48,
+   52
+  ]
+ ],
+ "zones": {
+  "guest-wifi": {
+   "router": 26,
+   "prefixes": [
+    "135.181.96.0/19"
+   ]
+  },
+  "voip": {
+   "router": 31,
+   "prefixes": [
+    "208.247.0.0/16",
+    "154.45.153.128/27",
+    "106.241.113.0/27"
+   ]
+  },
+  "printers": {
+   "router": 27,
+   "prefixes": [
+    "60.189.0.0/16",
+    "87.229.99.64/26",
+    "207.95.152.0/23"
+   ]
+  },
+  "engineering": {
+   "router": 15,
+   "prefixes": [
+    "0.27.243.0/24"
+   ]
+  },
+  "ntp-servers": {
+   "router": 51,
+   "prefixes": [
+    "229.105.191.0/28",
+    "202.201.50.0/23",
+    "176.132.216.0/24"
+   ]
+  },
+  "nvr": {
+   "router": 41,
+   "prefixes": [
+    "83.199.154.64/27"
+   ]
+  }
+ },
+ "zone_text": [
+  "guest-wifi: hosts 135.181.96.0/19 attached to router R26",
+  "voip: hosts 208.247.0.0/16, 154.45.153.128/27, 106.241.113.0/27 attached to router R31",
+  "printers: hosts 60.189.0.0/16, 87.229.99.64/26, 207.95.152.0/23 attached to router R27",
+  "engineering: hosts 0.27.243.0/24 attached to router R15",
+  "ntp-servers: hosts 229.105.191.0/28, 202.201.50.0/23, 176.132.216.0/24 attached to router R51",
+  "nvr: hosts 83.199.154.64/27 attached to router R41"
+ ],
+ "intents": [
+  {
+   "type": "allow_except",
+   "src": "nvr",
+   "dst": "ntp-servers",
+   "broad": "any-tcp",
+   "ex": [
+    "ftp",
+    "smb"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "ntp-servers",
+   "dst": "nvr"
+  },
+  {
+   "type": "allow_except",
+   "src": "printers",
+   "dst": "guest-wifi",
+   "broad": "any-tcp",
+   "ex": [
+    "ftp",
+    "rdp",
+    "smb"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "engineering",
+   "svcs": [
+    "dns"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "nvr",
+   "dst": "printers"
+  },
+  {
+   "type": "public",
+   "dst": "voip",
+   "svcs": [
+    "http",
+    "https"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "guest-wifi",
+   "dst": "nvr",
+   "svcs": [
+    "ldap",
+    "rdp",
+    "ntp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "ntp-servers",
+   "dst": "printers",
+   "svcs": [
+    "mysql",
+    "smb",
+    "snmp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "guest-wifi",
+   "dst": "nvr",
+   "svcs": [
+    "rtsp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "voip",
+   "dst": "nvr",
+   "svcs": [
+    "smb",
+    "rdp",
+    "dns"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "printers",
+   "svcs": [
+    "dns"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "guest-wifi",
+   "dst": "ntp-servers",
+   "svcs": [
+    "postgres",
+    "ntp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "ntp-servers",
+   "dst": "nvr",
+   "svcs": [
+    "https",
+    "ldap",
+    "snmp"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "nvr",
+   "svcs": [
+    "https"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "printers",
+   "dst": "guest-wifi",
+   "svcs": [
+    "imap"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "voip",
+   "dst": "engineering",
+   "svcs": [
+    "snmp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "ntp-servers",
+   "dst": "nvr",
+   "svcs": [
+    "http",
+    "rdp",
+    "postgres"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "guest-wifi",
+   "dst": "nvr",
+   "svcs": [
+    "rtsp",
+    "ntp",
+    "https"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "printers",
+   "allowed": [
+    [
+     "engineering",
+     "dns"
+    ],
+    [
+     "voip",
+     "dns"
+    ]
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "engineering",
+   "dst": "nvr",
+   "svcs": [
+    "mysql",
+    "smb",
+    "ldap"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "engineering",
+   "dst": "nvr",
+   "svcs": [
+    "ldap"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "nvr",
+   "dst": "ntp-servers",
+   "svcs": [
+    "ntp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "voip",
+   "dst": "printers",
+   "svcs": [
+    "postgres"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "voip",
+   "dst": "ntp-servers",
+   "svcs": [
+    "snmp",
+    "dns",
+    "syslog"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "printers",
+   "svcs": [
+    "dns"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "nvr",
+   "dst": "printers",
+   "svcs": [
+    "mysql",
+    "https"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "ntp-servers",
+   "dst": "voip",
+   "svcs": [
+    "smtp",
+    "ntp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "nvr",
+   "dst": "ntp-servers",
+   "svcs": [
+    "http",
+    "https",
+    "postgres"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "engineering",
+   "dst": "guest-wifi",
+   "svcs": [
+    "smtp",
+    "ssh"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "engineering",
+   "dst": "ntp-servers",
+   "svcs": [
+    "postgres",
+    "rdp",
+    "smtp"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "voip",
+   "svcs": [
+    "https",
+    "ntp"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "nvr",
+   "svcs": [
+    "dns"
+   ]
+  }
+ ],
+ "nl": [
+  "Permit any TCP port from nvr to ntp-servers but deny FTP (TCP 21), SMB (TCP 445).",
+  "Deny all traffic from ntp-servers to nvr (this overrides any public service).",
+  "Block FTP (TCP 21), RDP (TCP 3389), SMB (TCP 445) from printers to guest-wifi; the rest of any TCP port between them is allowed.",
+  "Make DNS over UDP 53 on engineering reachable from all internal zones.",
+  "Deny all traffic from nvr to printers (this overrides any public service).",
+  "Make HTTP (TCP 80) and HTTPS (TCP 443) on voip reachable from all internal zones.",
+  "Allow guest-wifi to connect to nvr using LDAP (TCP 389) and RDP (TCP 3389) and NTP (UDP 123).",
+  "Hosts in ntp-servers may reach printers over MySQL (TCP 3306) and SMB (TCP 445) and SNMP (UDP 161).",
+  "Allow guest-wifi to connect to nvr using RTSP (TCP 554).",
+  "nvr must accept SMB (TCP 445) and RDP (TCP 3389) and DNS over UDP 53 from voip.",
+  "Make DNS over UDP 53 on printers reachable from all internal zones.",
+  "ntp-servers must accept PostgreSQL (TCP 5432) and NTP (UDP 123) from guest-wifi.",
+  "nvr must accept HTTPS (TCP 443) and LDAP (TCP 389) and SNMP (UDP 161) from ntp-servers.",
+  "nvr offers HTTPS (TCP 443) to every zone.",
+  "Allow printers to connect to guest-wifi using IMAP (TCP 143).",
+  "Hosts in voip may reach engineering over SNMP (UDP 161).",
+  "Allow ntp-servers to connect to nvr using HTTP (TCP 80) and RDP (TCP 3389) and PostgreSQL (TCP 5432).",
+  "Allow guest-wifi to connect to nvr using RTSP (TCP 554) and NTP (UDP 123) and HTTPS (TCP 443).",
+  "Apart from engineering on DNS over UDP 53; voip on DNS over UDP 53, all traffic originating in printers must be dropped.",
+  "Allow engineering to connect to nvr using MySQL (TCP 3306) and SMB (TCP 445) and LDAP (TCP 389).",
+  "Allow engineering to connect to nvr using LDAP (TCP 389).",
+  "Hosts in nvr may reach ntp-servers over NTP (UDP 123).",
+  "printers must accept PostgreSQL (TCP 5432) from voip.",
+  "Allow voip to connect to ntp-servers using SNMP (UDP 161) and DNS over UDP 53 and syslog (UDP 514).",
+  "Any zone may connect to printers over DNS over UDP 53.",
+  "Hosts in nvr may reach printers over MySQL (TCP 3306) and HTTPS (TCP 443).",
+  "Hosts in ntp-servers may reach voip over SMTP (TCP 25) and NTP (UDP 123).",
+  "Hosts in nvr may reach ntp-servers over HTTP (TCP 80) and HTTPS (TCP 443) and PostgreSQL (TCP 5432).",
+  "guest-wifi must accept SMTP (TCP 25) and SSH (TCP 22) from engineering.",
+  "Allow engineering to connect to ntp-servers using PostgreSQL (TCP 5432) and RDP (TCP 3389) and SMTP (TCP 25).",
+  "Make HTTPS (TCP 443) and NTP (UDP 123) on voip reachable from all internal zones.",
+  "Any zone may connect to nvr over DNS over UDP 53."
+ ],
+ "gt": [
+  {
+   "src": "ntp-servers",
+   "dst": "nvr",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "nvr",
+   "dst": "printers",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "nvr",
+   "dst": "ntp-servers",
+   "proto": "tcp",
+   "dlo": 21,
+   "dhi": 21,
+   "action": "deny"
+  },
+  {
+   "src": "nvr",
+   "dst": "ntp-servers",
+   "proto": "tcp",
+   "dlo": 445,
+   "dhi": 445,
+   "action": "deny"
+  },
+  {
+   "src": "printers",
+   "dst": "guest-wifi",
+   "proto": "tcp",
+   "dlo": 21,
+   "dhi": 21,
+   "action": "deny"
+  },
+  {
+   "src": "printers",
+   "dst": "guest-wifi",
+   "proto": "tcp",
+   "dlo": 3389,
+   "dhi": 3389,
+   "action": "deny"
+  },
+  {
+   "src": "printers",
+   "dst": "guest-wifi",
+   "proto": "tcp",
+   "dlo": 445,
+   "dhi": 445,
+   "action": "deny"
+  },
+  {
+   "src": "nvr",
+   "dst": "ntp-servers",
+   "proto": "tcp",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "permit"
+  },
+  {
+   "src": "printers",
+   "dst": "guest-wifi",
+   "proto": "tcp",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "permit"
+  },
+  {
+   "src": "guest-wifi",
+   "dst": "nvr",
+   "proto": "tcp",
+   "dlo": 389,
+   "dhi": 389,
+   "action": "permit"
+  },
+  {
+   "src": "guest-wifi",
+   "dst": "nvr",
+   "proto": "tcp",
+   "dlo": 3389,
+   "dhi": 3389,
+   "action": "permit"
+  },
+  {
+   "src": "guest-wifi",
+   "dst": "nvr",
+   "proto": "udp",
+   "dlo": 123,
+   "dhi": 123,
+   "action": "permit"
+  },
+  {
+   "src": "ntp-servers",
+   "dst": "printers",
+   "proto": "tcp",
+   "dlo": 3306,
+   "dhi": 3306,
+   "action": "permit"
+  },
+  {
+   "src": "ntp-servers",
+   "dst": "printers",
+   "proto": "tcp",
+   "dlo": 445,
+   "dhi": 445,
+   "action": "permit"
+  },
+  {
+   "src": "ntp-servers",
+   "dst": "printers",
+   "proto": "udp",
+   "dlo": 161,
+   "dhi": 161,
+   "action": "permit"
+  },
+  {
+   "src": "guest-wifi",
+   "dst": "nvr",
+   "proto": "tcp",
+   "dlo": 554,
+   "dhi": 554,
+   "action": "permit"
+  },
+  {
+   "src": "voip",
+   "dst": "nvr",
+   "proto": "tcp",
+   "dlo": 445,
+   "dhi": 445,
+   "action": "permit"
+  },
+  {
+   "src": "voip",
+   "dst": "nvr",
+   "proto": "tcp",
+   "dlo": 3389,
+   "dhi": 3389,
+   "action": "permit"
+  },
+  {
+   "src": "voip",
+   "dst": "nvr",
+   "proto": "udp",
+   "dlo": 53,
+   "dhi": 53,
+   "action": "permit"
+  },
+  {
+   "src": "guest-wifi",
+   "dst": "ntp-servers",
+   "proto": "tcp",
+   "dlo": 5432,
+   "dhi": 5432,
+   "action": "permit"
+  },
+  {
+   "src": "guest-wifi",
+   "dst": "ntp-servers",
+   "proto": "udp",
+   "dlo": 123,
+   "dhi": 123,
+   "action": "permit"
+  },
+  {
+   "src": "ntp-servers",
+   "dst": "nvr",
+   "proto": "tcp",
+   "dlo": 443,
+   "dhi": 443,
+   "action": "permit"
+  },
+  {
+   "src": "ntp-servers",
+   "dst": "nvr",
+   "proto": "tcp",
+   "dlo": 389,
+   "dhi": 389,
+   "action": "permit"
+  },
+  {
+   "src": "ntp-servers",
+   "dst": "nvr",
+   "proto": "udp",
+   "dlo": 161,
+   "dhi": 161,
+   "action": "permit"
+  },
+  {
+   "src": "printers",
+   "dst": "guest-wifi",
+   "proto": "tcp",
+   "dlo": 143,
+   "dhi": 143,
+   "action": "permit"
+  },
+  {
+   "src": "voip",
+   "dst": "engineering",
+   "proto": "udp",
+   "dlo": 161,
+   "dhi": 161,
+   "action": "permit"
+  },
+  {
+   "src": "ntp-servers",
+   "dst": "nvr",
+   "proto": "tcp",
+   "dlo": 80,
+   "dhi": 80,
+   "action": "permit"
+  },
+  {
+   "src": "ntp-servers",
+   "dst": "nvr",
+   "proto": "tcp",
+   "dlo": 3389,
+   "dhi": 3389,
+   "action": "permit"
+  },
+  {
+   "src": "ntp-servers",
+   "dst": "nvr",
+   "proto": "tcp",
+   "dlo": 5432,
+   "dhi": 5432,
+   "action": "permit"
+  },
+  {
+   "src": "guest-wifi",
+   "dst": "nvr",
+   "proto": "tcp",
+   "dlo": 554,
+   "dhi": 554,
+   "action": "permit"
+  },
+  {
+   "src": "guest-wifi",
+   "dst": "nvr",
+   "proto": "udp",
+   "dlo": 123,
+   "dhi": 123,
+   "action": "permit"
+  },
+  {
+   "src": "guest-wifi",
+   "dst": "nvr",
+   "proto": "tcp",
+   "dlo": 443,
+   "dhi": 443,
+   "action": "permit"
+  },
+  {
+   "src": "engineering",
+   "dst": "nvr",
+   "proto": "tcp",
+   "dlo": 3306,
+   "dhi": 3306,
+   "action": "permit"
+  },
+  {
+   "src": "engineering",
+   "dst": "nvr",
+   "proto": "tcp",
+   "dlo": 445,
+   "dhi": 445,
+   "action": "permit"
+  },
+  {
+   "src": "engineering",
+   "dst": "nvr",
+   "proto": "tcp",
+   "dlo": 389,
+   "dhi": 389,
+   "action": "permit"
+  },
+  {
+   "src": "engineering",
+   "dst": "nvr",
+   "proto": "tcp",
+   "dlo": 389,
+   "dhi": 389,
+   "action": "permit"
+  },
+  {
+   "src": "nvr",
+   "dst": "ntp-servers",
+   "proto": "udp",
+   "dlo": 123,
+   "dhi": 123,
+   "action": "permit"
+  },
+  {
+   "src": "voip",
+   "dst": "printers",
+   "proto": "tcp",
+   "dlo": 5432,
+   "dhi": 5432,
+   "action": "permit"
+  },
+  {
+   "src": "voip",
+   "dst": "ntp-servers",
+   "proto": "udp",
+   "dlo": 161,
+   "dhi": 161,
+   "action": "permit"
+  },
+  {
+   "src": "voip",
+   "dst": "ntp-servers",
+   "proto": "udp",
+   "dlo": 53,
+   "dhi": 53,
+   "action": "permit"
+  },
+  {
+   "src": "voip",
+   "dst": "ntp-servers",
+   "proto": "udp",
+   "dlo": 514,
+   "dhi": 514,
+   "action": "permit"
+  },
+  {
+   "src": "nvr",
+   "dst": "printers",
+   "proto": "tcp",
+   "dlo": 3306,
+   "dhi": 3306,
+   "action": "permit"
+  },
+  {
+   "src": "nvr",
+   "dst": "printers",
+   "proto": "tcp",
+   "dlo": 443,
+   "dhi": 443,
+   "action": "permit"
+  },
+  {
+   "src": "ntp-servers",
+   "dst": "voip",
+   "proto": "tcp",
+   "dlo": 25,
+   "dhi": 25,
+   "action": "permit"
+  },
+  {
+   "src": "ntp-servers",
+   "dst": "voip",
+   "proto": "udp",
+   "dlo": 123,
+   "dhi": 123,
+   "action": "permit"
+  },
+  {
+   "src": "nvr",
+   "dst": "ntp-servers",
+   "proto": "tcp",
+   "dlo": 80,
+   "dhi": 80,
+   "action": "permit"
+  },
+  {
+   "src": "nvr",
+   "dst": "ntp-servers",
+   "proto": "tcp",
+   "dlo": 443,
+   "dhi": 443,
+   "action": "permit"
+  },
+  {
+   "src": "nvr",
+   "dst": "ntp-servers",
+   "proto": "tcp",
+   "dlo": 5432,
+   "dhi": 5432,
+   "action": "permit"
+  },
+  {
+   "src": "engineering",
+   "dst": "guest-wifi",
+   "proto": "tcp",
+   "dlo": 25,
+   "dhi": 25,
+   "action": "permit"
+  },
+  {
+   "src": "engineering",
+   "dst": "guest-wifi",
+   "proto": "tcp",
+   "dlo": 22,
+   "dhi": 22,
+   "action": "permit"
+  },
+  {
+   "src": "engineering",
+   "dst": "ntp-servers",
+   "proto": "tcp",
+   "dlo": 5432,
+   "dhi": 5432,
+   "action": "permit"
+  },
+  {
+   "src": "engineering",
+   "dst": "ntp-servers",
+   "proto": "tcp",
+   "dlo": 3389,
+   "dhi": 3389,
+   "action": "permit"
+  },
+  {
+   "src": "engineering",
+   "dst": "ntp-servers",
+   "proto": "tcp",
+   "dlo": 25,
+   "dhi": 25,
+   "action": "permit"
+  },
+  {
+   "src": "printers",
+   "dst": "engineering",
+   "proto": "udp",
+   "dlo": 53,
+   "dhi": 53,
+   "action": "permit"
+  },
+  {
+   "src": "printers",
+   "dst": "voip",
+   "proto": "udp",
+   "dlo": 53,
+   "dhi": 53,
+   "action": "permit"
+  },
+  {
+   "src": "printers",
+   "dst": "*",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "*",
+   "dst": "engineering",
+   "proto": "udp",
+   "dlo": 53,
+   "dhi": 53,
+   "action": "permit"
+  },
+  {
+   "src": "*",
+   "dst": "voip",
+   "proto": "tcp",
+   "dlo": 80,
+   "dhi": 80,
+   "action": "permit"
+  },
+  {
+   "src": "*",
+   "dst": "voip",
+   "proto": "tcp",
+   "dlo": 443,
+   "dhi": 443,
+   "action": "permit"
+  },
+  {
+   "src": "*",
+   "dst": "printers",
+   "proto": "udp",
+   "dlo": 53,
+   "dhi": 53,
+   "action": "permit"
+  },
+  {
+   "src": "*",
+   "dst": "nvr",
+   "proto": "tcp",
+   "dlo": 443,
+   "dhi": 443,
+   "action": "permit"
+  },
+  {
+   "src": "*",
+   "dst": "printers",
+   "proto": "udp",
+   "dlo": 53,
+   "dhi": 53,
+   "action": "permit"
+  },
+  {
+   "src": "*",
+   "dst": "voip",
+   "proto": "tcp",
+   "dlo": 443,
+   "dhi": 443,
+   "action": "permit"
+  },
+  {
+   "src": "*",
+   "dst": "voip",
+   "proto": "udp",
+   "dlo": 123,
+   "dhi": 123,
+   "action": "permit"
+  },
+  {
+   "src": "*",
+   "dst": "nvr",
+   "proto": "udp",
+   "dlo": 53,
+   "dhi": 53,
+   "action": "permit"
+  }
+ ]
+}

@@ -1,0 +1,786 @@
+{
+ "id": "Cernet_s1005",
+ "topology": "Cernet",
+ "n_nodes": 41,
+ "edges": [
+  [
+   0,
+   4
+  ],
+  [
+   0,
+   5
+  ],
+  [
+   1,
+   29
+  ],
+  [
+   2,
+   3
+  ],
+  [
+   2,
+   4
+  ],
+  [
+   3,
+   4
+  ],
+  [
+   4,
+   5
+  ],
+  [
+   4,
+   9
+  ],
+  [
+   4,
+   29
+  ],
+  [
+   6,
+   29
+  ],
+  [
+   6,
+   7
+  ],
+  [
+   7,
+   29
+  ],
+  [
+   8,
+   29
+  ],
+  [
+   8,
+   22
+  ],
+  [
+   9,
+   10
+  ],
+  [
+   9,
+   11
+  ],
+  [
+   9,
+   13
+  ],
+  [
+   9,
+   22
+  ],
+  [
+   10,
+   22
+  ],
+  [
+   11,
+   13
+  ],
+  [
+   12,
+   14
+  ],
+  [
+   12,
+   15
+  ],
+  [
+   14,
+   15
+  ],
+  [
+   15,
+   16
+  ],
+  [
+   15,
+   18
+  ],
+  [
+   15,
+   19
+  ],
+  [
+   15,
+   21
+  ],
+  [
+   15,
+   22
+  ],
+  [
+   15,
+   25
+  ],
+  [
+   16,
+   18
+  ],
+  [
+   17,
+   29
+  ],
+  [
+   19,
+   20
+  ],
+  [
+   20,
+   25
+  ],
+  [
+   21,
+   22
+  ],
+  [
+   22,
+   40
+  ],
+  [
+   22,
+   26
+  ],
+  [
+   22,
+   29
+  ],
+  [
+   23,
+   25
+  ],
+  [
+   23,
+   29
+  ],
+  [
+   24,
+   25
+  ],
+  [
+   25,
+   33
+  ],
+  [
+   25,
+   26
+  ],
+  [
+   26,
+   40
+  ],
+  [
+   26,
+   27
+  ],
+  [
+   26,
+   29
+  ],
+  [
+   26,
+   30
+  ],
+  [
+   27,
+   30
+  ],
+  [
+   28,
+   29
+  ],
+  [
+   29,
+   33
+  ],
+  [
+   29,
+   31
+  ],
+  [
+   29,
+   39
+  ],
+  [
+   29,
+   36
+  ],
+  [
+   29,
+   38
+  ],
+  [
+   29,
+   37
+  ],
+  [
+   30,
+   31
+  ],
+  [
+   32,
+   33
+  ],
+  [
+   33,
+   34
+  ],
+  [
+   33,
+   35
+  ]
+ ],
+ "zones": {
+  "library": {
+   "router": 24,
+   "prefixes": [
+    "245.188.74.128/26",
+    "78.73.109.32/27"
+   ]
+  },
+  "printers": {
+   "router": 36,
+   "prefixes": [
+    "136.113.136.128/27"
+   ]
+  },
+  "research": {
+   "router": 17,
+   "prefixes": [
+    "96.84.201.0/24",
+    "202.39.128.0/17",
+    "29.244.70.0/25"
+   ]
+  },
+  "monitoring": {
+   "router": 37,
+   "prefixes": [
+    "71.80.16.160/27"
+   ]
+  },
+  "ops": {
+   "router": 34,
+   "prefixes": [
+    "95.102.100.0/23"
+   ]
+  },
+  "cameras": {
+   "router": 32,
+   "prefixes": [
+    "122.212.198.0/26",
+    "227.216.238.128/27"
+   ]
+  },
+  "student-lab": {
+   "router": 38,
+   "prefixes": [
+    "113.221.4.64/26",
+    "243.66.215.80/28",
+    "60.147.0.0/16"
+   ]
+  },
+  "mail": {
+   "router": 35,
+   "prefixes": [
+    "202.159.133.0/25",
+    "147.118.224.0/20"
+   ]
+  },
+  "admin": {
+   "router": 39,
+   "prefixes": [
+    "3.151.160.0/23",
+    "87.139.0.0/16"
+   ]
+  },
+  "nvr": {
+   "router": 28,
+   "prefixes": [
+    "194.180.32.0/21"
+   ]
+  },
+  "hr": {
+   "router": 1,
+   "prefixes": [
+    "248.148.217.0/24",
+    "119.42.207.0/24"
+   ]
+  },
+  "finance": {
+   "router": 21,
+   "prefixes": [
+    "252.109.140.0/24"
+   ]
+  },
+  "database": {
+   "router": 0,
+   "prefixes": [
+    "84.166.195.192/27"
+   ]
+  },
+  "edge-cache": {
+   "router": 40,
+   "prefixes": [
+    "247.105.201.128/25"
+   ]
+  },
+  "vpn-users": {
+   "router": 6,
+   "prefixes": [
+    "61.122.127.0/25",
+    "86.124.192.0/22",
+    "80.60.172.96/28"
+   ]
+  },
+  "dev-lab": {
+   "router": 11,
+   "prefixes": [
+    "216.50.43.0/24",
+    "222.169.0.0/16"
+   ]
+  }
+ },
+ "zone_text": [
+  "library: hosts 245.188.74.128/26, 78.73.109.32/27 attached to router R24",
+  "printers: hosts 136.113.136.128/27 attached to router R36",
+  "research: hosts 96.84.201.0/24, 202.39.128.0/17, 29.244.70.0/25 attached to router R17",
+  "monitoring: hosts 71.80.16.160/27 attached to router R37",
+  "ops: hosts 95.102.100.0/23 attached to router R34",
+  "cameras: hosts 122.212.198.0/26, 227.216.238.128/27 attached to router R32",
+  "student-lab: hosts 113.221.4.64/26, 243.66.215.80/28, 60.147.0.0/16 attached to router R38",
+  "mail: hosts 202.159.133.0/25, 147.118.224.0/20 attached to router R35",
+  "admin: hosts 3.151.160.0/23, 87.139.0.0/16 attached to router R39",
+  "nvr: hosts 194.180.32.0/21 attached to router R28",
+  "hr: hosts 248.148.217.0/24, 119.42.207.0/24 attached to router R1",
+  "finance: hosts 252.109.140.0/24 attached to router R21",
+  "database: hosts 84.166.195.192/27 attached to router R0",
+  "edge-cache: hosts 247.105.201.128/25 attached to router R40",
+  "vpn-users: hosts 61.122.127.0/25, 86.124.192.0/22, 80.60.172.96/28 attached to router R6",
+  "dev-lab: hosts 216.50.43.0/24, 222.169.0.0/16 attached to router R11"
+ ],
+ "intents": [
+  {
+   "type": "allow",
+   "src": "research",
+   "dst": "hr",
+   "svcs": [
+    "imap",
+    "ssh",
+    "ntp"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "research",
+   "dst": "cameras"
+  },
+  {
+   "type": "allow",
+   "src": "nvr",
+   "dst": "dev-lab",
+   "svcs": [
+    "smtp",
+    "dns"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "finance",
+   "dst": "library",
+   "svcs": [
+    "imap"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "monitoring",
+   "dst": "vpn-users",
+   "svcs": [
+    "ssh"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "vpn-users",
+   "dst": "hr",
+   "svcs": [
+    "imap"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "database",
+   "svcs": [
+    "ntp",
+    "dns"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "cameras",
+   "dst": "edge-cache",
+   "svcs": [
+    "imap",
+    "ldap",
+    "rtsp"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "printers",
+   "dst": "mail"
+  },
+  {
+   "type": "isolate",
+   "src": "nvr",
+   "allowed": [
+    [
+     "admin",
+     "syslog"
+    ],
+    [
+     "finance",
+     "https"
+    ]
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "printers",
+   "dst": "database",
+   "svcs": [
+    "postgres",
+    "ssh",
+    "mysql"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "monitoring",
+   "dst": "database",
+   "svcs": [
+    "ssh",
+    "snmp"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "admin",
+   "dst": "monitoring",
+   "broad": "any-udp",
+   "ex": [
+    "snmp"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "database",
+   "svcs": [
+    "dns",
+    "https"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "finance",
+   "allowed": [
+    [
+     "cameras",
+     "https"
+    ]
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "nvr",
+   "dst": "vpn-users",
+   "broad": "any-udp",
+   "ex": [
+    "snmp",
+    "tftp"
+   ]
+  }
+ ],
+ "nl": [
+  "Hosts in research may reach hr over IMAP (TCP 143) and SSH (TCP 22) and NTP (UDP 123).",
+  "No packet from research may enter cameras, even for services open to everyone.",
+  "Allow nvr to connect to dev-lab using SMTP (TCP 25) and DNS over UDP 53.",
+  "Hosts in finance may reach library over IMAP (TCP 143).",
+  "Allow monitoring to connect to vpn-users using SSH (TCP 22).",
+  "hr must accept IMAP (TCP 143) from vpn-users.",
+  "Make NTP (UDP 123) and DNS over UDP 53 on database reachable from all internal zones.",
+  "edge-cache must accept IMAP (TCP 143) and LDAP (TCP 389) and RTSP (TCP 554) from cameras.",
+  "No packet from printers may enter mail, even for services open to everyone.",
+  "nvr is isolated: it may only reach admin on syslog (UDP 514); finance on HTTPS (TCP 443), and nothing else.",
+  "database must accept PostgreSQL (TCP 5432) and SSH (TCP 22) and MySQL (TCP 3306) from printers.",
+  "Allow monitoring to connect to database using SSH (TCP 22) and SNMP (UDP 161).",
+  "Permit any UDP port from admin to monitoring but deny SNMP (UDP 161).",
+  "Any zone may connect to database over DNS over UDP 53 and HTTPS (TCP 443).",
+  "Apart from cameras on HTTPS (TCP 443), all traffic originating in finance must be dropped.",
+  "Permit any UDP port from nvr to vpn-users but deny SNMP (UDP 161), TFTP (UDP 69)."
+ ],
+ "gt": [
+  {
+   "src": "research",
+   "dst": "cameras",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "printers",
+   "dst": "mail",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "admin",
+   "dst": "monitoring",
+   "proto": "udp",
+   "dlo": 161,
+   "dhi": 161,
+   "action": "deny"
+  },
+  {
+   "src": "nvr",
+   "dst": "vpn-users",
+   "proto": "udp",
+   "dlo": 161,
+   "dhi": 161,
+   "action": "deny"
+  },
+  {
+   "src": "nvr",
+   "dst": "vpn-users",
+   "proto": "udp",
+   "dlo": 69,
+   "dhi": 69,
+   "action": "deny"
+  },
+  {
+   "src": "research",
+   "dst": "hr",
+   "proto": "tcp",
+   "dlo": 143,
+   "dhi": 143,
+   "action": "permit"
+  },
+  {
+   "src": "research",
+   "dst": "hr",
+   "proto": "tcp",
+   "dlo": 22,
+   "dhi": 22,
+   "action": "permit"
+  },
+  {
+   "src": "research",
+   "dst": "hr",
+   "proto": "udp",
+   "dlo": 123,
+   "dhi": 123,
+   "action": "permit"
+  },
+  {
+   "src": "nvr",
+   "dst": "dev-lab",
+   "proto": "tcp",
+   "dlo": 25,
+   "dhi": 25,
+   "action": "permit"
+  },
+  {
+   "src": "nvr",
+   "dst": "dev-lab",
+   "proto": "udp",
+   "dlo": 53,
+   "dhi": 53,
+   "action": "permit"
+  },
+  {
+   "src": "finance",
+   "dst": "library",
+   "proto": "tcp",
+   "dlo": 143,
+   "dhi": 143,
+   "action": "permit"
+  },
+  {
+   "src": "monitoring",
+   "dst": "vpn-users",
+   "proto": "tcp",
+   "dlo": 22,
+   "dhi": 22,
+   "action": "permit"
+  },
+  {
+   "src": "vpn-users",
+   "dst": "hr",
+   "proto": "tcp",
+   "dlo": 143,
+   "dhi": 143,
+   "action": "permit"
+  },
+  {
+   "src": "cameras",
+   "dst": "edge-cache",
+   "proto": "tcp",
+   "dlo": 143,
+   "dhi": 143,
+   "action": "permit"
+  },
+  {
+   "src": "cameras",
+   "dst": "edge-cache",
+   "proto": "tcp",
+   "dlo": 389,
+   "dhi": 389,
+   "action": "permit"
+  },
+  {
+   "src": "cameras",
+   "dst": "edge-cache",
+   "proto": "tcp",
+   "dlo": 554,
+   "dhi": 554,
+   "action": "permit"
+  },
+  {
+   "src": "printers",
+   "dst": "database",
+   "proto": "tcp",
+   "dlo": 5432,
+   "dhi": 5432,
+   "action": "permit"
+  },
+  {
+   "src": "printers",
+   "dst": "database",
+   "proto": "tcp",
+   "dlo": 22,
+   "dhi": 22,
+   "action": "permit"
+  },
+  {
+   "src": "printers",
+   "dst": "database",
+   "proto": "tcp",
+   "dlo": 3306,
+   "dhi": 3306,
+   "action": "permit"
+  },
+  {
+   "src": "monitoring",
+   "dst": "database",
+   "proto": "tcp",
+   "dlo": 22,
+   "dhi": 22,
+   "action": "permit"
+  },
+  {
+   "src": "monitoring",
+   "dst": "database",
+   "proto": "udp",
+   "dlo": 161,
+   "dhi": 161,
+   "action": "permit"
+  },
+  {
+   "src": "admin",
+   "dst": "monitoring",
+   "proto": "udp",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "permit"
+  },
+  {
+   "src": "nvr",
+   "dst": "vpn-users",
+   "proto": "udp",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "permit"
+  },
+  {
+   "src": "nvr",
+   "dst": "admin",
+   "proto": "udp",
+   "dlo": 514,
+   "dhi": 514,
+   "action": "permit"
+  },
+  {
+   "src": "nvr",
+   "dst": "finance",
+   "proto": "tcp",
+   "dlo": 443,
+   "dhi": 443,
+   "action": "permit"
+  },
+  {
+   "src": "finance",
+   "dst": "cameras",
+   "proto": "tcp",
+   "dlo": 443,
+   "dhi": 443,
+   "action": "permit"
+  },
+  {
+   "src": "nvr",
+   "dst": "*",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "finance",
+   "dst": "*",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "*",
+   "dst": "database",
+   "proto": "udp",
+   "dlo": 123,
+   "dhi": 123,
+   "action": "permit"
+  },
+  {
+   "src": "*",
+   "dst": "database",
+   "proto": "udp",
+   "dlo": 53,
+   "dhi": 53,
+   "action": "permit"
+  },
+  {
+   "src": "*",
+   "dst": "database",
+   "proto": "udp",
+   "dlo": 53,
+   "dhi": 53,
+   "action": "permit"
+  },
+  {
+   "src": "*",
+   "dst": "database",
+   "proto": "tcp",
+   "dlo": 443,
+   "dhi": 443,
+   "action": "permit"
+  }
+ ]
+}

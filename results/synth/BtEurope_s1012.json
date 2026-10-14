@@ -1,0 +1,189 @@
+{
+ "id": "BtEurope_s1012",
+ "n_intents": 8,
+ "n_gt_rules": 16,
+ "n_zones": 6,
+ "rules": {
+  "eq": false,
+  "mismatch": 0.00175,
+  "n_rules": 17,
+  "fail": 0,
+  "s": 18.63617777824402,
+  "calls": 1,
+  "prompt": 700,
+  "completion": 546
+ },
+ "ir0": {
+  "eq": false,
+  "mismatch": 0.013,
+  "n_rules": 14,
+  "fail": 0,
+  "s": 11.47912311553955,
+  "calls": 8,
+  "prompt": 4984,
+  "completion": 326,
+  "intent_acc": 0.75
+ },
+ "ir": {
+  "eq": true,
+  "mismatch": 0.0,
+  "n_rules": 16,
+  "fail": 0,
+  "s": 7.940357685089111,
+  "calls": 8,
+  "prompt": 8592,
+  "completion": 226,
+  "intent_acc": 1.0
+ },
+ "fw": {
+  "eq": true,
+  "mismatch": 0.0,
+  "n_rules": 16,
+  "fail": 0,
+  "s": 25.938292741775513,
+  "verify_s": 17.99793529510498,
+  "calls": 16,
+  "verify_calls": 8,
+  "flagged": 0,
+  "accepted": 0,
+  "repairs": [],
+  "intent_acc": 1.0
+ },
+ "ir_out": [
+  {
+   "type": "block",
+   "src": "monitoring",
+   "dst": "database"
+  },
+  {
+   "type": "block",
+   "src": "guest-wifi",
+   "dst": "scada"
+  },
+  {
+   "type": "allow",
+   "src": "guest-wifi",
+   "dst": "admin",
+   "svcs": [
+    "ssh"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "guest-wifi",
+   "dst": "admin",
+   "broad": "any-tcp",
+   "ex": [
+    "telnet",
+    "ftp"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "nvr",
+   "dst": "admin",
+   "broad": "high-tcp",
+   "ex": [
+    "mysql",
+    "rdp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "nvr",
+   "dst": "admin",
+   "svcs": [
+    "rdp",
+    "rtsp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "guest-wifi",
+   "dst": "monitoring",
+   "svcs": [
+    "imap",
+    "dns"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "guest-wifi",
+   "dst": "admin",
+   "broad": "any-udp",
+   "ex": [
+    "tftp",
+    "snmp"
+   ]
+  }
+ ],
+ "fw_out": [
+  {
+   "type": "block",
+   "src": "monitoring",
+   "dst": "database"
+  },
+  {
+   "type": "block",
+   "src": "guest-wifi",
+   "dst": "scada"
+  },
+  {
+   "type": "allow",
+   "src": "guest-wifi",
+   "dst": "admin",
+   "svcs": [
+    "ssh"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "guest-wifi",
+   "dst": "admin",
+   "broad": "any-tcp",
+   "ex": [
+    "telnet",
+    "ftp"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "nvr",
+   "dst": "admin",
+   "broad": "high-tcp",
+   "ex": [
+    "mysql",
+    "rdp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "nvr",
+   "dst": "admin",
+   "svcs": [
+    "rdp",
+    "rtsp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "guest-wifi",
+   "dst": "monitoring",
+   "svcs": [
+    "imap",
+    "dns"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "guest-wifi",
+   "dst": "admin",
+   "broad": "any-udp",
+   "ex": [
+    "tftp",
+    "snmp"
+   ]
+  }
+ ],
+ "wall_s": 56.245906591415405
+}

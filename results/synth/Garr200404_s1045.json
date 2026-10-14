@@ -1,0 +1,604 @@
+{
+ "id": "Garr200404_s1045",
+ "n_intents": 31,
+ "n_gt_rules": 53,
+ "n_zones": 16,
+ "rules": {
+  "eq": false,
+  "mismatch": 0.01225,
+  "n_rules": 52,
+  "fail": 0,
+  "s": 56.818376302719116,
+  "calls": 1,
+  "prompt": 1282,
+  "completion": 1614
+ },
+ "ir0": {
+  "eq": false,
+  "mismatch": 0.00175,
+  "n_rules": 49,
+  "fail": 0,
+  "s": 88.5368435382843,
+  "calls": 31,
+  "prompt": 20409,
+  "completion": 1065,
+  "intent_acc": 0.9032258064516129
+ },
+ "ir": {
+  "eq": true,
+  "mismatch": 0.0,
+  "n_rules": 53,
+  "fail": 0,
+  "s": 77.76152229309082,
+  "calls": 31,
+  "prompt": 34390,
+  "completion": 788,
+  "intent_acc": 1.0
+ },
+ "fw": {
+  "eq": false,
+  "mismatch": 0.0,
+  "n_rules": 54,
+  "fail": 0,
+  "s": 203.87890815734863,
+  "verify_s": 126.11738634109497,
+  "calls": 68,
+  "verify_calls": 37,
+  "flagged": 2,
+  "accepted": 1,
+  "repairs": [
+   {
+    "k": 7,
+    "was_ok": true,
+    "now_ok": false,
+    "history": [
+     1,
+     0
+    ],
+    "calls": 2,
+    "accepted": true,
+    "diff": 1,
+    "win_new": 1,
+    "win_old": 0
+   },
+   {
+    "k": 19,
+    "was_ok": true,
+    "now_ok": true,
+    "history": [
+     1,
+     1,
+     1
+    ],
+    "calls": 2,
+    "accepted": false
+   }
+  ],
+  "intent_acc": 0.967741935483871
+ },
+ "ir_out": [
+  {
+   "type": "allow",
+   "src": "dmz-web",
+   "dst": "library",
+   "svcs": [
+    "smtp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "partners",
+   "dst": "mail",
+   "svcs": [
+    "snmp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "cameras",
+   "dst": "admin",
+   "svcs": [
+    "smtp",
+    "syslog"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "cameras",
+   "dst": "scada",
+   "svcs": [
+    "snmp"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "research",
+   "svcs": [
+    "ntp",
+    "https"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "scada",
+   "svcs": [
+    "https",
+    "dns"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "mail",
+   "dst": "dev-lab",
+   "svcs": [
+    "postgres",
+    "snmp",
+    "ssh"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "voip",
+   "allowed": [
+    [
+     "library",
+     "syslog"
+    ],
+    [
+     "cameras",
+     "ntp"
+    ]
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "dns-servers",
+   "dst": "edge-cache",
+   "svcs": [
+    "rdp",
+    "smb"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "scada",
+   "dst": "dns-servers",
+   "svcs": [
+    "smb"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "nvr",
+   "dst": "dev-lab",
+   "svcs": [
+    "smb"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "mail",
+   "allowed": [
+    [
+     "edge-cache",
+     "syslog"
+    ]
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "library",
+   "dst": "edge-cache",
+   "svcs": [
+    "smtp",
+    "mysql"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "dmz-web",
+   "dst": "backup",
+   "svcs": [
+    "postgres"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "backup",
+   "dst": "hr"
+  },
+  {
+   "type": "allow_except",
+   "src": "cameras",
+   "dst": "partners",
+   "broad": "high-tcp",
+   "ex": [
+    "mysql"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "research",
+   "dst": "dev-lab",
+   "svcs": [
+    "http",
+    "ldap",
+    "ssh"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "library",
+   "dst": "dmz-web"
+  },
+  {
+   "type": "block",
+   "src": "ntp-servers",
+   "dst": "voip"
+  },
+  {
+   "type": "isolate",
+   "src": "ntp-servers",
+   "allowed": [
+    [
+     "dev-lab",
+     "syslog"
+    ],
+    [
+     "backup",
+     "dns"
+    ]
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "edge-cache",
+   "dst": "nvr",
+   "broad": "any-udp",
+   "ex": [
+    "snmp",
+    "tftp"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "nvr",
+   "dst": "edge-cache"
+  },
+  {
+   "type": "allow",
+   "src": "edge-cache",
+   "dst": "library",
+   "svcs": [
+    "https"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "research",
+   "dst": "scada",
+   "svcs": [
+    "mysql",
+    "snmp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "partners",
+   "dst": "hr",
+   "svcs": [
+    "smb"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "backup",
+   "dst": "dev-lab",
+   "svcs": [
+    "smtp",
+    "dns",
+    "mysql"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "library",
+   "svcs": [
+    "ntp",
+    "http"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "scada",
+   "dst": "voip"
+  },
+  {
+   "type": "block",
+   "src": "backup",
+   "dst": "nvr"
+  },
+  {
+   "type": "allow",
+   "src": "edge-cache",
+   "dst": "scada",
+   "svcs": [
+    "postgres",
+    "http"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "dev-lab",
+   "dst": "research",
+   "svcs": [
+    "smtp"
+   ]
+  }
+ ],
+ "fw_out": [
+  {
+   "type": "allow",
+   "src": "dmz-web",
+   "dst": "library",
+   "svcs": [
+    "smtp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "partners",
+   "dst": "mail",
+   "svcs": [
+    "snmp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "cameras",
+   "dst": "admin",
+   "svcs": [
+    "smtp",
+    "syslog"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "cameras",
+   "dst": "scada",
+   "svcs": [
+    "snmp"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "research",
+   "svcs": [
+    "ntp",
+    "https"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "scada",
+   "svcs": [
+    "https",
+    "dns"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "mail",
+   "dst": "dev-lab",
+   "svcs": [
+    "postgres",
+    "snmp",
+    "ssh"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "voip",
+   "allowed": [
+    [
+     "library",
+     "syslog"
+    ],
+    [
+     "cameras",
+     "ntp"
+    ],
+    [
+     "cameras",
+     "syslog"
+    ]
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "dns-servers",
+   "dst": "edge-cache",
+   "svcs": [
+    "rdp",
+    "smb"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "scada",
+   "dst": "dns-servers",
+   "svcs": [
+    "smb"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "nvr",
+   "dst": "dev-lab",
+   "svcs": [
+    "smb"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "mail",
+   "allowed": [
+    [
+     "edge-cache",
+     "syslog"
+    ]
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "library",
+   "dst": "edge-cache",
+   "svcs": [
+    "smtp",
+    "mysql"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "dmz-web",
+   "dst": "backup",
+   "svcs": [
+    "postgres"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "backup",
+   "dst": "hr"
+  },
+  {
+   "type": "allow_except",
+   "src": "cameras",
+   "dst": "partners",
+   "broad": "high-tcp",
+   "ex": [
+    "mysql"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "research",
+   "dst": "dev-lab",
+   "svcs": [
+    "http",
+    "ldap",
+    "ssh"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "library",
+   "dst": "dmz-web"
+  },
+  {
+   "type": "block",
+   "src": "ntp-servers",
+   "dst": "voip"
+  },
+  {
+   "type": "isolate",
+   "src": "ntp-servers",
+   "allowed": [
+    [
+     "dev-lab",
+     "syslog"
+    ],
+    [
+     "backup",
+     "dns"
+    ]
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "edge-cache",
+   "dst": "nvr",
+   "broad": "any-udp",
+   "ex": [
+    "snmp",
+    "tftp"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "nvr",
+   "dst": "edge-cache"
+  },
+  {
+   "type": "allow",
+   "src": "edge-cache",
+   "dst": "library",
+   "svcs": [
+    "https"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "research",
+   "dst": "scada",
+   "svcs": [
+    "mysql",
+    "snmp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "partners",
+   "dst": "hr",
+   "svcs": [
+    "smb"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "backup",
+   "dst": "dev-lab",
+   "svcs": [
+    "smtp",
+    "dns",
+    "mysql"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "library",
+   "svcs": [
+    "ntp",
+    "http"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "scada",
+   "dst": "voip"
+  },
+  {
+   "type": "block",
+   "src": "backup",
+   "dst": "nvr"
+  },
+  {
+   "type": "allow",
+   "src": "edge-cache",
+   "dst": "scada",
+   "svcs": [
+    "postgres",
+    "http"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "dev-lab",
+   "dst": "research",
+   "svcs": [
+    "smtp"
+   ]
+  }
+ ],
+ "wall_s": 349.84382033348083
+}

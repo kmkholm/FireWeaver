@@ -1,0 +1,325 @@
+{
+ "id": "Ntelos_s1046",
+ "n_intents": 15,
+ "n_gt_rules": 32,
+ "n_zones": 6,
+ "rules": {
+  "eq": false,
+  "mismatch": 0.034,
+  "n_rules": 33,
+  "fail": 0,
+  "s": 38.61102366447449,
+  "calls": 1,
+  "prompt": 930,
+  "completion": 1078
+ },
+ "ir0": {
+  "eq": false,
+  "mismatch": 0.01025,
+  "n_rules": 28,
+  "fail": 0,
+  "s": 41.29966711997986,
+  "calls": 15,
+  "prompt": 9401,
+  "completion": 686,
+  "intent_acc": 0.8666666666666667
+ },
+ "ir": {
+  "eq": true,
+  "mismatch": 0.0,
+  "n_rules": 32,
+  "fail": 0,
+  "s": 33.6019549369812,
+  "calls": 15,
+  "prompt": 16166,
+  "completion": 422,
+  "intent_acc": 1.0
+ },
+ "fw": {
+  "eq": true,
+  "mismatch": 0.0,
+  "n_rules": 32,
+  "fail": 0,
+  "s": 125.03389382362366,
+  "verify_s": 91.4319396018982,
+  "calls": 30,
+  "verify_calls": 15,
+  "flagged": 0,
+  "accepted": 0,
+  "repairs": [],
+  "intent_acc": 1.0
+ },
+ "ir_out": [
+  {
+   "type": "allow",
+   "src": "edge-cache",
+   "dst": "printers",
+   "svcs": [
+    "http",
+    "postgres",
+    "rtsp"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "dns-servers",
+   "allowed": [
+    [
+     "printers",
+     "syslog"
+    ],
+    [
+     "vpn-users",
+     "https"
+    ]
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "vpn-users",
+   "dst": "edge-cache",
+   "svcs": [
+    "postgres"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "printers",
+   "dst": "dev-lab",
+   "svcs": [
+    "dns",
+    "imap",
+    "https"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "printers",
+   "dst": "dns-servers",
+   "broad": "any-udp",
+   "ex": [
+    "tftp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "partners",
+   "dst": "edge-cache",
+   "svcs": [
+    "rtsp",
+    "mysql",
+    "snmp"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "dns-servers",
+   "svcs": [
+    "http",
+    "dns"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "partners",
+   "dst": "printers",
+   "svcs": [
+    "dns",
+    "imap"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "dns-servers",
+   "dst": "partners",
+   "svcs": [
+    "smb",
+    "rtsp",
+    "rdp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "vpn-users",
+   "dst": "dev-lab",
+   "svcs": [
+    "snmp",
+    "syslog"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "dev-lab",
+   "dst": "edge-cache",
+   "broad": "high-tcp",
+   "ex": [
+    "postgres",
+    "mysql",
+    "rdp"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "partners",
+   "dst": "dev-lab"
+  },
+  {
+   "type": "allow",
+   "src": "edge-cache",
+   "dst": "dns-servers",
+   "svcs": [
+    "rtsp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "dns-servers",
+   "dst": "edge-cache",
+   "svcs": [
+    "mysql"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "printers",
+   "dst": "partners"
+  }
+ ],
+ "fw_out": [
+  {
+   "type": "allow",
+   "src": "edge-cache",
+   "dst": "printers",
+   "svcs": [
+    "http",
+    "postgres",
+    "rtsp"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "dns-servers",
+   "allowed": [
+    [
+     "printers",
+     "syslog"
+    ],
+    [
+     "vpn-users",
+     "https"
+    ]
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "vpn-users",
+   "dst": "edge-cache",
+   "svcs": [
+    "postgres"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "printers",
+   "dst": "dev-lab",
+   "svcs": [
+    "dns",
+    "imap",
+    "https"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "printers",
+   "dst": "dns-servers",
+   "broad": "any-udp",
+   "ex": [
+    "tftp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "partners",
+   "dst": "edge-cache",
+   "svcs": [
+    "rtsp",
+    "mysql",
+    "snmp"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "dns-servers",
+   "svcs": [
+    "http",
+    "dns"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "partners",
+   "dst": "printers",
+   "svcs": [
+    "dns",
+    "imap"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "dns-servers",
+   "dst": "partners",
+   "svcs": [
+    "smb",
+    "rtsp",
+    "rdp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "vpn-users",
+   "dst": "dev-lab",
+   "svcs": [
+    "snmp",
+    "syslog"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "dev-lab",
+   "dst": "edge-cache",
+   "broad": "high-tcp",
+   "ex": [
+    "postgres",
+    "mysql",
+    "rdp"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "partners",
+   "dst": "dev-lab"
+  },
+  {
+   "type": "allow",
+   "src": "edge-cache",
+   "dst": "dns-servers",
+   "svcs": [
+    "rtsp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "dns-servers",
+   "dst": "edge-cache",
+   "svcs": [
+    "mysql"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "printers",
+   "dst": "partners"
+  }
+ ],
+ "wall_s": 205.1773862838745
+}

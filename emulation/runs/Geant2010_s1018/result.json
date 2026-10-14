@@ -1,0 +1,68 @@
+{
+ "id": "Geant2010_s1018",
+ "up": {
+  "n_routers": 37,
+  "n_links": 56,
+  "n_zones": 10,
+  "setup_s": 64.0900936126709,
+  "converged": true,
+  "converge_s": 3.135556936264038,
+  "dataplane_ready": true,
+  "dataplane_s": 1.4063904285430908,
+  "ecmp_nexthops": 1063
+ },
+ "deploy_fireweaver": {
+  "cfgset": "fireweaver",
+  "deploy_s": 17.732601404190063,
+  "per_router_max_s": 8.135751247406006,
+  "rules_installed": 355,
+  "rules_expected": 355
+ },
+ "probe_fireweaver": {
+  "n": 2702,
+  "delivered": 156,
+  "send_s": 10.088390827178955
+ },
+ "conf_fireweaver": {
+  "n": 2702,
+  "conform": 2702,
+  "leaks": 0,
+  "wrongly_blocked": 0
+ },
+ "deploy_ecmp1": {
+  "cfgset": "ecmp1",
+  "deploy_s": 18.103522777557373,
+  "per_router_max_s": 8.830418109893799,
+  "rules_installed": 349,
+  "rules_expected": 349
+ },
+ "probe_ecmp1": {
+  "n": 2702,
+  "delivered": 411,
+  "send_s": 10.124529838562012
+ },
+ "conf_ecmp1": {
+  "n": 2702,
+  "conform": 2447,
+  "leaks": 255,
+  "wrongly_blocked": 0
+ },
+ "deploy_none": {
+  "cfgset": "none",
+  "deploy_s": 18.486422300338745,
+  "per_router_max_s": 8.508545875549316,
+  "rules_installed": 0,
+  "rules_expected": 0
+ },
+ "probe_none": {
+  "n": 2702,
+  "delivered": 2702,
+  "send_s": 1.9989655017852783
+ },
+ "conf_none": {
+  "n": 2702,
+  "conform": 156,
+  "leaks": 2546,
+  "wrongly_blocked": 0
+ }
+}

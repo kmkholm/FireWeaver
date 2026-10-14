@@ -1,0 +1,889 @@
+{
+ "id": "Vinaren_s1007",
+ "topology": "Vinaren",
+ "n_nodes": 25,
+ "edges": [
+  [
+   0,
+   7
+  ],
+  [
+   1,
+   7
+  ],
+  [
+   2,
+   7
+  ],
+  [
+   3,
+   17
+  ],
+  [
+   4,
+   13
+  ],
+  [
+   5,
+   15
+  ],
+  [
+   6,
+   7
+  ],
+  [
+   7,
+   8
+  ],
+  [
+   7,
+   14
+  ],
+  [
+   7,
+   16
+  ],
+  [
+   7,
+   17
+  ],
+  [
+   9,
+   10
+  ],
+  [
+   9,
+   21
+  ],
+  [
+   10,
+   11
+  ],
+  [
+   10,
+   20
+  ],
+  [
+   10,
+   13
+  ],
+  [
+   11,
+   19
+  ],
+  [
+   11,
+   12
+  ],
+  [
+   11,
+   13
+  ],
+  [
+   13,
+   14
+  ],
+  [
+   13,
+   22
+  ],
+  [
+   13,
+   23
+  ],
+  [
+   13,
+   24
+  ],
+  [
+   14,
+   17
+  ],
+  [
+   14,
+   15
+  ],
+  [
+   17,
+   18
+  ]
+ ],
+ "zones": {
+  "admin": {
+   "router": 0,
+   "prefixes": [
+    "118.143.128.0/17",
+    "130.107.85.128/25"
+   ]
+  },
+  "cameras": {
+   "router": 3,
+   "prefixes": [
+    "2.247.226.64/28",
+    "106.89.67.128/25"
+   ]
+  },
+  "iot-sensors": {
+   "router": 19,
+   "prefixes": [
+    "47.166.8.0/22"
+   ]
+  },
+  "voip": {
+   "router": 8,
+   "prefixes": [
+    "25.110.9.128/26",
+    "82.250.43.48/28",
+    "18.171.122.0/24"
+   ]
+  },
+  "mail": {
+   "router": 23,
+   "prefixes": [
+    "239.129.0.0/16",
+    "148.221.72.0/25",
+    "12.171.38.0/27"
+   ]
+  },
+  "monitoring": {
+   "router": 6,
+   "prefixes": [
+    "31.46.164.0/23",
+    "44.87.132.0/27"
+   ]
+  },
+  "ops": {
+   "router": 4,
+   "prefixes": [
+    "168.38.184.0/22"
+   ]
+  },
+  "dns-servers": {
+   "router": 16,
+   "prefixes": [
+    "213.172.144.0/27"
+   ]
+  },
+  "engineering": {
+   "router": 21,
+   "prefixes": [
+    "250.161.98.0/25",
+    "102.138.252.0/23",
+    "13.111.226.0/23"
+   ]
+  },
+  "database": {
+   "router": 20,
+   "prefixes": [
+    "6.241.45.0/24"
+   ]
+  },
+  "hr": {
+   "router": 2,
+   "prefixes": [
+    "231.35.188.160/27"
+   ]
+  },
+  "scada": {
+   "router": 22,
+   "prefixes": [
+    "80.146.92.0/24"
+   ]
+  },
+  "vpn-users": {
+   "router": 24,
+   "prefixes": [
+    "228.201.64.0/23",
+    "44.212.57.64/27",
+    "60.146.0.0/18"
+   ]
+  },
+  "library": {
+   "router": 12,
+   "prefixes": [
+    "124.235.224.0/23",
+    "207.227.34.0/26",
+    "39.213.134.0/23"
+   ]
+  },
+  "research": {
+   "router": 1,
+   "prefixes": [
+    "43.160.144.0/20",
+    "251.230.128.0/17",
+    "31.223.117.128/25"
+   ]
+  },
+  "guest-wifi": {
+   "router": 18,
+   "prefixes": [
+    "219.46.10.0/23"
+   ]
+  }
+ },
+ "zone_text": [
+  "admin: hosts 118.143.128.0/17, 130.107.85.128/25 attached to router R0",
+  "cameras: hosts 2.247.226.64/28, 106.89.67.128/25 attached to router R3",
+  "iot-sensors: hosts 47.166.8.0/22 attached to router R19",
+  "voip: hosts 25.110.9.128/26, 82.250.43.48/28, 18.171.122.0/24 attached to router R8",
+  "mail: hosts 239.129.0.0/16, 148.221.72.0/25, 12.171.38.0/27 attached to router R23",
+  "monitoring: hosts 31.46.164.0/23, 44.87.132.0/27 attached to router R6",
+  "ops: hosts 168.38.184.0/22 attached to router R4",
+  "dns-servers: hosts 213.172.144.0/27 attached to router R16",
+  "engineering: hosts 250.161.98.0/25, 102.138.252.0/23, 13.111.226.0/23 attached to router R21",
+  "database: hosts 6.241.45.0/24 attached to router R20",
+  "hr: hosts 231.35.188.160/27 attached to router R2",
+  "scada: hosts 80.146.92.0/24 attached to router R22",
+  "vpn-users: hosts 228.201.64.0/23, 44.212.57.64/27, 60.146.0.0/18 attached to router R24",
+  "library: hosts 124.235.224.0/23, 207.227.34.0/26, 39.213.134.0/23 attached to router R12",
+  "research: hosts 43.160.144.0/20, 251.230.128.0/17, 31.223.117.128/25 attached to router R1",
+  "guest-wifi: hosts 219.46.10.0/23 attached to router R18"
+ ],
+ "intents": [
+  {
+   "type": "allow",
+   "src": "scada",
+   "dst": "vpn-users",
+   "svcs": [
+    "mysql",
+    "https"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "admin",
+   "dst": "iot-sensors",
+   "svcs": [
+    "ssh"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "guest-wifi",
+   "svcs": [
+    "dns"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "library",
+   "allowed": [
+    [
+     "scada",
+     "dns"
+    ]
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "hr",
+   "allowed": [
+    [
+     "database",
+     "https"
+    ],
+    [
+     "guest-wifi",
+     "https"
+    ]
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "cameras",
+   "svcs": [
+    "http"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "admin",
+   "dst": "voip"
+  },
+  {
+   "type": "allow",
+   "src": "monitoring",
+   "dst": "cameras",
+   "svcs": [
+    "postgres"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "dns-servers",
+   "dst": "library"
+  },
+  {
+   "type": "block",
+   "src": "voip",
+   "dst": "vpn-users"
+  },
+  {
+   "type": "allow",
+   "src": "iot-sensors",
+   "dst": "voip",
+   "svcs": [
+    "http",
+    "ssh",
+    "snmp"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "guest-wifi",
+   "dst": "admin"
+  },
+  {
+   "type": "isolate",
+   "src": "cameras",
+   "allowed": [
+    [
+     "ops",
+     "ntp"
+    ],
+    [
+     "guest-wifi",
+     "https"
+    ]
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "monitoring",
+   "dst": "library",
+   "broad": "any-tcp",
+   "ex": [
+    "telnet",
+    "smb",
+    "rdp"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "mail",
+   "dst": "iot-sensors"
+  },
+  {
+   "type": "public",
+   "dst": "library",
+   "svcs": [
+    "dns"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "voip",
+   "allowed": [
+    [
+     "ops",
+     "syslog"
+    ]
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "research",
+   "svcs": [
+    "https",
+    "dns"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "dns-servers",
+   "dst": "admin",
+   "svcs": [
+    "rdp",
+    "mysql"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "vpn-users",
+   "allowed": [
+    [
+     "database",
+     "ntp"
+    ],
+    [
+     "engineering",
+     "syslog"
+    ]
+   ]
+  },
+  {
+   "type": "block",
+   "src": "ops",
+   "dst": "iot-sensors"
+  },
+  {
+   "type": "isolate",
+   "src": "dns-servers",
+   "allowed": [
+    [
+     "guest-wifi",
+     "dns"
+    ]
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "admin",
+   "dst": "voip",
+   "svcs": [
+    "https",
+    "syslog"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "cameras",
+   "dst": "scada",
+   "svcs": [
+    "syslog",
+    "smtp",
+    "dns"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "ops",
+   "dst": "engineering",
+   "broad": "high-tcp",
+   "ex": [
+    "rdp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "database",
+   "dst": "hr",
+   "svcs": [
+    "https"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "mail",
+   "dst": "hr",
+   "svcs": [
+    "snmp"
+   ]
+  }
+ ],
+ "nl": [
+  "Allow scada to connect to vpn-users using MySQL (TCP 3306) and HTTPS (TCP 443).",
+  "Hosts in admin may reach iot-sensors over SSH (TCP 22).",
+  "guest-wifi offers DNS over UDP 53 to every zone.",
+  "Restrict library so that its only permitted destinations are scada on DNS over UDP 53; drop all other traffic it originates.",
+  "hr is isolated: it may only reach database on HTTPS (TCP 443); guest-wifi on HTTPS (TCP 443), and nothing else.",
+  "Any zone may connect to cameras over HTTP (TCP 80).",
+  "No packet from admin may enter voip, even for services open to everyone.",
+  "cameras must accept PostgreSQL (TCP 5432) from monitoring.",
+  "Deny all traffic from dns-servers to library (this overrides any public service).",
+  "voip must never reach vpn-users, regardless of any other rule.",
+  "voip must accept HTTP (TCP 80) and SSH (TCP 22) and SNMP (UDP 161) from iot-sensors.",
+  "No packet from guest-wifi may enter admin, even for services open to everyone.",
+  "cameras is isolated: it may only reach ops on NTP (UDP 123); guest-wifi on HTTPS (TCP 443), and nothing else.",
+  "Permit any TCP port from monitoring to library but deny Telnet (TCP 23), SMB (TCP 445), RDP (TCP 3389).",
+  "Deny all traffic from mail to iot-sensors (this overrides any public service).",
+  "Any zone may connect to library over DNS over UDP 53.",
+  "Apart from ops on syslog (UDP 514), all traffic originating in voip must be dropped.",
+  "Any zone may connect to research over HTTPS (TCP 443) and DNS over UDP 53.",
+  "admin must accept RDP (TCP 3389) and MySQL (TCP 3306) from dns-servers.",
+  "vpn-users is isolated: it may only reach database on NTP (UDP 123); engineering on syslog (UDP 514), and nothing else.",
+  "Deny all traffic from ops to iot-sensors (this overrides any public service).",
+  "Apart from guest-wifi on DNS over UDP 53, all traffic originating in dns-servers must be dropped.",
+  "Hosts in admin may reach voip over HTTPS (TCP 443) and syslog (UDP 514).",
+  "Hosts in cameras may reach scada over syslog (UDP 514) and SMTP (TCP 25) and DNS over UDP 53.",
+  "ops may use TCP ports 1024-65535 towards engineering, except RDP (TCP 3389), which must be blocked.",
+  "Hosts in database may reach hr over HTTPS (TCP 443).",
+  "Hosts in mail may reach hr over SNMP (UDP 161)."
+ ],
+ "gt": [
+  {
+   "src": "admin",
+   "dst": "voip",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "dns-servers",
+   "dst": "library",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "voip",
+   "dst": "vpn-users",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "guest-wifi",
+   "dst": "admin",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "mail",
+   "dst": "iot-sensors",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "ops",
+   "dst": "iot-sensors",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "monitoring",
+   "dst": "library",
+   "proto": "tcp",
+   "dlo": 23,
+   "dhi": 23,
+   "action": "deny"
+  },
+  {
+   "src": "monitoring",
+   "dst": "library",
+   "proto": "tcp",
+   "dlo": 445,
+   "dhi": 445,
+   "action": "deny"
+  },
+  {
+   "src": "monitoring",
+   "dst": "library",
+   "proto": "tcp",
+   "dlo": 3389,
+   "dhi": 3389,
+   "action": "deny"
+  },
+  {
+   "src": "ops",
+   "dst": "engineering",
+   "proto": "tcp",
+   "dlo": 3389,
+   "dhi": 3389,
+   "action": "deny"
+  },
+  {
+   "src": "scada",
+   "dst": "vpn-users",
+   "proto": "tcp",
+   "dlo": 3306,
+   "dhi": 3306,
+   "action": "permit"
+  },
+  {
+   "src": "scada",
+   "dst": "vpn-users",
+   "proto": "tcp",
+   "dlo": 443,
+   "dhi": 443,
+   "action": "permit"
+  },
+  {
+   "src": "admin",
+   "dst": "iot-sensors",
+   "proto": "tcp",
+   "dlo": 22,
+   "dhi": 22,
+   "action": "permit"
+  },
+  {
+   "src": "monitoring",
+   "dst": "cameras",
+   "proto": "tcp",
+   "dlo": 5432,
+   "dhi": 5432,
+   "action": "permit"
+  },
+  {
+   "src": "iot-sensors",
+   "dst": "voip",
+   "proto": "tcp",
+   "dlo": 80,
+   "dhi": 80,
+   "action": "permit"
+  },
+  {
+   "src": "iot-sensors",
+   "dst": "voip",
+   "proto": "tcp",
+   "dlo": 22,
+   "dhi": 22,
+   "action": "permit"
+  },
+  {
+   "src": "iot-sensors",
+   "dst": "voip",
+   "proto": "udp",
+   "dlo": 161,
+   "dhi": 161,
+   "action": "permit"
+  },
+  {
+   "src": "monitoring",
+   "dst": "library",
+   "proto": "tcp",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "permit"
+  },
+  {
+   "src": "dns-servers",
+   "dst": "admin",
+   "proto": "tcp",
+   "dlo": 3389,
+   "dhi": 3389,
+   "action": "permit"
+  },
+  {
+   "src": "dns-servers",
+   "dst": "admin",
+   "proto": "tcp",
+   "dlo": 3306,
+   "dhi": 3306,
+   "action": "permit"
+  },
+  {
+   "src": "admin",
+   "dst": "voip",
+   "proto": "tcp",
+   "dlo": 443,
+   "dhi": 443,
+   "action": "permit"
+  },
+  {
+   "src": "admin",
+   "dst": "voip",
+   "proto": "udp",
+   "dlo": 514,
+   "dhi": 514,
+   "action": "permit"
+  },
+  {
+   "src": "cameras",
+   "dst": "scada",
+   "proto": "udp",
+   "dlo": 514,
+   "dhi": 514,
+   "action": "permit"
+  },
+  {
+   "src": "cameras",
+   "dst": "scada",
+   "proto": "tcp",
+   "dlo": 25,
+   "dhi": 25,
+   "action": "permit"
+  },
+  {
+   "src": "cameras",
+   "dst": "scada",
+   "proto": "udp",
+   "dlo": 53,
+   "dhi": 53,
+   "action": "permit"
+  },
+  {
+   "src": "ops",
+   "dst": "engineering",
+   "proto": "tcp",
+   "dlo": 1024,
+   "dhi": 65535,
+   "action": "permit"
+  },
+  {
+   "src": "database",
+   "dst": "hr",
+   "proto": "tcp",
+   "dlo": 443,
+   "dhi": 443,
+   "action": "permit"
+  },
+  {
+   "src": "mail",
+   "dst": "hr",
+   "proto": "udp",
+   "dlo": 161,
+   "dhi": 161,
+   "action": "permit"
+  },
+  {
+   "src": "library",
+   "dst": "scada",
+   "proto": "udp",
+   "dlo": 53,
+   "dhi": 53,
+   "action": "permit"
+  },
+  {
+   "src": "hr",
+   "dst": "database",
+   "proto": "tcp",
+   "dlo": 443,
+   "dhi": 443,
+   "action": "permit"
+  },
+  {
+   "src": "hr",
+   "dst": "guest-wifi",
+   "proto": "tcp",
+   "dlo": 443,
+   "dhi": 443,
+   "action": "permit"
+  },
+  {
+   "src": "cameras",
+   "dst": "ops",
+   "proto": "udp",
+   "dlo": 123,
+   "dhi": 123,
+   "action": "permit"
+  },
+  {
+   "src": "cameras",
+   "dst": "guest-wifi",
+   "proto": "tcp",
+   "dlo": 443,
+   "dhi": 443,
+   "action": "permit"
+  },
+  {
+   "src": "voip",
+   "dst": "ops",
+   "proto": "udp",
+   "dlo": 514,
+   "dhi": 514,
+   "action": "permit"
+  },
+  {
+   "src": "vpn-users",
+   "dst": "database",
+   "proto": "udp",
+   "dlo": 123,
+   "dhi": 123,
+   "action": "permit"
+  },
+  {
+   "src": "vpn-users",
+   "dst": "engineering",
+   "proto": "udp",
+   "dlo": 514,
+   "dhi": 514,
+   "action": "permit"
+  },
+  {
+   "src": "dns-servers",
+   "dst": "guest-wifi",
+   "proto": "udp",
+   "dlo": 53,
+   "dhi": 53,
+   "action": "permit"
+  },
+  {
+   "src": "library",
+   "dst": "*",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "hr",
+   "dst": "*",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "cameras",
+   "dst": "*",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "voip",
+   "dst": "*",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "vpn-users",
+   "dst": "*",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "dns-servers",
+   "dst": "*",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "*",
+   "dst": "guest-wifi",
+   "proto": "udp",
+   "dlo": 53,
+   "dhi": 53,
+   "action": "permit"
+  },
+  {
+   "src": "*",
+   "dst": "cameras",
+   "proto": "tcp",
+   "dlo": 80,
+   "dhi": 80,
+   "action": "permit"
+  },
+  {
+   "src": "*",
+   "dst": "library",
+   "proto": "udp",
+   "dlo": 53,
+   "dhi": 53,
+   "action": "permit"
+  },
+  {
+   "src": "*",
+   "dst": "research",
+   "proto": "tcp",
+   "dlo": 443,
+   "dhi": 443,
+   "action": "permit"
+  },
+  {
+   "src": "*",
+   "dst": "research",
+   "proto": "udp",
+   "dlo": 53,
+   "dhi": 53,
+   "action": "permit"
+  }
+ ]
+}

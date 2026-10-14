@@ -1,0 +1,205 @@
+{
+ "id": "Iinet_s1031",
+ "n_intents": 8,
+ "n_gt_rules": 16,
+ "n_zones": 10,
+ "rules": {
+  "eq": false,
+  "mismatch": 0.019,
+  "n_rules": 15,
+  "fail": 0,
+  "s": 16.618126392364502,
+  "calls": 1,
+  "prompt": 700,
+  "completion": 454
+ },
+ "ir0": {
+  "eq": false,
+  "mismatch": 0.01075,
+  "n_rules": 14,
+  "fail": 0,
+  "s": 30.398869276046753,
+  "calls": 8,
+  "prompt": 5078,
+  "completion": 459,
+  "intent_acc": 0.75
+ },
+ "ir": {
+  "eq": true,
+  "mismatch": 0.0,
+  "n_rules": 16,
+  "fail": 0,
+  "s": 24.578956365585327,
+  "calls": 9,
+  "prompt": 9840,
+  "completion": 229,
+  "intent_acc": 1.0
+ },
+ "fw": {
+  "eq": true,
+  "mismatch": 0.0,
+  "n_rules": 16,
+  "fail": 0,
+  "s": 58.61639189720154,
+  "verify_s": 34.03743600845337,
+  "calls": 18,
+  "verify_calls": 9,
+  "flagged": 0,
+  "accepted": 0,
+  "repairs": [],
+  "intent_acc": 1.0
+ },
+ "ir_out": [
+  {
+   "type": "allow",
+   "src": "printers",
+   "dst": "backup",
+   "svcs": [
+    "http"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "engineering",
+   "dst": "partners",
+   "svcs": [
+    "rdp",
+    "dns"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "monitoring",
+   "dst": "partners",
+   "svcs": [
+    "rdp",
+    "ntp",
+    "imap"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "partners",
+   "allowed": [
+    [
+     "edge-cache",
+     "ntp"
+    ],
+    [
+     "mail",
+     "dns"
+    ]
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "student-lab",
+   "svcs": [
+    "ntp",
+    "http"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "backup",
+   "dst": "engineering",
+   "svcs": [
+    "mysql",
+    "ssh"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "admin",
+   "dst": "guest-wifi",
+   "svcs": [
+    "http"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "admin",
+   "svcs": [
+    "ntp",
+    "dns"
+   ]
+  }
+ ],
+ "fw_out": [
+  {
+   "type": "allow",
+   "src": "printers",
+   "dst": "backup",
+   "svcs": [
+    "http"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "engineering",
+   "dst": "partners",
+   "svcs": [
+    "rdp",
+    "dns"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "monitoring",
+   "dst": "partners",
+   "svcs": [
+    "rdp",
+    "ntp",
+    "imap"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "partners",
+   "allowed": [
+    [
+     "edge-cache",
+     "ntp"
+    ],
+    [
+     "mail",
+     "dns"
+    ]
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "student-lab",
+   "svcs": [
+    "ntp",
+    "http"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "backup",
+   "dst": "engineering",
+   "svcs": [
+    "mysql",
+    "ssh"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "admin",
+   "dst": "guest-wifi",
+   "svcs": [
+    "http"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "admin",
+   "svcs": [
+    "ntp",
+    "dns"
+   ]
+  }
+ ],
+ "wall_s": 105.84489631652832
+}

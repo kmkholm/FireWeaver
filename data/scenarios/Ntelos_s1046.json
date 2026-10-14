@@ -1,0 +1,705 @@
+{
+ "id": "Ntelos_s1046",
+ "topology": "Ntelos",
+ "n_nodes": 47,
+ "edges": [
+  [
+   0,
+   4
+  ],
+  [
+   1,
+   2
+  ],
+  [
+   1,
+   5
+  ],
+  [
+   2,
+   3
+  ],
+  [
+   2,
+   4
+  ],
+  [
+   3,
+   23
+  ],
+  [
+   4,
+   24
+  ],
+  [
+   5,
+   6
+  ],
+  [
+   6,
+   7
+  ],
+  [
+   6,
+   14
+  ],
+  [
+   6,
+   15
+  ],
+  [
+   7,
+   8
+  ],
+  [
+   8,
+   9
+  ],
+  [
+   8,
+   10
+  ],
+  [
+   9,
+   10
+  ],
+  [
+   9,
+   19
+  ],
+  [
+   9,
+   45
+  ],
+  [
+   10,
+   12
+  ],
+  [
+   11,
+   12
+  ],
+  [
+   11,
+   13
+  ],
+  [
+   12,
+   17
+  ],
+  [
+   12,
+   15
+  ],
+  [
+   13,
+   14
+  ],
+  [
+   15,
+   16
+  ],
+  [
+   16,
+   17
+  ],
+  [
+   16,
+   44
+  ],
+  [
+   17,
+   43
+  ],
+  [
+   17,
+   39
+  ],
+  [
+   18,
+   19
+  ],
+  [
+   18,
+   45
+  ],
+  [
+   18,
+   38
+  ],
+  [
+   19,
+   20
+  ],
+  [
+   20,
+   21
+  ],
+  [
+   21,
+   22
+  ],
+  [
+   22,
+   27
+  ],
+  [
+   24,
+   25
+  ],
+  [
+   24,
+   27
+  ],
+  [
+   24,
+   46
+  ],
+  [
+   25,
+   26
+  ],
+  [
+   27,
+   46
+  ],
+  [
+   28,
+   29
+  ],
+  [
+   29,
+   30
+  ],
+  [
+   30,
+   31
+  ],
+  [
+   31,
+   32
+  ],
+  [
+   31,
+   34
+  ],
+  [
+   32,
+   33
+  ],
+  [
+   33,
+   34
+  ],
+  [
+   34,
+   35
+  ],
+  [
+   35,
+   36
+  ],
+  [
+   35,
+   37
+  ],
+  [
+   36,
+   38
+  ],
+  [
+   37,
+   38
+  ],
+  [
+   38,
+   39
+  ],
+  [
+   39,
+   40
+  ],
+  [
+   40,
+   41
+  ],
+  [
+   41,
+   43
+  ],
+  [
+   42,
+   43
+  ],
+  [
+   43,
+   44
+  ]
+ ],
+ "zones": {
+  "dns-servers": {
+   "router": 42,
+   "prefixes": [
+    "241.174.46.0/24",
+    "245.51.232.0/21"
+   ]
+  },
+  "printers": {
+   "router": 0,
+   "prefixes": [
+    "175.177.230.0/23",
+    "161.117.148.0/24"
+   ]
+  },
+  "partners": {
+   "router": 28,
+   "prefixes": [
+    "95.145.120.0/22",
+    "28.175.136.0/23",
+    "108.170.245.112/28"
+   ]
+  },
+  "dev-lab": {
+   "router": 23,
+   "prefixes": [
+    "172.196.226.192/26",
+    "213.149.48.0/23",
+    "94.202.13.0/24"
+   ]
+  },
+  "vpn-users": {
+   "router": 26,
+   "prefixes": [
+    "8.192.128.0/17",
+    "175.177.219.0/24",
+    "20.215.208.0/20"
+   ]
+  },
+  "edge-cache": {
+   "router": 36,
+   "prefixes": [
+    "98.33.172.0/24",
+    "44.38.19.0/24"
+   ]
+  }
+ },
+ "zone_text": [
+  "dns-servers: hosts 241.174.46.0/24, 245.51.232.0/21 attached to router R42",
+  "printers: hosts 175.177.230.0/23, 161.117.148.0/24 attached to router R0",
+  "partners: hosts 95.145.120.0/22, 28.175.136.0/23, 108.170.245.112/28 attached to router R28",
+  "dev-lab: hosts 172.196.226.192/26, 213.149.48.0/23, 94.202.13.0/24 attached to router R23",
+  "vpn-users: hosts 8.192.128.0/17, 175.177.219.0/24, 20.215.208.0/20 attached to router R26",
+  "edge-cache: hosts 98.33.172.0/24, 44.38.19.0/24 attached to router R36"
+ ],
+ "intents": [
+  {
+   "type": "allow",
+   "src": "edge-cache",
+   "dst": "printers",
+   "svcs": [
+    "http",
+    "postgres",
+    "rtsp"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "dns-servers",
+   "allowed": [
+    [
+     "printers",
+     "syslog"
+    ],
+    [
+     "vpn-users",
+     "https"
+    ]
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "vpn-users",
+   "dst": "edge-cache",
+   "svcs": [
+    "postgres"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "printers",
+   "dst": "dev-lab",
+   "svcs": [
+    "dns",
+    "imap",
+    "https"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "printers",
+   "dst": "dns-servers",
+   "broad": "any-udp",
+   "ex": [
+    "tftp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "partners",
+   "dst": "edge-cache",
+   "svcs": [
+    "rtsp",
+    "mysql",
+    "snmp"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "dns-servers",
+   "svcs": [
+    "http",
+    "dns"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "partners",
+   "dst": "printers",
+   "svcs": [
+    "dns",
+    "imap"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "dns-servers",
+   "dst": "partners",
+   "svcs": [
+    "smb",
+    "rtsp",
+    "rdp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "vpn-users",
+   "dst": "dev-lab",
+   "svcs": [
+    "snmp",
+    "syslog"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "dev-lab",
+   "dst": "edge-cache",
+   "broad": "high-tcp",
+   "ex": [
+    "postgres",
+    "mysql",
+    "rdp"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "partners",
+   "dst": "dev-lab"
+  },
+  {
+   "type": "allow",
+   "src": "edge-cache",
+   "dst": "dns-servers",
+   "svcs": [
+    "rtsp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "dns-servers",
+   "dst": "edge-cache",
+   "svcs": [
+    "mysql"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "printers",
+   "dst": "partners"
+  }
+ ],
+ "nl": [
+  "printers must accept HTTP (TCP 80) and PostgreSQL (TCP 5432) and RTSP (TCP 554) from edge-cache.",
+  "dns-servers is isolated: it may only reach printers on syslog (UDP 514); vpn-users on HTTPS (TCP 443), and nothing else.",
+  "Allow vpn-users to connect to edge-cache using PostgreSQL (TCP 5432).",
+  "Allow printers to connect to dev-lab using DNS over UDP 53 and IMAP (TCP 143) and HTTPS (TCP 443).",
+  "Permit any UDP port from printers to dns-servers but deny TFTP (UDP 69).",
+  "Hosts in partners may reach edge-cache over RTSP (TCP 554) and MySQL (TCP 3306) and SNMP (UDP 161).",
+  "Make HTTP (TCP 80) and DNS over UDP 53 on dns-servers reachable from all internal zones.",
+  "printers must accept DNS over UDP 53 and IMAP (TCP 143) from partners.",
+  "Allow dns-servers to connect to partners using SMB (TCP 445) and RTSP (TCP 554) and RDP (TCP 3389).",
+  "dev-lab must accept SNMP (UDP 161) and syslog (UDP 514) from vpn-users.",
+  "Block PostgreSQL (TCP 5432), MySQL (TCP 3306), RDP (TCP 3389) from dev-lab to edge-cache; the rest of TCP ports 1024-65535 between them is allowed.",
+  "No packet from partners may enter dev-lab, even for services open to everyone.",
+  "Allow edge-cache to connect to dns-servers using RTSP (TCP 554).",
+  "edge-cache must accept MySQL (TCP 3306) from dns-servers.",
+  "Deny all traffic from printers to partners (this overrides any public service)."
+ ],
+ "gt": [
+  {
+   "src": "partners",
+   "dst": "dev-lab",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "printers",
+   "dst": "partners",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "printers",
+   "dst": "dns-servers",
+   "proto": "udp",
+   "dlo": 69,
+   "dhi": 69,
+   "action": "deny"
+  },
+  {
+   "src": "dev-lab",
+   "dst": "edge-cache",
+   "proto": "tcp",
+   "dlo": 5432,
+   "dhi": 5432,
+   "action": "deny"
+  },
+  {
+   "src": "dev-lab",
+   "dst": "edge-cache",
+   "proto": "tcp",
+   "dlo": 3306,
+   "dhi": 3306,
+   "action": "deny"
+  },
+  {
+   "src": "dev-lab",
+   "dst": "edge-cache",
+   "proto": "tcp",
+   "dlo": 3389,
+   "dhi": 3389,
+   "action": "deny"
+  },
+  {
+   "src": "edge-cache",
+   "dst": "printers",
+   "proto": "tcp",
+   "dlo": 80,
+   "dhi": 80,
+   "action": "permit"
+  },
+  {
+   "src": "edge-cache",
+   "dst": "printers",
+   "proto": "tcp",
+   "dlo": 5432,
+   "dhi": 5432,
+   "action": "permit"
+  },
+  {
+   "src": "edge-cache",
+   "dst": "printers",
+   "proto": "tcp",
+   "dlo": 554,
+   "dhi": 554,
+   "action": "permit"
+  },
+  {
+   "src": "vpn-users",
+   "dst": "edge-cache",
+   "proto": "tcp",
+   "dlo": 5432,
+   "dhi": 5432,
+   "action": "permit"
+  },
+  {
+   "src": "printers",
+   "dst": "dev-lab",
+   "proto": "udp",
+   "dlo": 53,
+   "dhi": 53,
+   "action": "permit"
+  },
+  {
+   "src": "printers",
+   "dst": "dev-lab",
+   "proto": "tcp",
+   "dlo": 143,
+   "dhi": 143,
+   "action": "permit"
+  },
+  {
+   "src": "printers",
+   "dst": "dev-lab",
+   "proto": "tcp",
+   "dlo": 443,
+   "dhi": 443,
+   "action": "permit"
+  },
+  {
+   "src": "printers",
+   "dst": "dns-servers",
+   "proto": "udp",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "permit"
+  },
+  {
+   "src": "partners",
+   "dst": "edge-cache",
+   "proto": "tcp",
+   "dlo": 554,
+   "dhi": 554,
+   "action": "permit"
+  },
+  {
+   "src": "partners",
+   "dst": "edge-cache",
+   "proto": "tcp",
+   "dlo": 3306,
+   "dhi": 3306,
+   "action": "permit"
+  },
+  {
+   "src": "partners",
+   "dst": "edge-cache",
+   "proto": "udp",
+   "dlo": 161,
+   "dhi": 161,
+   "action": "permit"
+  },
+  {
+   "src": "partners",
+   "dst": "printers",
+   "proto": "udp",
+   "dlo": 53,
+   "dhi": 53,
+   "action": "permit"
+  },
+  {
+   "src": "partners",
+   "dst": "printers",
+   "proto": "tcp",
+   "dlo": 143,
+   "dhi": 143,
+   "action": "permit"
+  },
+  {
+   "src": "dns-servers",
+   "dst": "partners",
+   "proto": "tcp",
+   "dlo": 445,
+   "dhi": 445,
+   "action": "permit"
+  },
+  {
+   "src": "dns-servers",
+   "dst": "partners",
+   "proto": "tcp",
+   "dlo": 554,
+   "dhi": 554,
+   "action": "permit"
+  },
+  {
+   "src": "dns-servers",
+   "dst": "partners",
+   "proto": "tcp",
+   "dlo": 3389,
+   "dhi": 3389,
+   "action": "permit"
+  },
+  {
+   "src": "vpn-users",
+   "dst": "dev-lab",
+   "proto": "udp",
+   "dlo": 161,
+   "dhi": 161,
+   "action": "permit"
+  },
+  {
+   "src": "vpn-users",
+   "dst": "dev-lab",
+   "proto": "udp",
+   "dlo": 514,
+   "dhi": 514,
+   "action": "permit"
+  },
+  {
+   "src": "dev-lab",
+   "dst": "edge-cache",
+   "proto": "tcp",
+   "dlo": 1024,
+   "dhi": 65535,
+   "action": "permit"
+  },
+  {
+   "src": "edge-cache",
+   "dst": "dns-servers",
+   "proto": "tcp",
+   "dlo": 554,
+   "dhi": 554,
+   "action": "permit"
+  },
+  {
+   "src": "dns-servers",
+   "dst": "edge-cache",
+   "proto": "tcp",
+   "dlo": 3306,
+   "dhi": 3306,
+   "action": "permit"
+  },
+  {
+   "src": "dns-servers",
+   "dst": "printers",
+   "proto": "udp",
+   "dlo": 514,
+   "dhi": 514,
+   "action": "permit"
+  },
+  {
+   "src": "dns-servers",
+   "dst": "vpn-users",
+   "proto": "tcp",
+   "dlo": 443,
+   "dhi": 443,
+   "action": "permit"
+  },
+  {
+   "src": "dns-servers",
+   "dst": "*",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "*",
+   "dst": "dns-servers",
+   "proto": "tcp",
+   "dlo": 80,
+   "dhi": 80,
+   "action": "permit"
+  },
+  {
+   "src": "*",
+   "dst": "dns-servers",
+   "proto": "udp",
+   "dlo": 53,
+   "dhi": 53,
+   "action": "permit"
+  }
+ ]
+}

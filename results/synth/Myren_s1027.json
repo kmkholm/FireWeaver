@@ -1,0 +1,173 @@
+{
+ "id": "Myren_s1027",
+ "n_intents": 7,
+ "n_gt_rules": 14,
+ "n_zones": 10,
+ "rules": {
+  "eq": false,
+  "mismatch": 0.00225,
+  "n_rules": 14,
+  "fail": 0,
+  "s": 15.857948541641235,
+  "calls": 1,
+  "prompt": 682,
+  "completion": 434
+ },
+ "ir0": {
+  "eq": false,
+  "mismatch": 0.0,
+  "n_rules": 14,
+  "fail": 0,
+  "s": 16.375481605529785,
+  "calls": 7,
+  "prompt": 4477,
+  "completion": 223,
+  "intent_acc": 0.8571428571428571
+ },
+ "ir": {
+  "eq": true,
+  "mismatch": 0.0,
+  "n_rules": 14,
+  "fail": 0,
+  "s": 15.096837282180786,
+  "calls": 7,
+  "prompt": 7634,
+  "completion": 180,
+  "intent_acc": 1.0
+ },
+ "fw": {
+  "eq": true,
+  "mismatch": 0.0,
+  "n_rules": 14,
+  "fail": 0,
+  "s": 56.805217266082764,
+  "verify_s": 41.708380937576294,
+  "calls": 14,
+  "verify_calls": 7,
+  "flagged": 0,
+  "accepted": 0,
+  "repairs": [],
+  "intent_acc": 1.0
+ },
+ "ir_out": [
+  {
+   "type": "block",
+   "src": "dns-servers",
+   "dst": "iot-sensors"
+  },
+  {
+   "type": "block",
+   "src": "research",
+   "dst": "hr"
+  },
+  {
+   "type": "allow",
+   "src": "dmz-web",
+   "dst": "dns-servers",
+   "svcs": [
+    "smtp",
+    "https",
+    "ntp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "dns-servers",
+   "dst": "hr",
+   "svcs": [
+    "ldap",
+    "syslog"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "guest-wifi",
+   "allowed": [
+    [
+     "iot-sensors",
+     "dns"
+    ],
+    [
+     "research",
+     "syslog"
+    ]
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "library",
+   "dst": "backup",
+   "svcs": [
+    "smtp",
+    "smb",
+    "snmp"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "engineering",
+   "dst": "dmz-web"
+  }
+ ],
+ "fw_out": [
+  {
+   "type": "block",
+   "src": "dns-servers",
+   "dst": "iot-sensors"
+  },
+  {
+   "type": "block",
+   "src": "research",
+   "dst": "hr"
+  },
+  {
+   "type": "allow",
+   "src": "dmz-web",
+   "dst": "dns-servers",
+   "svcs": [
+    "smtp",
+    "https",
+    "ntp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "dns-servers",
+   "dst": "hr",
+   "svcs": [
+    "ldap",
+    "syslog"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "guest-wifi",
+   "allowed": [
+    [
+     "iot-sensors",
+     "dns"
+    ],
+    [
+     "research",
+     "syslog"
+    ]
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "library",
+   "dst": "backup",
+   "svcs": [
+    "smtp",
+    "smb",
+    "snmp"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "engineering",
+   "dst": "dmz-web"
+  }
+ ],
+ "wall_s": 89.16359210014343
+}

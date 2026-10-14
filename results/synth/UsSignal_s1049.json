@@ -1,0 +1,527 @@
+{
+ "id": "UsSignal_s1049",
+ "n_intents": 29,
+ "n_gt_rules": 51,
+ "n_zones": 16,
+ "rules": {
+  "eq": false,
+  "mismatch": 0.0645,
+  "n_rules": 68,
+  "fail": 0,
+  "s": 74.7742645740509,
+  "calls": 1,
+  "prompt": 1247,
+  "completion": 2118
+ },
+ "ir0": {
+  "eq": false,
+  "mismatch": 0.0065,
+  "n_rules": 47,
+  "fail": 0,
+  "s": 88.92854928970337,
+  "calls": 30,
+  "prompt": 19847,
+  "completion": 929,
+  "intent_acc": 0.8620689655172413
+ },
+ "ir": {
+  "eq": true,
+  "mismatch": 0.0,
+  "n_rules": 51,
+  "fail": 0,
+  "s": 80.17713356018066,
+  "calls": 29,
+  "prompt": 32215,
+  "completion": 732,
+  "intent_acc": 1.0
+ },
+ "fw": {
+  "eq": true,
+  "mismatch": 0.0,
+  "n_rules": 51,
+  "fail": 0,
+  "s": 191.62182760238647,
+  "verify_s": 111.44469428062439,
+  "calls": 59,
+  "verify_calls": 30,
+  "flagged": 0,
+  "accepted": 0,
+  "repairs": [],
+  "intent_acc": 1.0
+ },
+ "ir_out": [
+  {
+   "type": "block",
+   "src": "ntp-servers",
+   "dst": "guest-wifi"
+  },
+  {
+   "type": "block",
+   "src": "nvr",
+   "dst": "printers"
+  },
+  {
+   "type": "allow",
+   "src": "mail",
+   "dst": "database",
+   "svcs": [
+    "imap"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "scada",
+   "dst": "cameras",
+   "svcs": [
+    "dns",
+    "http"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "database",
+   "dst": "voip"
+  },
+  {
+   "type": "public",
+   "dst": "backup",
+   "svcs": [
+    "dns"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "backup",
+   "dst": "nvr",
+   "svcs": [
+    "imap"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "dmz-web",
+   "dst": "hr",
+   "svcs": [
+    "smb",
+    "rtsp",
+    "postgres"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "dns-servers",
+   "allowed": [
+    [
+     "backup",
+     "ntp"
+    ],
+    [
+     "guest-wifi",
+     "dns"
+    ]
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "cameras",
+   "dst": "guest-wifi",
+   "broad": "any-udp",
+   "ex": [
+    "snmp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "mail",
+   "dst": "printers",
+   "svcs": [
+    "mysql",
+    "ldap"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "dns-servers",
+   "dst": "hr"
+  },
+  {
+   "type": "allow_except",
+   "src": "finance",
+   "dst": "backup",
+   "broad": "any-tcp",
+   "ex": [
+    "smb",
+    "telnet"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "guest-wifi",
+   "dst": "printers"
+  },
+  {
+   "type": "allow",
+   "src": "backup",
+   "dst": "hr",
+   "svcs": [
+    "https",
+    "imap"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "dev-lab",
+   "allowed": [
+    [
+     "ntp-servers",
+     "https"
+    ]
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "partners",
+   "dst": "mail",
+   "broad": "any-udp",
+   "ex": [
+    "snmp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "dmz-web",
+   "dst": "backup",
+   "svcs": [
+    "smb",
+    "https",
+    "ntp"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "printers",
+   "svcs": [
+    "https"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "backup",
+   "dst": "dev-lab",
+   "svcs": [
+    "http",
+    "syslog",
+    "rtsp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "voip",
+   "dst": "printers",
+   "svcs": [
+    "http",
+    "dns"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "printers",
+   "dst": "mail",
+   "svcs": [
+    "dns",
+    "postgres",
+    "smb"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "scada",
+   "dst": "voip"
+  },
+  {
+   "type": "isolate",
+   "src": "partners",
+   "allowed": [
+    [
+     "scada",
+     "dns"
+    ]
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "nvr",
+   "dst": "printers",
+   "svcs": [
+    "dns",
+    "postgres"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "voip",
+   "svcs": [
+    "https"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "dev-lab",
+   "dst": "dmz-web",
+   "svcs": [
+    "https",
+    "smb"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "cameras",
+   "dst": "mail"
+  },
+  {
+   "type": "public",
+   "dst": "dns-servers",
+   "svcs": [
+    "http"
+   ]
+  }
+ ],
+ "fw_out": [
+  {
+   "type": "block",
+   "src": "ntp-servers",
+   "dst": "guest-wifi"
+  },
+  {
+   "type": "block",
+   "src": "nvr",
+   "dst": "printers"
+  },
+  {
+   "type": "allow",
+   "src": "mail",
+   "dst": "database",
+   "svcs": [
+    "imap"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "scada",
+   "dst": "cameras",
+   "svcs": [
+    "dns",
+    "http"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "database",
+   "dst": "voip"
+  },
+  {
+   "type": "public",
+   "dst": "backup",
+   "svcs": [
+    "dns"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "backup",
+   "dst": "nvr",
+   "svcs": [
+    "imap"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "dmz-web",
+   "dst": "hr",
+   "svcs": [
+    "smb",
+    "rtsp",
+    "postgres"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "dns-servers",
+   "allowed": [
+    [
+     "backup",
+     "ntp"
+    ],
+    [
+     "guest-wifi",
+     "dns"
+    ]
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "cameras",
+   "dst": "guest-wifi",
+   "broad": "any-udp",
+   "ex": [
+    "snmp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "mail",
+   "dst": "printers",
+   "svcs": [
+    "mysql",
+    "ldap"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "dns-servers",
+   "dst": "hr"
+  },
+  {
+   "type": "allow_except",
+   "src": "finance",
+   "dst": "backup",
+   "broad": "any-tcp",
+   "ex": [
+    "smb",
+    "telnet"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "guest-wifi",
+   "dst": "printers"
+  },
+  {
+   "type": "allow",
+   "src": "backup",
+   "dst": "hr",
+   "svcs": [
+    "https",
+    "imap"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "dev-lab",
+   "allowed": [
+    [
+     "ntp-servers",
+     "https"
+    ]
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "partners",
+   "dst": "mail",
+   "broad": "any-udp",
+   "ex": [
+    "snmp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "dmz-web",
+   "dst": "backup",
+   "svcs": [
+    "smb",
+    "https",
+    "ntp"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "printers",
+   "svcs": [
+    "https"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "backup",
+   "dst": "dev-lab",
+   "svcs": [
+    "http",
+    "syslog",
+    "rtsp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "voip",
+   "dst": "printers",
+   "svcs": [
+    "http",
+    "dns"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "printers",
+   "dst": "mail",
+   "svcs": [
+    "dns",
+    "postgres",
+    "smb"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "scada",
+   "dst": "voip"
+  },
+  {
+   "type": "isolate",
+   "src": "partners",
+   "allowed": [
+    [
+     "scada",
+     "dns"
+    ]
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "nvr",
+   "dst": "printers",
+   "svcs": [
+    "dns",
+    "postgres"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "voip",
+   "svcs": [
+    "https"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "dev-lab",
+   "dst": "dmz-web",
+   "svcs": [
+    "https",
+    "smb"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "cameras",
+   "dst": "mail"
+  },
+  {
+   "type": "public",
+   "dst": "dns-servers",
+   "svcs": [
+    "http"
+   ]
+  }
+ ],
+ "wall_s": 355.88623785972595
+}

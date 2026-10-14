@@ -1,0 +1,211 @@
+{
+ "id": "Navigata_s1029",
+ "n_intents": 8,
+ "n_gt_rules": 21,
+ "n_zones": 10,
+ "rules": {
+  "eq": false,
+  "mismatch": 0.00975,
+  "n_rules": 21,
+  "fail": 0,
+  "s": 24.41067862510681,
+  "calls": 1,
+  "prompt": 760,
+  "completion": 672
+ },
+ "ir0": {
+  "eq": false,
+  "mismatch": 0.0065,
+  "n_rules": 15,
+  "fail": 0,
+  "s": 26.285251140594482,
+  "calls": 9,
+  "prompt": 5850,
+  "completion": 433,
+  "intent_acc": 0.625
+ },
+ "ir": {
+  "eq": true,
+  "mismatch": 0.0,
+  "n_rules": 21,
+  "fail": 0,
+  "s": 18.79117465019226,
+  "calls": 8,
+  "prompt": 8761,
+  "completion": 240,
+  "intent_acc": 1.0
+ },
+ "fw": {
+  "eq": true,
+  "mismatch": 0.0,
+  "n_rules": 21,
+  "fail": 0,
+  "s": 74.35322976112366,
+  "verify_s": 55.56205630302429,
+  "calls": 16,
+  "verify_calls": 8,
+  "flagged": 0,
+  "accepted": 0,
+  "repairs": [],
+  "intent_acc": 1.0
+ },
+ "ir_out": [
+  {
+   "type": "isolate",
+   "src": "scada",
+   "allowed": [
+    [
+     "student-lab",
+     "syslog"
+    ]
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "edge-cache",
+   "dst": "student-lab",
+   "broad": "any-udp",
+   "ex": [
+    "snmp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "edge-cache",
+   "dst": "mail",
+   "svcs": [
+    "imap",
+    "ssh",
+    "ldap"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "partners",
+   "dst": "edge-cache",
+   "broad": "high-tcp",
+   "ex": [
+    "postgres",
+    "mysql",
+    "rdp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "backup",
+   "dst": "vpn-users",
+   "svcs": [
+    "https",
+    "http",
+    "syslog"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "edge-cache",
+   "dst": "scada",
+   "svcs": [
+    "smb",
+    "ntp"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "scada",
+   "svcs": [
+    "https",
+    "ntp"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "dmz-web",
+   "dst": "backup",
+   "broad": "any-udp",
+   "ex": [
+    "snmp",
+    "tftp"
+   ]
+  }
+ ],
+ "fw_out": [
+  {
+   "type": "isolate",
+   "src": "scada",
+   "allowed": [
+    [
+     "student-lab",
+     "syslog"
+    ]
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "edge-cache",
+   "dst": "student-lab",
+   "broad": "any-udp",
+   "ex": [
+    "snmp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "edge-cache",
+   "dst": "mail",
+   "svcs": [
+    "imap",
+    "ssh",
+    "ldap"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "partners",
+   "dst": "edge-cache",
+   "broad": "high-tcp",
+   "ex": [
+    "postgres",
+    "mysql",
+    "rdp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "backup",
+   "dst": "vpn-users",
+   "svcs": [
+    "https",
+    "http",
+    "syslog"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "edge-cache",
+   "dst": "scada",
+   "svcs": [
+    "smb",
+    "ntp"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "scada",
+   "svcs": [
+    "https",
+    "ntp"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "dmz-web",
+   "dst": "backup",
+   "broad": "any-udp",
+   "ex": [
+    "snmp",
+    "tftp"
+   ]
+  }
+ ],
+ "wall_s": 125.27011680603027
+}

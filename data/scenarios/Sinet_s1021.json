@@ -1,0 +1,1254 @@
+{
+ "id": "Sinet_s1021",
+ "topology": "Sinet",
+ "n_nodes": 74,
+ "edges": [
+  [
+   0,
+   1
+  ],
+  [
+   0,
+   4
+  ],
+  [
+   0,
+   36
+  ],
+  [
+   1,
+   2
+  ],
+  [
+   3,
+   4
+  ],
+  [
+   4,
+   45
+  ],
+  [
+   4,
+   5
+  ],
+  [
+   6,
+   12
+  ],
+  [
+   7,
+   12
+  ],
+  [
+   8,
+   12
+  ],
+  [
+   9,
+   12
+  ],
+  [
+   10,
+   12
+  ],
+  [
+   11,
+   12
+  ],
+  [
+   12,
+   13
+  ],
+  [
+   12,
+   17
+  ],
+  [
+   12,
+   18
+  ],
+  [
+   14,
+   18
+  ],
+  [
+   15,
+   17
+  ],
+  [
+   16,
+   17
+  ],
+  [
+   17,
+   25
+  ],
+  [
+   17,
+   26
+  ],
+  [
+   17,
+   29
+  ],
+  [
+   18,
+   24
+  ],
+  [
+   18,
+   20
+  ],
+  [
+   18,
+   19
+  ],
+  [
+   21,
+   24
+  ],
+  [
+   22,
+   24
+  ],
+  [
+   23,
+   24
+  ],
+  [
+   24,
+   32
+  ],
+  [
+   24,
+   27
+  ],
+  [
+   24,
+   29
+  ],
+  [
+   28,
+   29
+  ],
+  [
+   29,
+   36
+  ],
+  [
+   29,
+   30
+  ],
+  [
+   29,
+   31
+  ],
+  [
+   32,
+   65
+  ],
+  [
+   32,
+   34
+  ],
+  [
+   32,
+   35
+  ],
+  [
+   32,
+   33
+  ],
+  [
+   32,
+   51
+  ],
+  [
+   32,
+   52
+  ],
+  [
+   36,
+   64
+  ],
+  [
+   36,
+   37
+  ],
+  [
+   36,
+   38
+  ],
+  [
+   36,
+   39
+  ],
+  [
+   36,
+   40
+  ],
+  [
+   36,
+   41
+  ],
+  [
+   42,
+   45
+  ],
+  [
+   43,
+   45
+  ],
+  [
+   44,
+   45
+  ],
+  [
+   45,
+   65
+  ],
+  [
+   46,
+   64
+  ],
+  [
+   47,
+   64
+  ],
+  [
+   48,
+   65
+  ],
+  [
+   49,
+   64
+  ],
+  [
+   50,
+   64
+  ],
+  [
+   53,
+   64
+  ],
+  [
+   54,
+   65
+  ],
+  [
+   55,
+   65
+  ],
+  [
+   56,
+   65
+  ],
+  [
+   57,
+   65
+  ],
+  [
+   58,
+   65
+  ],
+  [
+   59,
+   65
+  ],
+  [
+   60,
+   65
+  ],
+  [
+   61,
+   65
+  ],
+  [
+   62,
+   65
+  ],
+  [
+   63,
+   65
+  ],
+  [
+   64,
+   65
+  ],
+  [
+   64,
+   66
+  ],
+  [
+   64,
+   67
+  ],
+  [
+   64,
+   70
+  ],
+  [
+   64,
+   71
+  ],
+  [
+   64,
+   68
+  ],
+  [
+   65,
+   69
+  ],
+  [
+   65,
+   72
+  ],
+  [
+   65,
+   73
+  ]
+ ],
+ "zones": {
+  "mail": {
+   "router": 60,
+   "prefixes": [
+    "99.98.144.0/21"
+   ]
+  },
+  "database": {
+   "router": 57,
+   "prefixes": [
+    "5.100.144.0/24"
+   ]
+  },
+  "voip": {
+   "router": 35,
+   "prefixes": [
+    "213.86.158.128/25",
+    "99.236.16.0/20",
+    "79.72.194.0/24"
+   ]
+  },
+  "guest-wifi": {
+   "router": 11,
+   "prefixes": [
+    "106.228.132.64/26"
+   ]
+  },
+  "vpn-users": {
+   "router": 56,
+   "prefixes": [
+    "63.19.159.0/26",
+    "139.31.104.0/23",
+    "14.146.215.128/25"
+   ]
+  },
+  "research": {
+   "router": 41,
+   "prefixes": [
+    "252.122.0.0/16",
+    "173.93.129.224/28"
+   ]
+  },
+  "printers": {
+   "router": 19,
+   "prefixes": [
+    "206.22.32.0/20"
+   ]
+  },
+  "monitoring": {
+   "router": 21,
+   "prefixes": [
+    "98.83.246.128/26",
+    "158.133.37.112/28",
+    "117.43.0.0/16"
+   ]
+  },
+  "hr": {
+   "router": 3,
+   "prefixes": [
+    "98.31.0.0/17",
+    "182.150.25.160/28"
+   ]
+  },
+  "ntp-servers": {
+   "router": 50,
+   "prefixes": [
+    "89.168.178.192/27"
+   ]
+  },
+  "scada": {
+   "router": 31,
+   "prefixes": [
+    "200.255.149.0/24"
+   ]
+  },
+  "dmz-web": {
+   "router": 72,
+   "prefixes": [
+    "171.239.80.0/23",
+    "53.158.130.128/25"
+   ]
+  },
+  "ops": {
+   "router": 30,
+   "prefixes": [
+    "241.34.124.0/23",
+    "48.176.192.0/23"
+   ]
+  },
+  "admin": {
+   "router": 53,
+   "prefixes": [
+    "220.205.160.0/21"
+   ]
+  },
+  "finance": {
+   "router": 71,
+   "prefixes": [
+    "234.8.62.0/23",
+    "12.41.168.0/24"
+   ]
+  },
+  "cameras": {
+   "router": 55,
+   "prefixes": [
+    "5.228.29.0/25"
+   ]
+  }
+ },
+ "zone_text": [
+  "mail: hosts 99.98.144.0/21 attached to router R60",
+  "database: hosts 5.100.144.0/24 attached to router R57",
+  "voip: hosts 213.86.158.128/25, 99.236.16.0/20, 79.72.194.0/24 attached to router R35",
+  "guest-wifi: hosts 106.228.132.64/26 attached to router R11",
+  "vpn-users: hosts 63.19.159.0/26, 139.31.104.0/23, 14.146.215.128/25 attached to router R56",
+  "research: hosts 252.122.0.0/16, 173.93.129.224/28 attached to router R41",
+  "printers: hosts 206.22.32.0/20 attached to router R19",
+  "monitoring: hosts 98.83.246.128/26, 158.133.37.112/28, 117.43.0.0/16 attached to router R21",
+  "hr: hosts 98.31.0.0/17, 182.150.25.160/28 attached to router R3",
+  "ntp-servers: hosts 89.168.178.192/27 attached to router R50",
+  "scada: hosts 200.255.149.0/24 attached to router R31",
+  "dmz-web: hosts 171.239.80.0/23, 53.158.130.128/25 attached to router R72",
+  "ops: hosts 241.34.124.0/23, 48.176.192.0/23 attached to router R30",
+  "admin: hosts 220.205.160.0/21 attached to router R53",
+  "finance: hosts 234.8.62.0/23, 12.41.168.0/24 attached to router R71",
+  "cameras: hosts 5.228.29.0/25 attached to router R55"
+ ],
+ "intents": [
+  {
+   "type": "block",
+   "src": "cameras",
+   "dst": "mail"
+  },
+  {
+   "type": "allow",
+   "src": "cameras",
+   "dst": "dmz-web",
+   "svcs": [
+    "ldap"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "mail",
+   "dst": "monitoring",
+   "svcs": [
+    "mysql",
+    "rtsp"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "cameras",
+   "svcs": [
+    "ntp",
+    "http"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "vpn-users",
+   "allowed": [
+    [
+     "hr",
+     "ntp"
+    ],
+    [
+     "scada",
+     "ntp"
+    ]
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "database",
+   "dst": "guest-wifi",
+   "svcs": [
+    "https",
+    "mysql"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "dmz-web",
+   "dst": "guest-wifi",
+   "broad": "any-tcp",
+   "ex": [
+    "rdp"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "ntp-servers",
+   "dst": "research"
+  },
+  {
+   "type": "allow",
+   "src": "finance",
+   "dst": "ops",
+   "svcs": [
+    "ldap"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "dmz-web",
+   "dst": "ntp-servers",
+   "svcs": [
+    "syslog",
+    "dns",
+    "ldap"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "cameras",
+   "allowed": [
+    [
+     "admin",
+     "ntp"
+    ],
+    [
+     "finance",
+     "dns"
+    ]
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "finance",
+   "dst": "monitoring",
+   "svcs": [
+    "smtp"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "database",
+   "dst": "dmz-web",
+   "broad": "any-tcp",
+   "ex": [
+    "telnet",
+    "smb",
+    "rdp"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "voip",
+   "allowed": [
+    [
+     "cameras",
+     "dns"
+    ]
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "monitoring",
+   "dst": "admin",
+   "svcs": [
+    "mysql",
+    "ssh",
+    "ldap"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "dmz-web",
+   "dst": "admin",
+   "svcs": [
+    "postgres",
+    "dns",
+    "mysql"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "printers",
+   "dst": "guest-wifi",
+   "svcs": [
+    "ntp",
+    "dns"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "guest-wifi",
+   "dst": "vpn-users",
+   "svcs": [
+    "smb",
+    "dns"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "research",
+   "dst": "admin",
+   "svcs": [
+    "dns",
+    "ntp",
+    "postgres"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "finance",
+   "dst": "research",
+   "svcs": [
+    "dns",
+    "mysql",
+    "postgres"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "ops",
+   "allowed": [
+    [
+     "finance",
+     "https"
+    ]
+   ]
+  },
+  {
+   "type": "block",
+   "src": "admin",
+   "dst": "database"
+  },
+  {
+   "type": "isolate",
+   "src": "monitoring",
+   "allowed": [
+    [
+     "admin",
+     "https"
+    ],
+    [
+     "mail",
+     "ntp"
+    ]
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "mail",
+   "svcs": [
+    "ntp"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "admin",
+   "dst": "mail"
+  },
+  {
+   "type": "allow",
+   "src": "admin",
+   "dst": "ops",
+   "svcs": [
+    "imap",
+    "smtp",
+    "ssh"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "database",
+   "dst": "ntp-servers",
+   "svcs": [
+    "ntp",
+    "smtp",
+    "imap"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "mail",
+   "svcs": [
+    "https"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "cameras",
+   "dst": "ops",
+   "svcs": [
+    "smb"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "ntp-servers",
+   "allowed": [
+    [
+     "research",
+     "dns"
+    ],
+    [
+     "database",
+     "dns"
+    ]
+   ]
+  }
+ ],
+ "nl": [
+  "cameras must never reach mail, regardless of any other rule.",
+  "dmz-web must accept LDAP (TCP 389) from cameras.",
+  "Hosts in mail may reach monitoring over MySQL (TCP 3306) and RTSP (TCP 554).",
+  "Make NTP (UDP 123) and HTTP (TCP 80) on cameras reachable from all internal zones.",
+  "Restrict vpn-users so that its only permitted destinations are hr on NTP (UDP 123); scada on NTP (UDP 123); drop all other traffic it originates.",
+  "Allow database to connect to guest-wifi using HTTPS (TCP 443) and MySQL (TCP 3306).",
+  "Block RDP (TCP 3389) from dmz-web to guest-wifi; the rest of any TCP port between them is allowed.",
+  "Deny all traffic from ntp-servers to research (this overrides any public service).",
+  "ops must accept LDAP (TCP 389) from finance.",
+  "ntp-servers must accept syslog (UDP 514) and DNS over UDP 53 and LDAP (TCP 389) from dmz-web.",
+  "Restrict cameras so that its only permitted destinations are admin on NTP (UDP 123); finance on DNS over UDP 53; drop all other traffic it originates.",
+  "Hosts in finance may reach monitoring over SMTP (TCP 25).",
+  "Block Telnet (TCP 23), SMB (TCP 445), RDP (TCP 3389) from database to dmz-web; the rest of any TCP port between them is allowed.",
+  "Restrict voip so that its only permitted destinations are cameras on DNS over UDP 53; drop all other traffic it originates.",
+  "Allow monitoring to connect to admin using MySQL (TCP 3306) and SSH (TCP 22) and LDAP (TCP 389).",
+  "Allow dmz-web to connect to admin using PostgreSQL (TCP 5432) and DNS over UDP 53 and MySQL (TCP 3306).",
+  "guest-wifi must accept NTP (UDP 123) and DNS over UDP 53 from printers.",
+  "vpn-users must accept SMB (TCP 445) and DNS over UDP 53 from guest-wifi.",
+  "Allow research to connect to admin using DNS over UDP 53 and NTP (UDP 123) and PostgreSQL (TCP 5432).",
+  "research must accept DNS over UDP 53 and MySQL (TCP 3306) and PostgreSQL (TCP 5432) from finance.",
+  "ops is isolated: it may only reach finance on HTTPS (TCP 443), and nothing else.",
+  "No packet from admin may enter database, even for services open to everyone.",
+  "Restrict monitoring so that its only permitted destinations are admin on HTTPS (TCP 443); mail on NTP (UDP 123); drop all other traffic it originates.",
+  "Make NTP (UDP 123) on mail reachable from all internal zones.",
+  "Deny all traffic from admin to mail (this overrides any public service).",
+  "ops must accept IMAP (TCP 143) and SMTP (TCP 25) and SSH (TCP 22) from admin.",
+  "Allow database to connect to ntp-servers using NTP (UDP 123) and SMTP (TCP 25) and IMAP (TCP 143).",
+  "Make HTTPS (TCP 443) on mail reachable from all internal zones.",
+  "Allow cameras to connect to ops using SMB (TCP 445).",
+  "Restrict ntp-servers so that its only permitted destinations are research on DNS over UDP 53; database on DNS over UDP 53; drop all other traffic it originates."
+ ],
+ "gt": [
+  {
+   "src": "cameras",
+   "dst": "mail",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "ntp-servers",
+   "dst": "research",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "admin",
+   "dst": "database",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "admin",
+   "dst": "mail",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "dmz-web",
+   "dst": "guest-wifi",
+   "proto": "tcp",
+   "dlo": 3389,
+   "dhi": 3389,
+   "action": "deny"
+  },
+  {
+   "src": "database",
+   "dst": "dmz-web",
+   "proto": "tcp",
+   "dlo": 23,
+   "dhi": 23,
+   "action": "deny"
+  },
+  {
+   "src": "database",
+   "dst": "dmz-web",
+   "proto": "tcp",
+   "dlo": 445,
+   "dhi": 445,
+   "action": "deny"
+  },
+  {
+   "src": "database",
+   "dst": "dmz-web",
+   "proto": "tcp",
+   "dlo": 3389,
+   "dhi": 3389,
+   "action": "deny"
+  },
+  {
+   "src": "cameras",
+   "dst": "dmz-web",
+   "proto": "tcp",
+   "dlo": 389,
+   "dhi": 389,
+   "action": "permit"
+  },
+  {
+   "src": "mail",
+   "dst": "monitoring",
+   "proto": "tcp",
+   "dlo": 3306,
+   "dhi": 3306,
+   "action": "permit"
+  },
+  {
+   "src": "mail",
+   "dst": "monitoring",
+   "proto": "tcp",
+   "dlo": 554,
+   "dhi": 554,
+   "action": "permit"
+  },
+  {
+   "src": "database",
+   "dst": "guest-wifi",
+   "proto": "tcp",
+   "dlo": 443,
+   "dhi": 443,
+   "action": "permit"
+  },
+  {
+   "src": "database",
+   "dst": "guest-wifi",
+   "proto": "tcp",
+   "dlo": 3306,
+   "dhi": 3306,
+   "action": "permit"
+  },
+  {
+   "src": "dmz-web",
+   "dst": "guest-wifi",
+   "proto": "tcp",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "permit"
+  },
+  {
+   "src": "finance",
+   "dst": "ops",
+   "proto": "tcp",
+   "dlo": 389,
+   "dhi": 389,
+   "action": "permit"
+  },
+  {
+   "src": "dmz-web",
+   "dst": "ntp-servers",
+   "proto": "udp",
+   "dlo": 514,
+   "dhi": 514,
+   "action": "permit"
+  },
+  {
+   "src": "dmz-web",
+   "dst": "ntp-servers",
+   "proto": "udp",
+   "dlo": 53,
+   "dhi": 53,
+   "action": "permit"
+  },
+  {
+   "src": "dmz-web",
+   "dst": "ntp-servers",
+   "proto": "tcp",
+   "dlo": 389,
+   "dhi": 389,
+   "action": "permit"
+  },
+  {
+   "src": "finance",
+   "dst": "monitoring",
+   "proto": "tcp",
+   "dlo": 25,
+   "dhi": 25,
+   "action": "permit"
+  },
+  {
+   "src": "database",
+   "dst": "dmz-web",
+   "proto": "tcp",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "permit"
+  },
+  {
+   "src": "monitoring",
+   "dst": "admin",
+   "proto": "tcp",
+   "dlo": 3306,
+   "dhi": 3306,
+   "action": "permit"
+  },
+  {
+   "src": "monitoring",
+   "dst": "admin",
+   "proto": "tcp",
+   "dlo": 22,
+   "dhi": 22,
+   "action": "permit"
+  },
+  {
+   "src": "monitoring",
+   "dst": "admin",
+   "proto": "tcp",
+   "dlo": 389,
+   "dhi": 389,
+   "action": "permit"
+  },
+  {
+   "src": "dmz-web",
+   "dst": "admin",
+   "proto": "tcp",
+   "dlo": 5432,
+   "dhi": 5432,
+   "action": "permit"
+  },
+  {
+   "src": "dmz-web",
+   "dst": "admin",
+   "proto": "udp",
+   "dlo": 53,
+   "dhi": 53,
+   "action": "permit"
+  },
+  {
+   "src": "dmz-web",
+   "dst": "admin",
+   "proto": "tcp",
+   "dlo": 3306,
+   "dhi": 3306,
+   "action": "permit"
+  },
+  {
+   "src": "printers",
+   "dst": "guest-wifi",
+   "proto": "udp",
+   "dlo": 123,
+   "dhi": 123,
+   "action": "permit"
+  },
+  {
+   "src": "printers",
+   "dst": "guest-wifi",
+   "proto": "udp",
+   "dlo": 53,
+   "dhi": 53,
+   "action": "permit"
+  },
+  {
+   "src": "guest-wifi",
+   "dst": "vpn-users",
+   "proto": "tcp",
+   "dlo": 445,
+   "dhi": 445,
+   "action": "permit"
+  },
+  {
+   "src": "guest-wifi",
+   "dst": "vpn-users",
+   "proto": "udp",
+   "dlo": 53,
+   "dhi": 53,
+   "action": "permit"
+  },
+  {
+   "src": "research",
+   "dst": "admin",
+   "proto": "udp",
+   "dlo": 53,
+   "dhi": 53,
+   "action": "permit"
+  },
+  {
+   "src": "research",
+   "dst": "admin",
+   "proto": "udp",
+   "dlo": 123,
+   "dhi": 123,
+   "action": "permit"
+  },
+  {
+   "src": "research",
+   "dst": "admin",
+   "proto": "tcp",
+   "dlo": 5432,
+   "dhi": 5432,
+   "action": "permit"
+  },
+  {
+   "src": "finance",
+   "dst": "research",
+   "proto": "udp",
+   "dlo": 53,
+   "dhi": 53,
+   "action": "permit"
+  },
+  {
+   "src": "finance",
+   "dst": "research",
+   "proto": "tcp",
+   "dlo": 3306,
+   "dhi": 3306,
+   "action": "permit"
+  },
+  {
+   "src": "finance",
+   "dst": "research",
+   "proto": "tcp",
+   "dlo": 5432,
+   "dhi": 5432,
+   "action": "permit"
+  },
+  {
+   "src": "admin",
+   "dst": "ops",
+   "proto": "tcp",
+   "dlo": 143,
+   "dhi": 143,
+   "action": "permit"
+  },
+  {
+   "src": "admin",
+   "dst": "ops",
+   "proto": "tcp",
+   "dlo": 25,
+   "dhi": 25,
+   "action": "permit"
+  },
+  {
+   "src": "admin",
+   "dst": "ops",
+   "proto": "tcp",
+   "dlo": 22,
+   "dhi": 22,
+   "action": "permit"
+  },
+  {
+   "src": "database",
+   "dst": "ntp-servers",
+   "proto": "udp",
+   "dlo": 123,
+   "dhi": 123,
+   "action": "permit"
+  },
+  {
+   "src": "database",
+   "dst": "ntp-servers",
+   "proto": "tcp",
+   "dlo": 25,
+   "dhi": 25,
+   "action": "permit"
+  },
+  {
+   "src": "database",
+   "dst": "ntp-servers",
+   "proto": "tcp",
+   "dlo": 143,
+   "dhi": 143,
+   "action": "permit"
+  },
+  {
+   "src": "cameras",
+   "dst": "ops",
+   "proto": "tcp",
+   "dlo": 445,
+   "dhi": 445,
+   "action": "permit"
+  },
+  {
+   "src": "vpn-users",
+   "dst": "hr",
+   "proto": "udp",
+   "dlo": 123,
+   "dhi": 123,
+   "action": "permit"
+  },
+  {
+   "src": "vpn-users",
+   "dst": "scada",
+   "proto": "udp",
+   "dlo": 123,
+   "dhi": 123,
+   "action": "permit"
+  },
+  {
+   "src": "cameras",
+   "dst": "admin",
+   "proto": "udp",
+   "dlo": 123,
+   "dhi": 123,
+   "action": "permit"
+  },
+  {
+   "src": "cameras",
+   "dst": "finance",
+   "proto": "udp",
+   "dlo": 53,
+   "dhi": 53,
+   "action": "permit"
+  },
+  {
+   "src": "voip",
+   "dst": "cameras",
+   "proto": "udp",
+   "dlo": 53,
+   "dhi": 53,
+   "action": "permit"
+  },
+  {
+   "src": "ops",
+   "dst": "finance",
+   "proto": "tcp",
+   "dlo": 443,
+   "dhi": 443,
+   "action": "permit"
+  },
+  {
+   "src": "monitoring",
+   "dst": "admin",
+   "proto": "tcp",
+   "dlo": 443,
+   "dhi": 443,
+   "action": "permit"
+  },
+  {
+   "src": "monitoring",
+   "dst": "mail",
+   "proto": "udp",
+   "dlo": 123,
+   "dhi": 123,
+   "action": "permit"
+  },
+  {
+   "src": "ntp-servers",
+   "dst": "research",
+   "proto": "udp",
+   "dlo": 53,
+   "dhi": 53,
+   "action": "permit"
+  },
+  {
+   "src": "ntp-servers",
+   "dst": "database",
+   "proto": "udp",
+   "dlo": 53,
+   "dhi": 53,
+   "action": "permit"
+  },
+  {
+   "src": "vpn-users",
+   "dst": "*",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "cameras",
+   "dst": "*",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "voip",
+   "dst": "*",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "ops",
+   "dst": "*",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "monitoring",
+   "dst": "*",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "ntp-servers",
+   "dst": "*",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "*",
+   "dst": "cameras",
+   "proto": "udp",
+   "dlo": 123,
+   "dhi": 123,
+   "action": "permit"
+  },
+  {
+   "src": "*",
+   "dst": "cameras",
+   "proto": "tcp",
+   "dlo": 80,
+   "dhi": 80,
+   "action": "permit"
+  },
+  {
+   "src": "*",
+   "dst": "mail",
+   "proto": "udp",
+   "dlo": 123,
+   "dhi": 123,
+   "action": "permit"
+  },
+  {
+   "src": "*",
+   "dst": "mail",
+   "proto": "tcp",
+   "dlo": 443,
+   "dhi": 443,
+   "action": "permit"
+  }
+ ]
+}

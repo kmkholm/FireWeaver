@@ -1,0 +1,558 @@
+{
+ "id": "Claranet_s1013",
+ "topology": "Claranet",
+ "n_nodes": 15,
+ "edges": [
+  [
+   0,
+   1
+  ],
+  [
+   0,
+   3
+  ],
+  [
+   0,
+   7
+  ],
+  [
+   2,
+   3
+  ],
+  [
+   2,
+   4
+  ],
+  [
+   3,
+   4
+  ],
+  [
+   3,
+   5
+  ],
+  [
+   3,
+   7
+  ],
+  [
+   5,
+   14
+  ],
+  [
+   5,
+   6
+  ],
+  [
+   5,
+   7
+  ],
+  [
+   7,
+   8
+  ],
+  [
+   7,
+   9
+  ],
+  [
+   7,
+   11
+  ],
+  [
+   10,
+   11
+  ],
+  [
+   11,
+   12
+  ],
+  [
+   11,
+   13
+  ],
+  [
+   13,
+   14
+  ]
+ ],
+ "zones": {
+  "ops": {
+   "router": 4,
+   "prefixes": [
+    "109.87.41.0/24"
+   ]
+  },
+  "database": {
+   "router": 5,
+   "prefixes": [
+    "208.56.125.0/26",
+    "245.108.173.192/26",
+    "100.241.66.0/23"
+   ]
+  },
+  "backup": {
+   "router": 14,
+   "prefixes": [
+    "16.178.184.0/24",
+    "31.61.214.0/24",
+    "202.39.45.64/27"
+   ]
+  },
+  "partners": {
+   "router": 7,
+   "prefixes": [
+    "37.226.16.0/21",
+    "104.148.26.192/26"
+   ]
+  },
+  "dev-lab": {
+   "router": 8,
+   "prefixes": [
+    "152.118.35.128/25",
+    "231.35.188.64/26"
+   ]
+  },
+  "research": {
+   "router": 13,
+   "prefixes": [
+    "102.34.159.0/24",
+    "241.149.100.128/27",
+    "249.182.120.0/23"
+   ]
+  },
+  "engineering": {
+   "router": 7,
+   "prefixes": [
+    "202.201.2.0/24",
+    "225.91.243.0/25"
+   ]
+  },
+  "student-lab": {
+   "router": 9,
+   "prefixes": [
+    "94.227.72.0/21",
+    "150.28.43.0/27",
+    "65.54.112.0/23"
+   ]
+  },
+  "library": {
+   "router": 10,
+   "prefixes": [
+    "28.175.134.0/23"
+   ]
+  },
+  "ntp-servers": {
+   "router": 0,
+   "prefixes": [
+    "29.100.55.128/25",
+    "206.4.40.0/21",
+    "162.183.128.0/17"
+   ]
+  },
+  "scada": {
+   "router": 14,
+   "prefixes": [
+    "50.149.152.144/28",
+    "220.140.113.0/26"
+   ]
+  },
+  "vpn-users": {
+   "router": 5,
+   "prefixes": [
+    "158.120.116.0/22",
+    "98.48.186.0/24",
+    "8.158.124.128/25"
+   ]
+  },
+  "printers": {
+   "router": 10,
+   "prefixes": [
+    "135.158.19.0/26"
+   ]
+  },
+  "dns-servers": {
+   "router": 14,
+   "prefixes": [
+    "152.52.71.0/25",
+    "117.92.170.80/28",
+    "127.204.231.0/24"
+   ]
+  },
+  "guest-wifi": {
+   "router": 9,
+   "prefixes": [
+    "241.208.128.0/21",
+    "31.18.251.0/24",
+    "218.67.128.0/17"
+   ]
+  },
+  "dmz-web": {
+   "router": 14,
+   "prefixes": [
+    "170.114.64.0/21"
+   ]
+  }
+ },
+ "zone_text": [
+  "ops: hosts 109.87.41.0/24 attached to router R4",
+  "database: hosts 208.56.125.0/26, 245.108.173.192/26, 100.241.66.0/23 attached to router R5",
+  "backup: hosts 16.178.184.0/24, 31.61.214.0/24, 202.39.45.64/27 attached to router R14",
+  "partners: hosts 37.226.16.0/21, 104.148.26.192/26 attached to router R7",
+  "dev-lab: hosts 152.118.35.128/25, 231.35.188.64/26 attached to router R8",
+  "research: hosts 102.34.159.0/24, 241.149.100.128/27, 249.182.120.0/23 attached to router R13",
+  "engineering: hosts 202.201.2.0/24, 225.91.243.0/25 attached to router R7",
+  "student-lab: hosts 94.227.72.0/21, 150.28.43.0/27, 65.54.112.0/23 attached to router R9",
+  "library: hosts 28.175.134.0/23 attached to router R10",
+  "ntp-servers: hosts 29.100.55.128/25, 206.4.40.0/21, 162.183.128.0/17 attached to router R0",
+  "scada: hosts 50.149.152.144/28, 220.140.113.0/26 attached to router R14",
+  "vpn-users: hosts 158.120.116.0/22, 98.48.186.0/24, 8.158.124.128/25 attached to router R5",
+  "printers: hosts 135.158.19.0/26 attached to router R10",
+  "dns-servers: hosts 152.52.71.0/25, 117.92.170.80/28, 127.204.231.0/24 attached to router R14",
+  "guest-wifi: hosts 241.208.128.0/21, 31.18.251.0/24, 218.67.128.0/17 attached to router R9",
+  "dmz-web: hosts 170.114.64.0/21 attached to router R14"
+ ],
+ "intents": [
+  {
+   "type": "allow",
+   "src": "ops",
+   "dst": "dev-lab",
+   "svcs": [
+    "smb",
+    "syslog"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "backup",
+   "dst": "research",
+   "svcs": [
+    "http",
+    "dns"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "ops",
+   "svcs": [
+    "ntp",
+    "dns"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "scada",
+   "dst": "printers",
+   "svcs": [
+    "https",
+    "ntp"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "research",
+   "dst": "scada"
+  },
+  {
+   "type": "allow",
+   "src": "engineering",
+   "dst": "scada",
+   "svcs": [
+    "mysql",
+    "rdp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "partners",
+   "dst": "dns-servers",
+   "svcs": [
+    "ntp"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "vpn-users",
+   "svcs": [
+    "https"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "partners",
+   "svcs": [
+    "http",
+    "ntp"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "library",
+   "dst": "student-lab"
+  },
+  {
+   "type": "allow",
+   "src": "research",
+   "dst": "ntp-servers",
+   "svcs": [
+    "dns"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "ntp-servers",
+   "dst": "database",
+   "svcs": [
+    "syslog",
+    "dns",
+    "mysql"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "dev-lab",
+   "dst": "dmz-web",
+   "svcs": [
+    "rtsp",
+    "rdp"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "backup",
+   "dst": "dev-lab"
+  },
+  {
+   "type": "public",
+   "dst": "printers",
+   "svcs": [
+    "dns"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "guest-wifi",
+   "dst": "ntp-servers"
+  }
+ ],
+ "nl": [
+  "Hosts in ops may reach dev-lab over SMB (TCP 445) and syslog (UDP 514).",
+  "Allow backup to connect to research using HTTP (TCP 80) and DNS over UDP 53.",
+  "Any zone may connect to ops over NTP (UDP 123) and DNS over UDP 53.",
+  "Allow scada to connect to printers using HTTPS (TCP 443) and NTP (UDP 123).",
+  "research must never reach scada, regardless of any other rule.",
+  "Hosts in engineering may reach scada over MySQL (TCP 3306) and RDP (TCP 3389).",
+  "dns-servers must accept NTP (UDP 123) from partners.",
+  "Any zone may connect to vpn-users over HTTPS (TCP 443).",
+  "Make HTTP (TCP 80) and NTP (UDP 123) on partners reachable from all internal zones.",
+  "library must never reach student-lab, regardless of any other rule.",
+  "Hosts in research may reach ntp-servers over DNS over UDP 53.",
+  "Allow ntp-servers to connect to database using syslog (UDP 514) and DNS over UDP 53 and MySQL (TCP 3306).",
+  "Allow dev-lab to connect to dmz-web using RTSP (TCP 554) and RDP (TCP 3389).",
+  "backup must never reach dev-lab, regardless of any other rule.",
+  "printers offers DNS over UDP 53 to every zone.",
+  "guest-wifi must never reach ntp-servers, regardless of any other rule."
+ ],
+ "gt": [
+  {
+   "src": "research",
+   "dst": "scada",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "library",
+   "dst": "student-lab",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "backup",
+   "dst": "dev-lab",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "guest-wifi",
+   "dst": "ntp-servers",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "ops",
+   "dst": "dev-lab",
+   "proto": "tcp",
+   "dlo": 445,
+   "dhi": 445,
+   "action": "permit"
+  },
+  {
+   "src": "ops",
+   "dst": "dev-lab",
+   "proto": "udp",
+   "dlo": 514,
+   "dhi": 514,
+   "action": "permit"
+  },
+  {
+   "src": "backup",
+   "dst": "research",
+   "proto": "tcp",
+   "dlo": 80,
+   "dhi": 80,
+   "action": "permit"
+  },
+  {
+   "src": "backup",
+   "dst": "research",
+   "proto": "udp",
+   "dlo": 53,
+   "dhi": 53,
+   "action": "permit"
+  },
+  {
+   "src": "scada",
+   "dst": "printers",
+   "proto": "tcp",
+   "dlo": 443,
+   "dhi": 443,
+   "action": "permit"
+  },
+  {
+   "src": "scada",
+   "dst": "printers",
+   "proto": "udp",
+   "dlo": 123,
+   "dhi": 123,
+   "action": "permit"
+  },
+  {
+   "src": "engineering",
+   "dst": "scada",
+   "proto": "tcp",
+   "dlo": 3306,
+   "dhi": 3306,
+   "action": "permit"
+  },
+  {
+   "src": "engineering",
+   "dst": "scada",
+   "proto": "tcp",
+   "dlo": 3389,
+   "dhi": 3389,
+   "action": "permit"
+  },
+  {
+   "src": "partners",
+   "dst": "dns-servers",
+   "proto": "udp",
+   "dlo": 123,
+   "dhi": 123,
+   "action": "permit"
+  },
+  {
+   "src": "research",
+   "dst": "ntp-servers",
+   "proto": "udp",
+   "dlo": 53,
+   "dhi": 53,
+   "action": "permit"
+  },
+  {
+   "src": "ntp-servers",
+   "dst": "database",
+   "proto": "udp",
+   "dlo": 514,
+   "dhi": 514,
+   "action": "permit"
+  },
+  {
+   "src": "ntp-servers",
+   "dst": "database",
+   "proto": "udp",
+   "dlo": 53,
+   "dhi": 53,
+   "action": "permit"
+  },
+  {
+   "src": "ntp-servers",
+   "dst": "database",
+   "proto": "tcp",
+   "dlo": 3306,
+   "dhi": 3306,
+   "action": "permit"
+  },
+  {
+   "src": "dev-lab",
+   "dst": "dmz-web",
+   "proto": "tcp",
+   "dlo": 554,
+   "dhi": 554,
+   "action": "permit"
+  },
+  {
+   "src": "dev-lab",
+   "dst": "dmz-web",
+   "proto": "tcp",
+   "dlo": 3389,
+   "dhi": 3389,
+   "action": "permit"
+  },
+  {
+   "src": "*",
+   "dst": "ops",
+   "proto": "udp",
+   "dlo": 123,
+   "dhi": 123,
+   "action": "permit"
+  },
+  {
+   "src": "*",
+   "dst": "ops",
+   "proto": "udp",
+   "dlo": 53,
+   "dhi": 53,
+   "action": "permit"
+  },
+  {
+   "src": "*",
+   "dst": "vpn-users",
+   "proto": "tcp",
+   "dlo": 443,
+   "dhi": 443,
+   "action": "permit"
+  },
+  {
+   "src": "*",
+   "dst": "partners",
+   "proto": "tcp",
+   "dlo": 80,
+   "dhi": 80,
+   "action": "permit"
+  },
+  {
+   "src": "*",
+   "dst": "partners",
+   "proto": "udp",
+   "dlo": 123,
+   "dhi": 123,
+   "action": "permit"
+  },
+  {
+   "src": "*",
+   "dst": "printers",
+   "proto": "udp",
+   "dlo": 53,
+   "dhi": 53,
+   "action": "permit"
+  }
+ ]
+}

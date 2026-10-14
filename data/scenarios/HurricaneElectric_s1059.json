@@ -1,0 +1,952 @@
+{
+ "id": "HurricaneElectric_s1059",
+ "topology": "HurricaneElectric",
+ "n_nodes": 24,
+ "edges": [
+  [
+   0,
+   20
+  ],
+  [
+   1,
+   20
+  ],
+  [
+   2,
+   19
+  ],
+  [
+   3,
+   16
+  ],
+  [
+   3,
+   4
+  ],
+  [
+   3,
+   21
+  ],
+  [
+   4,
+   8
+  ],
+  [
+   4,
+   5
+  ],
+  [
+   4,
+   7
+  ],
+  [
+   5,
+   19
+  ],
+  [
+   5,
+   21
+  ],
+  [
+   6,
+   22
+  ],
+  [
+   7,
+   8
+  ],
+  [
+   7,
+   9
+  ],
+  [
+   7,
+   10
+  ],
+  [
+   7,
+   11
+  ],
+  [
+   7,
+   16
+  ],
+  [
+   7,
+   21
+  ],
+  [
+   10,
+   12
+  ],
+  [
+   10,
+   21
+  ],
+  [
+   11,
+   12
+  ],
+  [
+   11,
+   13
+  ],
+  [
+   12,
+   13
+  ],
+  [
+   12,
+   21
+  ],
+  [
+   13,
+   14
+  ],
+  [
+   13,
+   15
+  ],
+  [
+   16,
+   17
+  ],
+  [
+   16,
+   18
+  ],
+  [
+   16,
+   19
+  ],
+  [
+   16,
+   20
+  ],
+  [
+   17,
+   19
+  ],
+  [
+   18,
+   19
+  ],
+  [
+   19,
+   20
+  ],
+  [
+   19,
+   21
+  ],
+  [
+   21,
+   22
+  ],
+  [
+   21,
+   23
+  ],
+  [
+   22,
+   23
+  ]
+ ],
+ "zones": {
+  "guest-wifi": {
+   "router": 15,
+   "prefixes": [
+    "39.223.0.0/16",
+    "72.128.0.0/16"
+   ]
+  },
+  "iot-sensors": {
+   "router": 1,
+   "prefixes": [
+    "71.26.128.0/17"
+   ]
+  },
+  "admin": {
+   "router": 2,
+   "prefixes": [
+    "39.42.122.0/24",
+    "92.31.111.0/24"
+   ]
+  },
+  "voip": {
+   "router": 0,
+   "prefixes": [
+    "114.165.52.0/23"
+   ]
+  },
+  "hr": {
+   "router": 9,
+   "prefixes": [
+    "78.37.180.0/28",
+    "187.116.40.0/22"
+   ]
+  },
+  "dev-lab": {
+   "router": 14,
+   "prefixes": [
+    "136.70.0.0/16",
+    "231.234.115.0/25",
+    "213.128.8.0/21"
+   ]
+  },
+  "dns-servers": {
+   "router": 6,
+   "prefixes": [
+    "194.165.216.0/22",
+    "163.0.134.64/26",
+    "81.116.222.64/26"
+   ]
+  },
+  "library": {
+   "router": 17,
+   "prefixes": [
+    "178.36.185.64/26"
+   ]
+  },
+  "research": {
+   "router": 8,
+   "prefixes": [
+    "105.160.35.128/25",
+    "230.245.246.0/23",
+    "156.125.208.0/24"
+   ]
+  },
+  "engineering": {
+   "router": 23,
+   "prefixes": [
+    "233.220.246.128/25",
+    "156.85.0.0/18",
+    "127.68.186.0/23"
+   ]
+  }
+ },
+ "zone_text": [
+  "guest-wifi: hosts 39.223.0.0/16, 72.128.0.0/16 attached to router R15",
+  "iot-sensors: hosts 71.26.128.0/17 attached to router R1",
+  "admin: hosts 39.42.122.0/24, 92.31.111.0/24 attached to router R2",
+  "voip: hosts 114.165.52.0/23 attached to router R0",
+  "hr: hosts 78.37.180.0/28, 187.116.40.0/22 attached to router R9",
+  "dev-lab: hosts 136.70.0.0/16, 231.234.115.0/25, 213.128.8.0/21 attached to router R14",
+  "dns-servers: hosts 194.165.216.0/22, 163.0.134.64/26, 81.116.222.64/26 attached to router R6",
+  "library: hosts 178.36.185.64/26 attached to router R17",
+  "research: hosts 105.160.35.128/25, 230.245.246.0/23, 156.125.208.0/24 attached to router R8",
+  "engineering: hosts 233.220.246.128/25, 156.85.0.0/18, 127.68.186.0/23 attached to router R23"
+ ],
+ "intents": [
+  {
+   "type": "block",
+   "src": "engineering",
+   "dst": "dev-lab"
+  },
+  {
+   "type": "block",
+   "src": "admin",
+   "dst": "engineering"
+  },
+  {
+   "type": "public",
+   "dst": "voip",
+   "svcs": [
+    "https"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "dev-lab",
+   "dst": "library",
+   "svcs": [
+    "http",
+    "ssh"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "engineering",
+   "dst": "guest-wifi",
+   "broad": "any-udp",
+   "ex": [
+    "tftp",
+    "snmp"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "research",
+   "svcs": [
+    "dns",
+    "https"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "dev-lab",
+   "dst": "iot-sensors",
+   "svcs": [
+    "imap"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "iot-sensors",
+   "dst": "guest-wifi",
+   "svcs": [
+    "syslog"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "hr",
+   "dst": "iot-sensors",
+   "svcs": [
+    "snmp",
+    "smb"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "hr",
+   "dst": "guest-wifi",
+   "svcs": [
+    "smb"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "voip",
+   "allowed": [
+    [
+     "engineering",
+     "https"
+    ]
+   ]
+  },
+  {
+   "type": "block",
+   "src": "research",
+   "dst": "hr"
+  },
+  {
+   "type": "allow_except",
+   "src": "engineering",
+   "dst": "library",
+   "broad": "any-tcp",
+   "ex": [
+    "smb",
+    "telnet"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "hr",
+   "dst": "research",
+   "svcs": [
+    "ntp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "engineering",
+   "dst": "hr",
+   "svcs": [
+    "postgres",
+    "ssh",
+    "rtsp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "admin",
+   "dst": "dns-servers",
+   "svcs": [
+    "ntp",
+    "mysql",
+    "postgres"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "voip",
+   "dst": "dev-lab"
+  },
+  {
+   "type": "allow",
+   "src": "engineering",
+   "dst": "dns-servers",
+   "svcs": [
+    "http",
+    "smtp",
+    "snmp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "dns-servers",
+   "dst": "voip",
+   "svcs": [
+    "imap",
+    "ssh",
+    "smtp"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "voip",
+   "dst": "engineering"
+  },
+  {
+   "type": "allow_except",
+   "src": "dns-servers",
+   "dst": "library",
+   "broad": "high-tcp",
+   "ex": [
+    "mysql",
+    "postgres"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "research",
+   "allowed": [
+    [
+     "dev-lab",
+     "syslog"
+    ]
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "research",
+   "dst": "library",
+   "svcs": [
+    "ssh",
+    "mysql"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "research",
+   "svcs": [
+    "http",
+    "https"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "research",
+   "dst": "library",
+   "svcs": [
+    "smtp",
+    "smb"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "research",
+   "svcs": [
+    "dns"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "engineering",
+   "dst": "admin",
+   "svcs": [
+    "snmp"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "dns-servers",
+   "dst": "research",
+   "broad": "any-udp",
+   "ex": [
+    "snmp",
+    "tftp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "research",
+   "dst": "library",
+   "svcs": [
+    "http"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "hr",
+   "dst": "engineering"
+  }
+ ],
+ "nl": [
+  "engineering must never reach dev-lab, regardless of any other rule.",
+  "No packet from admin may enter engineering, even for services open to everyone.",
+  "Any zone may connect to voip over HTTPS (TCP 443).",
+  "Allow dev-lab to connect to library using HTTP (TCP 80) and SSH (TCP 22).",
+  "Permit any UDP port from engineering to guest-wifi but deny TFTP (UDP 69), SNMP (UDP 161).",
+  "research offers DNS over UDP 53 and HTTPS (TCP 443) to every zone.",
+  "iot-sensors must accept IMAP (TCP 143) from dev-lab.",
+  "guest-wifi must accept syslog (UDP 514) from iot-sensors.",
+  "Allow hr to connect to iot-sensors using SNMP (UDP 161) and SMB (TCP 445).",
+  "Hosts in hr may reach guest-wifi over SMB (TCP 445).",
+  "voip is isolated: it may only reach engineering on HTTPS (TCP 443), and nothing else.",
+  "Deny all traffic from research to hr (this overrides any public service).",
+  "Block SMB (TCP 445), Telnet (TCP 23) from engineering to library; the rest of any TCP port between them is allowed.",
+  "research must accept NTP (UDP 123) from hr.",
+  "hr must accept PostgreSQL (TCP 5432) and SSH (TCP 22) and RTSP (TCP 554) from engineering.",
+  "dns-servers must accept NTP (UDP 123) and MySQL (TCP 3306) and PostgreSQL (TCP 5432) from admin.",
+  "Deny all traffic from voip to dev-lab (this overrides any public service).",
+  "dns-servers must accept HTTP (TCP 80) and SMTP (TCP 25) and SNMP (UDP 161) from engineering.",
+  "Allow dns-servers to connect to voip using IMAP (TCP 143) and SSH (TCP 22) and SMTP (TCP 25).",
+  "voip must never reach engineering, regardless of any other rule.",
+  "Block MySQL (TCP 3306), PostgreSQL (TCP 5432) from dns-servers to library; the rest of TCP ports 1024-65535 between them is allowed.",
+  "Restrict research so that its only permitted destinations are dev-lab on syslog (UDP 514); drop all other traffic it originates.",
+  "Allow research to connect to library using SSH (TCP 22) and MySQL (TCP 3306).",
+  "research offers HTTP (TCP 80) and HTTPS (TCP 443) to every zone.",
+  "Allow research to connect to library using SMTP (TCP 25) and SMB (TCP 445).",
+  "Make DNS over UDP 53 on research reachable from all internal zones.",
+  "admin must accept SNMP (UDP 161) from engineering.",
+  "Block SNMP (UDP 161), TFTP (UDP 69) from dns-servers to research; the rest of any UDP port between them is allowed.",
+  "Allow research to connect to library using HTTP (TCP 80).",
+  "Deny all traffic from hr to engineering (this overrides any public service)."
+ ],
+ "gt": [
+  {
+   "src": "engineering",
+   "dst": "dev-lab",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "admin",
+   "dst": "engineering",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "research",
+   "dst": "hr",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "voip",
+   "dst": "dev-lab",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "voip",
+   "dst": "engineering",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "hr",
+   "dst": "engineering",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "engineering",
+   "dst": "guest-wifi",
+   "proto": "udp",
+   "dlo": 69,
+   "dhi": 69,
+   "action": "deny"
+  },
+  {
+   "src": "engineering",
+   "dst": "guest-wifi",
+   "proto": "udp",
+   "dlo": 161,
+   "dhi": 161,
+   "action": "deny"
+  },
+  {
+   "src": "engineering",
+   "dst": "library",
+   "proto": "tcp",
+   "dlo": 445,
+   "dhi": 445,
+   "action": "deny"
+  },
+  {
+   "src": "engineering",
+   "dst": "library",
+   "proto": "tcp",
+   "dlo": 23,
+   "dhi": 23,
+   "action": "deny"
+  },
+  {
+   "src": "dns-servers",
+   "dst": "library",
+   "proto": "tcp",
+   "dlo": 3306,
+   "dhi": 3306,
+   "action": "deny"
+  },
+  {
+   "src": "dns-servers",
+   "dst": "library",
+   "proto": "tcp",
+   "dlo": 5432,
+   "dhi": 5432,
+   "action": "deny"
+  },
+  {
+   "src": "dns-servers",
+   "dst": "research",
+   "proto": "udp",
+   "dlo": 161,
+   "dhi": 161,
+   "action": "deny"
+  },
+  {
+   "src": "dns-servers",
+   "dst": "research",
+   "proto": "udp",
+   "dlo": 69,
+   "dhi": 69,
+   "action": "deny"
+  },
+  {
+   "src": "dev-lab",
+   "dst": "library",
+   "proto": "tcp",
+   "dlo": 80,
+   "dhi": 80,
+   "action": "permit"
+  },
+  {
+   "src": "dev-lab",
+   "dst": "library",
+   "proto": "tcp",
+   "dlo": 22,
+   "dhi": 22,
+   "action": "permit"
+  },
+  {
+   "src": "engineering",
+   "dst": "guest-wifi",
+   "proto": "udp",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "permit"
+  },
+  {
+   "src": "dev-lab",
+   "dst": "iot-sensors",
+   "proto": "tcp",
+   "dlo": 143,
+   "dhi": 143,
+   "action": "permit"
+  },
+  {
+   "src": "iot-sensors",
+   "dst": "guest-wifi",
+   "proto": "udp",
+   "dlo": 514,
+   "dhi": 514,
+   "action": "permit"
+  },
+  {
+   "src": "hr",
+   "dst": "iot-sensors",
+   "proto": "udp",
+   "dlo": 161,
+   "dhi": 161,
+   "action": "permit"
+  },
+  {
+   "src": "hr",
+   "dst": "iot-sensors",
+   "proto": "tcp",
+   "dlo": 445,
+   "dhi": 445,
+   "action": "permit"
+  },
+  {
+   "src": "hr",
+   "dst": "guest-wifi",
+   "proto": "tcp",
+   "dlo": 445,
+   "dhi": 445,
+   "action": "permit"
+  },
+  {
+   "src": "engineering",
+   "dst": "library",
+   "proto": "tcp",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "permit"
+  },
+  {
+   "src": "hr",
+   "dst": "research",
+   "proto": "udp",
+   "dlo": 123,
+   "dhi": 123,
+   "action": "permit"
+  },
+  {
+   "src": "engineering",
+   "dst": "hr",
+   "proto": "tcp",
+   "dlo": 5432,
+   "dhi": 5432,
+   "action": "permit"
+  },
+  {
+   "src": "engineering",
+   "dst": "hr",
+   "proto": "tcp",
+   "dlo": 22,
+   "dhi": 22,
+   "action": "permit"
+  },
+  {
+   "src": "engineering",
+   "dst": "hr",
+   "proto": "tcp",
+   "dlo": 554,
+   "dhi": 554,
+   "action": "permit"
+  },
+  {
+   "src": "admin",
+   "dst": "dns-servers",
+   "proto": "udp",
+   "dlo": 123,
+   "dhi": 123,
+   "action": "permit"
+  },
+  {
+   "src": "admin",
+   "dst": "dns-servers",
+   "proto": "tcp",
+   "dlo": 3306,
+   "dhi": 3306,
+   "action": "permit"
+  },
+  {
+   "src": "admin",
+   "dst": "dns-servers",
+   "proto": "tcp",
+   "dlo": 5432,
+   "dhi": 5432,
+   "action": "permit"
+  },
+  {
+   "src": "engineering",
+   "dst": "dns-servers",
+   "proto": "tcp",
+   "dlo": 80,
+   "dhi": 80,
+   "action": "permit"
+  },
+  {
+   "src": "engineering",
+   "dst": "dns-servers",
+   "proto": "tcp",
+   "dlo": 25,
+   "dhi": 25,
+   "action": "permit"
+  },
+  {
+   "src": "engineering",
+   "dst": "dns-servers",
+   "proto": "udp",
+   "dlo": 161,
+   "dhi": 161,
+   "action": "permit"
+  },
+  {
+   "src": "dns-servers",
+   "dst": "voip",
+   "proto": "tcp",
+   "dlo": 143,
+   "dhi": 143,
+   "action": "permit"
+  },
+  {
+   "src": "dns-servers",
+   "dst": "voip",
+   "proto": "tcp",
+   "dlo": 22,
+   "dhi": 22,
+   "action": "permit"
+  },
+  {
+   "src": "dns-servers",
+   "dst": "voip",
+   "proto": "tcp",
+   "dlo": 25,
+   "dhi": 25,
+   "action": "permit"
+  },
+  {
+   "src": "dns-servers",
+   "dst": "library",
+   "proto": "tcp",
+   "dlo": 1024,
+   "dhi": 65535,
+   "action": "permit"
+  },
+  {
+   "src": "research",
+   "dst": "library",
+   "proto": "tcp",
+   "dlo": 22,
+   "dhi": 22,
+   "action": "permit"
+  },
+  {
+   "src": "research",
+   "dst": "library",
+   "proto": "tcp",
+   "dlo": 3306,
+   "dhi": 3306,
+   "action": "permit"
+  },
+  {
+   "src": "research",
+   "dst": "library",
+   "proto": "tcp",
+   "dlo": 25,
+   "dhi": 25,
+   "action": "permit"
+  },
+  {
+   "src": "research",
+   "dst": "library",
+   "proto": "tcp",
+   "dlo": 445,
+   "dhi": 445,
+   "action": "permit"
+  },
+  {
+   "src": "engineering",
+   "dst": "admin",
+   "proto": "udp",
+   "dlo": 161,
+   "dhi": 161,
+   "action": "permit"
+  },
+  {
+   "src": "dns-servers",
+   "dst": "research",
+   "proto": "udp",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "permit"
+  },
+  {
+   "src": "research",
+   "dst": "library",
+   "proto": "tcp",
+   "dlo": 80,
+   "dhi": 80,
+   "action": "permit"
+  },
+  {
+   "src": "voip",
+   "dst": "engineering",
+   "proto": "tcp",
+   "dlo": 443,
+   "dhi": 443,
+   "action": "permit"
+  },
+  {
+   "src": "research",
+   "dst": "dev-lab",
+   "proto": "udp",
+   "dlo": 514,
+   "dhi": 514,
+   "action": "permit"
+  },
+  {
+   "src": "voip",
+   "dst": "*",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "research",
+   "dst": "*",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "*",
+   "dst": "voip",
+   "proto": "tcp",
+   "dlo": 443,
+   "dhi": 443,
+   "action": "permit"
+  },
+  {
+   "src": "*",
+   "dst": "research",
+   "proto": "udp",
+   "dlo": 53,
+   "dhi": 53,
+   "action": "permit"
+  },
+  {
+   "src": "*",
+   "dst": "research",
+   "proto": "tcp",
+   "dlo": 443,
+   "dhi": 443,
+   "action": "permit"
+  },
+  {
+   "src": "*",
+   "dst": "research",
+   "proto": "tcp",
+   "dlo": 80,
+   "dhi": 80,
+   "action": "permit"
+  },
+  {
+   "src": "*",
+   "dst": "research",
+   "proto": "tcp",
+   "dlo": 443,
+   "dhi": 443,
+   "action": "permit"
+  },
+  {
+   "src": "*",
+   "dst": "research",
+   "proto": "udp",
+   "dlo": 53,
+   "dhi": 53,
+   "action": "permit"
+  }
+ ]
+}

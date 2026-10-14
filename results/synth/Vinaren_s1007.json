@@ -1,0 +1,532 @@
+{
+ "id": "Vinaren_s1007",
+ "n_intents": 27,
+ "n_gt_rules": 48,
+ "n_zones": 16,
+ "rules": {
+  "eq": false,
+  "mismatch": 0.00775,
+  "n_rules": 31,
+  "fail": 0,
+  "s": 177.51211977005005,
+  "calls": 2,
+  "prompt": 3178,
+  "completion": 4971
+ },
+ "ir0": {
+  "eq": false,
+  "mismatch": 0.00425,
+  "n_rules": 42,
+  "fail": 0,
+  "s": 87.05069899559021,
+  "calls": 27,
+  "prompt": 17716,
+  "completion": 987,
+  "intent_acc": 0.7777777777777778
+ },
+ "ir": {
+  "eq": true,
+  "mismatch": 0.0,
+  "n_rules": 48,
+  "fail": 0,
+  "s": 77.28657555580139,
+  "calls": 27,
+  "prompt": 29893,
+  "completion": 673,
+  "intent_acc": 1.0
+ },
+ "fw": {
+  "eq": true,
+  "mismatch": 0.0,
+  "n_rules": 48,
+  "fail": 0,
+  "s": 188.98756456375122,
+  "verify_s": 111.70098924636841,
+  "calls": 57,
+  "verify_calls": 30,
+  "flagged": 1,
+  "accepted": 0,
+  "repairs": [
+   {
+    "k": 19,
+    "was_ok": true,
+    "now_ok": true,
+    "history": [
+     1,
+     0
+    ],
+    "calls": 2,
+    "accepted": false,
+    "diff": 1,
+    "win_new": 0,
+    "win_old": 1
+   }
+  ],
+  "intent_acc": 1.0
+ },
+ "ir_out": [
+  {
+   "type": "allow",
+   "src": "scada",
+   "dst": "vpn-users",
+   "svcs": [
+    "mysql",
+    "https"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "admin",
+   "dst": "iot-sensors",
+   "svcs": [
+    "ssh"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "guest-wifi",
+   "svcs": [
+    "dns"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "library",
+   "allowed": [
+    [
+     "scada",
+     "dns"
+    ]
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "hr",
+   "allowed": [
+    [
+     "database",
+     "https"
+    ],
+    [
+     "guest-wifi",
+     "https"
+    ]
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "cameras",
+   "svcs": [
+    "http"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "admin",
+   "dst": "voip"
+  },
+  {
+   "type": "allow",
+   "src": "monitoring",
+   "dst": "cameras",
+   "svcs": [
+    "postgres"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "dns-servers",
+   "dst": "library"
+  },
+  {
+   "type": "block",
+   "src": "voip",
+   "dst": "vpn-users"
+  },
+  {
+   "type": "allow",
+   "src": "iot-sensors",
+   "dst": "voip",
+   "svcs": [
+    "http",
+    "ssh",
+    "snmp"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "guest-wifi",
+   "dst": "admin"
+  },
+  {
+   "type": "isolate",
+   "src": "cameras",
+   "allowed": [
+    [
+     "ops",
+     "ntp"
+    ],
+    [
+     "guest-wifi",
+     "https"
+    ]
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "monitoring",
+   "dst": "library",
+   "broad": "any-tcp",
+   "ex": [
+    "telnet",
+    "smb",
+    "rdp"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "mail",
+   "dst": "iot-sensors"
+  },
+  {
+   "type": "public",
+   "dst": "library",
+   "svcs": [
+    "dns"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "voip",
+   "allowed": [
+    [
+     "ops",
+     "syslog"
+    ]
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "research",
+   "svcs": [
+    "https",
+    "dns"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "dns-servers",
+   "dst": "admin",
+   "svcs": [
+    "rdp",
+    "mysql"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "vpn-users",
+   "allowed": [
+    [
+     "database",
+     "ntp"
+    ],
+    [
+     "engineering",
+     "syslog"
+    ]
+   ]
+  },
+  {
+   "type": "block",
+   "src": "ops",
+   "dst": "iot-sensors"
+  },
+  {
+   "type": "isolate",
+   "src": "dns-servers",
+   "allowed": [
+    [
+     "guest-wifi",
+     "dns"
+    ]
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "admin",
+   "dst": "voip",
+   "svcs": [
+    "https",
+    "syslog"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "cameras",
+   "dst": "scada",
+   "svcs": [
+    "syslog",
+    "smtp",
+    "dns"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "ops",
+   "dst": "engineering",
+   "broad": "high-tcp",
+   "ex": [
+    "rdp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "database",
+   "dst": "hr",
+   "svcs": [
+    "https"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "mail",
+   "dst": "hr",
+   "svcs": [
+    "snmp"
+   ]
+  }
+ ],
+ "fw_out": [
+  {
+   "type": "allow",
+   "src": "scada",
+   "dst": "vpn-users",
+   "svcs": [
+    "mysql",
+    "https"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "admin",
+   "dst": "iot-sensors",
+   "svcs": [
+    "ssh"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "guest-wifi",
+   "svcs": [
+    "dns"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "library",
+   "allowed": [
+    [
+     "scada",
+     "dns"
+    ]
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "hr",
+   "allowed": [
+    [
+     "database",
+     "https"
+    ],
+    [
+     "guest-wifi",
+     "https"
+    ]
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "cameras",
+   "svcs": [
+    "http"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "admin",
+   "dst": "voip"
+  },
+  {
+   "type": "allow",
+   "src": "monitoring",
+   "dst": "cameras",
+   "svcs": [
+    "postgres"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "dns-servers",
+   "dst": "library"
+  },
+  {
+   "type": "block",
+   "src": "voip",
+   "dst": "vpn-users"
+  },
+  {
+   "type": "allow",
+   "src": "iot-sensors",
+   "dst": "voip",
+   "svcs": [
+    "http",
+    "ssh",
+    "snmp"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "guest-wifi",
+   "dst": "admin"
+  },
+  {
+   "type": "isolate",
+   "src": "cameras",
+   "allowed": [
+    [
+     "ops",
+     "ntp"
+    ],
+    [
+     "guest-wifi",
+     "https"
+    ]
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "monitoring",
+   "dst": "library",
+   "broad": "any-tcp",
+   "ex": [
+    "telnet",
+    "smb",
+    "rdp"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "mail",
+   "dst": "iot-sensors"
+  },
+  {
+   "type": "public",
+   "dst": "library",
+   "svcs": [
+    "dns"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "voip",
+   "allowed": [
+    [
+     "ops",
+     "syslog"
+    ]
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "research",
+   "svcs": [
+    "https",
+    "dns"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "dns-servers",
+   "dst": "admin",
+   "svcs": [
+    "rdp",
+    "mysql"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "vpn-users",
+   "allowed": [
+    [
+     "database",
+     "ntp"
+    ],
+    [
+     "engineering",
+     "syslog"
+    ]
+   ]
+  },
+  {
+   "type": "block",
+   "src": "ops",
+   "dst": "iot-sensors"
+  },
+  {
+   "type": "isolate",
+   "src": "dns-servers",
+   "allowed": [
+    [
+     "guest-wifi",
+     "dns"
+    ]
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "admin",
+   "dst": "voip",
+   "svcs": [
+    "https",
+    "syslog"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "cameras",
+   "dst": "scada",
+   "svcs": [
+    "syslog",
+    "smtp",
+    "dns"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "ops",
+   "dst": "engineering",
+   "broad": "high-tcp",
+   "ex": [
+    "rdp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "database",
+   "dst": "hr",
+   "svcs": [
+    "https"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "mail",
+   "dst": "hr",
+   "svcs": [
+    "snmp"
+   ]
+  }
+ ],
+ "wall_s": 454.1601371765137
+}

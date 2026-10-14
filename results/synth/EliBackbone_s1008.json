@@ -1,0 +1,338 @@
+{
+ "id": "EliBackbone_s1008",
+ "n_intents": 15,
+ "n_gt_rules": 30,
+ "n_zones": 10,
+ "rules": {
+  "eq": false,
+  "mismatch": 0.01125,
+  "n_rules": 32,
+  "fail": 0,
+  "s": 35.64295721054077,
+  "calls": 1,
+  "prompt": 939,
+  "completion": 1008
+ },
+ "ir0": {
+  "eq": false,
+  "mismatch": 0.0015,
+  "n_rules": 29,
+  "fail": 0,
+  "s": 40.3794641494751,
+  "calls": 15,
+  "prompt": 9666,
+  "completion": 608,
+  "intent_acc": 0.9333333333333333
+ },
+ "ir": {
+  "eq": false,
+  "mismatch": 0.0065,
+  "n_rules": 30,
+  "fail": 0,
+  "s": 34.16926908493042,
+  "calls": 15,
+  "prompt": 16431,
+  "completion": 400,
+  "intent_acc": 0.8666666666666667
+ },
+ "fw": {
+  "eq": false,
+  "mismatch": 0.0065,
+  "n_rules": 30,
+  "fail": 0,
+  "s": 96.80327033996582,
+  "verify_s": 62.63400149345398,
+  "calls": 35,
+  "verify_calls": 20,
+  "flagged": 1,
+  "accepted": 0,
+  "repairs": [
+   {
+    "k": 4,
+    "was_ok": true,
+    "now_ok": true,
+    "history": [
+     1,
+     0
+    ],
+    "calls": 3,
+    "accepted": false,
+    "diff": 2,
+    "win_new": 1,
+    "win_old": 1
+   }
+  ],
+  "intent_acc": 0.8666666666666667
+ },
+ "ir_out": [
+  {
+   "type": "block",
+   "src": "iot-sensors",
+   "dst": "research"
+  },
+  {
+   "type": "allow",
+   "src": "ntp-servers",
+   "dst": "mail",
+   "svcs": [
+    "ntp",
+    "dns",
+    "rdp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "guest-wifi",
+   "dst": "admin",
+   "svcs": [
+    "dns",
+    "imap"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "iot-sensors",
+   "dst": "research",
+   "broad": "any-tcp",
+   "ex": [
+    "ftp",
+    "rdp"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "nvr",
+   "allowed": [
+    [
+     "mail",
+     "dns"
+    ],
+    [
+     "printers",
+     "ntp"
+    ]
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "nvr",
+   "dst": "printers",
+   "broad": "high-tcp",
+   "ex": [
+    "rdp",
+    "postgres"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "ntp-servers",
+   "svcs": [
+    "https",
+    "http"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "mail",
+   "svcs": [
+    "dns"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "mail",
+   "allowed": [
+    [
+     "guest-wifi",
+     "ntp"
+    ]
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "scada",
+   "dst": "guest-wifi",
+   "svcs": [
+    "https",
+    "postgres"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "admin",
+   "svcs": [
+    "http",
+    "dns"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "nvr",
+   "dst": "ntp-servers",
+   "svcs": [
+    "snmp"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "iot-sensors",
+   "dst": "research",
+   "broad": "any-udp",
+   "ex": [
+    "snmp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "mail",
+   "dst": "guest-wifi",
+   "svcs": [
+    "ntp"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "student-lab",
+   "svcs": [
+    "https",
+    "http"
+   ]
+  }
+ ],
+ "fw_out": [
+  {
+   "type": "block",
+   "src": "iot-sensors",
+   "dst": "research"
+  },
+  {
+   "type": "allow",
+   "src": "ntp-servers",
+   "dst": "mail",
+   "svcs": [
+    "ntp",
+    "dns",
+    "rdp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "guest-wifi",
+   "dst": "admin",
+   "svcs": [
+    "dns",
+    "imap"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "iot-sensors",
+   "dst": "research",
+   "broad": "any-tcp",
+   "ex": [
+    "ftp",
+    "rdp"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "nvr",
+   "allowed": [
+    [
+     "mail",
+     "dns"
+    ],
+    [
+     "printers",
+     "ntp"
+    ]
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "nvr",
+   "dst": "printers",
+   "broad": "high-tcp",
+   "ex": [
+    "rdp",
+    "postgres"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "ntp-servers",
+   "svcs": [
+    "https",
+    "http"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "mail",
+   "svcs": [
+    "dns"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "mail",
+   "allowed": [
+    [
+     "guest-wifi",
+     "ntp"
+    ]
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "scada",
+   "dst": "guest-wifi",
+   "svcs": [
+    "https",
+    "postgres"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "admin",
+   "svcs": [
+    "http",
+    "dns"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "nvr",
+   "dst": "ntp-servers",
+   "svcs": [
+    "snmp"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "iot-sensors",
+   "dst": "research",
+   "broad": "any-udp",
+   "ex": [
+    "snmp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "mail",
+   "dst": "guest-wifi",
+   "svcs": [
+    "ntp"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "student-lab",
+   "svcs": [
+    "https",
+    "http"
+   ]
+  }
+ ],
+ "wall_s": 173.25937628746033
+}

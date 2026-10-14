@@ -1,0 +1,66 @@
+{
+ "id": "Belnet2003_s1014",
+ "up": {
+  "n_routers": 23,
+  "n_links": 39,
+  "n_zones": 10,
+  "setup_s": 55.374046325683594,
+  "converged": true,
+  "converge_s": 2.275200128555298,
+  "ecmp_nexthops": 1102
+ },
+ "deploy_fireweaver": {
+  "cfgset": "fireweaver",
+  "deploy_s": 14.651883363723755,
+  "per_router_max_s": 7.878200531005859,
+  "rules_installed": 780,
+  "rules_expected": 780
+ },
+ "probe_fireweaver": {
+  "n": 2606,
+  "delivered": 116,
+  "send_s": 10.200748920440674
+ },
+ "conf_fireweaver": {
+  "n": 2606,
+  "conform": 2606,
+  "leaks": 0,
+  "wrongly_blocked": 0
+ },
+ "deploy_ecmp1": {
+  "cfgset": "ecmp1",
+  "deploy_s": 13.393318891525269,
+  "per_router_max_s": 6.922067165374756,
+  "rules_installed": 780,
+  "rules_expected": 780
+ },
+ "probe_ecmp1": {
+  "n": 2606,
+  "delivered": 200,
+  "send_s": 10.065839767456055
+ },
+ "conf_ecmp1": {
+  "n": 2606,
+  "conform": 2522,
+  "leaks": 84,
+  "wrongly_blocked": 0
+ },
+ "deploy_none": {
+  "cfgset": "none",
+  "deploy_s": 12.767364501953125,
+  "per_router_max_s": 6.931879281997681,
+  "rules_installed": 0,
+  "rules_expected": 0
+ },
+ "probe_none": {
+  "n": 2606,
+  "delivered": 2606,
+  "send_s": 2.6512537002563477
+ },
+ "conf_none": {
+  "n": 2606,
+  "conform": 116,
+  "leaks": 2490,
+  "wrongly_blocked": 0
+ }
+}

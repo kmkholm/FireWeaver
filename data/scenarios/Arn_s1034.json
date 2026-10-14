@@ -1,0 +1,643 @@
+{
+ "id": "Arn_s1034",
+ "topology": "Arn",
+ "n_nodes": 30,
+ "edges": [
+  [
+   0,
+   1
+  ],
+  [
+   0,
+   2
+  ],
+  [
+   0,
+   9
+  ],
+  [
+   0,
+   10
+  ],
+  [
+   0,
+   11
+  ],
+  [
+   0,
+   12
+  ],
+  [
+   0,
+   13
+  ],
+  [
+   0,
+   15
+  ],
+  [
+   0,
+   18
+  ],
+  [
+   0,
+   26
+  ],
+  [
+   0,
+   27
+  ],
+  [
+   0,
+   28
+  ],
+  [
+   2,
+   3
+  ],
+  [
+   2,
+   4
+  ],
+  [
+   2,
+   5
+  ],
+  [
+   2,
+   6
+  ],
+  [
+   2,
+   7
+  ],
+  [
+   2,
+   8
+  ],
+  [
+   14,
+   15
+  ],
+  [
+   15,
+   16
+  ],
+  [
+   17,
+   18
+  ],
+  [
+   18,
+   19
+  ],
+  [
+   18,
+   20
+  ],
+  [
+   18,
+   21
+  ],
+  [
+   18,
+   22
+  ],
+  [
+   18,
+   23
+  ],
+  [
+   18,
+   24
+  ],
+  [
+   18,
+   25
+  ],
+  [
+   18,
+   29
+  ]
+ ],
+ "zones": {
+  "vpn-users": {
+   "router": 21,
+   "prefixes": [
+    "16.106.164.0/22",
+    "104.15.34.0/25"
+   ]
+  },
+  "edge-cache": {
+   "router": 6,
+   "prefixes": [
+    "78.128.156.0/24",
+    "71.80.35.32/27",
+    "195.100.84.0/22"
+   ]
+  },
+  "nvr": {
+   "router": 14,
+   "prefixes": [
+    "116.202.171.128/25",
+    "173.159.214.0/23"
+   ]
+  },
+  "engineering": {
+   "router": 5,
+   "prefixes": [
+    "87.186.60.0/23",
+    "52.185.240.0/25"
+   ]
+  },
+  "dns-servers": {
+   "router": 7,
+   "prefixes": [
+    "1.161.251.0/25"
+   ]
+  },
+  "iot-sensors": {
+   "router": 1,
+   "prefixes": [
+    "133.42.140.0/22",
+    "82.173.137.0/25",
+    "100.23.127.0/24"
+   ]
+  },
+  "dev-lab": {
+   "router": 25,
+   "prefixes": [
+    "103.83.110.128/25",
+    "126.95.84.0/24"
+   ]
+  },
+  "guest-wifi": {
+   "router": 17,
+   "prefixes": [
+    "98.91.15.64/27"
+   ]
+  },
+  "mail": {
+   "router": 12,
+   "prefixes": [
+    "97.55.13.0/24",
+    "172.18.128.0/17",
+    "21.158.178.0/24"
+   ]
+  },
+  "ops": {
+   "router": 19,
+   "prefixes": [
+    "147.44.94.0/24",
+    "212.203.124.0/23"
+   ]
+  }
+ },
+ "zone_text": [
+  "vpn-users: hosts 16.106.164.0/22, 104.15.34.0/25 attached to router R21",
+  "edge-cache: hosts 78.128.156.0/24, 71.80.35.32/27, 195.100.84.0/22 attached to router R6",
+  "nvr: hosts 116.202.171.128/25, 173.159.214.0/23 attached to router R14",
+  "engineering: hosts 87.186.60.0/23, 52.185.240.0/25 attached to router R5",
+  "dns-servers: hosts 1.161.251.0/25 attached to router R7",
+  "iot-sensors: hosts 133.42.140.0/22, 82.173.137.0/25, 100.23.127.0/24 attached to router R1",
+  "dev-lab: hosts 103.83.110.128/25, 126.95.84.0/24 attached to router R25",
+  "guest-wifi: hosts 98.91.15.64/27 attached to router R17",
+  "mail: hosts 97.55.13.0/24, 172.18.128.0/17, 21.158.178.0/24 attached to router R12",
+  "ops: hosts 147.44.94.0/24, 212.203.124.0/23 attached to router R19"
+ ],
+ "intents": [
+  {
+   "type": "allow_except",
+   "src": "iot-sensors",
+   "dst": "guest-wifi",
+   "broad": "any-udp",
+   "ex": [
+    "snmp",
+    "tftp"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "ops",
+   "dst": "dns-servers",
+   "broad": "high-tcp",
+   "ex": [
+    "rdp",
+    "postgres",
+    "mysql"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "engineering",
+   "svcs": [
+    "dns",
+    "https"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "edge-cache",
+   "dst": "engineering"
+  },
+  {
+   "type": "public",
+   "dst": "dns-servers",
+   "svcs": [
+    "http",
+    "https"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "vpn-users",
+   "allowed": [
+    [
+     "nvr",
+     "https"
+    ]
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "vpn-users",
+   "dst": "guest-wifi",
+   "svcs": [
+    "smtp",
+    "rtsp",
+    "syslog"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "nvr",
+   "dst": "mail"
+  },
+  {
+   "type": "isolate",
+   "src": "dns-servers",
+   "allowed": [
+    [
+     "guest-wifi",
+     "syslog"
+    ]
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "dns-servers",
+   "dst": "iot-sensors",
+   "broad": "any-udp",
+   "ex": [
+    "snmp",
+    "tftp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "nvr",
+   "dst": "engineering",
+   "svcs": [
+    "ntp",
+    "https",
+    "smb"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "vpn-users",
+   "dst": "mail",
+   "svcs": [
+    "http",
+    "rtsp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "nvr",
+   "dst": "iot-sensors",
+   "svcs": [
+    "smtp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "dev-lab",
+   "dst": "mail",
+   "svcs": [
+    "dns",
+    "rtsp",
+    "https"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "dev-lab",
+   "dst": "dns-servers",
+   "broad": "high-tcp",
+   "ex": [
+    "mysql",
+    "rdp"
+   ]
+  }
+ ],
+ "nl": [
+  "iot-sensors may use any UDP port towards guest-wifi, except SNMP (UDP 161), TFTP (UDP 69), which must be blocked.",
+  "Permit TCP ports 1024-65535 from ops to dns-servers but deny RDP (TCP 3389), PostgreSQL (TCP 5432), MySQL (TCP 3306).",
+  "engineering offers DNS over UDP 53 and HTTPS (TCP 443) to every zone.",
+  "edge-cache must never reach engineering, regardless of any other rule.",
+  "Make HTTP (TCP 80) and HTTPS (TCP 443) on dns-servers reachable from all internal zones.",
+  "Restrict vpn-users so that its only permitted destinations are nvr on HTTPS (TCP 443); drop all other traffic it originates.",
+  "guest-wifi must accept SMTP (TCP 25) and RTSP (TCP 554) and syslog (UDP 514) from vpn-users.",
+  "Deny all traffic from nvr to mail (this overrides any public service).",
+  "dns-servers is isolated: it may only reach guest-wifi on syslog (UDP 514), and nothing else.",
+  "Permit any UDP port from dns-servers to iot-sensors but deny SNMP (UDP 161), TFTP (UDP 69).",
+  "Allow nvr to connect to engineering using NTP (UDP 123) and HTTPS (TCP 443) and SMB (TCP 445).",
+  "Hosts in vpn-users may reach mail over HTTP (TCP 80) and RTSP (TCP 554).",
+  "Allow nvr to connect to iot-sensors using SMTP (TCP 25).",
+  "mail must accept DNS over UDP 53 and RTSP (TCP 554) and HTTPS (TCP 443) from dev-lab.",
+  "Permit TCP ports 1024-65535 from dev-lab to dns-servers but deny MySQL (TCP 3306), RDP (TCP 3389)."
+ ],
+ "gt": [
+  {
+   "src": "edge-cache",
+   "dst": "engineering",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "nvr",
+   "dst": "mail",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "iot-sensors",
+   "dst": "guest-wifi",
+   "proto": "udp",
+   "dlo": 161,
+   "dhi": 161,
+   "action": "deny"
+  },
+  {
+   "src": "iot-sensors",
+   "dst": "guest-wifi",
+   "proto": "udp",
+   "dlo": 69,
+   "dhi": 69,
+   "action": "deny"
+  },
+  {
+   "src": "ops",
+   "dst": "dns-servers",
+   "proto": "tcp",
+   "dlo": 3389,
+   "dhi": 3389,
+   "action": "deny"
+  },
+  {
+   "src": "ops",
+   "dst": "dns-servers",
+   "proto": "tcp",
+   "dlo": 5432,
+   "dhi": 5432,
+   "action": "deny"
+  },
+  {
+   "src": "ops",
+   "dst": "dns-servers",
+   "proto": "tcp",
+   "dlo": 3306,
+   "dhi": 3306,
+   "action": "deny"
+  },
+  {
+   "src": "dns-servers",
+   "dst": "iot-sensors",
+   "proto": "udp",
+   "dlo": 161,
+   "dhi": 161,
+   "action": "deny"
+  },
+  {
+   "src": "dns-servers",
+   "dst": "iot-sensors",
+   "proto": "udp",
+   "dlo": 69,
+   "dhi": 69,
+   "action": "deny"
+  },
+  {
+   "src": "dev-lab",
+   "dst": "dns-servers",
+   "proto": "tcp",
+   "dlo": 3306,
+   "dhi": 3306,
+   "action": "deny"
+  },
+  {
+   "src": "dev-lab",
+   "dst": "dns-servers",
+   "proto": "tcp",
+   "dlo": 3389,
+   "dhi": 3389,
+   "action": "deny"
+  },
+  {
+   "src": "iot-sensors",
+   "dst": "guest-wifi",
+   "proto": "udp",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "permit"
+  },
+  {
+   "src": "ops",
+   "dst": "dns-servers",
+   "proto": "tcp",
+   "dlo": 1024,
+   "dhi": 65535,
+   "action": "permit"
+  },
+  {
+   "src": "vpn-users",
+   "dst": "guest-wifi",
+   "proto": "tcp",
+   "dlo": 25,
+   "dhi": 25,
+   "action": "permit"
+  },
+  {
+   "src": "vpn-users",
+   "dst": "guest-wifi",
+   "proto": "tcp",
+   "dlo": 554,
+   "dhi": 554,
+   "action": "permit"
+  },
+  {
+   "src": "vpn-users",
+   "dst": "guest-wifi",
+   "proto": "udp",
+   "dlo": 514,
+   "dhi": 514,
+   "action": "permit"
+  },
+  {
+   "src": "dns-servers",
+   "dst": "iot-sensors",
+   "proto": "udp",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "permit"
+  },
+  {
+   "src": "nvr",
+   "dst": "engineering",
+   "proto": "udp",
+   "dlo": 123,
+   "dhi": 123,
+   "action": "permit"
+  },
+  {
+   "src": "nvr",
+   "dst": "engineering",
+   "proto": "tcp",
+   "dlo": 443,
+   "dhi": 443,
+   "action": "permit"
+  },
+  {
+   "src": "nvr",
+   "dst": "engineering",
+   "proto": "tcp",
+   "dlo": 445,
+   "dhi": 445,
+   "action": "permit"
+  },
+  {
+   "src": "vpn-users",
+   "dst": "mail",
+   "proto": "tcp",
+   "dlo": 80,
+   "dhi": 80,
+   "action": "permit"
+  },
+  {
+   "src": "vpn-users",
+   "dst": "mail",
+   "proto": "tcp",
+   "dlo": 554,
+   "dhi": 554,
+   "action": "permit"
+  },
+  {
+   "src": "nvr",
+   "dst": "iot-sensors",
+   "proto": "tcp",
+   "dlo": 25,
+   "dhi": 25,
+   "action": "permit"
+  },
+  {
+   "src": "dev-lab",
+   "dst": "mail",
+   "proto": "udp",
+   "dlo": 53,
+   "dhi": 53,
+   "action": "permit"
+  },
+  {
+   "src": "dev-lab",
+   "dst": "mail",
+   "proto": "tcp",
+   "dlo": 554,
+   "dhi": 554,
+   "action": "permit"
+  },
+  {
+   "src": "dev-lab",
+   "dst": "mail",
+   "proto": "tcp",
+   "dlo": 443,
+   "dhi": 443,
+   "action": "permit"
+  },
+  {
+   "src": "dev-lab",
+   "dst": "dns-servers",
+   "proto": "tcp",
+   "dlo": 1024,
+   "dhi": 65535,
+   "action": "permit"
+  },
+  {
+   "src": "vpn-users",
+   "dst": "nvr",
+   "proto": "tcp",
+   "dlo": 443,
+   "dhi": 443,
+   "action": "permit"
+  },
+  {
+   "src": "dns-servers",
+   "dst": "guest-wifi",
+   "proto": "udp",
+   "dlo": 514,
+   "dhi": 514,
+   "action": "permit"
+  },
+  {
+   "src": "vpn-users",
+   "dst": "*",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "dns-servers",
+   "dst": "*",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "*",
+   "dst": "engineering",
+   "proto": "udp",
+   "dlo": 53,
+   "dhi": 53,
+   "action": "permit"
+  },
+  {
+   "src": "*",
+   "dst": "engineering",
+   "proto": "tcp",
+   "dlo": 443,
+   "dhi": 443,
+   "action": "permit"
+  },
+  {
+   "src": "*",
+   "dst": "dns-servers",
+   "proto": "tcp",
+   "dlo": 80,
+   "dhi": 80,
+   "action": "permit"
+  },
+  {
+   "src": "*",
+   "dst": "dns-servers",
+   "proto": "tcp",
+   "dlo": 443,
+   "dhi": 443,
+   "action": "permit"
+  }
+ ]
+}

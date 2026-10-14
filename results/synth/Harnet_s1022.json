@@ -1,0 +1,190 @@
+{
+ "id": "Harnet_s1022",
+ "n_intents": 8,
+ "n_gt_rules": 12,
+ "n_zones": 10,
+ "rules": {
+  "eq": false,
+  "mismatch": 0.0005,
+  "n_rules": 13,
+  "fail": 0,
+  "s": 15.944568872451782,
+  "calls": 1,
+  "prompt": 677,
+  "completion": 423
+ },
+ "ir0": {
+  "eq": true,
+  "mismatch": 0.0,
+  "n_rules": 12,
+  "fail": 0,
+  "s": 21.529862880706787,
+  "calls": 8,
+  "prompt": 5091,
+  "completion": 229,
+  "intent_acc": 1.0
+ },
+ "ir": {
+  "eq": true,
+  "mismatch": 0.0,
+  "n_rules": 12,
+  "fail": 0,
+  "s": 18.895367860794067,
+  "calls": 8,
+  "prompt": 8699,
+  "completion": 195,
+  "intent_acc": 1.0
+ },
+ "fw": {
+  "eq": true,
+  "mismatch": 0.0,
+  "n_rules": 12,
+  "fail": 0,
+  "s": 54.50162434577942,
+  "verify_s": 35.60625672340393,
+  "calls": 19,
+  "verify_calls": 11,
+  "flagged": 1,
+  "accepted": 0,
+  "repairs": [
+   {
+    "k": 2,
+    "was_ok": true,
+    "now_ok": true,
+    "history": [
+     1,
+     1,
+     1
+    ],
+    "calls": 2,
+    "accepted": false
+   }
+  ],
+  "intent_acc": 1.0
+ },
+ "ir_out": [
+  {
+   "type": "allow",
+   "src": "vpn-users",
+   "dst": "dev-lab",
+   "svcs": [
+    "imap"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "edge-cache",
+   "dst": "dmz-web"
+  },
+  {
+   "type": "isolate",
+   "src": "dev-lab",
+   "allowed": [
+    [
+     "nvr",
+     "syslog"
+    ],
+    [
+     "vpn-users",
+     "ntp"
+    ]
+   ]
+  },
+  {
+   "type": "block",
+   "src": "vpn-users",
+   "dst": "dmz-web"
+  },
+  {
+   "type": "allow",
+   "src": "vpn-users",
+   "dst": "printers",
+   "svcs": [
+    "dns",
+    "ldap"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "ops",
+   "dst": "iot-sensors",
+   "svcs": [
+    "dns",
+    "snmp"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "ops",
+   "dst": "dmz-web"
+  },
+  {
+   "type": "block",
+   "src": "dmz-web",
+   "dst": "ops"
+  }
+ ],
+ "fw_out": [
+  {
+   "type": "allow",
+   "src": "vpn-users",
+   "dst": "dev-lab",
+   "svcs": [
+    "imap"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "edge-cache",
+   "dst": "dmz-web"
+  },
+  {
+   "type": "isolate",
+   "src": "dev-lab",
+   "allowed": [
+    [
+     "nvr",
+     "syslog"
+    ],
+    [
+     "vpn-users",
+     "ntp"
+    ]
+   ]
+  },
+  {
+   "type": "block",
+   "src": "vpn-users",
+   "dst": "dmz-web"
+  },
+  {
+   "type": "allow",
+   "src": "vpn-users",
+   "dst": "printers",
+   "svcs": [
+    "dns",
+    "ldap"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "ops",
+   "dst": "iot-sensors",
+   "svcs": [
+    "dns",
+    "snmp"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "ops",
+   "dst": "dmz-web"
+  },
+  {
+   "type": "block",
+   "src": "dmz-web",
+   "dst": "ops"
+  }
+ ],
+ "wall_s": 92.09964489936829
+}

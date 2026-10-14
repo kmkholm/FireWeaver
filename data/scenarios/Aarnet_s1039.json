@@ -1,0 +1,937 @@
+{
+ "id": "Aarnet_s1039",
+ "topology": "Aarnet",
+ "n_nodes": 19,
+ "edges": [
+  [
+   0,
+   1
+  ],
+  [
+   0,
+   2
+  ],
+  [
+   1,
+   3
+  ],
+  [
+   2,
+   3
+  ],
+  [
+   2,
+   4
+  ],
+  [
+   2,
+   7
+  ],
+  [
+   3,
+   5
+  ],
+  [
+   3,
+   6
+  ],
+  [
+   4,
+   8
+  ],
+  [
+   4,
+   10
+  ],
+  [
+   4,
+   5
+  ],
+  [
+   5,
+   8
+  ],
+  [
+   5,
+   11
+  ],
+  [
+   6,
+   7
+  ],
+  [
+   9,
+   10
+  ],
+  [
+   9,
+   12
+  ],
+  [
+   11,
+   18
+  ],
+  [
+   11,
+   12
+  ],
+  [
+   11,
+   13
+  ],
+  [
+   12,
+   14
+  ],
+  [
+   13,
+   14
+  ],
+  [
+   14,
+   15
+  ],
+  [
+   15,
+   16
+  ],
+  [
+   16,
+   17
+  ]
+ ],
+ "zones": {
+  "printers": {
+   "router": 17,
+   "prefixes": [
+    "33.8.215.128/25",
+    "57.132.191.128/25",
+    "158.133.37.64/27"
+   ]
+  },
+  "hr": {
+   "router": 18,
+   "prefixes": [
+    "14.31.122.0/23"
+   ]
+  },
+  "dns-servers": {
+   "router": 15,
+   "prefixes": [
+    "134.16.184.128/27",
+    "85.211.0.0/16",
+    "159.200.188.0/23"
+   ]
+  },
+  "library": {
+   "router": 10,
+   "prefixes": [
+    "233.166.171.0/24",
+    "12.243.24.0/22",
+    "4.123.218.64/27"
+   ]
+  },
+  "guest-wifi": {
+   "router": 16,
+   "prefixes": [
+    "242.175.217.0/24"
+   ]
+  },
+  "dmz-web": {
+   "router": 1,
+   "prefixes": [
+    "246.207.172.0/23",
+    "213.32.144.0/21"
+   ]
+  }
+ },
+ "zone_text": [
+  "printers: hosts 33.8.215.128/25, 57.132.191.128/25, 158.133.37.64/27 attached to router R17",
+  "hr: hosts 14.31.122.0/23 attached to router R18",
+  "dns-servers: hosts 134.16.184.128/27, 85.211.0.0/16, 159.200.188.0/23 attached to router R15",
+  "library: hosts 233.166.171.0/24, 12.243.24.0/22, 4.123.218.64/27 attached to router R10",
+  "guest-wifi: hosts 242.175.217.0/24 attached to router R16",
+  "dmz-web: hosts 246.207.172.0/23, 213.32.144.0/21 attached to router R1"
+ ],
+ "intents": [
+  {
+   "type": "isolate",
+   "src": "dns-servers",
+   "allowed": [
+    [
+     "hr",
+     "syslog"
+    ],
+    [
+     "dmz-web",
+     "https"
+    ]
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "hr",
+   "dst": "dns-servers",
+   "svcs": [
+    "syslog",
+    "dns",
+    "ntp"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "dns-servers",
+   "dst": "printers"
+  },
+  {
+   "type": "allow_except",
+   "src": "dmz-web",
+   "dst": "dns-servers",
+   "broad": "any-udp",
+   "ex": [
+    "snmp"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "library",
+   "dst": "guest-wifi"
+  },
+  {
+   "type": "allow",
+   "src": "printers",
+   "dst": "library",
+   "svcs": [
+    "snmp",
+    "rtsp",
+    "imap"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "hr",
+   "dst": "library"
+  },
+  {
+   "type": "public",
+   "dst": "printers",
+   "svcs": [
+    "http",
+    "ntp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "guest-wifi",
+   "dst": "dmz-web",
+   "svcs": [
+    "ssh",
+    "syslog",
+    "ntp"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "guest-wifi",
+   "svcs": [
+    "http"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "guest-wifi",
+   "svcs": [
+    "ntp",
+    "dns"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "hr",
+   "svcs": [
+    "http",
+    "https"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "hr",
+   "dst": "guest-wifi",
+   "svcs": [
+    "rtsp",
+    "http",
+    "https"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "guest-wifi",
+   "dst": "dns-servers",
+   "svcs": [
+    "rdp",
+    "ldap",
+    "imap"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "guest-wifi",
+   "dst": "hr",
+   "svcs": [
+    "syslog",
+    "rdp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "library",
+   "dst": "printers",
+   "svcs": [
+    "postgres"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "guest-wifi",
+   "dst": "dmz-web",
+   "svcs": [
+    "postgres",
+    "smtp",
+    "imap"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "library",
+   "svcs": [
+    "https",
+    "dns"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "dmz-web",
+   "svcs": [
+    "http"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "hr",
+   "dst": "dns-servers",
+   "svcs": [
+    "ntp",
+    "syslog"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "guest-wifi",
+   "dst": "dmz-web",
+   "broad": "any-udp",
+   "ex": [
+    "snmp",
+    "tftp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "dns-servers",
+   "dst": "library",
+   "svcs": [
+    "ssh",
+    "ntp",
+    "http"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "dmz-web",
+   "dst": "hr",
+   "svcs": [
+    "rtsp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "dns-servers",
+   "dst": "dmz-web",
+   "svcs": [
+    "ssh",
+    "smb",
+    "rtsp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "library",
+   "dst": "dmz-web",
+   "svcs": [
+    "smb",
+    "http",
+    "imap"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "dmz-web",
+   "svcs": [
+    "dns",
+    "http"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "library",
+   "dst": "printers"
+  },
+  {
+   "type": "allow",
+   "src": "dns-servers",
+   "dst": "guest-wifi",
+   "svcs": [
+    "ldap",
+    "imap"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "dns-servers",
+   "dst": "hr",
+   "svcs": [
+    "ssh",
+    "smb",
+    "rdp"
+   ]
+  }
+ ],
+ "nl": [
+  "dns-servers is isolated: it may only reach hr on syslog (UDP 514); dmz-web on HTTPS (TCP 443), and nothing else.",
+  "Hosts in hr may reach dns-servers over syslog (UDP 514) and DNS over UDP 53 and NTP (UDP 123).",
+  "dns-servers must never reach printers, regardless of any other rule.",
+  "Block SNMP (UDP 161) from dmz-web to dns-servers; the rest of any UDP port between them is allowed.",
+  "library must never reach guest-wifi, regardless of any other rule.",
+  "Hosts in printers may reach library over SNMP (UDP 161) and RTSP (TCP 554) and IMAP (TCP 143).",
+  "Deny all traffic from hr to library (this overrides any public service).",
+  "printers offers HTTP (TCP 80) and NTP (UDP 123) to every zone.",
+  "Hosts in guest-wifi may reach dmz-web over SSH (TCP 22) and syslog (UDP 514) and NTP (UDP 123).",
+  "guest-wifi offers HTTP (TCP 80) to every zone.",
+  "Any zone may connect to guest-wifi over NTP (UDP 123) and DNS over UDP 53.",
+  "Any zone may connect to hr over HTTP (TCP 80) and HTTPS (TCP 443).",
+  "Hosts in hr may reach guest-wifi over RTSP (TCP 554) and HTTP (TCP 80) and HTTPS (TCP 443).",
+  "dns-servers must accept RDP (TCP 3389) and LDAP (TCP 389) and IMAP (TCP 143) from guest-wifi.",
+  "Allow guest-wifi to connect to hr using syslog (UDP 514) and RDP (TCP 3389).",
+  "Hosts in library may reach printers over PostgreSQL (TCP 5432).",
+  "Allow guest-wifi to connect to dmz-web using PostgreSQL (TCP 5432) and SMTP (TCP 25) and IMAP (TCP 143).",
+  "Any zone may connect to library over HTTPS (TCP 443) and DNS over UDP 53.",
+  "Any zone may connect to dmz-web over HTTP (TCP 80).",
+  "dns-servers must accept NTP (UDP 123) and syslog (UDP 514) from hr.",
+  "guest-wifi may use any UDP port towards dmz-web, except SNMP (UDP 161), TFTP (UDP 69), which must be blocked.",
+  "Hosts in dns-servers may reach library over SSH (TCP 22) and NTP (UDP 123) and HTTP (TCP 80).",
+  "hr must accept RTSP (TCP 554) from dmz-web.",
+  "Hosts in dns-servers may reach dmz-web over SSH (TCP 22) and SMB (TCP 445) and RTSP (TCP 554).",
+  "Hosts in library may reach dmz-web over SMB (TCP 445) and HTTP (TCP 80) and IMAP (TCP 143).",
+  "Make DNS over UDP 53 and HTTP (TCP 80) on dmz-web reachable from all internal zones.",
+  "No packet from library may enter printers, even for services open to everyone.",
+  "guest-wifi must accept LDAP (TCP 389) and IMAP (TCP 143) from dns-servers.",
+  "hr must accept SSH (TCP 22) and SMB (TCP 445) and RDP (TCP 3389) from dns-servers."
+ ],
+ "gt": [
+  {
+   "src": "dns-servers",
+   "dst": "printers",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "library",
+   "dst": "guest-wifi",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "hr",
+   "dst": "library",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "library",
+   "dst": "printers",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "dmz-web",
+   "dst": "dns-servers",
+   "proto": "udp",
+   "dlo": 161,
+   "dhi": 161,
+   "action": "deny"
+  },
+  {
+   "src": "guest-wifi",
+   "dst": "dmz-web",
+   "proto": "udp",
+   "dlo": 161,
+   "dhi": 161,
+   "action": "deny"
+  },
+  {
+   "src": "guest-wifi",
+   "dst": "dmz-web",
+   "proto": "udp",
+   "dlo": 69,
+   "dhi": 69,
+   "action": "deny"
+  },
+  {
+   "src": "hr",
+   "dst": "dns-servers",
+   "proto": "udp",
+   "dlo": 514,
+   "dhi": 514,
+   "action": "permit"
+  },
+  {
+   "src": "hr",
+   "dst": "dns-servers",
+   "proto": "udp",
+   "dlo": 53,
+   "dhi": 53,
+   "action": "permit"
+  },
+  {
+   "src": "hr",
+   "dst": "dns-servers",
+   "proto": "udp",
+   "dlo": 123,
+   "dhi": 123,
+   "action": "permit"
+  },
+  {
+   "src": "dmz-web",
+   "dst": "dns-servers",
+   "proto": "udp",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "permit"
+  },
+  {
+   "src": "printers",
+   "dst": "library",
+   "proto": "udp",
+   "dlo": 161,
+   "dhi": 161,
+   "action": "permit"
+  },
+  {
+   "src": "printers",
+   "dst": "library",
+   "proto": "tcp",
+   "dlo": 554,
+   "dhi": 554,
+   "action": "permit"
+  },
+  {
+   "src": "printers",
+   "dst": "library",
+   "proto": "tcp",
+   "dlo": 143,
+   "dhi": 143,
+   "action": "permit"
+  },
+  {
+   "src": "guest-wifi",
+   "dst": "dmz-web",
+   "proto": "tcp",
+   "dlo": 22,
+   "dhi": 22,
+   "action": "permit"
+  },
+  {
+   "src": "guest-wifi",
+   "dst": "dmz-web",
+   "proto": "udp",
+   "dlo": 514,
+   "dhi": 514,
+   "action": "permit"
+  },
+  {
+   "src": "guest-wifi",
+   "dst": "dmz-web",
+   "proto": "udp",
+   "dlo": 123,
+   "dhi": 123,
+   "action": "permit"
+  },
+  {
+   "src": "hr",
+   "dst": "guest-wifi",
+   "proto": "tcp",
+   "dlo": 554,
+   "dhi": 554,
+   "action": "permit"
+  },
+  {
+   "src": "hr",
+   "dst": "guest-wifi",
+   "proto": "tcp",
+   "dlo": 80,
+   "dhi": 80,
+   "action": "permit"
+  },
+  {
+   "src": "hr",
+   "dst": "guest-wifi",
+   "proto": "tcp",
+   "dlo": 443,
+   "dhi": 443,
+   "action": "permit"
+  },
+  {
+   "src": "guest-wifi",
+   "dst": "dns-servers",
+   "proto": "tcp",
+   "dlo": 3389,
+   "dhi": 3389,
+   "action": "permit"
+  },
+  {
+   "src": "guest-wifi",
+   "dst": "dns-servers",
+   "proto": "tcp",
+   "dlo": 389,
+   "dhi": 389,
+   "action": "permit"
+  },
+  {
+   "src": "guest-wifi",
+   "dst": "dns-servers",
+   "proto": "tcp",
+   "dlo": 143,
+   "dhi": 143,
+   "action": "permit"
+  },
+  {
+   "src": "guest-wifi",
+   "dst": "hr",
+   "proto": "udp",
+   "dlo": 514,
+   "dhi": 514,
+   "action": "permit"
+  },
+  {
+   "src": "guest-wifi",
+   "dst": "hr",
+   "proto": "tcp",
+   "dlo": 3389,
+   "dhi": 3389,
+   "action": "permit"
+  },
+  {
+   "src": "library",
+   "dst": "printers",
+   "proto": "tcp",
+   "dlo": 5432,
+   "dhi": 5432,
+   "action": "permit"
+  },
+  {
+   "src": "guest-wifi",
+   "dst": "dmz-web",
+   "proto": "tcp",
+   "dlo": 5432,
+   "dhi": 5432,
+   "action": "permit"
+  },
+  {
+   "src": "guest-wifi",
+   "dst": "dmz-web",
+   "proto": "tcp",
+   "dlo": 25,
+   "dhi": 25,
+   "action": "permit"
+  },
+  {
+   "src": "guest-wifi",
+   "dst": "dmz-web",
+   "proto": "tcp",
+   "dlo": 143,
+   "dhi": 143,
+   "action": "permit"
+  },
+  {
+   "src": "hr",
+   "dst": "dns-servers",
+   "proto": "udp",
+   "dlo": 123,
+   "dhi": 123,
+   "action": "permit"
+  },
+  {
+   "src": "hr",
+   "dst": "dns-servers",
+   "proto": "udp",
+   "dlo": 514,
+   "dhi": 514,
+   "action": "permit"
+  },
+  {
+   "src": "guest-wifi",
+   "dst": "dmz-web",
+   "proto": "udp",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "permit"
+  },
+  {
+   "src": "dns-servers",
+   "dst": "library",
+   "proto": "tcp",
+   "dlo": 22,
+   "dhi": 22,
+   "action": "permit"
+  },
+  {
+   "src": "dns-servers",
+   "dst": "library",
+   "proto": "udp",
+   "dlo": 123,
+   "dhi": 123,
+   "action": "permit"
+  },
+  {
+   "src": "dns-servers",
+   "dst": "library",
+   "proto": "tcp",
+   "dlo": 80,
+   "dhi": 80,
+   "action": "permit"
+  },
+  {
+   "src": "dmz-web",
+   "dst": "hr",
+   "proto": "tcp",
+   "dlo": 554,
+   "dhi": 554,
+   "action": "permit"
+  },
+  {
+   "src": "dns-servers",
+   "dst": "dmz-web",
+   "proto": "tcp",
+   "dlo": 22,
+   "dhi": 22,
+   "action": "permit"
+  },
+  {
+   "src": "dns-servers",
+   "dst": "dmz-web",
+   "proto": "tcp",
+   "dlo": 445,
+   "dhi": 445,
+   "action": "permit"
+  },
+  {
+   "src": "dns-servers",
+   "dst": "dmz-web",
+   "proto": "tcp",
+   "dlo": 554,
+   "dhi": 554,
+   "action": "permit"
+  },
+  {
+   "src": "library",
+   "dst": "dmz-web",
+   "proto": "tcp",
+   "dlo": 445,
+   "dhi": 445,
+   "action": "permit"
+  },
+  {
+   "src": "library",
+   "dst": "dmz-web",
+   "proto": "tcp",
+   "dlo": 80,
+   "dhi": 80,
+   "action": "permit"
+  },
+  {
+   "src": "library",
+   "dst": "dmz-web",
+   "proto": "tcp",
+   "dlo": 143,
+   "dhi": 143,
+   "action": "permit"
+  },
+  {
+   "src": "dns-servers",
+   "dst": "guest-wifi",
+   "proto": "tcp",
+   "dlo": 389,
+   "dhi": 389,
+   "action": "permit"
+  },
+  {
+   "src": "dns-servers",
+   "dst": "guest-wifi",
+   "proto": "tcp",
+   "dlo": 143,
+   "dhi": 143,
+   "action": "permit"
+  },
+  {
+   "src": "dns-servers",
+   "dst": "hr",
+   "proto": "tcp",
+   "dlo": 22,
+   "dhi": 22,
+   "action": "permit"
+  },
+  {
+   "src": "dns-servers",
+   "dst": "hr",
+   "proto": "tcp",
+   "dlo": 445,
+   "dhi": 445,
+   "action": "permit"
+  },
+  {
+   "src": "dns-servers",
+   "dst": "hr",
+   "proto": "tcp",
+   "dlo": 3389,
+   "dhi": 3389,
+   "action": "permit"
+  },
+  {
+   "src": "dns-servers",
+   "dst": "hr",
+   "proto": "udp",
+   "dlo": 514,
+   "dhi": 514,
+   "action": "permit"
+  },
+  {
+   "src": "dns-servers",
+   "dst": "dmz-web",
+   "proto": "tcp",
+   "dlo": 443,
+   "dhi": 443,
+   "action": "permit"
+  },
+  {
+   "src": "dns-servers",
+   "dst": "*",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "*",
+   "dst": "printers",
+   "proto": "tcp",
+   "dlo": 80,
+   "dhi": 80,
+   "action": "permit"
+  },
+  {
+   "src": "*",
+   "dst": "printers",
+   "proto": "udp",
+   "dlo": 123,
+   "dhi": 123,
+   "action": "permit"
+  },
+  {
+   "src": "*",
+   "dst": "guest-wifi",
+   "proto": "tcp",
+   "dlo": 80,
+   "dhi": 80,
+   "action": "permit"
+  },
+  {
+   "src": "*",
+   "dst": "guest-wifi",
+   "proto": "udp",
+   "dlo": 123,
+   "dhi": 123,
+   "action": "permit"
+  },
+  {
+   "src": "*",
+   "dst": "guest-wifi",
+   "proto": "udp",
+   "dlo": 53,
+   "dhi": 53,
+   "action": "permit"
+  },
+  {
+   "src": "*",
+   "dst": "hr",
+   "proto": "tcp",
+   "dlo": 80,
+   "dhi": 80,
+   "action": "permit"
+  },
+  {
+   "src": "*",
+   "dst": "hr",
+   "proto": "tcp",
+   "dlo": 443,
+   "dhi": 443,
+   "action": "permit"
+  },
+  {
+   "src": "*",
+   "dst": "library",
+   "proto": "tcp",
+   "dlo": 443,
+   "dhi": 443,
+   "action": "permit"
+  },
+  {
+   "src": "*",
+   "dst": "library",
+   "proto": "udp",
+   "dlo": 53,
+   "dhi": 53,
+   "action": "permit"
+  },
+  {
+   "src": "*",
+   "dst": "dmz-web",
+   "proto": "tcp",
+   "dlo": 80,
+   "dhi": 80,
+   "action": "permit"
+  },
+  {
+   "src": "*",
+   "dst": "dmz-web",
+   "proto": "udp",
+   "dlo": 53,
+   "dhi": 53,
+   "action": "permit"
+  },
+  {
+   "src": "*",
+   "dst": "dmz-web",
+   "proto": "tcp",
+   "dlo": 80,
+   "dhi": 80,
+   "action": "permit"
+  }
+ ]
+}

@@ -1,0 +1,327 @@
+{
+ "id": "Latnet_s1037",
+ "n_intents": 15,
+ "n_gt_rules": 31,
+ "n_zones": 16,
+ "rules": {
+  "eq": false,
+  "mismatch": 0.004,
+  "n_rules": 31,
+  "fail": 0,
+  "s": 34.52627372741699,
+  "calls": 1,
+  "prompt": 963,
+  "completion": 985
+ },
+ "ir0": {
+  "eq": false,
+  "mismatch": 0.0005,
+  "n_rules": 30,
+  "fail": 0,
+  "s": 38.38568711280823,
+  "calls": 15,
+  "prompt": 10018,
+  "completion": 590,
+  "intent_acc": 0.9333333333333333
+ },
+ "ir": {
+  "eq": true,
+  "mismatch": 0.0,
+  "n_rules": 31,
+  "fail": 0,
+  "s": 46.85264563560486,
+  "calls": 15,
+  "prompt": 16783,
+  "completion": 406,
+  "intent_acc": 1.0
+ },
+ "fw": {
+  "eq": true,
+  "mismatch": 0.0,
+  "n_rules": 31,
+  "fail": 0,
+  "s": 112.55050158500671,
+  "verify_s": 65.69785642623901,
+  "calls": 30,
+  "verify_calls": 15,
+  "flagged": 0,
+  "accepted": 0,
+  "repairs": [],
+  "intent_acc": 1.0
+ },
+ "ir_out": [
+  {
+   "type": "allow",
+   "src": "ntp-servers",
+   "dst": "mail",
+   "svcs": [
+    "dns",
+    "imap",
+    "ldap"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "database",
+   "dst": "iot-sensors",
+   "svcs": [
+    "rtsp",
+    "ntp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "library",
+   "dst": "mail",
+   "svcs": [
+    "ntp",
+    "rdp",
+    "ssh"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "dev-lab",
+   "svcs": [
+    "dns"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "monitoring",
+   "dst": "edge-cache",
+   "svcs": [
+    "ntp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "monitoring",
+   "dst": "dmz-web",
+   "svcs": [
+    "ssh",
+    "smtp",
+    "ntp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "library",
+   "dst": "iot-sensors",
+   "svcs": [
+    "http",
+    "https",
+    "imap"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "mail",
+   "dst": "dns-servers",
+   "svcs": [
+    "smtp",
+    "rdp",
+    "mysql"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "admin",
+   "dst": "vpn-users",
+   "svcs": [
+    "postgres"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "dmz-web",
+   "allowed": [
+    [
+     "iot-sensors",
+     "ntp"
+    ],
+    [
+     "mail",
+     "ntp"
+    ]
+   ]
+  },
+  {
+   "type": "block",
+   "src": "dev-lab",
+   "dst": "research"
+  },
+  {
+   "type": "allow",
+   "src": "iot-sensors",
+   "dst": "ntp-servers",
+   "svcs": [
+    "ldap"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "vpn-users",
+   "svcs": [
+    "https"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "research",
+   "dst": "guest-wifi",
+   "broad": "any-udp",
+   "ex": [
+    "tftp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "library",
+   "dst": "guest-wifi",
+   "svcs": [
+    "rdp",
+    "snmp",
+    "imap"
+   ]
+  }
+ ],
+ "fw_out": [
+  {
+   "type": "allow",
+   "src": "ntp-servers",
+   "dst": "mail",
+   "svcs": [
+    "dns",
+    "imap",
+    "ldap"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "database",
+   "dst": "iot-sensors",
+   "svcs": [
+    "rtsp",
+    "ntp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "library",
+   "dst": "mail",
+   "svcs": [
+    "ntp",
+    "rdp",
+    "ssh"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "dev-lab",
+   "svcs": [
+    "dns"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "monitoring",
+   "dst": "edge-cache",
+   "svcs": [
+    "ntp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "monitoring",
+   "dst": "dmz-web",
+   "svcs": [
+    "ssh",
+    "smtp",
+    "ntp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "library",
+   "dst": "iot-sensors",
+   "svcs": [
+    "http",
+    "https",
+    "imap"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "mail",
+   "dst": "dns-servers",
+   "svcs": [
+    "smtp",
+    "rdp",
+    "mysql"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "admin",
+   "dst": "vpn-users",
+   "svcs": [
+    "postgres"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "dmz-web",
+   "allowed": [
+    [
+     "iot-sensors",
+     "ntp"
+    ],
+    [
+     "mail",
+     "ntp"
+    ]
+   ]
+  },
+  {
+   "type": "block",
+   "src": "dev-lab",
+   "dst": "research"
+  },
+  {
+   "type": "allow",
+   "src": "iot-sensors",
+   "dst": "ntp-servers",
+   "svcs": [
+    "ldap"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "vpn-users",
+   "svcs": [
+    "https"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "research",
+   "dst": "guest-wifi",
+   "broad": "any-udp",
+   "ex": [
+    "tftp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "library",
+   "dst": "guest-wifi",
+   "svcs": [
+    "rdp",
+    "snmp",
+    "imap"
+   ]
+  }
+ ],
+ "wall_s": 185.76040244102478
+}

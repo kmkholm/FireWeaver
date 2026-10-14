@@ -1,0 +1,181 @@
+{
+ "id": "Digex_s1052",
+ "n_intents": 8,
+ "n_gt_rules": 12,
+ "n_zones": 6,
+ "rules": {
+  "eq": false,
+  "mismatch": 0.01475,
+  "n_rules": 13,
+  "fail": 0,
+  "s": 15.405168294906616,
+  "calls": 1,
+  "prompt": 662,
+  "completion": 421
+ },
+ "ir0": {
+  "eq": true,
+  "mismatch": 0.0,
+  "n_rules": 12,
+  "fail": 0,
+  "s": 19.22078847885132,
+  "calls": 8,
+  "prompt": 4960,
+  "completion": 252,
+  "intent_acc": 1.0
+ },
+ "ir": {
+  "eq": true,
+  "mismatch": 0.0,
+  "n_rules": 12,
+  "fail": 0,
+  "s": 17.200738191604614,
+  "calls": 8,
+  "prompt": 8568,
+  "completion": 194,
+  "intent_acc": 1.0
+ },
+ "fw": {
+  "eq": true,
+  "mismatch": 0.0,
+  "n_rules": 12,
+  "fail": 0,
+  "s": 39.598252058029175,
+  "verify_s": 22.39751434326172,
+  "calls": 16,
+  "verify_calls": 8,
+  "flagged": 0,
+  "accepted": 0,
+  "repairs": [],
+  "intent_acc": 1.0
+ },
+ "ir_out": [
+  {
+   "type": "public",
+   "dst": "scada",
+   "svcs": [
+    "https"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "student-lab",
+   "dst": "dev-lab",
+   "svcs": [
+    "https",
+    "ssh",
+    "dns"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "ops",
+   "svcs": [
+    "dns"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "scada",
+   "dst": "edge-cache",
+   "svcs": [
+    "ldap"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "dev-lab",
+   "dst": "scada"
+  },
+  {
+   "type": "allow",
+   "src": "student-lab",
+   "dst": "edge-cache",
+   "svcs": [
+    "mysql"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "student-lab",
+   "dst": "dev-lab",
+   "svcs": [
+    "rtsp",
+    "http"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "scada",
+   "svcs": [
+    "https",
+    "http"
+   ]
+  }
+ ],
+ "fw_out": [
+  {
+   "type": "public",
+   "dst": "scada",
+   "svcs": [
+    "https"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "student-lab",
+   "dst": "dev-lab",
+   "svcs": [
+    "https",
+    "ssh",
+    "dns"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "ops",
+   "svcs": [
+    "dns"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "scada",
+   "dst": "edge-cache",
+   "svcs": [
+    "ldap"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "dev-lab",
+   "dst": "scada"
+  },
+  {
+   "type": "allow",
+   "src": "student-lab",
+   "dst": "edge-cache",
+   "svcs": [
+    "mysql"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "student-lab",
+   "dst": "dev-lab",
+   "svcs": [
+    "rtsp",
+    "http"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "scada",
+   "svcs": [
+    "https",
+    "http"
+   ]
+  }
+ ],
+ "wall_s": 74.46689248085022
+}

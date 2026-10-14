@@ -1,0 +1,12 @@
+__pycache__/
+*.pyc
+paper/
+testbed/
+data/classbench/*
+!data/classbench/1k_1/
+data/classbench_gen/
+data/netconfeval/step_2_*
+data/netconfeval/step_3_*
+emulation/gns3vm_ip.txt
+PROGRESS.md
+code/pilot_repair.py

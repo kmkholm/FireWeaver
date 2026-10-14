@@ -1,0 +1,358 @@
+{
+ "id": "Bbnplanet_s1028",
+ "topology": "Bbnplanet",
+ "n_nodes": 27,
+ "edges": [
+  [
+   0,
+   1
+  ],
+  [
+   1,
+   8
+  ],
+  [
+   1,
+   2
+  ],
+  [
+   1,
+   4
+  ],
+  [
+   3,
+   4
+  ],
+  [
+   4,
+   5
+  ],
+  [
+   4,
+   25
+  ],
+  [
+   5,
+   9
+  ],
+  [
+   5,
+   6
+  ],
+  [
+   5,
+   7
+  ],
+  [
+   8,
+   18
+  ],
+  [
+   9,
+   10
+  ],
+  [
+   9,
+   11
+  ],
+  [
+   9,
+   13
+  ],
+  [
+   12,
+   13
+  ],
+  [
+   13,
+   25
+  ],
+  [
+   14,
+   15
+  ],
+  [
+   15,
+   16
+  ],
+  [
+   15,
+   17
+  ],
+  [
+   15,
+   18
+  ],
+  [
+   15,
+   22
+  ],
+  [
+   18,
+   19
+  ],
+  [
+   18,
+   20
+  ],
+  [
+   21,
+   22
+  ],
+  [
+   22,
+   25
+  ],
+  [
+   22,
+   23
+  ],
+  [
+   24,
+   25
+  ],
+  [
+   25,
+   26
+  ]
+ ],
+ "zones": {
+  "iot-sensors": {
+   "router": 19,
+   "prefixes": [
+    "112.223.17.0/24",
+    "125.149.60.0/26",
+    "14.73.37.112/28"
+   ]
+  },
+  "ntp-servers": {
+   "router": 12,
+   "prefixes": [
+    "162.166.104.0/23",
+    "48.207.214.64/26",
+    "206.82.241.0/27"
+   ]
+  },
+  "dev-lab": {
+   "router": 3,
+   "prefixes": [
+    "231.35.251.0/24",
+    "46.130.48.32/28"
+   ]
+  },
+  "printers": {
+   "router": 17,
+   "prefixes": [
+    "205.235.242.0/23"
+   ]
+  },
+  "nvr": {
+   "router": 11,
+   "prefixes": [
+    "181.118.0.0/16"
+   ]
+  },
+  "research": {
+   "router": 24,
+   "prefixes": [
+    "66.157.238.0/23",
+    "225.111.128.0/19",
+    "196.77.0.0/17"
+   ]
+  }
+ },
+ "zone_text": [
+  "iot-sensors: hosts 112.223.17.0/24, 125.149.60.0/26, 14.73.37.112/28 attached to router R19",
+  "ntp-servers: hosts 162.166.104.0/23, 48.207.214.64/26, 206.82.241.0/27 attached to router R12",
+  "dev-lab: hosts 231.35.251.0/24, 46.130.48.32/28 attached to router R3",
+  "printers: hosts 205.235.242.0/23 attached to router R17",
+  "nvr: hosts 181.118.0.0/16 attached to router R11",
+  "research: hosts 66.157.238.0/23, 225.111.128.0/19, 196.77.0.0/17 attached to router R24"
+ ],
+ "intents": [
+  {
+   "type": "block",
+   "src": "printers",
+   "dst": "dev-lab"
+  },
+  {
+   "type": "allow",
+   "src": "ntp-servers",
+   "dst": "iot-sensors",
+   "svcs": [
+    "dns"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "research",
+   "dst": "iot-sensors",
+   "svcs": [
+    "ntp"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "ntp-servers",
+   "svcs": [
+    "http",
+    "ntp"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "nvr",
+   "svcs": [
+    "https",
+    "http"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "nvr",
+   "allowed": [
+    [
+     "ntp-servers",
+     "https"
+    ],
+    [
+     "research",
+     "dns"
+    ]
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "printers",
+   "dst": "research",
+   "svcs": [
+    "postgres"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "ntp-servers",
+   "dst": "iot-sensors",
+   "svcs": [
+    "rdp",
+    "smb"
+   ]
+  }
+ ],
+ "nl": [
+  "Deny all traffic from printers to dev-lab (this overrides any public service).",
+  "Allow ntp-servers to connect to iot-sensors using DNS over UDP 53.",
+  "Allow research to connect to iot-sensors using NTP (UDP 123).",
+  "Make HTTP (TCP 80) and NTP (UDP 123) on ntp-servers reachable from all internal zones.",
+  "Make HTTPS (TCP 443) and HTTP (TCP 80) on nvr reachable from all internal zones.",
+  "Restrict nvr so that its only permitted destinations are ntp-servers on HTTPS (TCP 443); research on DNS over UDP 53; drop all other traffic it originates.",
+  "research must accept PostgreSQL (TCP 5432) from printers.",
+  "Hosts in ntp-servers may reach iot-sensors over RDP (TCP 3389) and SMB (TCP 445)."
+ ],
+ "gt": [
+  {
+   "src": "printers",
+   "dst": "dev-lab",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "ntp-servers",
+   "dst": "iot-sensors",
+   "proto": "udp",
+   "dlo": 53,
+   "dhi": 53,
+   "action": "permit"
+  },
+  {
+   "src": "research",
+   "dst": "iot-sensors",
+   "proto": "udp",
+   "dlo": 123,
+   "dhi": 123,
+   "action": "permit"
+  },
+  {
+   "src": "printers",
+   "dst": "research",
+   "proto": "tcp",
+   "dlo": 5432,
+   "dhi": 5432,
+   "action": "permit"
+  },
+  {
+   "src": "ntp-servers",
+   "dst": "iot-sensors",
+   "proto": "tcp",
+   "dlo": 3389,
+   "dhi": 3389,
+   "action": "permit"
+  },
+  {
+   "src": "ntp-servers",
+   "dst": "iot-sensors",
+   "proto": "tcp",
+   "dlo": 445,
+   "dhi": 445,
+   "action": "permit"
+  },
+  {
+   "src": "nvr",
+   "dst": "ntp-servers",
+   "proto": "tcp",
+   "dlo": 443,
+   "dhi": 443,
+   "action": "permit"
+  },
+  {
+   "src": "nvr",
+   "dst": "research",
+   "proto": "udp",
+   "dlo": 53,
+   "dhi": 53,
+   "action": "permit"
+  },
+  {
+   "src": "nvr",
+   "dst": "*",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "*",
+   "dst": "ntp-servers",
+   "proto": "tcp",
+   "dlo": 80,
+   "dhi": 80,
+   "action": "permit"
+  },
+  {
+   "src": "*",
+   "dst": "ntp-servers",
+   "proto": "udp",
+   "dlo": 123,
+   "dhi": 123,
+   "action": "permit"
+  },
+  {
+   "src": "*",
+   "dst": "nvr",
+   "proto": "tcp",
+   "dlo": 443,
+   "dhi": 443,
+   "action": "permit"
+  },
+  {
+   "src": "*",
+   "dst": "nvr",
+   "proto": "tcp",
+   "dlo": 80,
+   "dhi": 80,
+   "action": "permit"
+  }
+ ]
+}

@@ -1,0 +1,591 @@
+{
+ "id": "TLex_s1043",
+ "n_intents": 30,
+ "n_gt_rules": 60,
+ "n_zones": 10,
+ "rules": {
+  "eq": false,
+  "mismatch": 0.03575,
+  "n_rules": 82,
+  "fail": 0,
+  "s": 90.55790591239929,
+  "calls": 1,
+  "prompt": 1296,
+  "completion": 2572
+ },
+ "ir0": {
+  "eq": false,
+  "mismatch": 0.0125,
+  "n_rules": 52,
+  "fail": 0,
+  "s": 74.74521827697754,
+  "calls": 30,
+  "prompt": 19030,
+  "completion": 1107,
+  "intent_acc": 0.8666666666666667
+ },
+ "ir": {
+  "eq": true,
+  "mismatch": 0.0,
+  "n_rules": 60,
+  "fail": 0,
+  "s": 65.10463285446167,
+  "calls": 30,
+  "prompt": 32560,
+  "completion": 776,
+  "intent_acc": 1.0
+ },
+ "fw": {
+  "eq": true,
+  "mismatch": 0.0,
+  "n_rules": 60,
+  "fail": 0,
+  "s": 170.74923515319824,
+  "verify_s": 105.64460277557373,
+  "calls": 62,
+  "verify_calls": 32,
+  "flagged": 0,
+  "accepted": 0,
+  "repairs": [],
+  "intent_acc": 1.0
+ },
+ "ir_out": [
+  {
+   "type": "allow",
+   "src": "hr",
+   "dst": "database",
+   "svcs": [
+    "ssh"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "ops",
+   "allowed": [
+    [
+     "library",
+     "https"
+    ]
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "database",
+   "dst": "student-lab",
+   "svcs": [
+    "ssh",
+    "imap"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "iot-sensors",
+   "dst": "admin",
+   "broad": "any-tcp",
+   "ex": [
+    "ftp"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "printers",
+   "allowed": [
+    [
+     "ops",
+     "syslog"
+    ],
+    [
+     "database",
+     "dns"
+    ]
+   ]
+  },
+  {
+   "type": "block",
+   "src": "ops",
+   "dst": "printers"
+  },
+  {
+   "type": "allow",
+   "src": "database",
+   "dst": "ops",
+   "svcs": [
+    "postgres",
+    "imap"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "hr",
+   "svcs": [
+    "https",
+    "dns"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "cameras",
+   "dst": "admin",
+   "svcs": [
+    "postgres",
+    "https"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "mail",
+   "dst": "iot-sensors",
+   "svcs": [
+    "http",
+    "rdp",
+    "smtp"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "database",
+   "allowed": [
+    [
+     "library",
+     "https"
+    ],
+    [
+     "cameras",
+     "https"
+    ]
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "cameras",
+   "dst": "ops",
+   "svcs": [
+    "rtsp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "cameras",
+   "dst": "student-lab",
+   "svcs": [
+    "dns",
+    "https"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "cameras",
+   "dst": "hr"
+  },
+  {
+   "type": "public",
+   "dst": "student-lab",
+   "svcs": [
+    "ntp"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "student-lab",
+   "allowed": [
+    [
+     "printers",
+     "https"
+    ]
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "admin",
+   "dst": "printers",
+   "broad": "any-tcp",
+   "ex": [
+    "telnet",
+    "ftp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "cameras",
+   "dst": "hr",
+   "svcs": [
+    "rdp",
+    "snmp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "printers",
+   "dst": "admin",
+   "svcs": [
+    "smtp"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "admin",
+   "dst": "student-lab"
+  },
+  {
+   "type": "allow",
+   "src": "ops",
+   "dst": "printers",
+   "svcs": [
+    "ldap",
+    "smtp"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "database",
+   "dst": "student-lab",
+   "broad": "high-tcp",
+   "ex": [
+    "rdp",
+    "postgres",
+    "mysql"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "ops",
+   "dst": "student-lab",
+   "svcs": [
+    "smtp",
+    "http",
+    "rtsp"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "mail",
+   "svcs": [
+    "ntp",
+    "http"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "ops",
+   "dst": "admin",
+   "svcs": [
+    "dns",
+    "ntp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "iot-sensors",
+   "dst": "ops",
+   "svcs": [
+    "smb",
+    "mysql"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "library",
+   "dst": "printers",
+   "svcs": [
+    "ntp",
+    "ldap"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "iot-sensors",
+   "dst": "library",
+   "svcs": [
+    "dns",
+    "rdp",
+    "postgres"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "cameras",
+   "svcs": [
+    "http",
+    "ntp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "database",
+   "dst": "library",
+   "svcs": [
+    "smtp"
+   ]
+  }
+ ],
+ "fw_out": [
+  {
+   "type": "allow",
+   "src": "hr",
+   "dst": "database",
+   "svcs": [
+    "ssh"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "ops",
+   "allowed": [
+    [
+     "library",
+     "https"
+    ]
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "database",
+   "dst": "student-lab",
+   "svcs": [
+    "ssh",
+    "imap"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "iot-sensors",
+   "dst": "admin",
+   "broad": "any-tcp",
+   "ex": [
+    "ftp"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "printers",
+   "allowed": [
+    [
+     "ops",
+     "syslog"
+    ],
+    [
+     "database",
+     "dns"
+    ]
+   ]
+  },
+  {
+   "type": "block",
+   "src": "ops",
+   "dst": "printers"
+  },
+  {
+   "type": "allow",
+   "src": "database",
+   "dst": "ops",
+   "svcs": [
+    "postgres",
+    "imap"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "hr",
+   "svcs": [
+    "https",
+    "dns"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "cameras",
+   "dst": "admin",
+   "svcs": [
+    "postgres",
+    "https"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "mail",
+   "dst": "iot-sensors",
+   "svcs": [
+    "http",
+    "rdp",
+    "smtp"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "database",
+   "allowed": [
+    [
+     "library",
+     "https"
+    ],
+    [
+     "cameras",
+     "https"
+    ]
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "cameras",
+   "dst": "ops",
+   "svcs": [
+    "rtsp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "cameras",
+   "dst": "student-lab",
+   "svcs": [
+    "dns",
+    "https"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "cameras",
+   "dst": "hr"
+  },
+  {
+   "type": "public",
+   "dst": "student-lab",
+   "svcs": [
+    "ntp"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "student-lab",
+   "allowed": [
+    [
+     "printers",
+     "https"
+    ]
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "admin",
+   "dst": "printers",
+   "broad": "any-tcp",
+   "ex": [
+    "telnet",
+    "ftp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "cameras",
+   "dst": "hr",
+   "svcs": [
+    "rdp",
+    "snmp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "printers",
+   "dst": "admin",
+   "svcs": [
+    "smtp"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "admin",
+   "dst": "student-lab"
+  },
+  {
+   "type": "allow",
+   "src": "ops",
+   "dst": "printers",
+   "svcs": [
+    "ldap",
+    "smtp"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "database",
+   "dst": "student-lab",
+   "broad": "high-tcp",
+   "ex": [
+    "rdp",
+    "postgres",
+    "mysql"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "ops",
+   "dst": "student-lab",
+   "svcs": [
+    "smtp",
+    "http",
+    "rtsp"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "mail",
+   "svcs": [
+    "ntp",
+    "http"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "ops",
+   "dst": "admin",
+   "svcs": [
+    "dns",
+    "ntp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "iot-sensors",
+   "dst": "ops",
+   "svcs": [
+    "smb",
+    "mysql"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "library",
+   "dst": "printers",
+   "svcs": [
+    "ntp",
+    "ldap"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "iot-sensors",
+   "dst": "library",
+   "svcs": [
+    "dns",
+    "rdp",
+    "postgres"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "cameras",
+   "svcs": [
+    "http",
+    "ntp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "database",
+   "dst": "library",
+   "svcs": [
+    "smtp"
+   ]
+  }
+ ],
+ "wall_s": 336.51373529434204
+}

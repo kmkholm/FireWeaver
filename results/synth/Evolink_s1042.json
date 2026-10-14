@@ -1,0 +1,161 @@
+{
+ "id": "Evolink_s1042",
+ "n_intents": 7,
+ "n_gt_rules": 10,
+ "n_zones": 6,
+ "rules": {
+  "eq": false,
+  "mismatch": 0.01175,
+  "n_rules": 11,
+  "fail": 0,
+  "s": 13.629013299942017,
+  "calls": 1,
+  "prompt": 624,
+  "completion": 365
+ },
+ "ir0": {
+  "eq": true,
+  "mismatch": 0.0,
+  "n_rules": 10,
+  "fail": 0,
+  "s": 16.021977186203003,
+  "calls": 7,
+  "prompt": 4307,
+  "completion": 186,
+  "intent_acc": 1.0
+ },
+ "ir": {
+  "eq": true,
+  "mismatch": 0.0,
+  "n_rules": 10,
+  "fail": 0,
+  "s": 15.10870361328125,
+  "calls": 7,
+  "prompt": 7464,
+  "completion": 159,
+  "intent_acc": 1.0
+ },
+ "fw": {
+  "eq": true,
+  "mismatch": 0.0,
+  "n_rules": 10,
+  "fail": 0,
+  "s": 35.48580813407898,
+  "verify_s": 20.377104997634888,
+  "calls": 14,
+  "verify_calls": 7,
+  "flagged": 0,
+  "accepted": 0,
+  "repairs": [],
+  "intent_acc": 1.0
+ },
+ "ir_out": [
+  {
+   "type": "allow",
+   "src": "backup",
+   "dst": "scada",
+   "svcs": [
+    "ssh"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "dmz-web",
+   "dst": "backup"
+  },
+  {
+   "type": "block",
+   "src": "mail",
+   "dst": "database"
+  },
+  {
+   "type": "allow",
+   "src": "mail",
+   "dst": "scada",
+   "svcs": [
+    "rtsp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "mail",
+   "dst": "backup",
+   "svcs": [
+    "mysql",
+    "postgres"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "mail",
+   "svcs": [
+    "https"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "backup",
+   "dst": "database",
+   "svcs": [
+    "rdp",
+    "postgres",
+    "ssh"
+   ]
+  }
+ ],
+ "fw_out": [
+  {
+   "type": "allow",
+   "src": "backup",
+   "dst": "scada",
+   "svcs": [
+    "ssh"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "dmz-web",
+   "dst": "backup"
+  },
+  {
+   "type": "block",
+   "src": "mail",
+   "dst": "database"
+  },
+  {
+   "type": "allow",
+   "src": "mail",
+   "dst": "scada",
+   "svcs": [
+    "rtsp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "mail",
+   "dst": "backup",
+   "svcs": [
+    "mysql",
+    "postgres"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "mail",
+   "svcs": [
+    "https"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "backup",
+   "dst": "database",
+   "svcs": [
+    "rdp",
+    "postgres",
+    "ssh"
+   ]
+  }
+ ],
+ "wall_s": 65.31518793106079
+}

@@ -1,0 +1,159 @@
+{
+ "id": "Sago_s1036",
+ "n_intents": 6,
+ "n_gt_rules": 10,
+ "n_zones": 10,
+ "rules": {
+  "eq": false,
+  "mismatch": 0.0075,
+  "n_rules": 10,
+  "fail": 0,
+  "s": 99.77805066108704,
+  "calls": 1,
+  "prompt": 637,
+  "completion": 330
+ },
+ "ir0": {
+  "eq": false,
+  "mismatch": 0.00325,
+  "n_rules": 7,
+  "fail": 0,
+  "s": 14.65026330947876,
+  "calls": 6,
+  "prompt": 3815,
+  "completion": 207,
+  "intent_acc": 0.6666666666666666
+ },
+ "ir": {
+  "eq": true,
+  "mismatch": 0.0,
+  "n_rules": 10,
+  "fail": 0,
+  "s": 13.106297492980957,
+  "calls": 6,
+  "prompt": 6521,
+  "completion": 158,
+  "intent_acc": 1.0
+ },
+ "fw": {
+  "eq": true,
+  "mismatch": 0.0,
+  "n_rules": 10,
+  "fail": 0,
+  "s": 30.843043565750122,
+  "verify_s": 17.736746549606323,
+  "calls": 12,
+  "verify_calls": 6,
+  "flagged": 0,
+  "accepted": 0,
+  "repairs": [],
+  "intent_acc": 1.0
+ },
+ "ir_out": [
+  {
+   "type": "isolate",
+   "src": "cameras",
+   "allowed": [
+    [
+     "finance",
+     "https"
+    ]
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "monitoring",
+   "dst": "edge-cache",
+   "svcs": [
+    "smb"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "ntp-servers",
+   "dst": "monitoring"
+  },
+  {
+   "type": "isolate",
+   "src": "monitoring",
+   "allowed": [
+    [
+     "edge-cache",
+     "ntp"
+    ]
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "engineering",
+   "dst": "guest-wifi",
+   "svcs": [
+    "postgres"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "cameras",
+   "dst": "ntp-servers",
+   "broad": "any-udp",
+   "ex": [
+    "snmp",
+    "tftp"
+   ]
+  }
+ ],
+ "fw_out": [
+  {
+   "type": "isolate",
+   "src": "cameras",
+   "allowed": [
+    [
+     "finance",
+     "https"
+    ]
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "monitoring",
+   "dst": "edge-cache",
+   "svcs": [
+    "smb"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "ntp-servers",
+   "dst": "monitoring"
+  },
+  {
+   "type": "isolate",
+   "src": "monitoring",
+   "allowed": [
+    [
+     "edge-cache",
+     "ntp"
+    ]
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "engineering",
+   "dst": "guest-wifi",
+   "svcs": [
+    "postgres"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "cameras",
+   "dst": "ntp-servers",
+   "broad": "any-udp",
+   "ex": [
+    "snmp",
+    "tftp"
+   ]
+  }
+ ],
+ "wall_s": 145.4106833934784
+}

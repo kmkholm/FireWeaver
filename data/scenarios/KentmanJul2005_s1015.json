@@ -1,0 +1,422 @@
+{
+ "id": "KentmanJul2005_s1015",
+ "topology": "KentmanJul2005",
+ "n_nodes": 16,
+ "edges": [
+  [
+   0,
+   11
+  ],
+  [
+   0,
+   12
+  ],
+  [
+   1,
+   14
+  ],
+  [
+   2,
+   7
+  ],
+  [
+   3,
+   14
+  ],
+  [
+   4,
+   11
+  ],
+  [
+   5,
+   14
+  ],
+  [
+   6,
+   12
+  ],
+  [
+   7,
+   12
+  ],
+  [
+   8,
+   9
+  ],
+  [
+   8,
+   12
+  ],
+  [
+   9,
+   13
+  ],
+  [
+   10,
+   14
+  ],
+  [
+   10,
+   11
+  ],
+  [
+   11,
+   12
+  ],
+  [
+   12,
+   15
+  ],
+  [
+   13,
+   14
+  ]
+ ],
+ "zones": {
+  "voip": {
+   "router": 4,
+   "prefixes": [
+    "96.84.200.144/28",
+    "43.31.70.0/25",
+    "10.96.67.128/28"
+   ]
+  },
+  "hr": {
+   "router": 3,
+   "prefixes": [
+    "99.64.134.0/23"
+   ]
+  },
+  "dns-servers": {
+   "router": 5,
+   "prefixes": [
+    "58.148.0.0/16",
+    "119.52.224.0/19",
+    "206.40.64.0/19"
+   ]
+  },
+  "research": {
+   "router": 6,
+   "prefixes": [
+    "41.155.152.0/21",
+    "242.46.144.0/25",
+    "104.15.34.0/25"
+   ]
+  },
+  "database": {
+   "router": 1,
+   "prefixes": [
+    "49.82.0.0/17"
+   ]
+  },
+  "cameras": {
+   "router": 2,
+   "prefixes": [
+    "154.157.112.0/20"
+   ]
+  },
+  "scada": {
+   "router": 15,
+   "prefixes": [
+    "60.146.96.0/20"
+   ]
+  },
+  "backup": {
+   "router": 10,
+   "prefixes": [
+    "104.148.64.0/18",
+    "145.55.166.0/24",
+    "8.152.215.32/28"
+   ]
+  },
+  "guest-wifi": {
+   "router": 8,
+   "prefixes": [
+    "85.124.189.128/25",
+    "82.54.132.192/27"
+   ]
+  },
+  "printers": {
+   "router": 9,
+   "prefixes": [
+    "37.118.102.0/25",
+    "26.211.27.0/24",
+    "217.80.176.0/22"
+   ]
+  },
+  "dev-lab": {
+   "router": 0,
+   "prefixes": [
+    "29.49.0.0/17",
+    "178.94.10.0/23",
+    "25.24.225.192/27"
+   ]
+  },
+  "edge-cache": {
+   "router": 7,
+   "prefixes": [
+    "33.129.81.128/26",
+    "219.174.119.0/25"
+   ]
+  },
+  "engineering": {
+   "router": 13,
+   "prefixes": [
+    "185.53.78.0/26"
+   ]
+  },
+  "nvr": {
+   "router": 11,
+   "prefixes": [
+    "167.110.82.0/23",
+    "29.121.0.0/16",
+    "167.64.0.0/16"
+   ]
+  },
+  "ops": {
+   "router": 14,
+   "prefixes": [
+    "175.235.8.0/23",
+    "126.40.226.0/23"
+   ]
+  },
+  "library": {
+   "router": 12,
+   "prefixes": [
+    "80.132.26.0/23",
+    "253.20.176.0/22"
+   ]
+  }
+ },
+ "zone_text": [
+  "voip: hosts 96.84.200.144/28, 43.31.70.0/25, 10.96.67.128/28 attached to router R4",
+  "hr: hosts 99.64.134.0/23 attached to router R3",
+  "dns-servers: hosts 58.148.0.0/16, 119.52.224.0/19, 206.40.64.0/19 attached to router R5",
+  "research: hosts 41.155.152.0/21, 242.46.144.0/25, 104.15.34.0/25 attached to router R6",
+  "database: hosts 49.82.0.0/17 attached to router R1",
+  "cameras: hosts 154.157.112.0/20 attached to router R2",
+  "scada: hosts 60.146.96.0/20 attached to router R15",
+  "backup: hosts 104.148.64.0/18, 145.55.166.0/24, 8.152.215.32/28 attached to router R10",
+  "guest-wifi: hosts 85.124.189.128/25, 82.54.132.192/27 attached to router R8",
+  "printers: hosts 37.118.102.0/25, 26.211.27.0/24, 217.80.176.0/22 attached to router R9",
+  "dev-lab: hosts 29.49.0.0/17, 178.94.10.0/23, 25.24.225.192/27 attached to router R0",
+  "edge-cache: hosts 33.129.81.128/26, 219.174.119.0/25 attached to router R7",
+  "engineering: hosts 185.53.78.0/26 attached to router R13",
+  "nvr: hosts 167.110.82.0/23, 29.121.0.0/16, 167.64.0.0/16 attached to router R11",
+  "ops: hosts 175.235.8.0/23, 126.40.226.0/23 attached to router R14",
+  "library: hosts 80.132.26.0/23, 253.20.176.0/22 attached to router R12"
+ ],
+ "intents": [
+  {
+   "type": "allow",
+   "src": "cameras",
+   "dst": "dns-servers",
+   "svcs": [
+    "snmp",
+    "http",
+    "https"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "guest-wifi",
+   "allowed": [
+    [
+     "hr",
+     "dns"
+    ],
+    [
+     "backup",
+     "syslog"
+    ]
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "backup",
+   "svcs": [
+    "http",
+    "ntp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "scada",
+   "dst": "library",
+   "svcs": [
+    "ntp",
+    "mysql"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "printers",
+   "dst": "dev-lab"
+  },
+  {
+   "type": "allow",
+   "src": "guest-wifi",
+   "dst": "cameras",
+   "svcs": [
+    "smb"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "backup",
+   "dst": "printers",
+   "svcs": [
+    "snmp",
+    "postgres"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "backup",
+   "svcs": [
+    "ntp",
+    "http"
+   ]
+  }
+ ],
+ "nl": [
+  "Allow cameras to connect to dns-servers using SNMP (UDP 161) and HTTP (TCP 80) and HTTPS (TCP 443).",
+  "guest-wifi is isolated: it may only reach hr on DNS over UDP 53; backup on syslog (UDP 514), and nothing else.",
+  "Make HTTP (TCP 80) and NTP (UDP 123) on backup reachable from all internal zones.",
+  "Hosts in scada may reach library over NTP (UDP 123) and MySQL (TCP 3306).",
+  "Deny all traffic from printers to dev-lab (this overrides any public service).",
+  "cameras must accept SMB (TCP 445) from guest-wifi.",
+  "printers must accept SNMP (UDP 161) and PostgreSQL (TCP 5432) from backup.",
+  "backup offers NTP (UDP 123) and HTTP (TCP 80) to every zone."
+ ],
+ "gt": [
+  {
+   "src": "printers",
+   "dst": "dev-lab",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "cameras",
+   "dst": "dns-servers",
+   "proto": "udp",
+   "dlo": 161,
+   "dhi": 161,
+   "action": "permit"
+  },
+  {
+   "src": "cameras",
+   "dst": "dns-servers",
+   "proto": "tcp",
+   "dlo": 80,
+   "dhi": 80,
+   "action": "permit"
+  },
+  {
+   "src": "cameras",
+   "dst": "dns-servers",
+   "proto": "tcp",
+   "dlo": 443,
+   "dhi": 443,
+   "action": "permit"
+  },
+  {
+   "src": "scada",
+   "dst": "library",
+   "proto": "udp",
+   "dlo": 123,
+   "dhi": 123,
+   "action": "permit"
+  },
+  {
+   "src": "scada",
+   "dst": "library",
+   "proto": "tcp",
+   "dlo": 3306,
+   "dhi": 3306,
+   "action": "permit"
+  },
+  {
+   "src": "guest-wifi",
+   "dst": "cameras",
+   "proto": "tcp",
+   "dlo": 445,
+   "dhi": 445,
+   "action": "permit"
+  },
+  {
+   "src": "backup",
+   "dst": "printers",
+   "proto": "udp",
+   "dlo": 161,
+   "dhi": 161,
+   "action": "permit"
+  },
+  {
+   "src": "backup",
+   "dst": "printers",
+   "proto": "tcp",
+   "dlo": 5432,
+   "dhi": 5432,
+   "action": "permit"
+  },
+  {
+   "src": "guest-wifi",
+   "dst": "hr",
+   "proto": "udp",
+   "dlo": 53,
+   "dhi": 53,
+   "action": "permit"
+  },
+  {
+   "src": "guest-wifi",
+   "dst": "backup",
+   "proto": "udp",
+   "dlo": 514,
+   "dhi": 514,
+   "action": "permit"
+  },
+  {
+   "src": "guest-wifi",
+   "dst": "*",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "*",
+   "dst": "backup",
+   "proto": "tcp",
+   "dlo": 80,
+   "dhi": 80,
+   "action": "permit"
+  },
+  {
+   "src": "*",
+   "dst": "backup",
+   "proto": "udp",
+   "dlo": 123,
+   "dhi": 123,
+   "action": "permit"
+  },
+  {
+   "src": "*",
+   "dst": "backup",
+   "proto": "udp",
+   "dlo": 123,
+   "dhi": 123,
+   "action": "permit"
+  },
+  {
+   "src": "*",
+   "dst": "backup",
+   "proto": "tcp",
+   "dlo": 80,
+   "dhi": 80,
+   "action": "permit"
+  }
+ ]
+}

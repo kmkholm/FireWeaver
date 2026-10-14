@@ -1,0 +1,572 @@
+{
+ "id": "Aarnet_s1039",
+ "n_intents": 29,
+ "n_gt_rules": 62,
+ "n_zones": 6,
+ "rules": {
+  "eq": false,
+  "mismatch": 0.04125,
+  "n_rules": 52,
+  "fail": 0,
+  "s": 56.918790340423584,
+  "calls": 1,
+  "prompt": 1348,
+  "completion": 1640
+ },
+ "ir0": {
+  "eq": false,
+  "mismatch": 0.00925,
+  "n_rules": 61,
+  "fail": 0,
+  "s": 33.21099615097046,
+  "calls": 29,
+  "prompt": 18162,
+  "completion": 963,
+  "intent_acc": 0.9655172413793104
+ },
+ "ir": {
+  "eq": true,
+  "mismatch": 0.0,
+  "n_rules": 62,
+  "fail": 0,
+  "s": 27.120396852493286,
+  "calls": 29,
+  "prompt": 31241,
+  "completion": 779,
+  "intent_acc": 1.0
+ },
+ "fw": {
+  "eq": true,
+  "mismatch": 0.0,
+  "n_rules": 62,
+  "fail": 0,
+  "s": 90.13556432723999,
+  "verify_s": 63.01516819000244,
+  "calls": 61,
+  "verify_calls": 32,
+  "flagged": 1,
+  "accepted": 0,
+  "repairs": [
+   {
+    "k": 0,
+    "was_ok": true,
+    "now_ok": true,
+    "history": [
+     1,
+     0
+    ],
+    "calls": 2,
+    "accepted": false,
+    "diff": 1,
+    "win_new": 0,
+    "win_old": 1
+   }
+  ],
+  "intent_acc": 1.0
+ },
+ "ir_out": [
+  {
+   "type": "isolate",
+   "src": "dns-servers",
+   "allowed": [
+    [
+     "hr",
+     "syslog"
+    ],
+    [
+     "dmz-web",
+     "https"
+    ]
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "hr",
+   "dst": "dns-servers",
+   "svcs": [
+    "syslog",
+    "dns",
+    "ntp"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "dns-servers",
+   "dst": "printers"
+  },
+  {
+   "type": "allow_except",
+   "src": "dmz-web",
+   "dst": "dns-servers",
+   "broad": "any-udp",
+   "ex": [
+    "snmp"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "library",
+   "dst": "guest-wifi"
+  },
+  {
+   "type": "allow",
+   "src": "printers",
+   "dst": "library",
+   "svcs": [
+    "snmp",
+    "rtsp",
+    "imap"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "hr",
+   "dst": "library"
+  },
+  {
+   "type": "public",
+   "dst": "printers",
+   "svcs": [
+    "http",
+    "ntp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "guest-wifi",
+   "dst": "dmz-web",
+   "svcs": [
+    "ssh",
+    "syslog",
+    "ntp"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "guest-wifi",
+   "svcs": [
+    "http"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "guest-wifi",
+   "svcs": [
+    "ntp",
+    "dns"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "hr",
+   "svcs": [
+    "http",
+    "https"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "hr",
+   "dst": "guest-wifi",
+   "svcs": [
+    "rtsp",
+    "http",
+    "https"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "guest-wifi",
+   "dst": "dns-servers",
+   "svcs": [
+    "rdp",
+    "ldap",
+    "imap"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "guest-wifi",
+   "dst": "hr",
+   "svcs": [
+    "syslog",
+    "rdp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "library",
+   "dst": "printers",
+   "svcs": [
+    "postgres"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "guest-wifi",
+   "dst": "dmz-web",
+   "svcs": [
+    "postgres",
+    "smtp",
+    "imap"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "library",
+   "svcs": [
+    "https",
+    "dns"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "dmz-web",
+   "svcs": [
+    "http"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "hr",
+   "dst": "dns-servers",
+   "svcs": [
+    "ntp",
+    "syslog"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "guest-wifi",
+   "dst": "dmz-web",
+   "broad": "any-udp",
+   "ex": [
+    "snmp",
+    "tftp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "dns-servers",
+   "dst": "library",
+   "svcs": [
+    "ssh",
+    "ntp",
+    "http"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "dmz-web",
+   "dst": "hr",
+   "svcs": [
+    "rtsp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "dns-servers",
+   "dst": "dmz-web",
+   "svcs": [
+    "ssh",
+    "smb",
+    "rtsp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "library",
+   "dst": "dmz-web",
+   "svcs": [
+    "smb",
+    "http",
+    "imap"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "dmz-web",
+   "svcs": [
+    "dns",
+    "http"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "library",
+   "dst": "printers"
+  },
+  {
+   "type": "allow",
+   "src": "dns-servers",
+   "dst": "guest-wifi",
+   "svcs": [
+    "ldap",
+    "imap"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "dns-servers",
+   "dst": "hr",
+   "svcs": [
+    "ssh",
+    "smb",
+    "rdp"
+   ]
+  }
+ ],
+ "fw_out": [
+  {
+   "type": "isolate",
+   "src": "dns-servers",
+   "allowed": [
+    [
+     "hr",
+     "syslog"
+    ],
+    [
+     "dmz-web",
+     "https"
+    ]
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "hr",
+   "dst": "dns-servers",
+   "svcs": [
+    "syslog",
+    "dns",
+    "ntp"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "dns-servers",
+   "dst": "printers"
+  },
+  {
+   "type": "allow_except",
+   "src": "dmz-web",
+   "dst": "dns-servers",
+   "broad": "any-udp",
+   "ex": [
+    "snmp"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "library",
+   "dst": "guest-wifi"
+  },
+  {
+   "type": "allow",
+   "src": "printers",
+   "dst": "library",
+   "svcs": [
+    "snmp",
+    "rtsp",
+    "imap"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "hr",
+   "dst": "library"
+  },
+  {
+   "type": "public",
+   "dst": "printers",
+   "svcs": [
+    "http",
+    "ntp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "guest-wifi",
+   "dst": "dmz-web",
+   "svcs": [
+    "ssh",
+    "syslog",
+    "ntp"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "guest-wifi",
+   "svcs": [
+    "http"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "guest-wifi",
+   "svcs": [
+    "ntp",
+    "dns"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "hr",
+   "svcs": [
+    "http",
+    "https"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "hr",
+   "dst": "guest-wifi",
+   "svcs": [
+    "rtsp",
+    "http",
+    "https"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "guest-wifi",
+   "dst": "dns-servers",
+   "svcs": [
+    "rdp",
+    "ldap",
+    "imap"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "guest-wifi",
+   "dst": "hr",
+   "svcs": [
+    "syslog",
+    "rdp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "library",
+   "dst": "printers",
+   "svcs": [
+    "postgres"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "guest-wifi",
+   "dst": "dmz-web",
+   "svcs": [
+    "postgres",
+    "smtp",
+    "imap"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "library",
+   "svcs": [
+    "https",
+    "dns"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "dmz-web",
+   "svcs": [
+    "http"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "hr",
+   "dst": "dns-servers",
+   "svcs": [
+    "ntp",
+    "syslog"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "guest-wifi",
+   "dst": "dmz-web",
+   "broad": "any-udp",
+   "ex": [
+    "snmp",
+    "tftp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "dns-servers",
+   "dst": "library",
+   "svcs": [
+    "ssh",
+    "ntp",
+    "http"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "dmz-web",
+   "dst": "hr",
+   "svcs": [
+    "rtsp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "dns-servers",
+   "dst": "dmz-web",
+   "svcs": [
+    "ssh",
+    "smb",
+    "rtsp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "library",
+   "dst": "dmz-web",
+   "svcs": [
+    "smb",
+    "http",
+    "imap"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "dmz-web",
+   "svcs": [
+    "dns",
+    "http"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "library",
+   "dst": "printers"
+  },
+  {
+   "type": "allow",
+   "src": "dns-servers",
+   "dst": "guest-wifi",
+   "svcs": [
+    "ldap",
+    "imap"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "dns-servers",
+   "dst": "hr",
+   "svcs": [
+    "ssh",
+    "smb",
+    "rdp"
+   ]
+  }
+ ],
+ "wall_s": 180.7593080997467
+}

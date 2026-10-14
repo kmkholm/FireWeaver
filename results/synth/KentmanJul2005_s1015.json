@@ -1,0 +1,212 @@
+{
+ "id": "KentmanJul2005_s1015",
+ "n_intents": 8,
+ "n_gt_rules": 16,
+ "n_zones": 16,
+ "rules": {
+  "eq": false,
+  "mismatch": 0.0035,
+  "n_rules": 16,
+  "fail": 0,
+  "s": 18.37960147857666,
+  "calls": 1,
+  "prompt": 719,
+  "completion": 507
+ },
+ "ir0": {
+  "eq": true,
+  "mismatch": 0.0,
+  "n_rules": 16,
+  "fail": 0,
+  "s": 33.163777112960815,
+  "calls": 8,
+  "prompt": 5265,
+  "completion": 257,
+  "intent_acc": 1.0
+ },
+ "ir": {
+  "eq": true,
+  "mismatch": 0.0,
+  "n_rules": 16,
+  "fail": 0,
+  "s": 17.048548460006714,
+  "calls": 8,
+  "prompt": 8873,
+  "completion": 204,
+  "intent_acc": 1.0
+ },
+ "fw": {
+  "eq": true,
+  "mismatch": 0.0,
+  "n_rules": 16,
+  "fail": 0,
+  "s": 65.20457649230957,
+  "verify_s": 48.156028509140015,
+  "calls": 19,
+  "verify_calls": 11,
+  "flagged": 1,
+  "accepted": 0,
+  "repairs": [
+   {
+    "k": 1,
+    "was_ok": true,
+    "now_ok": true,
+    "history": [
+     2,
+     2,
+     2
+    ],
+    "calls": 2,
+    "accepted": false
+   }
+  ],
+  "intent_acc": 1.0
+ },
+ "ir_out": [
+  {
+   "type": "allow",
+   "src": "cameras",
+   "dst": "dns-servers",
+   "svcs": [
+    "snmp",
+    "http",
+    "https"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "guest-wifi",
+   "allowed": [
+    [
+     "hr",
+     "dns"
+    ],
+    [
+     "backup",
+     "syslog"
+    ]
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "backup",
+   "svcs": [
+    "http",
+    "ntp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "scada",
+   "dst": "library",
+   "svcs": [
+    "ntp",
+    "mysql"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "printers",
+   "dst": "dev-lab"
+  },
+  {
+   "type": "allow",
+   "src": "guest-wifi",
+   "dst": "cameras",
+   "svcs": [
+    "smb"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "backup",
+   "dst": "printers",
+   "svcs": [
+    "snmp",
+    "postgres"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "backup",
+   "svcs": [
+    "ntp",
+    "http"
+   ]
+  }
+ ],
+ "fw_out": [
+  {
+   "type": "allow",
+   "src": "cameras",
+   "dst": "dns-servers",
+   "svcs": [
+    "snmp",
+    "http",
+    "https"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "guest-wifi",
+   "allowed": [
+    [
+     "hr",
+     "dns"
+    ],
+    [
+     "backup",
+     "syslog"
+    ]
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "backup",
+   "svcs": [
+    "http",
+    "ntp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "scada",
+   "dst": "library",
+   "svcs": [
+    "ntp",
+    "mysql"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "printers",
+   "dst": "dev-lab"
+  },
+  {
+   "type": "allow",
+   "src": "guest-wifi",
+   "dst": "cameras",
+   "svcs": [
+    "smb"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "backup",
+   "dst": "printers",
+   "svcs": [
+    "snmp",
+    "postgres"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "backup",
+   "svcs": [
+    "ntp",
+    "http"
+   ]
+  }
+ ],
+ "wall_s": 117.02664995193481
+}

@@ -1,0 +1,664 @@
+{
+ "id": "KentmanApr2007_s1010",
+ "topology": "KentmanApr2007",
+ "n_nodes": 22,
+ "edges": [
+  [
+   0,
+   1
+  ],
+  [
+   0,
+   7
+  ],
+  [
+   1,
+   3
+  ],
+  [
+   1,
+   6
+  ],
+  [
+   1,
+   8
+  ],
+  [
+   1,
+   9
+  ],
+  [
+   1,
+   10
+  ],
+  [
+   1,
+   17
+  ],
+  [
+   1,
+   20
+  ],
+  [
+   2,
+   15
+  ],
+  [
+   2,
+   3
+  ],
+  [
+   2,
+   20
+  ],
+  [
+   3,
+   21
+  ],
+  [
+   3,
+   16
+  ],
+  [
+   3,
+   4
+  ],
+  [
+   4,
+   18
+  ],
+  [
+   4,
+   19
+  ],
+  [
+   5,
+   14
+  ],
+  [
+   5,
+   13
+  ],
+  [
+   5,
+   20
+  ],
+  [
+   11,
+   20
+  ],
+  [
+   12,
+   20
+  ],
+  [
+   20,
+   21
+  ]
+ ],
+ "zones": {
+  "mail": {
+   "router": 12,
+   "prefixes": [
+    "75.201.54.0/23"
+   ]
+  },
+  "printers": {
+   "router": 17,
+   "prefixes": [
+    "93.105.155.80/28"
+   ]
+  },
+  "ops": {
+   "router": 8,
+   "prefixes": [
+    "172.243.78.0/24",
+    "162.25.0.0/17"
+   ]
+  },
+  "hr": {
+   "router": 18,
+   "prefixes": [
+    "53.106.142.0/23",
+    "239.253.194.0/24",
+    "56.241.108.0/23"
+   ]
+  },
+  "dmz-web": {
+   "router": 19,
+   "prefixes": [
+    "88.193.87.112/28",
+    "35.59.216.0/24",
+    "195.237.186.0/23"
+   ]
+  },
+  "research": {
+   "router": 10,
+   "prefixes": [
+    "130.107.0.0/16",
+    "185.186.104.0/25"
+   ]
+  },
+  "nvr": {
+   "router": 6,
+   "prefixes": [
+    "51.89.128.0/17",
+    "202.191.243.128/25"
+   ]
+  },
+  "voip": {
+   "router": 7,
+   "prefixes": [
+    "113.85.42.0/23"
+   ]
+  },
+  "finance": {
+   "router": 9,
+   "prefixes": [
+    "33.185.240.128/26",
+    "76.67.66.0/24",
+    "11.251.65.0/24"
+   ]
+  },
+  "database": {
+   "router": 14,
+   "prefixes": [
+    "180.140.206.144/28",
+    "36.56.175.0/24",
+    "159.154.119.0/24"
+   ]
+  },
+  "library": {
+   "router": 16,
+   "prefixes": [
+    "55.139.96.0/21",
+    "142.22.228.0/22",
+    "37.84.56.0/23"
+   ]
+  },
+  "engineering": {
+   "router": 15,
+   "prefixes": [
+    "226.16.201.0/24",
+    "202.201.3.128/27"
+   ]
+  },
+  "ntp-servers": {
+   "router": 11,
+   "prefixes": [
+    "165.181.43.48/28",
+    "52.185.240.0/25"
+   ]
+  },
+  "dns-servers": {
+   "router": 13,
+   "prefixes": [
+    "252.193.0.0/23",
+    "12.41.169.128/25",
+    "131.71.86.0/23"
+   ]
+  },
+  "student-lab": {
+   "router": 0,
+   "prefixes": [
+    "157.125.114.0/25"
+   ]
+  },
+  "guest-wifi": {
+   "router": 21,
+   "prefixes": [
+    "168.230.20.0/23",
+    "201.204.130.192/26",
+    "5.100.189.0/24"
+   ]
+  }
+ },
+ "zone_text": [
+  "mail: hosts 75.201.54.0/23 attached to router R12",
+  "printers: hosts 93.105.155.80/28 attached to router R17",
+  "ops: hosts 172.243.78.0/24, 162.25.0.0/17 attached to router R8",
+  "hr: hosts 53.106.142.0/23, 239.253.194.0/24, 56.241.108.0/23 attached to router R18",
+  "dmz-web: hosts 88.193.87.112/28, 35.59.216.0/24, 195.237.186.0/23 attached to router R19",
+  "research: hosts 130.107.0.0/16, 185.186.104.0/25 attached to router R10",
+  "nvr: hosts 51.89.128.0/17, 202.191.243.128/25 attached to router R6",
+  "voip: hosts 113.85.42.0/23 attached to router R7",
+  "finance: hosts 33.185.240.128/26, 76.67.66.0/24, 11.251.65.0/24 attached to router R9",
+  "database: hosts 180.140.206.144/28, 36.56.175.0/24, 159.154.119.0/24 attached to router R14",
+  "library: hosts 55.139.96.0/21, 142.22.228.0/22, 37.84.56.0/23 attached to router R16",
+  "engineering: hosts 226.16.201.0/24, 202.201.3.128/27 attached to router R15",
+  "ntp-servers: hosts 165.181.43.48/28, 52.185.240.0/25 attached to router R11",
+  "dns-servers: hosts 252.193.0.0/23, 12.41.169.128/25, 131.71.86.0/23 attached to router R13",
+  "student-lab: hosts 157.125.114.0/25 attached to router R0",
+  "guest-wifi: hosts 168.230.20.0/23, 201.204.130.192/26, 5.100.189.0/24 attached to router R21"
+ ],
+ "intents": [
+  {
+   "type": "allow_except",
+   "src": "library",
+   "dst": "database",
+   "broad": "any-tcp",
+   "ex": [
+    "ftp",
+    "telnet"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "dns-servers",
+   "dst": "nvr",
+   "broad": "any-tcp",
+   "ex": [
+    "rdp",
+    "smb",
+    "ftp"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "guest-wifi",
+   "dst": "ops",
+   "broad": "high-tcp",
+   "ex": [
+    "postgres",
+    "mysql",
+    "rdp"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "nvr",
+   "dst": "mail"
+  },
+  {
+   "type": "isolate",
+   "src": "dns-servers",
+   "allowed": [
+    [
+     "student-lab",
+     "https"
+    ],
+    [
+     "ntp-servers",
+     "syslog"
+    ]
+   ]
+  },
+  {
+   "type": "block",
+   "src": "guest-wifi",
+   "dst": "hr"
+  },
+  {
+   "type": "block",
+   "src": "engineering",
+   "dst": "library"
+  },
+  {
+   "type": "isolate",
+   "src": "guest-wifi",
+   "allowed": [
+    [
+     "ops",
+     "ntp"
+    ]
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "research",
+   "allowed": [
+    [
+     "guest-wifi",
+     "https"
+    ]
+   ]
+  },
+  {
+   "type": "block",
+   "src": "mail",
+   "dst": "voip"
+  },
+  {
+   "type": "allow",
+   "src": "dns-servers",
+   "dst": "database",
+   "svcs": [
+    "imap",
+    "https",
+    "postgres"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "nvr",
+   "dst": "voip"
+  },
+  {
+   "type": "public",
+   "dst": "ntp-servers",
+   "svcs": [
+    "https",
+    "ntp"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "printers",
+   "dst": "database",
+   "broad": "high-tcp",
+   "ex": [
+    "rdp"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "hr",
+   "dst": "voip",
+   "broad": "any-udp",
+   "ex": [
+    "snmp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "voip",
+   "dst": "guest-wifi",
+   "svcs": [
+    "http",
+    "mysql"
+   ]
+  }
+ ],
+ "nl": [
+  "Permit any TCP port from library to database but deny FTP (TCP 21), Telnet (TCP 23).",
+  "Block RDP (TCP 3389), SMB (TCP 445), FTP (TCP 21) from dns-servers to nvr; the rest of any TCP port between them is allowed.",
+  "Block PostgreSQL (TCP 5432), MySQL (TCP 3306), RDP (TCP 3389) from guest-wifi to ops; the rest of TCP ports 1024-65535 between them is allowed.",
+  "Deny all traffic from nvr to mail (this overrides any public service).",
+  "Apart from student-lab on HTTPS (TCP 443); ntp-servers on syslog (UDP 514), all traffic originating in dns-servers must be dropped.",
+  "guest-wifi must never reach hr, regardless of any other rule.",
+  "No packet from engineering may enter library, even for services open to everyone.",
+  "Restrict guest-wifi so that its only permitted destinations are ops on NTP (UDP 123); drop all other traffic it originates.",
+  "research is isolated: it may only reach guest-wifi on HTTPS (TCP 443), and nothing else.",
+  "Deny all traffic from mail to voip (this overrides any public service).",
+  "Allow dns-servers to connect to database using IMAP (TCP 143) and HTTPS (TCP 443) and PostgreSQL (TCP 5432).",
+  "No packet from nvr may enter voip, even for services open to everyone.",
+  "ntp-servers offers HTTPS (TCP 443) and NTP (UDP 123) to every zone.",
+  "Permit TCP ports 1024-65535 from printers to database but deny RDP (TCP 3389).",
+  "hr may use any UDP port towards voip, except SNMP (UDP 161), which must be blocked.",
+  "guest-wifi must accept HTTP (TCP 80) and MySQL (TCP 3306) from voip."
+ ],
+ "gt": [
+  {
+   "src": "nvr",
+   "dst": "mail",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "guest-wifi",
+   "dst": "hr",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "engineering",
+   "dst": "library",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "mail",
+   "dst": "voip",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "nvr",
+   "dst": "voip",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "library",
+   "dst": "database",
+   "proto": "tcp",
+   "dlo": 21,
+   "dhi": 21,
+   "action": "deny"
+  },
+  {
+   "src": "library",
+   "dst": "database",
+   "proto": "tcp",
+   "dlo": 23,
+   "dhi": 23,
+   "action": "deny"
+  },
+  {
+   "src": "dns-servers",
+   "dst": "nvr",
+   "proto": "tcp",
+   "dlo": 3389,
+   "dhi": 3389,
+   "action": "deny"
+  },
+  {
+   "src": "dns-servers",
+   "dst": "nvr",
+   "proto": "tcp",
+   "dlo": 445,
+   "dhi": 445,
+   "action": "deny"
+  },
+  {
+   "src": "dns-servers",
+   "dst": "nvr",
+   "proto": "tcp",
+   "dlo": 21,
+   "dhi": 21,
+   "action": "deny"
+  },
+  {
+   "src": "guest-wifi",
+   "dst": "ops",
+   "proto": "tcp",
+   "dlo": 5432,
+   "dhi": 5432,
+   "action": "deny"
+  },
+  {
+   "src": "guest-wifi",
+   "dst": "ops",
+   "proto": "tcp",
+   "dlo": 3306,
+   "dhi": 3306,
+   "action": "deny"
+  },
+  {
+   "src": "guest-wifi",
+   "dst": "ops",
+   "proto": "tcp",
+   "dlo": 3389,
+   "dhi": 3389,
+   "action": "deny"
+  },
+  {
+   "src": "printers",
+   "dst": "database",
+   "proto": "tcp",
+   "dlo": 3389,
+   "dhi": 3389,
+   "action": "deny"
+  },
+  {
+   "src": "hr",
+   "dst": "voip",
+   "proto": "udp",
+   "dlo": 161,
+   "dhi": 161,
+   "action": "deny"
+  },
+  {
+   "src": "library",
+   "dst": "database",
+   "proto": "tcp",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "permit"
+  },
+  {
+   "src": "dns-servers",
+   "dst": "nvr",
+   "proto": "tcp",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "permit"
+  },
+  {
+   "src": "guest-wifi",
+   "dst": "ops",
+   "proto": "tcp",
+   "dlo": 1024,
+   "dhi": 65535,
+   "action": "permit"
+  },
+  {
+   "src": "dns-servers",
+   "dst": "database",
+   "proto": "tcp",
+   "dlo": 143,
+   "dhi": 143,
+   "action": "permit"
+  },
+  {
+   "src": "dns-servers",
+   "dst": "database",
+   "proto": "tcp",
+   "dlo": 443,
+   "dhi": 443,
+   "action": "permit"
+  },
+  {
+   "src": "dns-servers",
+   "dst": "database",
+   "proto": "tcp",
+   "dlo": 5432,
+   "dhi": 5432,
+   "action": "permit"
+  },
+  {
+   "src": "printers",
+   "dst": "database",
+   "proto": "tcp",
+   "dlo": 1024,
+   "dhi": 65535,
+   "action": "permit"
+  },
+  {
+   "src": "hr",
+   "dst": "voip",
+   "proto": "udp",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "permit"
+  },
+  {
+   "src": "voip",
+   "dst": "guest-wifi",
+   "proto": "tcp",
+   "dlo": 80,
+   "dhi": 80,
+   "action": "permit"
+  },
+  {
+   "src": "voip",
+   "dst": "guest-wifi",
+   "proto": "tcp",
+   "dlo": 3306,
+   "dhi": 3306,
+   "action": "permit"
+  },
+  {
+   "src": "dns-servers",
+   "dst": "student-lab",
+   "proto": "tcp",
+   "dlo": 443,
+   "dhi": 443,
+   "action": "permit"
+  },
+  {
+   "src": "dns-servers",
+   "dst": "ntp-servers",
+   "proto": "udp",
+   "dlo": 514,
+   "dhi": 514,
+   "action": "permit"
+  },
+  {
+   "src": "guest-wifi",
+   "dst": "ops",
+   "proto": "udp",
+   "dlo": 123,
+   "dhi": 123,
+   "action": "permit"
+  },
+  {
+   "src": "research",
+   "dst": "guest-wifi",
+   "proto": "tcp",
+   "dlo": 443,
+   "dhi": 443,
+   "action": "permit"
+  },
+  {
+   "src": "dns-servers",
+   "dst": "*",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "guest-wifi",
+   "dst": "*",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "research",
+   "dst": "*",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "*",
+   "dst": "ntp-servers",
+   "proto": "tcp",
+   "dlo": 443,
+   "dhi": 443,
+   "action": "permit"
+  },
+  {
+   "src": "*",
+   "dst": "ntp-servers",
+   "proto": "udp",
+   "dlo": 123,
+   "dhi": 123,
+   "action": "permit"
+  }
+ ]
+}

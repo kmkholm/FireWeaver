@@ -1,0 +1,66 @@
+{
+ "id": "Gambia_s1041",
+ "up": {
+  "n_routers": 28,
+  "n_links": 28,
+  "n_zones": 16,
+  "setup_s": 52.56293082237244,
+  "converged": true,
+  "converge_s": 2.38840651512146,
+  "ecmp_nexthops": 104
+ },
+ "deploy_fireweaver": {
+  "cfgset": "fireweaver",
+  "deploy_s": 14.75247049331665,
+  "per_router_max_s": 7.786974668502808,
+  "rules_installed": 974,
+  "rules_expected": 974
+ },
+ "probe_fireweaver": {
+  "n": 6592,
+  "delivered": 284,
+  "send_s": 16.759949922561646
+ },
+ "conf_fireweaver": {
+  "n": 6592,
+  "conform": 6592,
+  "leaks": 0,
+  "wrongly_blocked": 0
+ },
+ "deploy_ecmp1": {
+  "cfgset": "ecmp1",
+  "deploy_s": 14.155094385147095,
+  "per_router_max_s": 7.275920867919922,
+  "rules_installed": 974,
+  "rules_expected": 974
+ },
+ "probe_ecmp1": {
+  "n": 6592,
+  "delivered": 300,
+  "send_s": 16.785829544067383
+ },
+ "conf_ecmp1": {
+  "n": 6592,
+  "conform": 6576,
+  "leaks": 16,
+  "wrongly_blocked": 0
+ },
+ "deploy_none": {
+  "cfgset": "none",
+  "deploy_s": 13.904555320739746,
+  "per_router_max_s": 6.853015661239624,
+  "rules_installed": 0,
+  "rules_expected": 0
+ },
+ "probe_none": {
+  "n": 6592,
+  "delivered": 6592,
+  "send_s": 3.9431211948394775
+ },
+ "conf_none": {
+  "n": 6592,
+  "conform": 284,
+  "leaks": 6308,
+  "wrongly_blocked": 0
+ }
+}

@@ -1,0 +1,342 @@
+{
+ "id": "KentmanApr2007_s1010",
+ "n_intents": 16,
+ "n_gt_rules": 34,
+ "n_zones": 16,
+ "rules": {
+  "eq": false,
+  "mismatch": 0.00475,
+  "n_rules": 33,
+  "fail": 0,
+  "s": 37.466591596603394,
+  "calls": 1,
+  "prompt": 985,
+  "completion": 1067
+ },
+ "ir0": {
+  "eq": false,
+  "mismatch": 0.00375,
+  "n_rules": 23,
+  "fail": 0,
+  "s": 73.00020861625671,
+  "calls": 17,
+  "prompt": 11419,
+  "completion": 851,
+  "intent_acc": 0.6875
+ },
+ "ir": {
+  "eq": true,
+  "mismatch": 0.0,
+  "n_rules": 34,
+  "fail": 0,
+  "s": 34.03531002998352,
+  "calls": 16,
+  "prompt": 17833,
+  "completion": 433,
+  "intent_acc": 1.0
+ },
+ "fw": {
+  "eq": true,
+  "mismatch": 0.0,
+  "n_rules": 34,
+  "fail": 0,
+  "s": 107.1008460521698,
+  "verify_s": 73.06553626060486,
+  "calls": 35,
+  "verify_calls": 19,
+  "flagged": 1,
+  "accepted": 0,
+  "repairs": [
+   {
+    "k": 4,
+    "was_ok": true,
+    "now_ok": true,
+    "history": [
+     1,
+     1,
+     1
+    ],
+    "calls": 2,
+    "accepted": false
+   }
+  ],
+  "intent_acc": 1.0
+ },
+ "ir_out": [
+  {
+   "type": "allow_except",
+   "src": "library",
+   "dst": "database",
+   "broad": "any-tcp",
+   "ex": [
+    "ftp",
+    "telnet"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "dns-servers",
+   "dst": "nvr",
+   "broad": "any-tcp",
+   "ex": [
+    "rdp",
+    "smb",
+    "ftp"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "guest-wifi",
+   "dst": "ops",
+   "broad": "high-tcp",
+   "ex": [
+    "postgres",
+    "mysql",
+    "rdp"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "nvr",
+   "dst": "mail"
+  },
+  {
+   "type": "isolate",
+   "src": "dns-servers",
+   "allowed": [
+    [
+     "student-lab",
+     "https"
+    ],
+    [
+     "ntp-servers",
+     "syslog"
+    ]
+   ]
+  },
+  {
+   "type": "block",
+   "src": "guest-wifi",
+   "dst": "hr"
+  },
+  {
+   "type": "block",
+   "src": "engineering",
+   "dst": "library"
+  },
+  {
+   "type": "isolate",
+   "src": "guest-wifi",
+   "allowed": [
+    [
+     "ops",
+     "ntp"
+    ]
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "research",
+   "allowed": [
+    [
+     "guest-wifi",
+     "https"
+    ]
+   ]
+  },
+  {
+   "type": "block",
+   "src": "mail",
+   "dst": "voip"
+  },
+  {
+   "type": "allow",
+   "src": "dns-servers",
+   "dst": "database",
+   "svcs": [
+    "imap",
+    "https",
+    "postgres"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "nvr",
+   "dst": "voip"
+  },
+  {
+   "type": "public",
+   "dst": "ntp-servers",
+   "svcs": [
+    "https",
+    "ntp"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "printers",
+   "dst": "database",
+   "broad": "high-tcp",
+   "ex": [
+    "rdp"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "hr",
+   "dst": "voip",
+   "broad": "any-udp",
+   "ex": [
+    "snmp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "voip",
+   "dst": "guest-wifi",
+   "svcs": [
+    "http",
+    "mysql"
+   ]
+  }
+ ],
+ "fw_out": [
+  {
+   "type": "allow_except",
+   "src": "library",
+   "dst": "database",
+   "broad": "any-tcp",
+   "ex": [
+    "ftp",
+    "telnet"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "dns-servers",
+   "dst": "nvr",
+   "broad": "any-tcp",
+   "ex": [
+    "rdp",
+    "smb",
+    "ftp"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "guest-wifi",
+   "dst": "ops",
+   "broad": "high-tcp",
+   "ex": [
+    "postgres",
+    "mysql",
+    "rdp"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "nvr",
+   "dst": "mail"
+  },
+  {
+   "type": "isolate",
+   "src": "dns-servers",
+   "allowed": [
+    [
+     "student-lab",
+     "https"
+    ],
+    [
+     "ntp-servers",
+     "syslog"
+    ]
+   ]
+  },
+  {
+   "type": "block",
+   "src": "guest-wifi",
+   "dst": "hr"
+  },
+  {
+   "type": "block",
+   "src": "engineering",
+   "dst": "library"
+  },
+  {
+   "type": "isolate",
+   "src": "guest-wifi",
+   "allowed": [
+    [
+     "ops",
+     "ntp"
+    ]
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "research",
+   "allowed": [
+    [
+     "guest-wifi",
+     "https"
+    ]
+   ]
+  },
+  {
+   "type": "block",
+   "src": "mail",
+   "dst": "voip"
+  },
+  {
+   "type": "allow",
+   "src": "dns-servers",
+   "dst": "database",
+   "svcs": [
+    "imap",
+    "https",
+    "postgres"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "nvr",
+   "dst": "voip"
+  },
+  {
+   "type": "public",
+   "dst": "ntp-servers",
+   "svcs": [
+    "https",
+    "ntp"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "printers",
+   "dst": "database",
+   "broad": "high-tcp",
+   "ex": [
+    "rdp"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "hr",
+   "dst": "voip",
+   "broad": "any-udp",
+   "ex": [
+    "snmp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "voip",
+   "dst": "guest-wifi",
+   "svcs": [
+    "http",
+    "mysql"
+   ]
+  }
+ ],
+ "wall_s": 217.931010723114
+}

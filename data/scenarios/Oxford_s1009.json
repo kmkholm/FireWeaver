@@ -1,0 +1,510 @@
+{
+ "id": "Oxford_s1009",
+ "topology": "Oxford",
+ "n_nodes": 20,
+ "edges": [
+  [
+   0,
+   1
+  ],
+  [
+   0,
+   5
+  ],
+  [
+   1,
+   2
+  ],
+  [
+   2,
+   3
+  ],
+  [
+   2,
+   4
+  ],
+  [
+   3,
+   9
+  ],
+  [
+   3,
+   4
+  ],
+  [
+   4,
+   5
+  ],
+  [
+   5,
+   6
+  ],
+  [
+   5,
+   7
+  ],
+  [
+   6,
+   8
+  ],
+  [
+   6,
+   9
+  ],
+  [
+   6,
+   7
+  ],
+  [
+   7,
+   8
+  ],
+  [
+   9,
+   10
+  ],
+  [
+   9,
+   12
+  ],
+  [
+   9,
+   13
+  ],
+  [
+   10,
+   11
+  ],
+  [
+   11,
+   12
+  ],
+  [
+   12,
+   14
+  ],
+  [
+   13,
+   15
+  ],
+  [
+   14,
+   16
+  ],
+  [
+   15,
+   19
+  ],
+  [
+   16,
+   17
+  ],
+  [
+   17,
+   18
+  ],
+  [
+   18,
+   19
+  ]
+ ],
+ "zones": {
+  "edge-cache": {
+   "router": 8,
+   "prefixes": [
+    "140.22.47.0/25",
+    "139.34.60.0/22",
+    "171.153.73.192/26"
+   ]
+  },
+  "printers": {
+   "router": 0,
+   "prefixes": [
+    "43.31.36.0/24",
+    "113.85.42.0/23"
+   ]
+  },
+  "admin": {
+   "router": 11,
+   "prefixes": [
+    "147.73.161.128/25",
+    "168.107.109.0/24",
+    "71.105.117.128/25"
+   ]
+  },
+  "finance": {
+   "router": 18,
+   "prefixes": [
+    "172.242.216.0/22"
+   ]
+  },
+  "ntp-servers": {
+   "router": 13,
+   "prefixes": [
+    "252.193.3.128/25",
+    "25.24.225.192/27",
+    "216.59.150.0/23"
+   ]
+  },
+  "student-lab": {
+   "router": 14,
+   "prefixes": [
+    "230.146.241.0/24",
+    "28.80.70.192/27",
+    "60.147.0.0/16"
+   ]
+  }
+ },
+ "zone_text": [
+  "edge-cache: hosts 140.22.47.0/25, 139.34.60.0/22, 171.153.73.192/26 attached to router R8",
+  "printers: hosts 43.31.36.0/24, 113.85.42.0/23 attached to router R0",
+  "admin: hosts 147.73.161.128/25, 168.107.109.0/24, 71.105.117.128/25 attached to router R11",
+  "finance: hosts 172.242.216.0/22 attached to router R18",
+  "ntp-servers: hosts 252.193.3.128/25, 25.24.225.192/27, 216.59.150.0/23 attached to router R13",
+  "student-lab: hosts 230.146.241.0/24, 28.80.70.192/27, 60.147.0.0/16 attached to router R14"
+ ],
+ "intents": [
+  {
+   "type": "isolate",
+   "src": "edge-cache",
+   "allowed": [
+    [
+     "ntp-servers",
+     "https"
+    ],
+    [
+     "admin",
+     "syslog"
+    ]
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "ntp-servers",
+   "svcs": [
+    "dns",
+    "ntp"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "edge-cache",
+   "dst": "finance"
+  },
+  {
+   "type": "allow",
+   "src": "printers",
+   "dst": "ntp-servers",
+   "svcs": [
+    "postgres",
+    "snmp",
+    "dns"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "finance",
+   "svcs": [
+    "dns",
+    "https"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "ntp-servers",
+   "dst": "printers",
+   "svcs": [
+    "syslog"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "student-lab",
+   "dst": "finance",
+   "svcs": [
+    "smb",
+    "rtsp"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "admin",
+   "dst": "edge-cache"
+  },
+  {
+   "type": "allow",
+   "src": "edge-cache",
+   "dst": "ntp-servers",
+   "svcs": [
+    "smtp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "edge-cache",
+   "dst": "ntp-servers",
+   "svcs": [
+    "http",
+    "syslog",
+    "dns"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "admin",
+   "svcs": [
+    "https",
+    "http"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "student-lab",
+   "dst": "finance"
+  },
+  {
+   "type": "allow",
+   "src": "ntp-servers",
+   "dst": "student-lab",
+   "svcs": [
+    "snmp",
+    "rtsp",
+    "syslog"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "admin",
+   "dst": "student-lab",
+   "svcs": [
+    "smb"
+   ]
+  }
+ ],
+ "nl": [
+  "Apart from ntp-servers on HTTPS (TCP 443); admin on syslog (UDP 514), all traffic originating in edge-cache must be dropped.",
+  "ntp-servers offers DNS over UDP 53 and NTP (UDP 123) to every zone.",
+  "Deny all traffic from edge-cache to finance (this overrides any public service).",
+  "Hosts in printers may reach ntp-servers over PostgreSQL (TCP 5432) and SNMP (UDP 161) and DNS over UDP 53.",
+  "Any zone may connect to finance over DNS over UDP 53 and HTTPS (TCP 443).",
+  "printers must accept syslog (UDP 514) from ntp-servers.",
+  "Hosts in student-lab may reach finance over SMB (TCP 445) and RTSP (TCP 554).",
+  "Deny all traffic from admin to edge-cache (this overrides any public service).",
+  "ntp-servers must accept SMTP (TCP 25) from edge-cache.",
+  "Allow edge-cache to connect to ntp-servers using HTTP (TCP 80) and syslog (UDP 514) and DNS over UDP 53.",
+  "Any zone may connect to admin over HTTPS (TCP 443) and HTTP (TCP 80).",
+  "Deny all traffic from student-lab to finance (this overrides any public service).",
+  "Allow ntp-servers to connect to student-lab using SNMP (UDP 161) and RTSP (TCP 554) and syslog (UDP 514).",
+  "student-lab must accept SMB (TCP 445) from admin."
+ ],
+ "gt": [
+  {
+   "src": "edge-cache",
+   "dst": "finance",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "admin",
+   "dst": "edge-cache",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "student-lab",
+   "dst": "finance",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "printers",
+   "dst": "ntp-servers",
+   "proto": "tcp",
+   "dlo": 5432,
+   "dhi": 5432,
+   "action": "permit"
+  },
+  {
+   "src": "printers",
+   "dst": "ntp-servers",
+   "proto": "udp",
+   "dlo": 161,
+   "dhi": 161,
+   "action": "permit"
+  },
+  {
+   "src": "printers",
+   "dst": "ntp-servers",
+   "proto": "udp",
+   "dlo": 53,
+   "dhi": 53,
+   "action": "permit"
+  },
+  {
+   "src": "ntp-servers",
+   "dst": "printers",
+   "proto": "udp",
+   "dlo": 514,
+   "dhi": 514,
+   "action": "permit"
+  },
+  {
+   "src": "student-lab",
+   "dst": "finance",
+   "proto": "tcp",
+   "dlo": 445,
+   "dhi": 445,
+   "action": "permit"
+  },
+  {
+   "src": "student-lab",
+   "dst": "finance",
+   "proto": "tcp",
+   "dlo": 554,
+   "dhi": 554,
+   "action": "permit"
+  },
+  {
+   "src": "edge-cache",
+   "dst": "ntp-servers",
+   "proto": "tcp",
+   "dlo": 25,
+   "dhi": 25,
+   "action": "permit"
+  },
+  {
+   "src": "edge-cache",
+   "dst": "ntp-servers",
+   "proto": "tcp",
+   "dlo": 80,
+   "dhi": 80,
+   "action": "permit"
+  },
+  {
+   "src": "edge-cache",
+   "dst": "ntp-servers",
+   "proto": "udp",
+   "dlo": 514,
+   "dhi": 514,
+   "action": "permit"
+  },
+  {
+   "src": "edge-cache",
+   "dst": "ntp-servers",
+   "proto": "udp",
+   "dlo": 53,
+   "dhi": 53,
+   "action": "permit"
+  },
+  {
+   "src": "ntp-servers",
+   "dst": "student-lab",
+   "proto": "udp",
+   "dlo": 161,
+   "dhi": 161,
+   "action": "permit"
+  },
+  {
+   "src": "ntp-servers",
+   "dst": "student-lab",
+   "proto": "tcp",
+   "dlo": 554,
+   "dhi": 554,
+   "action": "permit"
+  },
+  {
+   "src": "ntp-servers",
+   "dst": "student-lab",
+   "proto": "udp",
+   "dlo": 514,
+   "dhi": 514,
+   "action": "permit"
+  },
+  {
+   "src": "admin",
+   "dst": "student-lab",
+   "proto": "tcp",
+   "dlo": 445,
+   "dhi": 445,
+   "action": "permit"
+  },
+  {
+   "src": "edge-cache",
+   "dst": "ntp-servers",
+   "proto": "tcp",
+   "dlo": 443,
+   "dhi": 443,
+   "action": "permit"
+  },
+  {
+   "src": "edge-cache",
+   "dst": "admin",
+   "proto": "udp",
+   "dlo": 514,
+   "dhi": 514,
+   "action": "permit"
+  },
+  {
+   "src": "edge-cache",
+   "dst": "*",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "*",
+   "dst": "ntp-servers",
+   "proto": "udp",
+   "dlo": 53,
+   "dhi": 53,
+   "action": "permit"
+  },
+  {
+   "src": "*",
+   "dst": "ntp-servers",
+   "proto": "udp",
+   "dlo": 123,
+   "dhi": 123,
+   "action": "permit"
+  },
+  {
+   "src": "*",
+   "dst": "finance",
+   "proto": "udp",
+   "dlo": 53,
+   "dhi": 53,
+   "action": "permit"
+  },
+  {
+   "src": "*",
+   "dst": "finance",
+   "proto": "tcp",
+   "dlo": 443,
+   "dhi": 443,
+   "action": "permit"
+  },
+  {
+   "src": "*",
+   "dst": "admin",
+   "proto": "tcp",
+   "dlo": 443,
+   "dhi": 443,
+   "action": "permit"
+  },
+  {
+   "src": "*",
+   "dst": "admin",
+   "proto": "tcp",
+   "dlo": 80,
+   "dhi": 80,
+   "action": "permit"
+  }
+ ]
+}

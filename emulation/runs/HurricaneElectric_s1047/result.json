@@ -1,0 +1,66 @@
+{
+ "id": "HurricaneElectric_s1047",
+ "up": {
+  "n_routers": 24,
+  "n_links": 37,
+  "n_zones": 10,
+  "setup_s": 49.40619158744812,
+  "converged": true,
+  "converge_s": 2.27908992767334,
+  "ecmp_nexthops": 508
+ },
+ "deploy_fireweaver": {
+  "cfgset": "fireweaver",
+  "deploy_s": 14.826789855957031,
+  "per_router_max_s": 7.893270015716553,
+  "rules_installed": 500,
+  "rules_expected": 500
+ },
+ "probe_fireweaver": {
+  "n": 3090,
+  "delivered": 300,
+  "send_s": 10.20316219329834
+ },
+ "conf_fireweaver": {
+  "n": 3090,
+  "conform": 3090,
+  "leaks": 0,
+  "wrongly_blocked": 0
+ },
+ "deploy_ecmp1": {
+  "cfgset": "ecmp1",
+  "deploy_s": 14.46709680557251,
+  "per_router_max_s": 7.310202360153198,
+  "rules_installed": 500,
+  "rules_expected": 500
+ },
+ "probe_ecmp1": {
+  "n": 3090,
+  "delivered": 411,
+  "send_s": 10.27042031288147
+ },
+ "conf_ecmp1": {
+  "n": 3090,
+  "conform": 2979,
+  "leaks": 111,
+  "wrongly_blocked": 0
+ },
+ "deploy_none": {
+  "cfgset": "none",
+  "deploy_s": 13.38270115852356,
+  "per_router_max_s": 7.353349924087524,
+  "rules_installed": 0,
+  "rules_expected": 0
+ },
+ "probe_none": {
+  "n": 3090,
+  "delivered": 3090,
+  "send_s": 2.3264827728271484
+ },
+ "conf_none": {
+  "n": 3090,
+  "conform": 300,
+  "leaks": 2790,
+  "wrongly_blocked": 0
+ }
+}

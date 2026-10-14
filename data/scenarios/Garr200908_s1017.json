@@ -1,0 +1,524 @@
+{
+ "id": "Garr200908_s1017",
+ "topology": "Garr200908",
+ "n_nodes": 54,
+ "edges": [
+  [
+   0,
+   50
+  ],
+  [
+   1,
+   45
+  ],
+  [
+   2,
+   6
+  ],
+  [
+   2,
+   17
+  ],
+  [
+   2,
+   44
+  ],
+  [
+   2,
+   14
+  ],
+  [
+   2,
+   16
+  ],
+  [
+   2,
+   49
+  ],
+  [
+   2,
+   18
+  ],
+  [
+   2,
+   53
+  ],
+  [
+   2,
+   22
+  ],
+  [
+   2,
+   30
+  ],
+  [
+   3,
+   42
+  ],
+  [
+   3,
+   43
+  ],
+  [
+   3,
+   44
+  ],
+  [
+   3,
+   38
+  ],
+  [
+   4,
+   49
+  ],
+  [
+   5,
+   50
+  ],
+  [
+   6,
+   48
+  ],
+  [
+   6,
+   45
+  ],
+  [
+   6,
+   46
+  ],
+  [
+   7,
+   20
+  ],
+  [
+   8,
+   44
+  ],
+  [
+   9,
+   42
+  ],
+  [
+   10,
+   42
+  ],
+  [
+   11,
+   44
+  ],
+  [
+   12,
+   42
+  ],
+  [
+   13,
+   16
+  ],
+  [
+   14,
+   21
+  ],
+  [
+   15,
+   16
+  ],
+  [
+   16,
+   18
+  ],
+  [
+   18,
+   33
+  ],
+  [
+   18,
+   19
+  ],
+  [
+   18,
+   20
+  ],
+  [
+   18,
+   21
+  ],
+  [
+   18,
+   22
+  ],
+  [
+   20,
+   49
+  ],
+  [
+   23,
+   30
+  ],
+  [
+   24,
+   25
+  ],
+  [
+   25,
+   49
+  ],
+  [
+   25,
+   26
+  ],
+  [
+   25,
+   27
+  ],
+  [
+   25,
+   28
+  ],
+  [
+   25,
+   30
+  ],
+  [
+   29,
+   30
+  ],
+  [
+   30,
+   33
+  ],
+  [
+   31,
+   33
+  ],
+  [
+   32,
+   33
+  ],
+  [
+   32,
+   51
+  ],
+  [
+   33,
+   34
+  ],
+  [
+   33,
+   35
+  ],
+  [
+   36,
+   44
+  ],
+  [
+   37,
+   44
+  ],
+  [
+   38,
+   39
+  ],
+  [
+   39,
+   40
+  ],
+  [
+   39,
+   49
+  ],
+  [
+   39,
+   42
+  ],
+  [
+   41,
+   50
+  ],
+  [
+   42,
+   44
+  ],
+  [
+   42,
+   49
+  ],
+  [
+   42,
+   50
+  ],
+  [
+   43,
+   44
+  ],
+  [
+   44,
+   45
+  ],
+  [
+   44,
+   46
+  ],
+  [
+   44,
+   50
+  ],
+  [
+   47,
+   48
+  ],
+  [
+   48,
+   49
+  ],
+  [
+   48,
+   52
+  ]
+ ],
+ "zones": {
+  "iot-sensors": {
+   "router": 4,
+   "prefixes": [
+    "181.11.156.0/22",
+    "143.143.253.32/27",
+    "73.132.80.0/23"
+   ]
+  },
+  "partners": {
+   "router": 17,
+   "prefixes": [
+    "133.149.2.0/25",
+    "66.97.240.128/25",
+    "118.113.84.0/24"
+   ]
+  },
+  "monitoring": {
+   "router": 36,
+   "prefixes": [
+    "51.204.196.192/27",
+    "119.52.220.0/24",
+    "11.133.240.0/23"
+   ]
+  },
+  "research": {
+   "router": 27,
+   "prefixes": [
+    "202.61.61.128/25"
+   ]
+  },
+  "backup": {
+   "router": 52,
+   "prefixes": [
+    "228.115.112.0/20",
+    "88.251.37.0/24"
+   ]
+  },
+  "dev-lab": {
+   "router": 35,
+   "prefixes": [
+    "207.161.248.0/24"
+   ]
+  }
+ },
+ "zone_text": [
+  "iot-sensors: hosts 181.11.156.0/22, 143.143.253.32/27, 73.132.80.0/23 attached to router R4",
+  "partners: hosts 133.149.2.0/25, 66.97.240.128/25, 118.113.84.0/24 attached to router R17",
+  "monitoring: hosts 51.204.196.192/27, 119.52.220.0/24, 11.133.240.0/23 attached to router R36",
+  "research: hosts 202.61.61.128/25 attached to router R27",
+  "backup: hosts 228.115.112.0/20, 88.251.37.0/24 attached to router R52",
+  "dev-lab: hosts 207.161.248.0/24 attached to router R35"
+ ],
+ "intents": [
+  {
+   "type": "public",
+   "dst": "iot-sensors",
+   "svcs": [
+    "https",
+    "ntp"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "backup",
+   "svcs": [
+    "https"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "dev-lab",
+   "dst": "backup",
+   "svcs": [
+    "dns",
+    "ldap",
+    "smtp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "research",
+   "dst": "backup",
+   "svcs": [
+    "smtp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "backup",
+   "dst": "dev-lab",
+   "svcs": [
+    "rtsp",
+    "dns"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "iot-sensors",
+   "dst": "partners",
+   "svcs": [
+    "syslog",
+    "postgres"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "monitoring",
+   "dst": "partners"
+  },
+  {
+   "type": "isolate",
+   "src": "monitoring",
+   "allowed": [
+    [
+     "research",
+     "syslog"
+    ]
+   ]
+  }
+ ],
+ "nl": [
+  "Any zone may connect to iot-sensors over HTTPS (TCP 443) and NTP (UDP 123).",
+  "Make HTTPS (TCP 443) on backup reachable from all internal zones.",
+  "Hosts in dev-lab may reach backup over DNS over UDP 53 and LDAP (TCP 389) and SMTP (TCP 25).",
+  "Hosts in research may reach backup over SMTP (TCP 25).",
+  "Hosts in backup may reach dev-lab over RTSP (TCP 554) and DNS over UDP 53.",
+  "Hosts in iot-sensors may reach partners over syslog (UDP 514) and PostgreSQL (TCP 5432).",
+  "Deny all traffic from monitoring to partners (this overrides any public service).",
+  "Apart from research on syslog (UDP 514), all traffic originating in monitoring must be dropped."
+ ],
+ "gt": [
+  {
+   "src": "monitoring",
+   "dst": "partners",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "dev-lab",
+   "dst": "backup",
+   "proto": "udp",
+   "dlo": 53,
+   "dhi": 53,
+   "action": "permit"
+  },
+  {
+   "src": "dev-lab",
+   "dst": "backup",
+   "proto": "tcp",
+   "dlo": 389,
+   "dhi": 389,
+   "action": "permit"
+  },
+  {
+   "src": "dev-lab",
+   "dst": "backup",
+   "proto": "tcp",
+   "dlo": 25,
+   "dhi": 25,
+   "action": "permit"
+  },
+  {
+   "src": "research",
+   "dst": "backup",
+   "proto": "tcp",
+   "dlo": 25,
+   "dhi": 25,
+   "action": "permit"
+  },
+  {
+   "src": "backup",
+   "dst": "dev-lab",
+   "proto": "tcp",
+   "dlo": 554,
+   "dhi": 554,
+   "action": "permit"
+  },
+  {
+   "src": "backup",
+   "dst": "dev-lab",
+   "proto": "udp",
+   "dlo": 53,
+   "dhi": 53,
+   "action": "permit"
+  },
+  {
+   "src": "iot-sensors",
+   "dst": "partners",
+   "proto": "udp",
+   "dlo": 514,
+   "dhi": 514,
+   "action": "permit"
+  },
+  {
+   "src": "iot-sensors",
+   "dst": "partners",
+   "proto": "tcp",
+   "dlo": 5432,
+   "dhi": 5432,
+   "action": "permit"
+  },
+  {
+   "src": "monitoring",
+   "dst": "research",
+   "proto": "udp",
+   "dlo": 514,
+   "dhi": 514,
+   "action": "permit"
+  },
+  {
+   "src": "monitoring",
+   "dst": "*",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "*",
+   "dst": "iot-sensors",
+   "proto": "tcp",
+   "dlo": 443,
+   "dhi": 443,
+   "action": "permit"
+  },
+  {
+   "src": "*",
+   "dst": "iot-sensors",
+   "proto": "udp",
+   "dlo": 123,
+   "dhi": 123,
+   "action": "permit"
+  },
+  {
+   "src": "*",
+   "dst": "backup",
+   "proto": "tcp",
+   "dlo": 443,
+   "dhi": 443,
+   "action": "permit"
+  }
+ ]
+}

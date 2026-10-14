@@ -1,0 +1,6593 @@
+[
+{
+"id": "Aarnet_s1026",
+"n_routers": 19,
+"n_zones": 6,
+"n_blocks": 98,
+"factor": 2.0,
+"clean_ok": true,
+"clean_cex": null,
+"verify_s": 3.4914422035217285,
+"checks": 98,
+"rules_total": 178,
+"rules_max": 18,
+"lines_total": 292,
+"mutations": [
+{
+"kind": "swap",
+"injected": true,
+"desc": "swap: router 11 lines 13,14",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 0.3316202163696289
+},
+{
+"kind": "swap",
+"injected": true,
+"desc": "swap: router 7 lines 13,14",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 2.4275660514831543
+},
+{
+"kind": "swap",
+"injected": true,
+"desc": "swap: router 18 lines 13,14",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 0.05372023582458496
+},
+{
+"kind": "port",
+"injected": true,
+"desc": "port+1: router 0 line 15",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 1.796356201171875
+},
+{
+"kind": "port",
+"injected": true,
+"desc": "port+1: router 0 line 19",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 1.5474369525909424
+},
+{
+"kind": "port",
+"injected": true,
+"desc": "port+1: router 16 line 19",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 0.43996357917785645
+},
+{
+"kind": "prefix",
+"injected": true,
+"desc": "prefix: router 7 line 8 127.32.0.0/16->127.33.0.0/16",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 1.961421012878418
+},
+{
+"kind": "prefix",
+"injected": true,
+"desc": "prefix: router 13 line 10 240.67.252.0/23->240.67.254.0/23",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 1.000993013381958
+},
+{
+"kind": "prefix",
+"injected": true,
+"desc": "prefix: router 16 line 12 207.34.176.0/22->207.34.180.0/22",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 0.6477091312408447
+},
+{
+"kind": "ecmp-1",
+"injected": true,
+"net_detect": true,
+"local_detect": false,
+"cover_all_paths": false,
+"verify_s": 0.07326173782348633,
+"cex": {
+"src_zone": "database",
+"dst_zone": "edge-cache",
+"path": [
+18,
+11,
+13,
+14,
+15,
+16,
+17
+],
+"src": "127.32.0.0",
+"dst": "240.67.252.0",
+"proto": 6,
+"dport": 22,
+"intended": false
+}
+}
+],
+"status": "ok",
+"wall_s": 14.091522932052612
+},
+{
+"id": "Aarnet_s1039",
+"n_routers": 19,
+"n_zones": 6,
+"n_blocks": 136,
+"factor": 1.5,
+"clean_ok": true,
+"clean_cex": null,
+"verify_s": 3.148676633834839,
+"checks": 48,
+"rules_total": 455,
+"rules_max": 35,
+"lines_total": 569,
+"mutations": [
+{
+"kind": "swap",
+"injected": true,
+"desc": "swap: router 1 lines 26,27",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 2.9366366863250732
+},
+{
+"kind": "swap",
+"injected": true,
+"desc": "swap: router 12 lines 38,39",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 0.2580230236053467
+},
+{
+"kind": "swap",
+"injected": true,
+"desc": "swap: router 3 lines 38,39",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 2.3894288539886475
+},
+{
+"kind": "port",
+"injected": true,
+"desc": "port+1: router 1 line 34",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 2.953016757965088
+},
+{
+"kind": "port",
+"injected": true,
+"desc": "port+1: router 4 line 7",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 1.8306634426116943
+},
+{
+"kind": "port",
+"injected": true,
+"desc": "port+1: router 14 line 8",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 1.330702781677246
+},
+{
+"kind": "prefix",
+"injected": true,
+"desc": "prefix: router 9 line 9 12.243.24.0/22->12.243.28.0/22",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 1.2520713806152344
+},
+{
+"kind": "prefix",
+"injected": true,
+"desc": "prefix: router 3 line 5 159.200.188.0/23->159.200.190.0/23",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 2.729898691177368
+},
+{
+"kind": "prefix",
+"injected": true,
+"desc": "prefix: router 5 line 23 246.207.172.0/23->246.207.174.0/23",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 2.249901294708252
+},
+{
+"kind": "ecmp-1",
+"injected": true,
+"net_detect": true,
+"local_detect": false,
+"cover_all_paths": false,
+"verify_s": 0.48148632049560547,
+"cex": {
+"src_zone": "printers",
+"dst_zone": "dmz-web",
+"path": [
+17,
+16,
+15,
+14,
+13,
+11,
+5,
+3,
+1
+],
+"src": "158.133.37.64",
+"dst": "246.207.173.64",
+"proto": 82,
+"dport": 58,
+"intended": false
+}
+}
+],
+"status": "ok",
+"wall_s": 22.540794849395752
+},
+{
+"id": "Arn_s1034",
+"n_routers": 30,
+"n_zones": 10,
+"n_blocks": 392,
+"factor": 3.0,
+"clean_ok": true,
+"clean_cex": null,
+"verify_s": 3.898162364959717,
+"checks": 90,
+"rules_total": 571,
+"rules_max": 57,
+"lines_total": 751,
+"mutations": [
+{
+"kind": "swap",
+"injected": true,
+"desc": "swap: router 1 lines 30,31",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 2.1504111289978027
+},
+{
+"kind": "swap",
+"injected": true,
+"desc": "swap: router 21 lines 49,50",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 0.3852379322052002
+},
+{
+"kind": "swap",
+"injected": true,
+"desc": "swap: router 17 lines 17,18",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 3.0194599628448486
+},
+{
+"kind": "port",
+"injected": true,
+"desc": "port+1: router 1 line 14",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 2.338822603225708
+},
+{
+"kind": "port",
+"injected": true,
+"desc": "port+1: router 25 line 8",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 3.0372838973999023
+},
+{
+"kind": "port",
+"injected": true,
+"desc": "port+1: router 12 line 13",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 3.758894681930542
+},
+{
+"kind": "prefix",
+"injected": true,
+"desc": "prefix: router 5 line 45 104.15.34.0/25->104.15.34.128/25",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 1.536731481552124
+},
+{
+"kind": "prefix",
+"injected": true,
+"desc": "prefix: router 1 line 29 87.186.60.0/23->87.186.62.0/23",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 2.598768711090088
+},
+{
+"kind": "prefix",
+"injected": true,
+"desc": "prefix: router 19 line 11 1.161.251.0/25->1.161.251.128/25",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 4.764302492141724
+},
+{
+"kind": "ecmp-1",
+"injected": false,
+"why": "single path everywhere"
+}
+],
+"status": "ok",
+"wall_s": 27.77618098258972
+},
+{
+"id": "Bbnplanet_s1002",
+"n_routers": 27,
+"n_zones": 10,
+"n_blocks": 354,
+"factor": 1.5,
+"clean_ok": true,
+"clean_cex": null,
+"verify_s": 5.1952691078186035,
+"checks": 94,
+"rules_total": 536,
+"rules_max": 29,
+"lines_total": 698,
+"mutations": [
+{
+"kind": "swap",
+"injected": true,
+"desc": "swap: router 8 lines 14,15",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 2.7865848541259766
+},
+{
+"kind": "swap",
+"injected": true,
+"desc": "swap: router 25 lines 18,19",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 1.6847124099731445
+},
+{
+"kind": "swap",
+"injected": true,
+"desc": "swap: router 8 lines 10,11",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 4.113269329071045
+},
+{
+"kind": "port",
+"injected": true,
+"desc": "port+1: router 19 line 9",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 2.6971538066864014
+},
+{
+"kind": "port",
+"injected": true,
+"desc": "port+1: router 4 line 19",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 1.1678504943847656
+},
+{
+"kind": "port",
+"injected": true,
+"desc": "port+1: router 6 line 25",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 3.41841721534729
+},
+{
+"kind": "prefix",
+"injected": true,
+"desc": "prefix: router 20 line 14 159.137.123.0/24->159.137.122.0/24",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 4.1992151737213135
+},
+{
+"kind": "prefix",
+"injected": true,
+"desc": "prefix: router 9 line 18 87.73.152.0/23->87.73.154.0/23",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 3.84834623336792
+},
+{
+"kind": "prefix",
+"injected": true,
+"desc": "prefix: router 25 line 20 208.56.125.224/28->208.56.125.240/28",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 1.647202968597412
+},
+{
+"kind": "ecmp-1",
+"injected": true,
+"net_detect": true,
+"local_detect": false,
+"cover_all_paths": false,
+"verify_s": 3.285292625427246,
+"cex": {
+"src_zone": "monitoring",
+"dst_zone": "admin",
+"path": [
+19,
+18,
+15,
+22,
+25,
+13,
+9,
+11
+],
+"src": "191.72.255.224",
+"dst": "87.73.152.0",
+"proto": 34,
+"dport": 0,
+"intended": false
+}
+}
+],
+"status": "ok",
+"wall_s": 34.74728846549988
+},
+{
+"id": "Bbnplanet_s1028",
+"n_routers": 27,
+"n_zones": 6,
+"n_blocks": 136,
+"factor": 2.0,
+"clean_ok": true,
+"clean_cex": null,
+"verify_s": 1.5781219005584717,
+"checks": 32,
+"rules_total": 259,
+"rules_max": 19,
+"lines_total": 421,
+"mutations": [
+{
+"kind": "swap",
+"injected": true,
+"desc": "swap: router 15 lines 12,13",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 0.06999468803405762
+},
+{
+"kind": "swap",
+"injected": true,
+"desc": "swap: router 18 lines 12,13",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 0.1955554485321045
+},
+{
+"kind": "swap",
+"injected": true,
+"desc": "swap: router 25 lines 19,20",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 1.5976321697235107
+},
+{
+"kind": "port",
+"injected": true,
+"desc": "port+1: router 15 line 5",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 0.07221317291259766
+},
+{
+"kind": "port",
+"injected": true,
+"desc": "port+1: router 12 line 21",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 0.3875701427459717
+},
+{
+"kind": "port",
+"injected": true,
+"desc": "port+1: router 15 line 21",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 0.8844659328460693
+},
+{
+"kind": "prefix",
+"injected": true,
+"desc": "prefix: router 18 line 12 181.118.0.0/16->181.119.0.0/16",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 0.19108295440673828
+},
+{
+"kind": "prefix",
+"injected": true,
+"desc": "prefix: router 17 line 12 48.207.214.64/26->48.207.214.0/26",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 0.8741235733032227
+},
+{
+"kind": "prefix",
+"injected": true,
+"desc": "prefix: router 5 line 8 181.118.0.0/16->181.119.0.0/16",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 0.7972860336303711
+},
+{
+"kind": "ecmp-1",
+"injected": true,
+"net_detect": true,
+"local_detect": false,
+"cover_all_paths": false,
+"verify_s": 0.2761385440826416,
+"cex": {
+"src_zone": "iot-sensors",
+"dst_zone": "nvr",
+"path": [
+19,
+18,
+15,
+22,
+25,
+13,
+9,
+11
+],
+"src": "125.149.60.0",
+"dst": "181.118.0.0",
+"proto": 0,
+"dport": 127,
+"intended": false
+}
+}
+],
+"status": "ok",
+"wall_s": 7.420597553253174
+},
+{
+"id": "Belnet2003_s1014",
+"n_routers": 23,
+"n_zones": 10,
+"n_blocks": 606,
+"factor": 2.0,
+"clean_ok": true,
+"clean_cex": null,
+"verify_s": 8.874074459075928,
+"checks": 160,
+"rules_total": 780,
+"rules_max": 67,
+"lines_total": 918,
+"mutations": [
+{
+"kind": "swap",
+"injected": true,
+"desc": "swap: router 4 lines 52,53",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 8.956623554229736
+},
+{
+"kind": "swap",
+"injected": true,
+"desc": "swap: router 4 lines 50,51",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 8.500183820724487
+},
+{
+"kind": "swap",
+"injected": true,
+"desc": "swap: router 21 lines 52,53",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 0.36261940002441406
+},
+{
+"kind": "port",
+"injected": true,
+"desc": "port+1: router 17 line 41",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 2.8905346393585205
+},
+{
+"kind": "port",
+"injected": true,
+"desc": "port+1: router 18 line 27",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 2.195434331893921
+},
+{
+"kind": "port",
+"injected": true,
+"desc": "port+1: router 12 line 5",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 6.371152877807617
+},
+{
+"kind": "prefix",
+"injected": true,
+"desc": "prefix: router 15 line 11 33.185.85.128/25->33.185.85.0/25",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 2.449136972427368
+},
+{
+"kind": "prefix",
+"injected": true,
+"desc": "prefix: router 12 line 32 173.159.207.96/27->173.159.207.64/27",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 5.772283554077148
+},
+{
+"kind": "prefix",
+"injected": true,
+"desc": "prefix: router 18 line 22 148.221.73.0/24->148.221.72.0/24",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 1.8956761360168457
+},
+{
+"kind": "ecmp-1",
+"injected": true,
+"net_detect": true,
+"local_detect": false,
+"cover_all_paths": false,
+"verify_s": 4.425199270248413,
+"cex": {
+"src_zone": "library",
+"dst_zone": "vpn-users",
+"path": [
+5,
+14,
+9,
+21
+],
+"src": "78.37.180.0",
+"dst": "235.205.64.0",
+"proto": 133,
+"dport": 40046,
+"intended": false
+}
+}
+],
+"status": "ok",
+"wall_s": 53.21571111679077
+},
+{
+"id": "Belnet2004_s1006",
+"n_routers": 23,
+"n_zones": 6,
+"n_blocks": 80,
+"factor": 3.0,
+"clean_ok": true,
+"clean_cex": null,
+"verify_s": 0.6624486446380615,
+"checks": 40,
+"rules_total": 122,
+"rules_max": 15,
+"lines_total": 260,
+"mutations": [
+{
+"kind": "swap",
+"injected": true,
+"desc": "swap: router 20 lines 15,16",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 0.1207132339477539
+},
+{
+"kind": "swap",
+"injected": true,
+"desc": "swap: router 12 lines 15,16",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 0.5796849727630615
+},
+{
+"kind": "swap",
+"injected": true,
+"desc": "swap: router 15 lines 10,11",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 0.43906664848327637
+},
+{
+"kind": "port",
+"injected": true,
+"desc": "port+1: router 17 line 11",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 0.3277606964111328
+},
+{
+"kind": "port",
+"injected": true,
+"desc": "port+1: router 12 line 13",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 0.5370800495147705
+},
+{
+"kind": "port",
+"injected": true,
+"desc": "port+1: router 15 line 6",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 0.5306797027587891
+},
+{
+"kind": "prefix",
+"injected": true,
+"desc": "prefix: router 18 line 17 160.162.5.0/25->160.162.5.128/25",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 0.19477105140686035
+},
+{
+"kind": "prefix",
+"injected": true,
+"desc": "prefix: router 19 line 12 160.162.5.0/25->160.162.5.128/25",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 0.47406506538391113
+},
+{
+"kind": "prefix",
+"injected": true,
+"desc": "prefix: router 21 line 19 248.180.215.128/25->248.180.215.0/25",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 0.2739560604095459
+},
+{
+"kind": "ecmp-1",
+"injected": true,
+"net_detect": true,
+"local_detect": false,
+"cover_all_paths": false,
+"verify_s": 0.20349407196044922,
+"cex": {
+"src_zone": "voip",
+"dst_zone": "cameras",
+"path": [
+18,
+15,
+16,
+12
+],
+"src": "81.189.118.224",
+"dst": "160.162.5.0",
+"proto": 6,
+"dport": 0,
+"intended": false
+}
+}
+],
+"status": "ok",
+"wall_s": 4.512042284011841
+},
+{
+"id": "Belnet2005_s1054",
+"n_routers": 23,
+"n_zones": 16,
+"n_blocks": 888,
+"factor": 1.5,
+"clean_ok": true,
+"clean_cex": null,
+"verify_s": 25.76358389854431,
+"checks": 576,
+"rules_total": 1091,
+"rules_max": 71,
+"lines_total": 1229,
+"mutations": [
+{
+"kind": "swap",
+"injected": true,
+"desc": "swap: router 4 lines 18,19",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 16.48919105529785
+},
+{
+"kind": "swap",
+"injected": true,
+"desc": "swap: router 21 lines 14,15",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 18.270570993423462
+},
+{
+"kind": "swap",
+"injected": true,
+"desc": "swap: router 17 lines 26,27",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 1.6052219867706299
+},
+{
+"kind": "port",
+"injected": true,
+"desc": "port+1: router 21 line 35",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 17.235952377319336
+},
+{
+"kind": "port",
+"injected": true,
+"desc": "port+1: router 21 line 10",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 18.10993218421936
+},
+{
+"kind": "port",
+"injected": true,
+"desc": "port+1: router 18 line 13",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 1.270021915435791
+},
+{
+"kind": "prefix",
+"injected": true,
+"desc": "prefix: router 10 line 30 63.16.103.128/25->63.16.103.0/25",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 8.755833387374878
+},
+{
+"kind": "prefix",
+"injected": true,
+"desc": "prefix: router 18 line 37 202.168.152.0/22->202.168.156.0/22",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 1.307222843170166
+},
+{
+"kind": "prefix",
+"injected": true,
+"desc": "prefix: router 2 line 44 127.191.0.0/25->127.191.0.128/25",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 23.52979040145874
+},
+{
+"kind": "ecmp-1",
+"injected": true,
+"net_detect": true,
+"local_detect": false,
+"cover_all_paths": false,
+"verify_s": 0.38784289360046387,
+"cex": {
+"src_zone": "mail",
+"dst_zone": "voip",
+"path": [
+18,
+9,
+16,
+5
+],
+"src": "190.0.40.80",
+"dst": "46.133.168.0",
+"proto": 6,
+"dport": 544,
+"intended": false
+}
+}
+],
+"status": "ok",
+"wall_s": 133.743510723114
+},
+{
+"id": "BtEurope_s1012",
+"n_routers": 24,
+"n_zones": 6,
+"n_blocks": 116,
+"factor": 3.0,
+"clean_ok": true,
+"clean_cex": null,
+"verify_s": 0.819364070892334,
+"checks": 38,
+"rules_total": 147,
+"rules_max": 18,
+"lines_total": 291,
+"mutations": [
+{
+"kind": "swap",
+"injected": true,
+"desc": "swap: router 1 lines 13,14",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 0.0832054615020752
+},
+{
+"kind": "swap",
+"injected": true,
+"desc": "swap: router 22 lines 18,19",
+"net_detect": false,
+"local_detect": true,
+"verify_s": 0.799738883972168
+},
+{
+"kind": "swap",
+"injected": true,
+"desc": "swap: router 2 lines 17,18",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 0.019700288772583008
+},
+{
+"kind": "port",
+"injected": true,
+"desc": "port+1: router 1 line 16",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 0.024711132049560547
+},
+{
+"kind": "port",
+"injected": true,
+"desc": "port+1: router 9 line 8",
+"net_detect": false,
+"local_detect": true,
+"verify_s": 0.850804328918457
+},
+{
+"kind": "port",
+"injected": true,
+"desc": "port+1: router 2 line 8",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 0.02864217758178711
+},
+{
+"kind": "prefix",
+"injected": true,
+"desc": "prefix: router 7 line 7 94.209.170.208/28->94.209.170.192/28",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 0.33028125762939453
+},
+{
+"kind": "prefix",
+"injected": true,
+"desc": "prefix: router 23 line 17 239.233.237.64/26->239.233.237.0/26",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 0.25119662284851074
+},
+{
+"kind": "prefix",
+"injected": true,
+"desc": "prefix: router 22 line 17 239.233.237.64/26->239.233.237.0/26",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 0.07901906967163086
+},
+{
+"kind": "ecmp-1",
+"injected": true,
+"net_detect": true,
+"local_detect": false,
+"cover_all_paths": false,
+"verify_s": 0.17939305305480957,
+"cex": {
+"src_zone": "guest-wifi",
+"dst_zone": "nvr",
+"path": [
+2,
+1,
+5,
+7,
+9
+],
+"src": "251.177.8.0",
+"dst": "94.209.170.208",
+"proto": 0,
+"dport": 0,
+"intended": false
+}
+}
+],
+"status": "ok",
+"wall_s": 3.646764039993286
+},
+{
+"id": "BtEurope_s1032",
+"n_routers": 24,
+"n_zones": 16,
+"n_blocks": 1276,
+"factor": 1.5,
+"clean_ok": true,
+"clean_cex": null,
+"verify_s": 32.69077229499817,
+"checks": 354,
+"rules_total": 1858,
+"rules_max": 116,
+"lines_total": 2002,
+"mutations": [
+{
+"kind": "swap",
+"injected": true,
+"desc": "swap: router 10 lines 11,12",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 29.029570817947388
+},
+{
+"kind": "swap",
+"injected": true,
+"desc": "swap: router 21 lines 50,51",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 10.619391918182373
+},
+{
+"kind": "swap",
+"injected": true,
+"desc": "swap: router 9 lines 57,58",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 4.933570623397827
+},
+{
+"kind": "port",
+"injected": true,
+"desc": "port+1: router 18 line 14",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 25.672821283340454
+},
+{
+"kind": "port",
+"injected": true,
+"desc": "port+1: router 18 line 88",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 26.708790063858032
+},
+{
+"kind": "port",
+"injected": true,
+"desc": "port+1: router 20 line 13",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 21.262962102890015
+},
+{
+"kind": "prefix",
+"injected": true,
+"desc": "prefix: router 20 line 79 187.134.108.0/22->187.134.104.0/22",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 18.37239694595337
+},
+{
+"kind": "prefix",
+"injected": true,
+"desc": "prefix: router 17 line 59 206.164.0.0/16->206.165.0.0/16",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 18.353057146072388
+},
+{
+"kind": "prefix",
+"injected": true,
+"desc": "prefix: router 20 line 49 131.96.240.0/20->131.96.224.0/20",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 20.80901527404785
+},
+{
+"kind": "ecmp-1",
+"injected": true,
+"net_detect": true,
+"local_detect": false,
+"cover_all_paths": false,
+"verify_s": 2.0623984336853027,
+"cex": {
+"src_zone": "printers",
+"dst_zone": "student-lab",
+"path": [
+4,
+1,
+5,
+7,
+9
+],
+"src": "206.82.241.32",
+"dst": "187.134.108.0",
+"proto": 6,
+"dport": 448,
+"intended": false
+}
+}
+],
+"status": "ok",
+"wall_s": 211.90819001197815
+},
+{
+"id": "BtLatinAmerica_s1051",
+"n_routers": 45,
+"n_zones": 6,
+"n_blocks": 184,
+"factor": 3.0,
+"clean_ok": true,
+"clean_cex": null,
+"verify_s": 4.245954275131226,
+"checks": 30,
+"rules_total": 893,
+"rules_max": 59,
+"lines_total": 1163,
+"mutations": [
+{
+"kind": "swap",
+"injected": true,
+"desc": "swap: router 10 lines 52,53",
+"net_detect": false,
+"local_detect": true,
+"verify_s": 4.341665267944336
+},
+{
+"kind": "swap",
+"injected": true,
+"desc": "swap: router 1 lines 25,26",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 2.91316819190979
+},
+{
+"kind": "swap",
+"injected": true,
+"desc": "swap: router 1 lines 45,46",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 3.7044169902801514
+},
+{
+"kind": "port",
+"injected": true,
+"desc": "port+1: router 12 line 50",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 1.327366590499878
+},
+{
+"kind": "port",
+"injected": true,
+"desc": "port+1: router 19 line 50",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 0.9243919849395752
+},
+{
+"kind": "port",
+"injected": true,
+"desc": "port+1: router 1 line 31",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 3.312293291091919
+},
+{
+"kind": "prefix",
+"injected": true,
+"desc": "prefix: router 1 line 8 105.129.29.96/27->105.129.29.64/27",
+"net_detect": false,
+"local_detect": true,
+"verify_s": 4.171653509140015
+},
+{
+"kind": "prefix",
+"injected": true,
+"desc": "prefix: router 20 line 20 186.183.81.64/26->186.183.81.0/26",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 0.3290364742279053
+},
+{
+"kind": "prefix",
+"injected": true,
+"desc": "prefix: router 43 line 49 86.195.253.0/24->86.195.252.0/24",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 0.8888039588928223
+},
+{
+"kind": "ecmp-1",
+"injected": false,
+"why": "single path everywhere"
+}
+],
+"status": "ok",
+"wall_s": 26.77251410484314
+},
+{
+"id": "Cernet_s1005",
+"n_routers": 41,
+"n_zones": 16,
+"n_blocks": 726,
+"factor": 2.0,
+"clean_ok": true,
+"clean_cex": null,
+"verify_s": 16.80968165397644,
+"checks": 340,
+"rules_total": 888,
+"rules_max": 43,
+"lines_total": 1134,
+"mutations": [
+{
+"kind": "swap",
+"injected": true,
+"desc": "swap: router 6 lines 26,27",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 15.013754844665527
+},
+{
+"kind": "swap",
+"injected": true,
+"desc": "swap: router 28 lines 37,38",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 9.909788370132446
+},
+{
+"kind": "swap",
+"injected": true,
+"desc": "swap: router 28 lines 5,6",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 9.745850801467896
+},
+{
+"kind": "port",
+"injected": true,
+"desc": "port+1: router 39 line 7",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 8.906846046447754
+},
+{
+"kind": "port",
+"injected": true,
+"desc": "port+1: router 21 line 19",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 11.248275756835938
+},
+{
+"kind": "port",
+"injected": true,
+"desc": "port+1: router 33 line 16",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 6.141091585159302
+},
+{
+"kind": "prefix",
+"injected": true,
+"desc": "prefix: router 38 line 16 86.124.192.0/22->86.124.196.0/22",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 7.4009926319122314
+},
+{
+"kind": "prefix",
+"injected": true,
+"desc": "prefix: router 25 line 25 60.147.0.0/16->60.146.0.0/16",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 0.6109859943389893
+},
+{
+"kind": "prefix",
+"injected": true,
+"desc": "prefix: router 0 line 28 202.39.128.0/17->202.39.0.0/17",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 12.23665189743042
+},
+{
+"kind": "ecmp-1",
+"injected": true,
+"net_detect": true,
+"local_detect": false,
+"cover_all_paths": false,
+"verify_s": 2.770157814025879,
+"cex": {
+"src_zone": "research",
+"dst_zone": "library",
+"path": [
+17,
+29,
+26,
+25,
+24
+],
+"src": "29.244.70.0",
+"dst": "78.73.109.32",
+"proto": 254,
+"dport": 4,
+"intended": false
+}
+}
+],
+"status": "ok",
+"wall_s": 101.75747227668762
+},
+{
+"id": "Cesnet1999_s1048",
+"n_routers": 13,
+"n_zones": 16,
+"n_blocks": 948,
+"factor": 1.5,
+"clean_ok": true,
+"clean_cex": null,
+"verify_s": 23.283899307250977,
+"checks": 240,
+"rules_total": 1147,
+"rules_max": 132,
+"lines_total": 1225,
+"mutations": [
+{
+"kind": "swap",
+"injected": true,
+"desc": "swap: router 7 lines 104,105",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 1.3014030456542969
+},
+{
+"kind": "swap",
+"injected": true,
+"desc": "swap: router 5 lines 18,19",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 5.5716469287872314
+},
+{
+"kind": "swap",
+"injected": true,
+"desc": "swap: router 2 lines 135,136",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 14.374105453491211
+},
+{
+"kind": "port",
+"injected": true,
+"desc": "port+1: router 7 line 38",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 1.362793207168579
+},
+{
+"kind": "port",
+"injected": true,
+"desc": "port+1: router 2 line 37",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 21.5125834941864
+},
+{
+"kind": "port",
+"injected": true,
+"desc": "port+1: router 5 line 14",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 5.277226686477661
+},
+{
+"kind": "prefix",
+"injected": true,
+"desc": "prefix: router 0 line 125 77.148.0.0/16->77.149.0.0/16",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 12.973774194717407
+},
+{
+"kind": "prefix",
+"injected": true,
+"desc": "prefix: router 3 line 55 227.229.0.0/17->227.229.128.0/17",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 20.142245292663574
+},
+{
+"kind": "prefix",
+"injected": true,
+"desc": "prefix: router 4 line 65 230.143.78.0/24->230.143.79.0/24",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 13.253825426101685
+},
+{
+"kind": "ecmp-1",
+"injected": false,
+"why": "single path everywhere"
+}
+],
+"status": "ok",
+"wall_s": 119.54710698127747
+},
+{
+"id": "Claranet_s1013",
+"n_routers": 15,
+"n_zones": 16,
+"n_blocks": 1204,
+"factor": 2.0,
+"clean_ok": true,
+"clean_cex": null,
+"verify_s": 37.93314576148987,
+"checks": 254,
+"rules_total": 1624,
+"rules_max": 216,
+"lines_total": 1714,
+"mutations": [
+{
+"kind": "swap",
+"injected": true,
+"desc": "swap: router 7 lines 114,115",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 33.50038409233093
+},
+{
+"kind": "swap",
+"injected": true,
+"desc": "swap: router 14 lines 18,19",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 4.5006020069122314
+},
+{
+"kind": "swap",
+"injected": true,
+"desc": "swap: router 9 lines 205,206",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 15.13121771812439
+},
+{
+"kind": "port",
+"injected": true,
+"desc": "port+1: router 5 line 207",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 24.79516863822937
+},
+{
+"kind": "port",
+"injected": true,
+"desc": "port+1: router 8 line 43",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 9.650779008865356
+},
+{
+"kind": "port",
+"injected": true,
+"desc": "port+1: router 0 line 140",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 20.94640278816223
+},
+{
+"kind": "prefix",
+"injected": true,
+"desc": "prefix: router 7 line 93 37.226.16.0/21->37.226.24.0/21",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 14.266934156417847
+},
+{
+"kind": "prefix",
+"injected": true,
+"desc": "prefix: router 14 line 193 158.120.116.0/22->158.120.112.0/22",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 26.038868188858032
+},
+{
+"kind": "prefix",
+"injected": true,
+"desc": "prefix: router 14 line 96 37.226.16.0/21->37.226.24.0/21",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 36.68353581428528
+},
+{
+"kind": "ecmp-1",
+"injected": true,
+"net_detect": true,
+"local_detect": false,
+"cover_all_paths": false,
+"verify_s": 4.17723822593689,
+"cex": {
+"src_zone": "database",
+"dst_zone": "ntp-servers",
+"path": [
+5,
+7,
+0
+],
+"src": "208.56.125.0",
+"dst": "29.100.55.128",
+"proto": 79,
+"dport": 8,
+"intended": false
+}
+}
+],
+"status": "ok",
+"wall_s": 229.02780151367188
+},
+{
+"id": "Digex_s1052",
+"n_routers": 31,
+"n_zones": 6,
+"n_blocks": 138,
+"factor": 3.0,
+"clean_ok": true,
+"clean_cex": null,
+"verify_s": 1.2498080730438232,
+"checks": 32,
+"rules_total": 242,
+"rules_max": 23,
+"lines_total": 428,
+"mutations": [
+{
+"kind": "swap",
+"injected": true,
+"desc": "swap: router 12 lines 22,23",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 0.3976714611053467
+},
+{
+"kind": "swap",
+"injected": true,
+"desc": "swap: router 7 lines 20,21",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 0.15476155281066895
+},
+{
+"kind": "swap",
+"injected": true,
+"desc": "swap: router 14 lines 11,12",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 1.301959753036499
+},
+{
+"kind": "port",
+"injected": true,
+"desc": "port+1: router 8 line 14",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 0.1548919677734375
+},
+{
+"kind": "port",
+"injected": true,
+"desc": "port+1: router 12 line 7",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 1.3136632442474365
+},
+{
+"kind": "port",
+"injected": true,
+"desc": "port+1: router 7 line 5",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 0.16006231307983398
+},
+{
+"kind": "prefix",
+"injected": true,
+"desc": "prefix: router 12 line 9 240.7.2.0/23->240.7.0.0/23",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 0.26744699478149414
+},
+{
+"kind": "prefix",
+"injected": true,
+"desc": "prefix: router 7 line 22 96.85.0.0/16->96.84.0.0/16",
+"net_detect": false,
+"local_detect": true,
+"verify_s": 1.3348205089569092
+},
+{
+"kind": "prefix",
+"injected": true,
+"desc": "prefix: router 7 line 7 85.211.95.96/28->85.211.95.112/28",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 0.15748190879821777
+},
+{
+"kind": "ecmp-1",
+"injected": true,
+"net_detect": true,
+"local_detect": false,
+"cover_all_paths": false,
+"verify_s": 1.2286128997802734,
+"cex": {
+"src_zone": "ops",
+"dst_zone": "edge-cache",
+"path": [
+14,
+15,
+12,
+11,
+10,
+23,
+25,
+30,
+29
+],
+"src": "168.30.104.0",
+"dst": "26.27.163.0",
+"proto": 6,
+"dport": 3306,
+"intended": false
+}
+}
+],
+"status": "ok",
+"wall_s": 8.00336503982544
+},
+{
+"id": "EliBackbone_s1008",
+"n_routers": 20,
+"n_zones": 10,
+"n_blocks": 350,
+"factor": 1.5,
+"clean_ok": true,
+"clean_cex": null,
+"verify_s": 8.525619983673096,
+"checks": 138,
+"rules_total": 554,
+"rules_max": 41,
+"lines_total": 674,
+"mutations": [
+{
+"kind": "swap",
+"injected": true,
+"desc": "swap: router 16 lines 12,13",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 5.0534162521362305
+},
+{
+"kind": "swap",
+"injected": true,
+"desc": "swap: router 6 lines 32,33",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 4.079361915588379
+},
+{
+"kind": "swap",
+"injected": true,
+"desc": "swap: router 3 lines 12,13",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 6.200201749801636
+},
+{
+"kind": "port",
+"injected": true,
+"desc": "port+1: router 14 line 15",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 2.5451083183288574
+},
+{
+"kind": "port",
+"injected": true,
+"desc": "port+1: router 2 line 9",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 3.3510079383850098
+},
+{
+"kind": "port",
+"injected": true,
+"desc": "port+1: router 12 line 9",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 7.387446641921997
+},
+{
+"kind": "prefix",
+"injected": true,
+"desc": "prefix: router 3 line 15 152.134.8.0/21->152.134.0.0/21",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 6.834327459335327
+},
+{
+"kind": "prefix",
+"injected": true,
+"desc": "prefix: router 5 line 16 123.127.237.0/25->123.127.237.128/25",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 5.993205785751343
+},
+{
+"kind": "prefix",
+"injected": true,
+"desc": "prefix: router 5 line 17 167.65.32.0/22->167.65.36.0/22",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 6.112833261489868
+},
+{
+"kind": "ecmp-1",
+"injected": true,
+"net_detect": true,
+"local_detect": false,
+"cover_all_paths": false,
+"verify_s": 1.883768081665039,
+"cex": {
+"src_zone": "student-lab",
+"dst_zone": "guest-wifi",
+"path": [
+8,
+9,
+10,
+4,
+2,
+1,
+0
+],
+"src": "37.134.157.128",
+"dst": "85.11.127.64",
+"proto": 17,
+"dport": 123,
+"intended": false
+}
+}
+],
+"status": "ok",
+"wall_s": 58.49174404144287
+},
+{
+"id": "Eunetworks_s1053",
+"n_routers": 14,
+"n_zones": 16,
+"n_blocks": 1138,
+"factor": 2.0,
+"clean_ok": true,
+"clean_cex": null,
+"verify_s": 35.6949679851532,
+"checks": 250,
+"rules_total": 1255,
+"rules_max": 179,
+"lines_total": 1339,
+"mutations": [
+{
+"kind": "swap",
+"injected": true,
+"desc": "swap: router 2 lines 15,16",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 6.0464465618133545
+},
+{
+"kind": "swap",
+"injected": true,
+"desc": "swap: router 11 lines 65,66",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 29.05040979385376
+},
+{
+"kind": "swap",
+"injected": true,
+"desc": "swap: router 5 lines 57,58",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 34.76371622085571
+},
+{
+"kind": "port",
+"injected": true,
+"desc": "port+1: router 3 line 34",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 18.630966901779175
+},
+{
+"kind": "port",
+"injected": true,
+"desc": "port+1: router 9 line 84",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 6.051786422729492
+},
+{
+"kind": "port",
+"injected": true,
+"desc": "port+1: router 0 line 34",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 6.650321960449219
+},
+{
+"kind": "prefix",
+"injected": true,
+"desc": "prefix: router 5 line 78 225.91.243.224/27->225.91.243.192/27",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 31.14748764038086
+},
+{
+"kind": "prefix",
+"injected": true,
+"desc": "prefix: router 8 line 173 205.235.242.0/23->205.235.240.0/23",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 24.440502643585205
+},
+{
+"kind": "prefix",
+"injected": true,
+"desc": "prefix: router 11 line 58 231.35.251.0/24->231.35.250.0/24",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 29.322485208511353
+},
+{
+"kind": "ecmp-1",
+"injected": true,
+"net_detect": true,
+"local_detect": false,
+"cover_all_paths": false,
+"verify_s": 9.400527238845825,
+"cex": {
+"src_zone": "student-lab",
+"dst_zone": "finance",
+"path": [
+11,
+13,
+12,
+7,
+6,
+5
+],
+"src": "245.188.0.0",
+"dst": "21.8.236.0",
+"proto": 6,
+"dport": 28,
+"intended": false
+}
+}
+],
+"status": "ok",
+"wall_s": 232.79945826530457
+},
+{
+"id": "Evolink_s1042",
+"n_routers": 37,
+"n_zones": 6,
+"n_blocks": 96,
+"factor": 4.0,
+"clean_ok": true,
+"clean_cex": null,
+"verify_s": 0.7636334896087646,
+"checks": 38,
+"rules_total": 121,
+"rules_max": 13,
+"lines_total": 343,
+"mutations": [
+{
+"kind": "swap",
+"injected": true,
+"desc": "swap: router 29 lines 8,9",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 0.5322866439819336
+},
+{
+"kind": "swap",
+"injected": true,
+"desc": "swap: router 13 lines 15,16",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 0.05927872657775879
+},
+{
+"kind": "swap",
+"injected": true,
+"desc": "swap: router 1 lines 16,17",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 0.6794075965881348
+},
+{
+"kind": "port",
+"injected": true,
+"desc": "port+1: router 22 line 16",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 0.31517624855041504
+},
+{
+"kind": "port",
+"injected": true,
+"desc": "port+1: router 13 line 15",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 0.04754352569580078
+},
+{
+"kind": "port",
+"injected": true,
+"desc": "port+1: router 22 line 5",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 0.3601095676422119
+},
+{
+"kind": "prefix",
+"injected": true,
+"desc": "prefix: router 21 line 17 91.123.152.0/21->91.123.144.0/21",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 0.20065045356750488
+},
+{
+"kind": "prefix",
+"injected": true,
+"desc": "prefix: router 22 line 7 194.139.114.0/23->194.139.112.0/23",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 0.3499629497528076
+},
+{
+"kind": "prefix",
+"injected": true,
+"desc": "prefix: router 22 line 15 104.15.252.0/23->104.15.254.0/23",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 0.3184807300567627
+},
+{
+"kind": "ecmp-1",
+"injected": true,
+"net_detect": true,
+"local_detect": false,
+"cover_all_paths": false,
+"verify_s": 0.2282850742340088,
+"cex": {
+"src_zone": "database",
+"dst_zone": "scada",
+"path": [
+21,
+34,
+32,
+29,
+30
+],
+"src": "34.99.38.0",
+"dst": "104.15.252.0",
+"proto": 6,
+"dport": 384,
+"intended": false
+}
+}
+],
+"status": "ok",
+"wall_s": 4.051085472106934
+},
+{
+"id": "Gambia_s1041",
+"n_routers": 28,
+"n_zones": 16,
+"n_blocks": 832,
+"factor": 1.5,
+"clean_ok": true,
+"clean_cex": null,
+"verify_s": 13.62357211112976,
+"checks": 246,
+"rules_total": 974,
+"rules_max": 52,
+"lines_total": 1142,
+"mutations": [
+{
+"kind": "swap",
+"injected": true,
+"desc": "swap: router 0 lines 41,42",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 13.54752779006958
+},
+{
+"kind": "swap",
+"injected": true,
+"desc": "swap: router 19 lines 44,45",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 11.287109136581421
+},
+{
+"kind": "swap",
+"injected": true,
+"desc": "swap: router 26 lines 21,22",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 8.283509254455566
+},
+{
+"kind": "port",
+"injected": true,
+"desc": "port+1: router 26 line 10",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 8.016645431518555
+},
+{
+"kind": "port",
+"injected": true,
+"desc": "port+1: router 19 line 34",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 10.273784875869751
+},
+{
+"kind": "port",
+"injected": true,
+"desc": "port+1: router 17 line 17",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 3.901576280593872
+},
+{
+"kind": "prefix",
+"injected": true,
+"desc": "prefix: router 16 line 55 242.80.128.0/24->242.80.129.0/24",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 8.732985973358154
+},
+{
+"kind": "prefix",
+"injected": true,
+"desc": "prefix: router 16 line 56 73.102.160.16/28->73.102.160.0/28",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 8.31380009651184
+},
+{
+"kind": "prefix",
+"injected": true,
+"desc": "prefix: router 16 line 51 255.130.121.0/26->255.130.121.64/26",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 9.18646240234375
+},
+{
+"kind": "ecmp-1",
+"injected": true,
+"net_detect": true,
+"local_detect": false,
+"cover_all_paths": false,
+"verify_s": 0.29973888397216797,
+"cex": {
+"src_zone": "dmz-web",
+"dst_zone": "voip",
+"path": [
+22,
+11,
+10,
+7,
+6,
+8,
+9
+],
+"src": "125.220.209.0",
+"dst": "73.102.160.16",
+"proto": 0,
+"dport": 0,
+"intended": false
+}
+}
+],
+"status": "ok",
+"wall_s": 96.50925588607788
+},
+{
+"id": "Garr200109_s1023",
+"n_routers": 22,
+"n_zones": 10,
+"n_blocks": 318,
+"factor": 2.0,
+"clean_ok": true,
+"clean_cex": null,
+"verify_s": 5.982112169265747,
+"checks": 90,
+"rules_total": 598,
+"rules_max": 54,
+"lines_total": 730,
+"mutations": [
+{
+"kind": "swap",
+"injected": true,
+"desc": "swap: router 16 lines 47,48",
+"net_detect": false,
+"local_detect": true,
+"verify_s": 6.237728595733643
+},
+{
+"kind": "swap",
+"injected": true,
+"desc": "swap: router 13 lines 32,33",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 4.016083002090454
+},
+{
+"kind": "swap",
+"injected": true,
+"desc": "swap: router 10 lines 56,57",
+"net_detect": false,
+"local_detect": true,
+"verify_s": 6.361578941345215
+},
+{
+"kind": "port",
+"injected": true,
+"desc": "port+1: router 16 line 21",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 5.276168346405029
+},
+{
+"kind": "port",
+"injected": true,
+"desc": "port+1: router 5 line 34",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 2.261587381362915
+},
+{
+"kind": "port",
+"injected": true,
+"desc": "port+1: router 16 line 28",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 2.4994890689849854
+},
+{
+"kind": "prefix",
+"injected": true,
+"desc": "prefix: router 5 line 31 197.166.131.128/25->197.166.131.0/25",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 2.165893316268921
+},
+{
+"kind": "prefix",
+"injected": true,
+"desc": "prefix: router 11 line 43 233.77.144.0/23->233.77.146.0/23",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 1.2482130527496338
+},
+{
+"kind": "prefix",
+"injected": true,
+"desc": "prefix: router 4 line 9 178.129.112.0/24->178.129.113.0/24",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 0.5528151988983154
+},
+{
+"kind": "ecmp-1",
+"injected": false,
+"why": "single path everywhere"
+}
+],
+"status": "ok",
+"wall_s": 36.79752326011658
+},
+{
+"id": "Garr200212_s1044",
+"n_routers": 27,
+"n_zones": 6,
+"n_blocks": 116,
+"factor": 4.0,
+"clean_ok": true,
+"clean_cex": null,
+"verify_s": 1.72780442237854,
+"checks": 36,
+"rules_total": 246,
+"rules_max": 36,
+"lines_total": 408,
+"mutations": [
+{
+"kind": "swap",
+"injected": true,
+"desc": "swap: router 20 lines 30,31",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 1.7243084907531738
+},
+{
+"kind": "swap",
+"injected": true,
+"desc": "swap: router 26 lines 23,24",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 0.328920841217041
+},
+{
+"kind": "swap",
+"injected": true,
+"desc": "swap: router 20 lines 6,7",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 0.7607743740081787
+},
+{
+"kind": "port",
+"injected": true,
+"desc": "port+1: router 20 line 16",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 0.7714583873748779
+},
+{
+"kind": "port",
+"injected": true,
+"desc": "port+1: router 0 line 12",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 0.18028855323791504
+},
+{
+"kind": "port",
+"injected": true,
+"desc": "port+1: router 26 line 13",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 0.5020029544830322
+},
+{
+"kind": "prefix",
+"injected": true,
+"desc": "prefix: router 20 line 17 134.84.250.240/28->134.84.250.224/28",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 0.7546525001525879
+},
+{
+"kind": "prefix",
+"injected": true,
+"desc": "prefix: router 23 line 31 166.219.159.32/28->166.219.159.48/28",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 1.0854523181915283
+},
+{
+"kind": "prefix",
+"injected": true,
+"desc": "prefix: router 0 line 30 87.29.38.0/23->87.29.36.0/23",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 0.20587825775146484
+},
+{
+"kind": "ecmp-1",
+"injected": true,
+"net_detect": false,
+"local_detect": false,
+"cover_all_paths": true,
+"verify_s": 1.764543056488037,
+"cex": null
+}
+],
+"status": "ok",
+"wall_s": 10.01726245880127
+},
+{
+"id": "Garr200404_s1003",
+"n_routers": 22,
+"n_zones": 16,
+"n_blocks": 834,
+"factor": 1.5,
+"clean_ok": true,
+"clean_cex": null,
+"verify_s": 18.868638515472412,
+"checks": 240,
+"rules_total": 1150,
+"rules_max": 78,
+"lines_total": 1282,
+"mutations": [
+{
+"kind": "swap",
+"injected": true,
+"desc": "swap: router 6 lines 42,43",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 7.858107805252075
+},
+{
+"kind": "swap",
+"injected": true,
+"desc": "swap: router 15 lines 41,42",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 1.4423067569732666
+},
+{
+"kind": "swap",
+"injected": true,
+"desc": "swap: router 0 lines 40,41",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 3.7064120769500732
+},
+{
+"kind": "port",
+"injected": true,
+"desc": "port+1: router 1 line 49",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 6.407179355621338
+},
+{
+"kind": "port",
+"injected": true,
+"desc": "port+1: router 4 line 32",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 6.921100378036499
+},
+{
+"kind": "port",
+"injected": true,
+"desc": "port+1: router 9 line 46",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 12.240790843963623
+},
+{
+"kind": "prefix",
+"injected": true,
+"desc": "prefix: router 3 line 49 102.169.19.0/24->102.169.18.0/24",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 11.63031554222107
+},
+{
+"kind": "prefix",
+"injected": true,
+"desc": "prefix: router 6 line 36 195.167.212.0/24->195.167.213.0/24",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 7.191333532333374
+},
+{
+"kind": "prefix",
+"injected": true,
+"desc": "prefix: router 10 line 32 2.235.182.0/28->2.235.182.16/28",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 4.7103095054626465
+},
+{
+"kind": "ecmp-1",
+"injected": false,
+"why": "single path everywhere"
+}
+],
+"status": "ok",
+"wall_s": 81.53582787513733
+},
+{
+"id": "Garr200404_s1045",
+"n_routers": 22,
+"n_zones": 16,
+"n_blocks": 1076,
+"factor": 1.5,
+"clean_ok": true,
+"clean_cex": null,
+"verify_s": 22.35249137878418,
+"checks": 240,
+"rules_total": 1750,
+"rules_max": 119,
+"lines_total": 1882,
+"mutations": [
+{
+"kind": "swap",
+"injected": true,
+"desc": "swap: router 18 lines 60,61",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 4.257023334503174
+},
+{
+"kind": "swap",
+"injected": true,
+"desc": "swap: router 10 lines 40,41",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 10.103265285491943
+},
+{
+"kind": "swap",
+"injected": true,
+"desc": "swap: router 14 lines 109,110",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 20.659669160842896
+},
+{
+"kind": "port",
+"injected": true,
+"desc": "port+1: router 3 line 28",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 13.22837781906128
+},
+{
+"kind": "port",
+"injected": true,
+"desc": "port+1: router 3 line 14",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 12.784201383590698
+},
+{
+"kind": "port",
+"injected": true,
+"desc": "port+1: router 15 line 56",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 16.05439305305481
+},
+{
+"kind": "prefix",
+"injected": true,
+"desc": "prefix: router 9 line 86 126.94.0.0/16->126.95.0.0/16",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 15.581847906112671
+},
+{
+"kind": "prefix",
+"injected": true,
+"desc": "prefix: router 9 line 115 54.139.81.0/24->54.139.80.0/24",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 19.426966190338135
+},
+{
+"kind": "prefix",
+"injected": true,
+"desc": "prefix: router 9 line 122 184.23.244.0/22->184.23.240.0/22",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 16.059465646743774
+},
+{
+"kind": "ecmp-1",
+"injected": false,
+"why": "single path everywhere"
+}
+],
+"status": "ok",
+"wall_s": 151.00961470603943
+},
+{
+"id": "Garr200902_s1056",
+"n_routers": 54,
+"n_zones": 6,
+"n_blocks": 114,
+"factor": 6.0,
+"clean_ok": true,
+"clean_cex": null,
+"verify_s": 2.251127243041992,
+"checks": 38,
+"rules_total": 421,
+"rules_max": 46,
+"lines_total": 745,
+"mutations": [
+{
+"kind": "swap",
+"injected": true,
+"desc": "swap: router 26 lines 30,31",
+"net_detect": false,
+"local_detect": true,
+"verify_s": 2.317206382751465
+},
+{
+"kind": "swap",
+"injected": true,
+"desc": "swap: router 15 lines 10,11",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 1.3784115314483643
+},
+{
+"kind": "swap",
+"injected": true,
+"desc": "swap: router 15 lines 44,45",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 1.161012887954712
+},
+{
+"kind": "port",
+"injected": true,
+"desc": "port+1: router 15 line 25",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 1.5032403469085693
+},
+{
+"kind": "port",
+"injected": true,
+"desc": "port+1: router 31 line 19",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 0.6192526817321777
+},
+{
+"kind": "port",
+"injected": true,
+"desc": "port+1: router 26 line 37",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 0.07722640037536621
+},
+{
+"kind": "prefix",
+"injected": true,
+"desc": "prefix: router 31 line 12 60.189.0.0/16->60.188.0.0/16",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 0.4745328426361084
+},
+{
+"kind": "prefix",
+"injected": true,
+"desc": "prefix: router 51 line 29 154.45.153.128/27->154.45.153.160/27",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 1.596815824508667
+},
+{
+"kind": "prefix",
+"injected": true,
+"desc": "prefix: router 15 line 40 106.241.113.0/27->106.241.113.32/27",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 1.2367091178894043
+},
+{
+"kind": "ecmp-1",
+"injected": true,
+"net_detect": true,
+"local_detect": false,
+"cover_all_paths": false,
+"verify_s": 0.7478723526000977,
+"cex": {
+"src_zone": "voip",
+"dst_zone": "nvr",
+"path": [
+31,
+33,
+30,
+2,
+44,
+50,
+41
+],
+"src": "208.247.250.224",
+"dst": "83.199.154.64",
+"proto": 106,
+"dport": 1664,
+"intended": false
+}
+}
+],
+"status": "ok",
+"wall_s": 13.623154163360596
+},
+{
+"id": "Garr200908_s1017",
+"n_routers": 54,
+"n_zones": 6,
+"n_blocks": 136,
+"factor": 6.0,
+"clean_ok": true,
+"clean_cex": null,
+"verify_s": 2.3615899085998535,
+"checks": 68,
+"rules_total": 227,
+"rules_max": 25,
+"lines_total": 551,
+"mutations": [
+{
+"kind": "swap",
+"injected": true,
+"desc": "swap: router 48 lines 18,19",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 0.18591737747192383
+},
+{
+"kind": "swap",
+"injected": true,
+"desc": "swap: router 2 lines 7,8",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 0.4617187976837158
+},
+{
+"kind": "swap",
+"injected": true,
+"desc": "swap: router 17 lines 21,22",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 0.3684501647949219
+},
+{
+"kind": "port",
+"injected": true,
+"desc": "port+1: router 35 line 7",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 2.1850123405456543
+},
+{
+"kind": "port",
+"injected": true,
+"desc": "port+1: router 4 line 23",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 0.039101600646972656
+},
+{
+"kind": "port",
+"injected": true,
+"desc": "port+1: router 17 line 17",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 0.3433988094329834
+},
+{
+"kind": "prefix",
+"injected": true,
+"desc": "prefix: router 35 line 29 202.61.61.128/25->202.61.61.0/25",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 2.2581400871276855
+},
+{
+"kind": "prefix",
+"injected": true,
+"desc": "prefix: router 27 line 14 143.143.253.32/27->143.143.253.0/27",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 1.2286884784698486
+},
+{
+"kind": "prefix",
+"injected": true,
+"desc": "prefix: router 2 line 11 143.143.253.32/27->143.143.253.0/27",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 0.6048336029052734
+},
+{
+"kind": "ecmp-1",
+"injected": true,
+"net_detect": true,
+"local_detect": false,
+"cover_all_paths": false,
+"verify_s": 0.6676821708679199,
+"cex": {
+"src_zone": "partners",
+"dst_zone": "backup",
+"path": [
+17,
+2,
+49,
+48,
+52
+],
+"src": "118.113.84.0",
+"dst": "228.115.116.0",
+"proto": 17,
+"dport": 0,
+"intended": false
+}
+}
+],
+"status": "ok",
+"wall_s": 11.096080541610718
+},
+{
+"id": "Garr201102_s1035",
+"n_routers": 57,
+"n_zones": 16,
+"n_blocks": 1072,
+"factor": 2.0,
+"clean_ok": true,
+"clean_cex": null,
+"verify_s": 39.22733688354492,
+"checks": 434,
+"rules_total": 1425,
+"rules_max": 50,
+"lines_total": 1767,
+"mutations": [
+{
+"kind": "swap",
+"injected": true,
+"desc": "swap: router 35 lines 39,40",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 35.986172914505005
+},
+{
+"kind": "swap",
+"injected": true,
+"desc": "swap: router 49 lines 41,42",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 7.934830904006958
+},
+{
+"kind": "swap",
+"injected": true,
+"desc": "swap: router 48 lines 10,11",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 9.620862007141113
+},
+{
+"kind": "port",
+"injected": true,
+"desc": "port+1: router 50 line 17",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 28.898335218429565
+},
+{
+"kind": "port",
+"injected": true,
+"desc": "port+1: router 5 line 43",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 0.31922006607055664
+},
+{
+"kind": "port",
+"injected": true,
+"desc": "port+1: router 35 line 39",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 29.282151222229004
+},
+{
+"kind": "prefix",
+"injected": true,
+"desc": "prefix: router 9 line 10 44.77.177.48/28->44.77.177.32/28",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 9.43083906173706
+},
+{
+"kind": "prefix",
+"injected": true,
+"desc": "prefix: router 45 line 39 171.43.128.0/20->171.43.144.0/20",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 1.8617165088653564
+},
+{
+"kind": "prefix",
+"injected": true,
+"desc": "prefix: router 20 line 37 202.175.240.0/24->202.175.241.0/24",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 28.660645008087158
+},
+{
+"kind": "ecmp-1",
+"injected": true,
+"net_detect": true,
+"local_detect": false,
+"cover_all_paths": false,
+"verify_s": 0.6340270042419434,
+"cex": {
+"src_zone": "edge-cache",
+"dst_zone": "research",
+"path": [
+5,
+51,
+45,
+2,
+30,
+33,
+32,
+52
+],
+"src": "51.18.156.0",
+"dst": "42.64.129.208",
+"proto": 227,
+"dport": 80,
+"intended": false
+}
+}
+],
+"status": "ok",
+"wall_s": 196.3270525932312
+},
+{
+"id": "Garr201105_s1019",
+"n_routers": 59,
+"n_zones": 10,
+"n_blocks": 432,
+"factor": 3.0,
+"clean_ok": true,
+"clean_cex": null,
+"verify_s": 6.604116439819336,
+"checks": 128,
+"rules_total": 642,
+"rules_max": 32,
+"lines_total": 996,
+"mutations": [
+{
+"kind": "swap",
+"injected": true,
+"desc": "swap: router 43 lines 8,9",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 4.34199595451355
+},
+{
+"kind": "swap",
+"injected": true,
+"desc": "swap: router 37 lines 30,31",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 6.3894031047821045
+},
+{
+"kind": "swap",
+"injected": true,
+"desc": "swap: router 31 lines 31,32",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 0.6377496719360352
+},
+{
+"kind": "port",
+"injected": true,
+"desc": "port+1: router 30 line 10",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 4.655113697052002
+},
+{
+"kind": "port",
+"injected": true,
+"desc": "port+1: router 25 line 34",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 4.939005136489868
+},
+{
+"kind": "port",
+"injected": true,
+"desc": "port+1: router 16 line 26",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 2.7157721519470215
+},
+{
+"kind": "prefix",
+"injected": true,
+"desc": "prefix: router 37 line 22 123.239.188.0/22->123.239.184.0/22",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 5.796630620956421
+},
+{
+"kind": "prefix",
+"injected": true,
+"desc": "prefix: router 17 line 15 59.235.181.0/24->59.235.180.0/24",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 0.3729066848754883
+},
+{
+"kind": "prefix",
+"injected": true,
+"desc": "prefix: router 18 line 29 203.61.128.0/17->203.61.0.0/17",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 0.7230179309844971
+},
+{
+"kind": "ecmp-1",
+"injected": true,
+"net_detect": true,
+"local_detect": false,
+"cover_all_paths": false,
+"verify_s": 0.09450340270996094,
+"cex": {
+"src_zone": "vpn-users",
+"dst_zone": "research",
+"path": [
+17,
+2,
+30,
+33,
+31
+],
+"src": "62.159.136.128",
+"dst": "164.163.125.128",
+"proto": 6,
+"dport": 80,
+"intended": false
+}
+}
+],
+"status": "ok",
+"wall_s": 38.42033934593201
+},
+{
+"id": "Garr201105_s1025",
+"n_routers": 59,
+"n_zones": 10,
+"n_blocks": 288,
+"factor": 4.0,
+"clean_ok": true,
+"clean_cex": null,
+"verify_s": 6.591311454772949,
+"checks": 140,
+"rules_total": 619,
+"rules_max": 41,
+"lines_total": 973,
+"mutations": [
+{
+"kind": "swap",
+"injected": true,
+"desc": "swap: router 26 lines 35,36",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 4.705563068389893
+},
+{
+"kind": "swap",
+"injected": true,
+"desc": "swap: router 10 lines 29,30",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 6.001971006393433
+},
+{
+"kind": "swap",
+"injected": true,
+"desc": "swap: router 20 lines 17,18",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 0.13271164894104004
+},
+{
+"kind": "port",
+"injected": true,
+"desc": "port+1: router 38 line 22",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 5.7121782302856445
+},
+{
+"kind": "port",
+"injected": true,
+"desc": "port+1: router 27 line 36",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 4.80327033996582
+},
+{
+"kind": "port",
+"injected": true,
+"desc": "port+1: router 24 line 18",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 2.7369885444641113
+},
+{
+"kind": "prefix",
+"injected": true,
+"desc": "prefix: router 50 line 33 103.228.205.0/24->103.228.204.0/24",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 3.4380605220794678
+},
+{
+"kind": "prefix",
+"injected": true,
+"desc": "prefix: router 50 line 32 205.6.167.0/24->205.6.166.0/24",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 6.448497772216797
+},
+{
+"kind": "prefix",
+"injected": true,
+"desc": "prefix: router 15 line 13 118.143.50.0/24->118.143.51.0/24",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 3.8710925579071045
+},
+{
+"kind": "ecmp-1",
+"injected": true,
+"net_detect": true,
+"local_detect": false,
+"cover_all_paths": false,
+"verify_s": 2.9839091300964355,
+"cex": {
+"src_zone": "student-lab",
+"dst_zone": "iot-sensors",
+"path": [
+53,
+49,
+50,
+2,
+54
+],
+"src": "233.9.72.128",
+"dst": "189.177.200.0",
+"proto": 17,
+"dport": 161,
+"intended": false
+}
+}
+],
+"status": "ok",
+"wall_s": 47.9515266418457
+},
+{
+"id": "Garr201109_s1011",
+"n_routers": 59,
+"n_zones": 10,
+"n_blocks": 392,
+"factor": 3.0,
+"clean_ok": true,
+"clean_cex": null,
+"verify_s": 8.095623254776001,
+"checks": 166,
+"rules_total": 572,
+"rules_max": 29,
+"lines_total": 926,
+"mutations": [
+{
+"kind": "swap",
+"injected": true,
+"desc": "swap: router 57 lines 26,27",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 4.225480079650879
+},
+{
+"kind": "swap",
+"injected": true,
+"desc": "swap: router 30 lines 7,8",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 0.6092512607574463
+},
+{
+"kind": "swap",
+"injected": true,
+"desc": "swap: router 45 lines 31,32",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 8.057400941848755
+},
+{
+"kind": "port",
+"injected": true,
+"desc": "port+1: router 31 line 24",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 7.534531116485596
+},
+{
+"kind": "port",
+"injected": true,
+"desc": "port+1: router 5 line 17",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 3.962740659713745
+},
+{
+"kind": "port",
+"injected": true,
+"desc": "port+1: router 10 line 25",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 0.049549102783203125
+},
+{
+"kind": "prefix",
+"injected": true,
+"desc": "prefix: router 33 line 22 127.162.40.0/21->127.162.32.0/21",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 6.671874761581421
+},
+{
+"kind": "prefix",
+"injected": true,
+"desc": "prefix: router 25 line 9 248.76.232.0/21->248.76.224.0/21",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 1.576650857925415
+},
+{
+"kind": "prefix",
+"injected": true,
+"desc": "prefix: router 2 line 29 85.11.25.64/26->85.11.25.0/26",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 4.588284254074097
+},
+{
+"kind": "ecmp-1",
+"injected": true,
+"net_detect": true,
+"local_detect": false,
+"cover_all_paths": false,
+"verify_s": 0.1561436653137207,
+"cex": {
+"src_zone": "backup",
+"dst_zone": "engineering",
+"path": [
+10,
+43,
+50,
+2,
+18,
+33,
+32,
+52
+],
+"src": "1.133.236.0",
+"dst": "123.127.238.0",
+"proto": 6,
+"dport": 3482,
+"intended": false
+}
+}
+],
+"status": "ok",
+"wall_s": 46.31100797653198
+},
+{
+"id": "Garr201201_s1016",
+"n_routers": 61,
+"n_zones": 10,
+"n_blocks": 354,
+"factor": 4.0,
+"clean_ok": true,
+"clean_cex": null,
+"verify_s": 9.561466217041016,
+"checks": 156,
+"rules_total": 749,
+"rules_max": 49,
+"lines_total": 1115,
+"mutations": [
+{
+"kind": "swap",
+"injected": true,
+"desc": "swap: router 49 lines 16,17",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 8.04987907409668
+},
+{
+"kind": "swap",
+"injected": true,
+"desc": "swap: router 50 lines 7,8",
+"net_detect": false,
+"local_detect": true,
+"verify_s": 9.803930282592773
+},
+{
+"kind": "swap",
+"injected": true,
+"desc": "swap: router 49 lines 23,24",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 7.655248403549194
+},
+{
+"kind": "port",
+"injected": true,
+"desc": "port+1: router 60 line 25",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 4.9886815547943115
+},
+{
+"kind": "port",
+"injected": true,
+"desc": "port+1: router 30 line 6",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 2.33689284324646
+},
+{
+"kind": "port",
+"injected": true,
+"desc": "port+1: router 11 line 44",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 0.2393054962158203
+},
+{
+"kind": "prefix",
+"injected": true,
+"desc": "prefix: router 30 line 15 37.109.56.0/23->37.109.58.0/23",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 2.156801462173462
+},
+{
+"kind": "prefix",
+"injected": true,
+"desc": "prefix: router 60 line 41 197.241.251.0/24->197.241.250.0/24",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 5.023142337799072
+},
+{
+"kind": "prefix",
+"injected": true,
+"desc": "prefix: router 37 line 39 217.122.95.64/26->217.122.95.0/26",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 3.1083359718322754
+},
+{
+"kind": "ecmp-1",
+"injected": true,
+"net_detect": true,
+"local_detect": false,
+"cover_all_paths": false,
+"verify_s": 2.340315103530884,
+"cex": {
+"src_zone": "iot-sensors",
+"dst_zone": "research",
+"path": [
+23,
+30,
+25,
+50,
+49,
+53
+],
+"src": "80.49.92.64",
+"dst": "136.107.244.128",
+"proto": 17,
+"dport": 3488,
+"intended": false
+}
+}
+],
+"status": "ok",
+"wall_s": 55.99267554283142
+},
+{
+"id": "Geant2010_s1018",
+"n_routers": 37,
+"n_zones": 10,
+"n_blocks": 286,
+"factor": 1.5,
+"clean_ok": true,
+"clean_cex": null,
+"verify_s": 3.530163049697876,
+"checks": 154,
+"rules_total": 355,
+"rules_max": 14,
+"lines_total": 577,
+"mutations": [
+{
+"kind": "swap",
+"injected": true,
+"desc": "swap: router 32 lines 10,11",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 2.2112855911254883
+},
+{
+"kind": "swap",
+"injected": true,
+"desc": "swap: router 10 lines 8,9",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 3.067044973373413
+},
+{
+"kind": "swap",
+"injected": true,
+"desc": "swap: router 25 lines 10,11",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 0.5613155364990234
+},
+{
+"kind": "port",
+"injected": true,
+"desc": "port+1: router 25 line 7",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 0.6693129539489746
+},
+{
+"kind": "port",
+"injected": true,
+"desc": "port+1: router 16 line 14",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 3.0830273628234863
+},
+{
+"kind": "port",
+"injected": true,
+"desc": "port+1: router 28 line 14",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 0.5682196617126465
+},
+{
+"kind": "prefix",
+"injected": true,
+"desc": "prefix: router 29 line 7 247.219.76.0/23->247.219.78.0/23",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 0.31424474716186523
+},
+{
+"kind": "prefix",
+"injected": true,
+"desc": "prefix: router 1 line 8 250.10.83.0/24->250.10.82.0/24",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 1.680546760559082
+},
+{
+"kind": "prefix",
+"injected": true,
+"desc": "prefix: router 29 line 16 80.115.11.0/24->80.115.10.0/24",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 0.2405376434326172
+},
+{
+"kind": "ecmp-1",
+"injected": true,
+"net_detect": true,
+"local_detect": false,
+"cover_all_paths": false,
+"verify_s": 0.14149188995361328,
+"cex": {
+"src_zone": "edge-cache",
+"dst_zone": "backup",
+"path": [
+29,
+30,
+33,
+19,
+20,
+15,
+2,
+1
+],
+"src": "142.22.225.128",
+"dst": "135.131.19.32",
+"proto": 6,
+"dport": 639,
+"intended": false
+}
+}
+],
+"status": "ok",
+"wall_s": 16.454901456832886
+},
+{
+"id": "Globenet_s1055",
+"n_routers": 67,
+"n_zones": 6,
+"n_blocks": 184,
+"factor": 3.0,
+"clean_ok": true,
+"clean_cex": null,
+"verify_s": 0.8841991424560547,
+"checks": 30,
+"rules_total": 240,
+"rules_max": 10,
+"lines_total": 642,
+"mutations": [
+{
+"kind": "swap",
+"injected": true,
+"desc": "swap: router 1 lines 11,12",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 0.1424543857574463
+},
+{
+"kind": "swap",
+"injected": true,
+"desc": "swap: router 43 lines 5,6",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 0.0820457935333252
+},
+{
+"kind": "swap",
+"injected": true,
+"desc": "swap: router 5 lines 7,8",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 0.0581965446472168
+},
+{
+"kind": "port",
+"injected": true,
+"desc": "port+1: router 43 line 9",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 0.08914518356323242
+},
+{
+"kind": "port",
+"injected": true,
+"desc": "port+1: router 4 line 7",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 0.09591031074523926
+},
+{
+"kind": "port",
+"injected": true,
+"desc": "port+1: router 13 line 7",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 0.7690374851226807
+},
+{
+"kind": "prefix",
+"injected": true,
+"desc": "prefix: router 39 line 7 145.84.27.128/26->145.84.27.192/26",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 0.7131822109222412
+},
+{
+"kind": "prefix",
+"injected": true,
+"desc": "prefix: router 30 line 14 54.121.234.0/23->54.121.232.0/23",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 0.4968526363372803
+},
+{
+"kind": "prefix",
+"injected": true,
+"desc": "prefix: router 11 line 7 97.250.48.64/27->97.250.48.96/27",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 0.7516016960144043
+},
+{
+"kind": "ecmp-1",
+"injected": false,
+"why": "single path everywhere"
+}
+],
+"status": "ok",
+"wall_s": 4.418415069580078
+},
+{
+"id": "Harnet_s1022",
+"n_routers": 21,
+"n_zones": 10,
+"n_blocks": 322,
+"factor": 1.5,
+"clean_ok": true,
+"clean_cex": null,
+"verify_s": 3.511150360107422,
+"checks": 130,
+"rules_total": 342,
+"rules_max": 24,
+"lines_total": 468,
+"mutations": [
+{
+"kind": "swap",
+"injected": true,
+"desc": "swap: router 0 lines 8,9",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 1.1205084323883057
+},
+{
+"kind": "swap",
+"injected": true,
+"desc": "swap: router 15 lines 24,25",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 2.0052168369293213
+},
+{
+"kind": "swap",
+"injected": true,
+"desc": "swap: router 15 lines 11,12",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 1.9086437225341797
+},
+{
+"kind": "port",
+"injected": true,
+"desc": "port+1: router 14 line 23",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 1.1773967742919922
+},
+{
+"kind": "port",
+"injected": true,
+"desc": "port+1: router 15 line 9",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 1.944504976272583
+},
+{
+"kind": "port",
+"injected": true,
+"desc": "port+1: router 14 line 23",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 1.307546854019165
+},
+{
+"kind": "prefix",
+"injected": true,
+"desc": "prefix: router 8 line 28 180.202.123.0/24->180.202.122.0/24",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 0.7311267852783203
+},
+{
+"kind": "prefix",
+"injected": true,
+"desc": "prefix: router 16 line 8 72.83.0.0/17->72.83.128.0/17",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 2.4762191772460938
+},
+{
+"kind": "prefix",
+"injected": true,
+"desc": "prefix: router 16 line 14 54.94.232.0/22->54.94.236.0/22",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 2.4683115482330322
+},
+{
+"kind": "ecmp-1",
+"injected": true,
+"net_detect": true,
+"local_detect": false,
+"cover_all_paths": false,
+"verify_s": 0.4923686981201172,
+"cex": {
+"src_zone": "ops",
+"dst_zone": "backup",
+"path": [
+20,
+5,
+4,
+2,
+10,
+12
+],
+"src": "202.39.96.0",
+"dst": "235.217.82.0",
+"proto": 17,
+"dport": 0,
+"intended": false
+}
+}
+],
+"status": "ok",
+"wall_s": 19.305098295211792
+},
+{
+"id": "HiberniaGlobal_s1030",
+"n_routers": 55,
+"n_zones": 10,
+"n_blocks": 430,
+"factor": 2.0,
+"clean_ok": true,
+"clean_cex": null,
+"verify_s": 24.685675859451294,
+"checks": 454,
+"rules_total": 614,
+"rules_max": 22,
+"lines_total": 944,
+"mutations": [
+{
+"kind": "swap",
+"injected": true,
+"desc": "swap: router 8 lines 13,14",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 4.766388416290283
+},
+{
+"kind": "swap",
+"injected": true,
+"desc": "swap: router 2 lines 7,8",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 18.43126392364502
+},
+{
+"kind": "swap",
+"injected": true,
+"desc": "swap: router 8 lines 25,26",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 6.8385326862335205
+},
+{
+"kind": "port",
+"injected": true,
+"desc": "port+1: router 38 line 18",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 15.02723503112793
+},
+{
+"kind": "port",
+"injected": true,
+"desc": "port+1: router 53 line 6",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 17.471508502960205
+},
+{
+"kind": "port",
+"injected": true,
+"desc": "port+1: router 41 line 5",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 17.612515687942505
+},
+{
+"kind": "prefix",
+"injected": true,
+"desc": "prefix: router 8 line 21 252.123.160.224/28->252.123.160.240/28",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 6.6353514194488525
+},
+{
+"kind": "prefix",
+"injected": true,
+"desc": "prefix: router 41 line 23 95.53.213.128/25->95.53.213.0/25",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 17.739598035812378
+},
+{
+"kind": "prefix",
+"injected": true,
+"desc": "prefix: router 37 line 8 72.120.132.0/26->72.120.132.64/26",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 13.292672395706177
+},
+{
+"kind": "ecmp-1",
+"injected": true,
+"net_detect": true,
+"local_detect": false,
+"cover_all_paths": false,
+"verify_s": 0.07378530502319336,
+"cex": {
+"src_zone": "dev-lab",
+"dst_zone": "nvr",
+"path": [
+5,
+3,
+6,
+8,
+10,
+49,
+12,
+50
+],
+"src": "72.120.132.0",
+"dst": "19.105.112.64",
+"proto": 105,
+"dport": 53,
+"intended": false
+}
+}
+],
+"status": "ok",
+"wall_s": 144.79908752441406
+},
+{
+"id": "HiberniaUk_s1033",
+"n_routers": 15,
+"n_zones": 10,
+"n_blocks": 428,
+"factor": 1.5,
+"clean_ok": true,
+"clean_cex": null,
+"verify_s": 5.276100397109985,
+"checks": 90,
+"rules_total": 636,
+"rules_max": 63,
+"lines_total": 726,
+"mutations": [
+{
+"kind": "swap",
+"injected": true,
+"desc": "swap: router 13 lines 6,7",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 0.9996964931488037
+},
+{
+"kind": "swap",
+"injected": true,
+"desc": "swap: router 14 lines 6,7",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 1.5774145126342773
+},
+{
+"kind": "swap",
+"injected": true,
+"desc": "swap: router 4 lines 19,20",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 3.727971076965332
+},
+{
+"kind": "port",
+"injected": true,
+"desc": "port+1: router 9 line 5",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 2.2608702182769775
+},
+{
+"kind": "port",
+"injected": true,
+"desc": "port+1: router 9 line 5",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 2.284736394882202
+},
+{
+"kind": "port",
+"injected": true,
+"desc": "port+1: router 4 line 15",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 3.558454751968384
+},
+{
+"kind": "prefix",
+"injected": true,
+"desc": "prefix: router 0 line 26 41.164.130.0/23->41.164.128.0/23",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 5.2692930698394775
+},
+{
+"kind": "prefix",
+"injected": true,
+"desc": "prefix: router 0 line 19 74.209.0.0/17->74.209.128.0/17",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 5.161915063858032
+},
+{
+"kind": "prefix",
+"injected": true,
+"desc": "prefix: router 3 line 19 37.48.176.0/22->37.48.180.0/22",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 4.820339202880859
+},
+{
+"kind": "ecmp-1",
+"injected": false,
+"why": "single path everywhere"
+}
+],
+"status": "ok",
+"wall_s": 35.13726091384888
+},
+{
+"id": "Highwinds_s1058",
+"n_routers": 18,
+"n_zones": 10,
+"n_blocks": 286,
+"factor": 1.5,
+"clean_ok": true,
+"clean_cex": null,
+"verify_s": 10.66417646408081,
+"checks": 272,
+"rules_total": 452,
+"rules_max": 37,
+"lines_total": 560,
+"mutations": [
+{
+"kind": "swap",
+"injected": true,
+"desc": "swap: router 11 lines 29,30",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 0.46018528938293457
+},
+{
+"kind": "swap",
+"injected": true,
+"desc": "swap: router 7 lines 18,19",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 9.167789459228516
+},
+{
+"kind": "swap",
+"injected": true,
+"desc": "swap: router 14 lines 18,19",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 7.647171497344971
+},
+{
+"kind": "port",
+"injected": true,
+"desc": "port+1: router 3 line 12",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 8.89216923713684
+},
+{
+"kind": "port",
+"injected": true,
+"desc": "port+1: router 3 line 25",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 8.84004521369934
+},
+{
+"kind": "port",
+"injected": true,
+"desc": "port+1: router 0 line 19",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 1.505563735961914
+},
+{
+"kind": "prefix",
+"injected": true,
+"desc": "prefix: router 3 line 22 2.103.74.0/23->2.103.72.0/23",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 8.859322547912598
+},
+{
+"kind": "prefix",
+"injected": true,
+"desc": "prefix: router 7 line 39 61.121.128.0/18->61.121.192.0/18",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 8.445372819900513
+},
+{
+"kind": "prefix",
+"injected": true,
+"desc": "prefix: router 10 line 6 37.134.157.192/26->37.134.157.128/26",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 9.891596794128418
+},
+{
+"kind": "ecmp-1",
+"injected": true,
+"net_detect": true,
+"local_detect": false,
+"cover_all_paths": false,
+"verify_s": 1.4044692516326904,
+"cex": {
+"src_zone": "nvr",
+"dst_zone": "printers",
+"path": [
+0,
+5,
+7,
+16,
+15
+],
+"src": "2.103.74.0",
+"dst": "104.144.83.0",
+"proto": 245,
+"dport": 36863,
+"intended": false
+}
+}
+],
+"status": "ok",
+"wall_s": 75.99960398674011
+},
+{
+"id": "HurricaneElectric_s1047",
+"n_routers": 24,
+"n_zones": 10,
+"n_blocks": 256,
+"factor": 1.5,
+"clean_ok": true,
+"clean_cex": null,
+"verify_s": 4.804411888122559,
+"checks": 118,
+"rules_total": 500,
+"rules_max": 31,
+"lines_total": 644,
+"mutations": [
+{
+"kind": "swap",
+"injected": true,
+"desc": "swap: router 13 lines 20,21",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 4.250699996948242
+},
+{
+"kind": "swap",
+"injected": true,
+"desc": "swap: router 19 lines 7,8",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 0.5435593128204346
+},
+{
+"kind": "swap",
+"injected": true,
+"desc": "swap: router 18 lines 30,31",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 4.3474931716918945
+},
+{
+"kind": "port",
+"injected": true,
+"desc": "port+1: router 13 line 30",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 4.02051568031311
+},
+{
+"kind": "port",
+"injected": true,
+"desc": "port+1: router 21 line 11",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 3.326845169067383
+},
+{
+"kind": "port",
+"injected": true,
+"desc": "port+1: router 2 line 16",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 0.6822383403778076
+},
+{
+"kind": "prefix",
+"injected": true,
+"desc": "prefix: router 9 line 34 89.152.197.0/27->89.152.197.32/27",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 0.8169269561767578
+},
+{
+"kind": "prefix",
+"injected": true,
+"desc": "prefix: router 6 line 21 240.227.70.0/24->240.227.71.0/24",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 0.03753042221069336
+},
+{
+"kind": "prefix",
+"injected": true,
+"desc": "prefix: router 17 line 25 247.63.39.0/24->247.63.38.0/24",
+"net_detect": false,
+"local_detect": true,
+"verify_s": 4.383292198181152
+},
+{
+"kind": "ecmp-1",
+"injected": true,
+"net_detect": true,
+"local_detect": false,
+"cover_all_paths": false,
+"verify_s": 1.7680113315582275,
+"cex": {
+"src_zone": "edge-cache",
+"dst_zone": "printers",
+"path": [
+1,
+20,
+19,
+21,
+12,
+13,
+14
+],
+"src": "191.21.216.0",
+"dst": "12.171.38.0",
+"proto": 156,
+"dport": 53,
+"intended": false
+}
+}
+],
+"status": "ok",
+"wall_s": 29.504727125167847
+},
+{
+"id": "HurricaneElectric_s1059",
+"n_routers": 24,
+"n_zones": 10,
+"n_blocks": 390,
+"factor": 1.5,
+"clean_ok": true,
+"clean_cex": null,
+"verify_s": 6.6763551235198975,
+"checks": 112,
+"rules_total": 852,
+"rules_max": 53,
+"lines_total": 996,
+"mutations": [
+{
+"kind": "swap",
+"injected": true,
+"desc": "swap: router 21 lines 20,21",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 6.212633848190308
+},
+{
+"kind": "swap",
+"injected": true,
+"desc": "swap: router 2 lines 56,57",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 1.538529872894287
+},
+{
+"kind": "swap",
+"injected": true,
+"desc": "swap: router 11 lines 34,35",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 5.7108612060546875
+},
+{
+"kind": "port",
+"injected": true,
+"desc": "port+1: router 22 line 55",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 4.86972713470459
+},
+{
+"kind": "port",
+"injected": true,
+"desc": "port+1: router 14 line 32",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 4.079579591751099
+},
+{
+"kind": "port",
+"injected": true,
+"desc": "port+1: router 12 line 38",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 6.148562908172607
+},
+{
+"kind": "prefix",
+"injected": true,
+"desc": "prefix: router 23 line 40 163.0.134.64/26->163.0.134.0/26",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 6.453923463821411
+},
+{
+"kind": "prefix",
+"injected": true,
+"desc": "prefix: router 11 line 36 72.128.0.0/16->72.129.0.0/16",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 5.436862468719482
+},
+{
+"kind": "prefix",
+"injected": true,
+"desc": "prefix: router 22 line 43 105.160.35.128/25->105.160.35.0/25",
+"net_detect": false,
+"local_detect": true,
+"verify_s": 6.525955438613892
+},
+{
+"kind": "ecmp-1",
+"injected": true,
+"net_detect": true,
+"local_detect": false,
+"cover_all_paths": false,
+"verify_s": 0.1474769115447998,
+"cex": {
+"src_zone": "guest-wifi",
+"dst_zone": "iot-sensors",
+"path": [
+15,
+13,
+12,
+21,
+19,
+20,
+1
+],
+"src": "39.223.0.0",
+"dst": "71.26.128.0",
+"proto": 6,
+"dport": 143,
+"intended": false
+}
+}
+],
+"status": "ok",
+"wall_s": 54.65863394737244
+},
+{
+"id": "Iinet_s1031",
+"n_routers": 31,
+"n_zones": 10,
+"n_blocks": 318,
+"factor": 3.0,
+"clean_ok": true,
+"clean_cex": null,
+"verify_s": 3.9418346881866455,
+"checks": 112,
+"rules_total": 465,
+"rules_max": 45,
+"lines_total": 651,
+"mutations": [
+{
+"kind": "swap",
+"injected": true,
+"desc": "swap: router 17 lines 9,10",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 2.1654770374298096
+},
+{
+"kind": "swap",
+"injected": true,
+"desc": "swap: router 5 lines 34,35",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 3.7435662746429443
+},
+{
+"kind": "swap",
+"injected": true,
+"desc": "swap: router 17 lines 48,49",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 1.8180522918701172
+},
+{
+"kind": "port",
+"injected": true,
+"desc": "port+1: router 9 line 14",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 0.6105160713195801
+},
+{
+"kind": "port",
+"injected": true,
+"desc": "port+1: router 18 line 9",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 0.3976304531097412
+},
+{
+"kind": "port",
+"injected": true,
+"desc": "port+1: router 17 line 48",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 1.814211130142212
+},
+{
+"kind": "prefix",
+"injected": true,
+"desc": "prefix: router 2 line 14 98.178.122.0/23->98.178.120.0/23",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 0.8187026977539062
+},
+{
+"kind": "prefix",
+"injected": true,
+"desc": "prefix: router 18 line 31 98.178.122.0/23->98.178.120.0/23",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 0.3845057487487793
+},
+{
+"kind": "prefix",
+"injected": true,
+"desc": "prefix: router 12 line 6 119.61.222.0/24->119.61.223.0/24",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 2.857739210128784
+},
+{
+"kind": "ecmp-1",
+"injected": true,
+"net_detect": true,
+"local_detect": false,
+"cover_all_paths": false,
+"verify_s": 0.5460193157196045,
+"cex": {
+"src_zone": "engineering",
+"dst_zone": "printers",
+"path": [
+9,
+2,
+5,
+7,
+18
+],
+"src": "240.7.3.0",
+"dst": "135.149.125.128",
+"proto": 6,
+"dport": 22,
+"intended": false
+}
+}
+],
+"status": "ok",
+"wall_s": 19.344502925872803
+},
+{
+"id": "Internode_s1057",
+"n_routers": 66,
+"n_zones": 16,
+"n_blocks": 780,
+"factor": 3.0,
+"clean_ok": true,
+"clean_cex": null,
+"verify_s": 12.258007526397705,
+"checks": 322,
+"rules_total": 923,
+"rules_max": 41,
+"lines_total": 1319,
+"mutations": [
+{
+"kind": "swap",
+"injected": true,
+"desc": "swap: router 20 lines 11,12",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 2.299598455429077
+},
+{
+"kind": "swap",
+"injected": true,
+"desc": "swap: router 44 lines 16,17",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 8.442310810089111
+},
+{
+"kind": "swap",
+"injected": true,
+"desc": "swap: router 2 lines 6,7",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 4.8566083908081055
+},
+{
+"kind": "port",
+"injected": true,
+"desc": "port+1: router 19 line 34",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 3.1062986850738525
+},
+{
+"kind": "port",
+"injected": true,
+"desc": "port+1: router 20 line 26",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 3.132937431335449
+},
+{
+"kind": "port",
+"injected": true,
+"desc": "port+1: router 19 line 11",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 3.156921625137329
+},
+{
+"kind": "prefix",
+"injected": true,
+"desc": "prefix: router 26 line 6 0.6.242.0/23->0.6.240.0/23",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 5.474668741226196
+},
+{
+"kind": "prefix",
+"injected": true,
+"desc": "prefix: router 57 line 42 177.183.108.0/22->177.183.104.0/22",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 6.8007423877716064
+},
+{
+"kind": "prefix",
+"injected": true,
+"desc": "prefix: router 50 line 28 19.126.138.64/26->19.126.138.0/26",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 10.765305042266846
+},
+{
+"kind": "ecmp-1",
+"injected": true,
+"net_detect": true,
+"local_detect": false,
+"cover_all_paths": false,
+"verify_s": 1.5331296920776367,
+"cex": {
+"src_zone": "finance",
+"dst_zone": "cameras",
+"path": [
+49,
+31,
+13,
+14,
+12,
+20
+],
+"src": "20.213.101.128",
+"dst": "19.126.138.64",
+"proto": 0,
+"dport": 0,
+"intended": false
+}
+}
+],
+"status": "ok",
+"wall_s": 62.84928035736084
+},
+{
+"id": "Karen_s1001",
+"n_routers": 25,
+"n_zones": 10,
+"n_blocks": 286,
+"factor": 1.5,
+"clean_ok": true,
+"clean_cex": null,
+"verify_s": 4.04390549659729,
+"checks": 122,
+"rules_total": 444,
+"rules_max": 26,
+"lines_total": 594,
+"mutations": [
+{
+"kind": "swap",
+"injected": true,
+"desc": "swap: router 5 lines 19,20",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 0.16225647926330566
+},
+{
+"kind": "swap",
+"injected": true,
+"desc": "swap: router 13 lines 23,24",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 2.5609567165374756
+},
+{
+"kind": "swap",
+"injected": true,
+"desc": "swap: router 7 lines 29,30",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 3.5129659175872803
+},
+{
+"kind": "port",
+"injected": true,
+"desc": "port+1: router 23 line 24",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 1.090477705001831
+},
+{
+"kind": "port",
+"injected": true,
+"desc": "port+1: router 15 line 18",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 2.174959182739258
+},
+{
+"kind": "port",
+"injected": true,
+"desc": "port+1: router 15 line 25",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 2.5366005897521973
+},
+{
+"kind": "prefix",
+"injected": true,
+"desc": "prefix: router 12 line 8 58.1.72.0/21->58.1.64.0/21",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 3.3711907863616943
+},
+{
+"kind": "prefix",
+"injected": true,
+"desc": "prefix: router 23 line 23 37.132.108.0/23->37.132.110.0/23",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 1.1191024780273438
+},
+{
+"kind": "prefix",
+"injected": true,
+"desc": "prefix: router 15 line 13 59.56.45.0/27->59.56.45.32/27",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 2.479944944381714
+},
+{
+"kind": "ecmp-1",
+"injected": true,
+"net_detect": true,
+"local_detect": false,
+"cover_all_paths": false,
+"verify_s": 2.096073627471924,
+"cex": {
+"src_zone": "engineering",
+"dst_zone": "student-lab",
+"path": [
+15,
+13,
+12,
+11,
+24,
+4,
+5,
+1
+],
+"src": "92.29.242.128",
+"dst": "125.219.219.0",
+"proto": 22,
+"dport": 57789,
+"intended": false
+}
+}
+],
+"status": "ok",
+"wall_s": 25.537823915481567
+},
+{
+"id": "KentmanApr2007_s1010",
+"n_routers": 22,
+"n_zones": 16,
+"n_blocks": 1138,
+"factor": 1.5,
+"clean_ok": true,
+"clean_cex": null,
+"verify_s": 16.920825242996216,
+"checks": 318,
+"rules_total": 1379,
+"rules_max": 94,
+"lines_total": 1511,
+"mutations": [
+{
+"kind": "swap",
+"injected": true,
+"desc": "swap: router 9 lines 86,87",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 8.32685661315918
+},
+{
+"kind": "swap",
+"injected": true,
+"desc": "swap: router 3 lines 52,53",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 11.186233520507812
+},
+{
+"kind": "swap",
+"injected": true,
+"desc": "swap: router 16 lines 35,36",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 11.312960147857666
+},
+{
+"kind": "port",
+"injected": true,
+"desc": "port+1: router 9 line 85",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 8.862816095352173
+},
+{
+"kind": "port",
+"injected": true,
+"desc": "port+1: router 15 line 65",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 14.682321548461914
+},
+{
+"kind": "port",
+"injected": true,
+"desc": "port+1: router 7 line 35",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 9.331790447235107
+},
+{
+"kind": "prefix",
+"injected": true,
+"desc": "prefix: router 6 line 54 33.185.240.128/26->33.185.240.192/26",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 8.16461181640625
+},
+{
+"kind": "prefix",
+"injected": true,
+"desc": "prefix: router 5 line 33 56.241.108.0/23->56.241.110.0/23",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 17.43244433403015
+},
+{
+"kind": "prefix",
+"injected": true,
+"desc": "prefix: router 19 line 14 76.67.66.0/24->76.67.67.0/24",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 5.703804016113281
+},
+{
+"kind": "ecmp-1",
+"injected": true,
+"net_detect": true,
+"local_detect": false,
+"cover_all_paths": false,
+"verify_s": 19.86436653137207,
+"cex": {
+"src_zone": "guest-wifi",
+"dst_zone": "research",
+"path": [
+21,
+20,
+1,
+10
+],
+"src": "201.204.130.192",
+"dst": "185.186.104.0",
+"proto": 6,
+"dport": 511,
+"intended": false
+}
+}
+],
+"status": "ok",
+"wall_s": 132.90616011619568
+},
+{
+"id": "KentmanJul2005_s1015",
+"n_routers": 16,
+"n_zones": 16,
+"n_blocks": 1072,
+"factor": 1.5,
+"clean_ok": true,
+"clean_cex": null,
+"verify_s": 23.658678770065308,
+"checks": 242,
+"rules_total": 1461,
+"rules_max": 129,
+"lines_total": 1557,
+"mutations": [
+{
+"kind": "swap",
+"injected": true,
+"desc": "swap: router 6 lines 61,62",
+"net_detect": false,
+"local_detect": true,
+"verify_s": 22.302953243255615
+},
+{
+"kind": "swap",
+"injected": true,
+"desc": "swap: router 0 lines 51,52",
+"net_detect": false,
+"local_detect": true,
+"verify_s": 21.079129219055176
+},
+{
+"kind": "swap",
+"injected": true,
+"desc": "swap: router 10 lines 27,28",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 10.401530504226685
+},
+{
+"kind": "port",
+"injected": true,
+"desc": "port+1: router 0 line 101",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 14.14269208908081
+},
+{
+"kind": "port",
+"injected": true,
+"desc": "port+1: router 5 line 6",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 3.4533627033233643
+},
+{
+"kind": "port",
+"injected": true,
+"desc": "port+1: router 7 line 50",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 15.144791841506958
+},
+{
+"kind": "prefix",
+"injected": true,
+"desc": "prefix: router 9 line 132 43.31.70.0/25->43.31.70.128/25",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 12.031928539276123
+},
+{
+"kind": "prefix",
+"injected": true,
+"desc": "prefix: router 6 line 116 185.53.78.0/26->185.53.78.64/26",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 5.378675937652588
+},
+{
+"kind": "prefix",
+"injected": true,
+"desc": "prefix: router 9 line 119 99.64.134.0/23->99.64.132.0/23",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 12.26217770576477
+},
+{
+"kind": "ecmp-1",
+"injected": true,
+"net_detect": false,
+"local_detect": false,
+"cover_all_paths": true,
+"verify_s": 20.27850317955017,
+"cex": null
+}
+],
+"status": "ok",
+"wall_s": 160.81632685661316
+},
+{
+"id": "Latnet_s1037",
+"n_routers": 69,
+"n_zones": 16,
+"n_blocks": 1010,
+"factor": 3.0,
+"clean_ok": true,
+"clean_cex": null,
+"verify_s": 13.678454875946045,
+"checks": 268,
+"rules_total": 1286,
+"rules_max": 55,
+"lines_total": 1700,
+"mutations": [
+{
+"kind": "swap",
+"injected": true,
+"desc": "swap: router 23 lines 58,59",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 1.1168780326843262
+},
+{
+"kind": "swap",
+"injected": true,
+"desc": "swap: router 10 lines 24,25",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 13.526637554168701
+},
+{
+"kind": "swap",
+"injected": true,
+"desc": "swap: router 39 lines 9,10",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 9.464716911315918
+},
+{
+"kind": "port",
+"injected": true,
+"desc": "port+1: router 21 line 54",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 7.104207754135132
+},
+{
+"kind": "port",
+"injected": true,
+"desc": "port+1: router 39 line 40",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 10.026940822601318
+},
+{
+"kind": "port",
+"injected": true,
+"desc": "port+1: router 62 line 43",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 4.955022811889648
+},
+{
+"kind": "prefix",
+"injected": true,
+"desc": "prefix: router 47 line 28 213.86.212.0/22->213.86.208.0/22",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 2.3999860286712646
+},
+{
+"kind": "prefix",
+"injected": true,
+"desc": "prefix: router 39 line 6 139.19.41.0/24->139.19.40.0/24",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 10.436955690383911
+},
+{
+"kind": "prefix",
+"injected": true,
+"desc": "prefix: router 40 line 11 1.72.203.48/28->1.72.203.32/28",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 13.477977752685547
+},
+{
+"kind": "ecmp-1",
+"injected": true,
+"net_detect": false,
+"local_detect": false,
+"cover_all_paths": true,
+"verify_s": 13.713149547576904,
+"cex": null
+}
+],
+"status": "ok",
+"wall_s": 101.58854532241821
+},
+{
+"id": "Myren_s1027",
+"n_routers": 37,
+"n_zones": 10,
+"n_blocks": 388,
+"factor": 3.0,
+"clean_ok": true,
+"clean_cex": null,
+"verify_s": 2.225710153579712,
+"checks": 92,
+"rules_total": 418,
+"rules_max": 33,
+"lines_total": 640,
+"mutations": [
+{
+"kind": "swap",
+"injected": true,
+"desc": "swap: router 20 lines 22,23",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 1.4258630275726318
+},
+{
+"kind": "swap",
+"injected": true,
+"desc": "swap: router 14 lines 7,8",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 2.2322194576263428
+},
+{
+"kind": "swap",
+"injected": true,
+"desc": "swap: router 21 lines 9,10",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 1.657243251800537
+},
+{
+"kind": "port",
+"injected": true,
+"desc": "port+1: router 14 line 29",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 2.2968907356262207
+},
+{
+"kind": "port",
+"injected": true,
+"desc": "port+1: router 21 line 35",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 1.667619228363037
+},
+{
+"kind": "port",
+"injected": true,
+"desc": "port+1: router 14 line 28",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 2.1946609020233154
+},
+{
+"kind": "prefix",
+"injected": true,
+"desc": "prefix: router 5 line 25 94.209.172.0/22->94.209.168.0/22",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 2.0197131633758545
+},
+{
+"kind": "prefix",
+"injected": true,
+"desc": "prefix: router 24 line 19 117.92.170.128/25->117.92.170.0/25",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 1.097196102142334
+},
+{
+"kind": "prefix",
+"injected": true,
+"desc": "prefix: router 4 line 25 196.71.56.0/23->196.71.58.0/23",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 0.5185415744781494
+},
+{
+"kind": "ecmp-1",
+"injected": true,
+"net_detect": false,
+"local_detect": false,
+"cover_all_paths": true,
+"verify_s": 2.3171005249023438,
+"cex": null
+}
+],
+"status": "ok",
+"wall_s": 19.903114795684814
+},
+{
+"id": "Navigata_s1004",
+"n_routers": 13,
+"n_zones": 16,
+"n_blocks": 1012,
+"factor": 1.5,
+"clean_ok": true,
+"clean_cex": null,
+"verify_s": 43.742595195770264,
+"checks": 384,
+"rules_total": 1503,
+"rules_max": 173,
+"lines_total": 1581,
+"mutations": [
+{
+"kind": "swap",
+"injected": true,
+"desc": "swap: router 7 lines 13,14",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 6.457723617553711
+},
+{
+"kind": "swap",
+"injected": true,
+"desc": "swap: router 3 lines 95,96",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 26.368184804916382
+},
+{
+"kind": "swap",
+"injected": true,
+"desc": "swap: router 9 lines 103,104",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 39.96554446220398
+},
+{
+"kind": "port",
+"injected": true,
+"desc": "port+1: router 8 line 83",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 12.607361555099487
+},
+{
+"kind": "port",
+"injected": true,
+"desc": "port+1: router 6 line 10",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 23.38233518600464
+},
+{
+"kind": "port",
+"injected": true,
+"desc": "port+1: router 0 line 140",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 16.556121587753296
+},
+{
+"kind": "prefix",
+"injected": true,
+"desc": "prefix: router 12 line 49 37.231.86.128/26->37.231.86.192/26",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 9.134188652038574
+},
+{
+"kind": "prefix",
+"injected": true,
+"desc": "prefix: router 5 line 113 155.95.88.0/23->155.95.90.0/23",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 36.63020443916321
+},
+{
+"kind": "prefix",
+"injected": true,
+"desc": "prefix: router 9 line 56 227.160.175.0/24->227.160.174.0/24",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 19.537256479263306
+},
+{
+"kind": "ecmp-1",
+"injected": true,
+"net_detect": true,
+"local_detect": false,
+"cover_all_paths": false,
+"verify_s": 0.6553938388824463,
+"cex": {
+"src_zone": "ntp-servers",
+"dst_zone": "hr",
+"path": [
+7,
+6,
+0,
+8
+],
+"src": "197.27.181.0",
+"dst": "241.149.108.0",
+"proto": 177,
+"dport": 28480,
+"intended": false
+}
+}
+],
+"status": "ok",
+"wall_s": 235.8085036277771
+},
+{
+"id": "Navigata_s1029",
+"n_routers": 13,
+"n_zones": 10,
+"n_blocks": 388,
+"factor": 1.5,
+"clean_ok": true,
+"clean_cex": null,
+"verify_s": 6.3834779262542725,
+"checks": 154,
+"rules_total": 569,
+"rules_max": 65,
+"lines_total": 647,
+"mutations": [
+{
+"kind": "swap",
+"injected": true,
+"desc": "swap: router 0 lines 39,40",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 6.152915716171265
+},
+{
+"kind": "swap",
+"injected": true,
+"desc": "swap: router 4 lines 60,61",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 4.684701204299927
+},
+{
+"kind": "swap",
+"injected": true,
+"desc": "swap: router 12 lines 40,41",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 0.9991273880004883
+},
+{
+"kind": "port",
+"injected": true,
+"desc": "port+1: router 5 line 43",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 6.027633428573608
+},
+{
+"kind": "port",
+"injected": true,
+"desc": "port+1: router 2 line 19",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 0.22410225868225098
+},
+{
+"kind": "port",
+"injected": true,
+"desc": "port+1: router 3 line 24",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 5.831058025360107
+},
+{
+"kind": "prefix",
+"injected": true,
+"desc": "prefix: router 7 line 46 55.100.216.0/22->55.100.220.0/22",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 3.8958709239959717
+},
+{
+"kind": "prefix",
+"injected": true,
+"desc": "prefix: router 4 line 29 25.88.120.0/24->25.88.121.0/24",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 5.094370126724243
+},
+{
+"kind": "prefix",
+"injected": true,
+"desc": "prefix: router 8 line 12 120.213.0.0/18->120.213.64.0/18",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 2.4933791160583496
+},
+{
+"kind": "ecmp-1",
+"injected": true,
+"net_detect": true,
+"local_detect": false,
+"cover_all_paths": false,
+"verify_s": 3.945157527923584,
+"cex": {
+"src_zone": "printers",
+"dst_zone": "vpn-users",
+"path": [
+7,
+6,
+9,
+10
+],
+"src": "161.111.118.112",
+"dst": "36.119.58.192",
+"proto": 6,
+"dport": 443,
+"intended": false
+}
+}
+],
+"status": "ok",
+"wall_s": 46.00705361366272
+},
+{
+"id": "Ntelos_s1046",
+"n_routers": 47,
+"n_zones": 6,
+"n_blocks": 186,
+"factor": 2.0,
+"clean_ok": true,
+"clean_cex": null,
+"verify_s": 2.6201608180999756,
+"checks": 56,
+"rules_total": 390,
+"rules_max": 16,
+"lines_total": 672,
+"mutations": [
+{
+"kind": "swap",
+"injected": true,
+"desc": "swap: router 2 lines 19,20",
+"net_detect": false,
+"local_detect": true,
+"verify_s": 2.627216339111328
+},
+{
+"kind": "swap",
+"injected": true,
+"desc": "swap: router 22 lines 14,15",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 2.4570374488830566
+},
+{
+"kind": "swap",
+"injected": true,
+"desc": "swap: router 23 lines 9,10",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 2.001652479171753
+},
+{
+"kind": "port",
+"injected": true,
+"desc": "port+1: router 42 line 15",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 0.046395301818847656
+},
+{
+"kind": "port",
+"injected": true,
+"desc": "port+1: router 1 line 15",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 0.5916194915771484
+},
+{
+"kind": "port",
+"injected": true,
+"desc": "port+1: router 18 line 6",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 2.4697608947753906
+},
+{
+"kind": "prefix",
+"injected": true,
+"desc": "prefix: router 25 line 12 172.196.226.192/26->172.196.226.128/26",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 2.3257462978363037
+},
+{
+"kind": "prefix",
+"injected": true,
+"desc": "prefix: router 3 line 8 44.38.19.0/24->44.38.18.0/24",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 1.9705560207366943
+},
+{
+"kind": "prefix",
+"injected": true,
+"desc": "prefix: router 34 line 8 241.174.46.0/24->241.174.47.0/24",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 0.9400601387023926
+},
+{
+"kind": "ecmp-1",
+"injected": true,
+"net_detect": true,
+"local_detect": false,
+"cover_all_paths": false,
+"verify_s": 0.1498711109161377,
+"cex": {
+"src_zone": "dns-servers",
+"dst_zone": "printers",
+"path": [
+42,
+43,
+44,
+16,
+15,
+6,
+5,
+1,
+2,
+4,
+0
+],
+"src": "245.51.239.0",
+"dst": "175.177.230.192",
+"proto": 17,
+"dport": 14,
+"intended": false
+}
+}
+],
+"status": "ok",
+"wall_s": 19.07234477996826
+},
+{
+"id": "Oxford_s1009",
+"n_routers": 20,
+"n_zones": 6,
+"n_blocks": 184,
+"factor": 2.0,
+"clean_ok": true,
+"clean_cex": null,
+"verify_s": 2.0408029556274414,
+"checks": 38,
+"rules_total": 422,
+"rules_max": 42,
+"lines_total": 542,
+"mutations": [
+{
+"kind": "swap",
+"injected": true,
+"desc": "swap: router 6 lines 13,14",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 0.14902377128601074
+},
+{
+"kind": "swap",
+"injected": true,
+"desc": "swap: router 9 lines 22,23",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 1.6035606861114502
+},
+{
+"kind": "swap",
+"injected": true,
+"desc": "swap: router 14 lines 38,39",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 1.9262821674346924
+},
+{
+"kind": "port",
+"injected": true,
+"desc": "port+1: router 8 line 18",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 0.3101673126220703
+},
+{
+"kind": "port",
+"injected": true,
+"desc": "port+1: router 12 line 13",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 1.252711534500122
+},
+{
+"kind": "port",
+"injected": true,
+"desc": "port+1: router 8 line 9",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 0.14480113983154297
+},
+{
+"kind": "prefix",
+"injected": true,
+"desc": "prefix: router 8 line 13 216.59.150.0/23->216.59.148.0/23",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 0.30241894721984863
+},
+{
+"kind": "prefix",
+"injected": true,
+"desc": "prefix: router 12 line 13 28.80.70.192/27->28.80.70.224/27",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 1.2088265419006348
+},
+{
+"kind": "prefix",
+"injected": true,
+"desc": "prefix: router 9 line 24 140.22.47.0/25->140.22.47.128/25",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 1.4941842555999756
+},
+{
+"kind": "ecmp-1",
+"injected": true,
+"net_detect": true,
+"local_detect": false,
+"cover_all_paths": false,
+"verify_s": 0.8817706108093262,
+"cex": {
+"src_zone": "admin",
+"dst_zone": "edge-cache",
+"path": [
+11,
+12,
+9,
+6,
+8
+],
+"src": "147.73.161.128",
+"dst": "140.22.47.0",
+"proto": 6,
+"dport": 26,
+"intended": false
+}
+}
+],
+"status": "ok",
+"wall_s": 11.518183469772339
+},
+{
+"id": "RedBestel_s1024",
+"n_routers": 84,
+"n_zones": 10,
+"n_blocks": 352,
+"factor": 3.0,
+"clean_ok": true,
+"clean_cex": null,
+"verify_s": 5.690778732299805,
+"checks": 140,
+"rules_total": 516,
+"rules_max": 18,
+"lines_total": 1020,
+"mutations": [
+{
+"kind": "swap",
+"injected": true,
+"desc": "swap: router 20 lines 17,18",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 2.507720708847046
+},
+{
+"kind": "swap",
+"injected": true,
+"desc": "swap: router 8 lines 17,18",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 3.6057209968566895
+},
+{
+"kind": "swap",
+"injected": true,
+"desc": "swap: router 40 lines 10,11",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 5.202984571456909
+},
+{
+"kind": "port",
+"injected": true,
+"desc": "port+1: router 79 line 8",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 2.5059404373168945
+},
+{
+"kind": "port",
+"injected": true,
+"desc": "port+1: router 0 line 15",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 2.0276713371276855
+},
+{
+"kind": "port",
+"injected": true,
+"desc": "port+1: router 70 line 6",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 2.519118547439575
+},
+{
+"kind": "prefix",
+"injected": true,
+"desc": "prefix: router 65 line 7 189.114.91.0/24->189.114.90.0/24",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 3.025548219680786
+},
+{
+"kind": "prefix",
+"injected": true,
+"desc": "prefix: router 63 line 7 39.141.113.32/27->39.141.113.0/27",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 2.792738199234009
+},
+{
+"kind": "prefix",
+"injected": true,
+"desc": "prefix: router 1 line 5 245.43.104.128/25->245.43.104.0/25",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 1.8344950675964355
+},
+{
+"kind": "ecmp-1",
+"injected": true,
+"net_detect": true,
+"local_detect": false,
+"cover_all_paths": false,
+"verify_s": 2.1614766120910645,
+"cex": {
+"src_zone": "backup",
+"dst_zone": "partners",
+"path": [
+74,
+79,
+51,
+22,
+23,
+24
+],
+"src": "208.44.0.0",
+"dst": "157.227.128.0",
+"proto": 0,
+"dport": 0,
+"intended": false
+}
+}
+],
+"status": "ok",
+"wall_s": 35.39043831825256
+},
+{
+"id": "RoedunetFibre_s1000",
+"n_routers": 48,
+"n_zones": 6,
+"n_blocks": 136,
+"factor": 3.0,
+"clean_ok": true,
+"clean_cex": null,
+"verify_s": 0.7748627662658691,
+"checks": 32,
+"rules_total": 205,
+"rules_max": 12,
+"lines_total": 493,
+"mutations": [
+{
+"kind": "swap",
+"injected": true,
+"desc": "swap: router 3 lines 13,14",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 0.45309948921203613
+},
+{
+"kind": "swap",
+"injected": true,
+"desc": "swap: router 41 lines 15,16",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 0.05675506591796875
+},
+{
+"kind": "swap",
+"injected": true,
+"desc": "swap: router 3 lines 9,10",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 0.48734307289123535
+},
+{
+"kind": "port",
+"injected": true,
+"desc": "port+1: router 21 line 6",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 0.2988016605377197
+},
+{
+"kind": "port",
+"injected": true,
+"desc": "port+1: router 38 line 15",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 0.22701239585876465
+},
+{
+"kind": "port",
+"injected": true,
+"desc": "port+1: router 24 line 11",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 0.09046173095703125
+},
+{
+"kind": "prefix",
+"injected": true,
+"desc": "prefix: router 21 line 8 224.195.103.0/24->224.195.102.0/24",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 0.28328680992126465
+},
+{
+"kind": "prefix",
+"injected": true,
+"desc": "prefix: router 34 line 8 240.7.4.0/22->240.7.0.0/22",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 0.09772634506225586
+},
+{
+"kind": "prefix",
+"injected": true,
+"desc": "prefix: router 22 line 9 87.192.30.32/27->87.192.30.0/27",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 0.2854583263397217
+},
+{
+"kind": "ecmp-1",
+"injected": true,
+"net_detect": false,
+"local_detect": false,
+"cover_all_paths": true,
+"verify_s": 0.8239209651947021,
+"cex": null
+}
+],
+"status": "ok",
+"wall_s": 4.386770486831665
+},
+{
+"id": "Sago_s1036",
+"n_routers": 18,
+"n_zones": 10,
+"n_blocks": 352,
+"factor": 1.5,
+"clean_ok": true,
+"clean_cex": null,
+"verify_s": 3.294902801513672,
+"checks": 90,
+"rules_total": 385,
+"rules_max": 32,
+"lines_total": 493,
+"mutations": [
+{
+"kind": "swap",
+"injected": true,
+"desc": "swap: router 15 lines 7,8",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 2.098987340927124
+},
+{
+"kind": "swap",
+"injected": true,
+"desc": "swap: router 2 lines 24,25",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 2.793207883834839
+},
+{
+"kind": "swap",
+"injected": true,
+"desc": "swap: router 2 lines 24,25",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 2.597893714904785
+},
+{
+"kind": "port",
+"injected": true,
+"desc": "port+1: router 15 line 31",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 1.9954602718353271
+},
+{
+"kind": "port",
+"injected": true,
+"desc": "port+1: router 15 line 18",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 2.0402326583862305
+},
+{
+"kind": "port",
+"injected": true,
+"desc": "port+1: router 2 line 24",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 2.5608816146850586
+},
+{
+"kind": "prefix",
+"injected": true,
+"desc": "prefix: router 1 line 7 34.114.222.0/25->34.114.222.128/25",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 1.1947376728057861
+},
+{
+"kind": "prefix",
+"injected": true,
+"desc": "prefix: router 4 line 12 92.14.71.0/24->92.14.70.0/24",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 1.2266335487365723
+},
+{
+"kind": "prefix",
+"injected": true,
+"desc": "prefix: router 8 line 16 99.176.28.0/23->99.176.30.0/23",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 1.6539900302886963
+},
+{
+"kind": "ecmp-1",
+"injected": false,
+"why": "single path everywhere"
+}
+],
+"status": "ok",
+"wall_s": 21.58183789253235
+},
+{
+"id": "Sinet_s1021",
+"n_routers": 74,
+"n_zones": 16,
+"n_blocks": 674,
+"factor": 3.0,
+"clean_ok": true,
+"clean_cex": null,
+"verify_s": 11.156097412109375,
+"checks": 284,
+"rules_total": 842,
+"rules_max": 34,
+"lines_total": 1286,
+"mutations": [
+{
+"kind": "swap",
+"injected": true,
+"desc": "swap: router 24 lines 15,16",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 4.502250671386719
+},
+{
+"kind": "swap",
+"injected": true,
+"desc": "swap: router 45 lines 21,22",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 2.7037768363952637
+},
+{
+"kind": "swap",
+"injected": true,
+"desc": "swap: router 60 lines 19,20",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 0.25813913345336914
+},
+{
+"kind": "port",
+"injected": true,
+"desc": "port+1: router 55 line 14",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 11.110737085342407
+},
+{
+"kind": "port",
+"injected": true,
+"desc": "port+1: router 36 line 10",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 9.885375261306763
+},
+{
+"kind": "port",
+"injected": true,
+"desc": "port+1: router 18 line 5",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 0.7339863777160645
+},
+{
+"kind": "prefix",
+"injected": true,
+"desc": "prefix: router 21 line 14 12.41.168.0/24->12.41.169.0/24",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 5.312166690826416
+},
+{
+"kind": "prefix",
+"injected": true,
+"desc": "prefix: router 57 line 30 241.34.124.0/23->241.34.126.0/23",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 1.080277681350708
+},
+{
+"kind": "prefix",
+"injected": true,
+"desc": "prefix: router 4 line 24 234.8.62.0/23->234.8.60.0/23",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 6.150160312652588
+},
+{
+"kind": "ecmp-1",
+"injected": true,
+"net_detect": true,
+"local_detect": false,
+"cover_all_paths": false,
+"verify_s": 1.150181770324707,
+"cex": {
+"src_zone": "database",
+"dst_zone": "ops",
+"path": [
+57,
+65,
+64,
+36,
+29,
+30
+],
+"src": "5.100.144.0",
+"dst": "241.34.124.0",
+"proto": 0,
+"dport": 3456,
+"intended": false
+}
+}
+],
+"status": "ok",
+"wall_s": 55.283095359802246
+},
+{
+"id": "Sinet_s1040",
+"n_routers": 74,
+"n_zones": 10,
+"n_blocks": 318,
+"factor": 6.0,
+"clean_ok": true,
+"clean_cex": null,
+"verify_s": 6.640668630599976,
+"checks": 110,
+"rules_total": 758,
+"rules_max": 61,
+"lines_total": 1202,
+"mutations": [
+{
+"kind": "swap",
+"injected": true,
+"desc": "swap: router 51 lines 36,37",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 6.35932993888855
+},
+{
+"kind": "swap",
+"injected": true,
+"desc": "swap: router 51 lines 14,15",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 6.31105637550354
+},
+{
+"kind": "swap",
+"injected": true,
+"desc": "swap: router 58 lines 29,30",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 5.573476791381836
+},
+{
+"kind": "port",
+"injected": true,
+"desc": "port+1: router 24 line 9",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 1.233743667602539
+},
+{
+"kind": "port",
+"injected": true,
+"desc": "port+1: router 65 line 19",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 1.4423892498016357
+},
+{
+"kind": "port",
+"injected": true,
+"desc": "port+1: router 32 line 53",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 4.513900995254517
+},
+{
+"kind": "prefix",
+"injected": true,
+"desc": "prefix: router 48 line 46 182.222.106.0/23->182.222.104.0/23",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 5.387944459915161
+},
+{
+"kind": "prefix",
+"injected": true,
+"desc": "prefix: router 48 line 29 24.64.76.0/26->24.64.76.64/26",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 5.062427043914795
+},
+{
+"kind": "prefix",
+"injected": true,
+"desc": "prefix: router 64 line 12 83.151.142.0/23->83.151.140.0/23",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 4.689691781997681
+},
+{
+"kind": "ecmp-1",
+"injected": true,
+"net_detect": true,
+"local_detect": false,
+"cover_all_paths": false,
+"verify_s": 0.9602077007293701,
+"cex": {
+"src_zone": "database",
+"dst_zone": "research",
+"path": [
+59,
+65,
+64,
+36,
+29,
+17,
+15
+],
+"src": "93.105.155.128",
+"dst": "152.91.126.32",
+"proto": 0,
+"dport": 0,
+"intended": false
+}
+}
+],
+"status": "ok",
+"wall_s": 49.07163619995117
+},
+{
+"id": "TLex_s1043",
+"n_routers": 12,
+"n_zones": 10,
+"n_blocks": 318,
+"factor": 1.5,
+"clean_ok": true,
+"clean_cex": null,
+"verify_s": 4.246253252029419,
+"checks": 94,
+"rules_total": 583,
+"rules_max": 72,
+"lines_total": 655,
+"mutations": [
+{
+"kind": "swap",
+"injected": true,
+"desc": "swap: router 11 lines 18,19",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 2.8087539672851562
+},
+{
+"kind": "swap",
+"injected": true,
+"desc": "swap: router 4 lines 29,30",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 0.32327842712402344
+},
+{
+"kind": "swap",
+"injected": true,
+"desc": "swap: router 11 lines 69,70",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 3.012141466140747
+},
+{
+"kind": "port",
+"injected": true,
+"desc": "port+1: router 5 line 14",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 1.9883551597595215
+},
+{
+"kind": "port",
+"injected": true,
+"desc": "port+1: router 6 line 66",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 4.0369791984558105
+},
+{
+"kind": "port",
+"injected": true,
+"desc": "port+1: router 6 line 41",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 3.9443576335906982
+},
+{
+"kind": "prefix",
+"injected": true,
+"desc": "prefix: router 5 line 74 38.174.156.0/22->38.174.152.0/22",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 2.162609815597534
+},
+{
+"kind": "prefix",
+"injected": true,
+"desc": "prefix: router 0 line 33 41.164.128.0/24->41.164.129.0/24",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 0.8675568103790283
+},
+{
+"kind": "prefix",
+"injected": true,
+"desc": "prefix: router 10 line 19 217.132.211.0/24->217.132.210.0/24",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 1.394228219985962
+},
+{
+"kind": "ecmp-1",
+"injected": true,
+"net_detect": false,
+"local_detect": false,
+"cover_all_paths": true,
+"verify_s": 4.078808784484863,
+"cex": null
+}
+],
+"status": "ok",
+"wall_s": 29.008131980895996
+},
+{
+"id": "Uninet_s1038",
+"n_routers": 13,
+"n_zones": 10,
+"n_blocks": 254,
+"factor": 1.5,
+"clean_ok": true,
+"clean_cex": null,
+"verify_s": 7.294264793395996,
+"checks": 158,
+"rules_total": 524,
+"rules_max": 60,
+"lines_total": 602,
+"mutations": [
+{
+"kind": "swap",
+"injected": true,
+"desc": "swap: router 7 lines 23,24",
+"net_detect": false,
+"local_detect": true,
+"verify_s": 7.3710503578186035
+},
+{
+"kind": "swap",
+"injected": true,
+"desc": "swap: router 3 lines 6,7",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 1.5754177570343018
+},
+{
+"kind": "swap",
+"injected": true,
+"desc": "swap: router 1 lines 26,27",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 6.052145004272461
+},
+{
+"kind": "port",
+"injected": true,
+"desc": "port+1: router 6 line 18",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 7.164702415466309
+},
+{
+"kind": "port",
+"injected": true,
+"desc": "port+1: router 11 line 15",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 3.7153968811035156
+},
+{
+"kind": "port",
+"injected": true,
+"desc": "port+1: router 12 line 53",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 0.46633410453796387
+},
+{
+"kind": "prefix",
+"injected": true,
+"desc": "prefix: router 10 line 25 46.155.179.128/25->46.155.179.0/25",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 7.157897710800171
+},
+{
+"kind": "prefix",
+"injected": true,
+"desc": "prefix: router 4 line 33 14.99.39.0/24->14.99.38.0/24",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 5.113405466079712
+},
+{
+"kind": "prefix",
+"injected": true,
+"desc": "prefix: router 11 line 61 14.99.39.0/24->14.99.38.0/24",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 3.6399295330047607
+},
+{
+"kind": "ecmp-1",
+"injected": true,
+"net_detect": true,
+"local_detect": false,
+"cover_all_paths": false,
+"verify_s": 3.0682361125946045,
+"cex": {
+"src_zone": "student-lab",
+"dst_zone": "printers",
+"path": [
+11,
+10,
+9,
+2,
+5,
+12
+],
+"src": "156.122.224.0",
+"dst": "72.60.5.0",
+"proto": 6,
+"dport": 183,
+"intended": false
+}
+}
+],
+"status": "ok",
+"wall_s": 52.82952809333801
+},
+{
+"id": "UsSignal_s1049",
+"n_routers": 61,
+"n_zones": 16,
+"n_blocks": 1010,
+"factor": 1.5,
+"clean_ok": true,
+"clean_cex": null,
+"verify_s": 22.71469807624817,
+"checks": 328,
+"rules_total": 1368,
+"rules_max": 33,
+"lines_total": 1734,
+"mutations": [
+{
+"kind": "swap",
+"injected": true,
+"desc": "swap: router 41 lines 27,28",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 8.631374597549438
+},
+{
+"kind": "swap",
+"injected": true,
+"desc": "swap: router 41 lines 27,28",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 8.52025055885315
+},
+{
+"kind": "swap",
+"injected": true,
+"desc": "swap: router 26 lines 36,37",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 16.896658420562744
+},
+{
+"kind": "port",
+"injected": true,
+"desc": "port+1: router 29 line 17",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 17.21540927886963
+},
+{
+"kind": "port",
+"injected": true,
+"desc": "port+1: router 47 line 12",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 13.052584409713745
+},
+{
+"kind": "port",
+"injected": true,
+"desc": "port+1: router 45 line 11",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 3.525059938430786
+},
+{
+"kind": "prefix",
+"injected": true,
+"desc": "prefix: router 58 line 20 208.233.22.0/23->208.233.20.0/23",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 17.715832710266113
+},
+{
+"kind": "prefix",
+"injected": true,
+"desc": "prefix: router 21 line 14 172.243.68.192/26->172.243.68.128/26",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 6.187135219573975
+},
+{
+"kind": "prefix",
+"injected": true,
+"desc": "prefix: router 5 line 11 149.112.122.128/25->149.112.122.0/25",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 17.63484764099121
+},
+{
+"kind": "ecmp-1",
+"injected": true,
+"net_detect": true,
+"local_detect": false,
+"cover_all_paths": false,
+"verify_s": 2.2474067211151123,
+"cex": {
+"src_zone": "dns-servers",
+"dst_zone": "voip",
+"path": [
+24,
+25,
+4,
+3,
+56
+],
+"src": "248.180.212.0",
+"dst": "53.228.195.128",
+"proto": 6,
+"dport": 443,
+"intended": false
+}
+}
+],
+"status": "ok",
+"wall_s": 137.5940182209015
+},
+{
+"id": "Uunet_s1050",
+"n_routers": 49,
+"n_zones": 10,
+"n_blocks": 430,
+"factor": 3.0,
+"clean_ok": true,
+"clean_cex": null,
+"verify_s": 7.265970945358276,
+"checks": 210,
+"rules_total": 516,
+"rules_max": 31,
+"lines_total": 810,
+"mutations": [
+{
+"kind": "swap",
+"injected": true,
+"desc": "swap: router 40 lines 5,6",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 6.0527503490448
+},
+{
+"kind": "swap",
+"injected": true,
+"desc": "swap: router 29 lines 28,29",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 7.455591917037964
+},
+{
+"kind": "swap",
+"injected": true,
+"desc": "swap: router 48 lines 17,18",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 3.070336103439331
+},
+{
+"kind": "port",
+"injected": true,
+"desc": "port+1: router 13 line 20",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 5.498780727386475
+},
+{
+"kind": "port",
+"injected": true,
+"desc": "port+1: router 0 line 12",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 6.678696632385254
+},
+{
+"kind": "port",
+"injected": true,
+"desc": "port+1: router 4 line 32",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 3.908992290496826
+},
+{
+"kind": "prefix",
+"injected": true,
+"desc": "prefix: router 9 line 20 105.160.32.0/23->105.160.34.0/23",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 2.324913501739502
+},
+{
+"kind": "prefix",
+"injected": true,
+"desc": "prefix: router 23 line 13 196.164.224.128/26->196.164.224.192/26",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 5.138723373413086
+},
+{
+"kind": "prefix",
+"injected": true,
+"desc": "prefix: router 16 line 19 20.213.189.0/25->20.213.189.128/25",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 6.368333101272583
+},
+{
+"kind": "ecmp-1",
+"injected": true,
+"net_detect": true,
+"local_detect": false,
+"cover_all_paths": false,
+"verify_s": 0.7931389808654785,
+"cex": {
+"src_zone": "dns-servers",
+"dst_zone": "student-lab",
+"path": [
+38,
+19,
+43,
+41,
+48,
+8,
+9
+],
+"src": "209.247.242.128",
+"dst": "24.92.78.192",
+"proto": 6,
+"dport": 535,
+"intended": false
+}
+}
+],
+"status": "ok",
+"wall_s": 55.42954087257385
+},
+{
+"id": "Vinaren_s1007",
+"n_routers": 25,
+"n_zones": 16,
+"n_blocks": 888,
+"factor": 1.5,
+"clean_ok": true,
+"clean_cex": null,
+"verify_s": 13.95503282546997,
+"checks": 240,
+"rules_total": 1175,
+"rules_max": 70,
+"lines_total": 1325,
+"mutations": [
+{
+"kind": "swap",
+"injected": true,
+"desc": "swap: router 16 lines 17,18",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 6.966728925704956
+},
+{
+"kind": "swap",
+"injected": true,
+"desc": "swap: router 13 lines 36,37",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 3.849614143371582
+},
+{
+"kind": "swap",
+"injected": true,
+"desc": "swap: router 13 lines 36,37",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 3.6159684658050537
+},
+{
+"kind": "port",
+"injected": true,
+"desc": "port+1: router 24 line 35",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 10.97750186920166
+},
+{
+"kind": "port",
+"injected": true,
+"desc": "port+1: router 6 line 40",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 4.5399816036224365
+},
+{
+"kind": "port",
+"injected": true,
+"desc": "port+1: router 22 line 38",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 10.295222282409668
+},
+{
+"kind": "prefix",
+"injected": true,
+"desc": "prefix: router 12 line 67 251.230.128.0/17->251.230.0.0/17",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 12.151066780090332
+},
+{
+"kind": "prefix",
+"injected": true,
+"desc": "prefix: router 24 line 23 31.223.117.128/25->31.223.117.0/25",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 11.213422775268555
+},
+{
+"kind": "prefix",
+"injected": true,
+"desc": "prefix: router 12 line 36 102.138.252.0/23->102.138.254.0/23",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 12.060158729553223
+},
+{
+"kind": "ecmp-1",
+"injected": false,
+"why": "single path everywhere"
+}
+],
+"status": "ok",
+"wall_s": 90.21015191078186
+},
+{
+"id": "Vinaren_s1020",
+"n_routers": 25,
+"n_zones": 6,
+"n_blocks": 160,
+"factor": 3.0,
+"clean_ok": true,
+"clean_cex": null,
+"verify_s": 1.8361632823944092,
+"checks": 30,
+"rules_total": 478,
+"rules_max": 57,
+"lines_total": 628,
+"mutations": [
+{
+"kind": "swap",
+"injected": true,
+"desc": "swap: router 1 lines 28,29",
+"net_detect": false,
+"local_detect": true,
+"verify_s": 1.7947325706481934
+},
+{
+"kind": "swap",
+"injected": true,
+"desc": "swap: router 17 lines 60,61",
+"net_detect": false,
+"local_detect": true,
+"verify_s": 1.822209119796753
+},
+{
+"kind": "swap",
+"injected": true,
+"desc": "swap: router 13 lines 19,20",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 1.1367197036743164
+},
+{
+"kind": "port",
+"injected": true,
+"desc": "port+1: router 4 line 45",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 0.6318857669830322
+},
+{
+"kind": "port",
+"injected": true,
+"desc": "port+1: router 12 line 46",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 0.31582140922546387
+},
+{
+"kind": "port",
+"injected": true,
+"desc": "port+1: router 13 line 37",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 0.9497742652893066
+},
+{
+"kind": "prefix",
+"injected": true,
+"desc": "prefix: router 17 line 33 218.45.4.128/25->218.45.4.0/25",
+"net_detect": false,
+"local_detect": true,
+"verify_s": 1.7642955780029297
+},
+{
+"kind": "prefix",
+"injected": true,
+"desc": "prefix: router 18 line 25 227.25.14.0/23->227.25.12.0/23",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 1.2894442081451416
+},
+{
+"kind": "prefix",
+"injected": true,
+"desc": "prefix: router 22 line 42 21.215.0.0/16->21.214.0.0/16",
+"net_detect": true,
+"local_detect": true,
+"verify_s": 1.1243484020233154
+},
+{
+"kind": "ecmp-1",
+"injected": false,
+"why": "single path everywhere"
+}
+],
+"status": "ok",
+"wall_s": 12.853965044021606
+}
+]

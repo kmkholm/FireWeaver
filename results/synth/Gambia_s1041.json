@@ -1,0 +1,355 @@
+{
+ "id": "Gambia_s1041",
+ "n_intents": 16,
+ "n_gt_rules": 37,
+ "n_zones": 16,
+ "rules": {
+  "eq": false,
+  "mismatch": 0.0075,
+  "n_rules": 34,
+  "fail": 0,
+  "s": 38.82850623130798,
+  "calls": 1,
+  "prompt": 1027,
+  "completion": 1097
+ },
+ "ir0": {
+  "eq": false,
+  "mismatch": 0.003,
+  "n_rules": 32,
+  "fail": 0,
+  "s": 48.389251947402954,
+  "calls": 17,
+  "prompt": 11372,
+  "completion": 744,
+  "intent_acc": 0.8125
+ },
+ "ir": {
+  "eq": true,
+  "mismatch": 0.0,
+  "n_rules": 37,
+  "fail": 0,
+  "s": 38.5076789855957,
+  "calls": 16,
+  "prompt": 17875,
+  "completion": 472,
+  "intent_acc": 1.0
+ },
+ "fw": {
+  "eq": true,
+  "mismatch": 0.0,
+  "n_rules": 37,
+  "fail": 0,
+  "s": 100.76282095909119,
+  "verify_s": 62.25514268875122,
+  "calls": 32,
+  "verify_calls": 16,
+  "flagged": 0,
+  "accepted": 0,
+  "repairs": [],
+  "intent_acc": 1.0
+ },
+ "ir_out": [
+  {
+   "type": "allow",
+   "src": "student-lab",
+   "dst": "printers",
+   "svcs": [
+    "dns",
+    "imap",
+    "snmp"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "admin",
+   "dst": "student-lab",
+   "broad": "any-tcp",
+   "ex": [
+    "ftp",
+    "rdp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "printers",
+   "dst": "admin",
+   "svcs": [
+    "https",
+    "ssh"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "dns-servers",
+   "dst": "voip",
+   "broad": "high-tcp",
+   "ex": [
+    "rdp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "dmz-web",
+   "dst": "scada",
+   "svcs": [
+    "https"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "student-lab",
+   "dst": "printers",
+   "svcs": [
+    "postgres",
+    "snmp"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "nvr",
+   "dst": "iot-sensors",
+   "broad": "high-tcp",
+   "ex": [
+    "rdp"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "student-lab",
+   "dst": "admin",
+   "broad": "any-udp",
+   "ex": [
+    "tftp",
+    "snmp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "partners",
+   "dst": "hr",
+   "svcs": [
+    "rdp",
+    "smtp",
+    "ntp"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "monitoring",
+   "dst": "partners",
+   "broad": "high-tcp",
+   "ex": [
+    "postgres",
+    "mysql"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "library",
+   "dst": "partners",
+   "svcs": [
+    "smtp",
+    "syslog",
+    "rdp"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "printers",
+   "svcs": [
+    "ntp"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "monitoring",
+   "allowed": [
+    [
+     "admin",
+     "dns"
+    ]
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "scada",
+   "dst": "hr",
+   "broad": "high-tcp",
+   "ex": [
+    "postgres",
+    "mysql"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "scada",
+   "dst": "student-lab",
+   "svcs": [
+    "postgres"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "nvr",
+   "dst": "ops",
+   "svcs": [
+    "http",
+    "ssh",
+    "dns"
+   ]
+  }
+ ],
+ "fw_out": [
+  {
+   "type": "allow",
+   "src": "student-lab",
+   "dst": "printers",
+   "svcs": [
+    "dns",
+    "imap",
+    "snmp"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "admin",
+   "dst": "student-lab",
+   "broad": "any-tcp",
+   "ex": [
+    "ftp",
+    "rdp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "printers",
+   "dst": "admin",
+   "svcs": [
+    "https",
+    "ssh"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "dns-servers",
+   "dst": "voip",
+   "broad": "high-tcp",
+   "ex": [
+    "rdp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "dmz-web",
+   "dst": "scada",
+   "svcs": [
+    "https"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "student-lab",
+   "dst": "printers",
+   "svcs": [
+    "postgres",
+    "snmp"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "nvr",
+   "dst": "iot-sensors",
+   "broad": "high-tcp",
+   "ex": [
+    "rdp"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "student-lab",
+   "dst": "admin",
+   "broad": "any-udp",
+   "ex": [
+    "tftp",
+    "snmp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "partners",
+   "dst": "hr",
+   "svcs": [
+    "rdp",
+    "smtp",
+    "ntp"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "monitoring",
+   "dst": "partners",
+   "broad": "high-tcp",
+   "ex": [
+    "postgres",
+    "mysql"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "library",
+   "dst": "partners",
+   "svcs": [
+    "smtp",
+    "syslog",
+    "rdp"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "printers",
+   "svcs": [
+    "ntp"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "monitoring",
+   "allowed": [
+    [
+     "admin",
+     "dns"
+    ]
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "scada",
+   "dst": "hr",
+   "broad": "high-tcp",
+   "ex": [
+    "postgres",
+    "mysql"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "scada",
+   "dst": "student-lab",
+   "svcs": [
+    "postgres"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "nvr",
+   "dst": "ops",
+   "svcs": [
+    "http",
+    "ssh",
+    "dns"
+   ]
+  }
+ ],
+ "wall_s": 188.43590235710144
+}

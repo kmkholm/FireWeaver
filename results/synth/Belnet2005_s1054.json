@@ -1,0 +1,181 @@
+{
+ "id": "Belnet2005_s1054",
+ "n_intents": 7,
+ "n_gt_rules": 13,
+ "n_zones": 16,
+ "rules": {
+  "eq": false,
+  "mismatch": 0.00025,
+  "n_rules": 13,
+  "fail": 0,
+  "s": 14.243245363235474,
+  "calls": 1,
+  "prompt": 688,
+  "completion": 410
+ },
+ "ir0": {
+  "eq": true,
+  "mismatch": 0.0,
+  "n_rules": 13,
+  "fail": 0,
+  "s": 9.025246620178223,
+  "calls": 7,
+  "prompt": 4585,
+  "completion": 250,
+  "intent_acc": 1.0
+ },
+ "ir": {
+  "eq": true,
+  "mismatch": 0.0,
+  "n_rules": 13,
+  "fail": 0,
+  "s": 6.355510234832764,
+  "calls": 7,
+  "prompt": 7742,
+  "completion": 178,
+  "intent_acc": 1.0
+ },
+ "fw": {
+  "eq": true,
+  "mismatch": 0.0,
+  "n_rules": 13,
+  "fail": 0,
+  "s": 22.878844738006592,
+  "verify_s": 16.523334980010986,
+  "calls": 15,
+  "verify_calls": 8,
+  "flagged": 0,
+  "accepted": 0,
+  "repairs": [],
+  "intent_acc": 1.0
+ },
+ "ir_out": [
+  {
+   "type": "allow",
+   "src": "library",
+   "dst": "backup",
+   "svcs": [
+    "ssh",
+    "mysql"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "dmz-web",
+   "dst": "library"
+  },
+  {
+   "type": "allow",
+   "src": "vpn-users",
+   "dst": "partners",
+   "svcs": [
+    "snmp",
+    "syslog"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "dmz-web",
+   "allowed": [
+    [
+     "printers",
+     "https"
+    ],
+    [
+     "partners",
+     "syslog"
+    ]
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "hr",
+   "dst": "ops",
+   "svcs": [
+    "https"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "engineering",
+   "dst": "partners",
+   "broad": "high-tcp",
+   "ex": [
+    "postgres"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "library",
+   "svcs": [
+    "ntp",
+    "http"
+   ]
+  }
+ ],
+ "fw_out": [
+  {
+   "type": "allow",
+   "src": "library",
+   "dst": "backup",
+   "svcs": [
+    "ssh",
+    "mysql"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "dmz-web",
+   "dst": "library"
+  },
+  {
+   "type": "allow",
+   "src": "vpn-users",
+   "dst": "partners",
+   "svcs": [
+    "snmp",
+    "syslog"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "dmz-web",
+   "allowed": [
+    [
+     "printers",
+     "https"
+    ],
+    [
+     "partners",
+     "syslog"
+    ]
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "hr",
+   "dst": "ops",
+   "svcs": [
+    "https"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "engineering",
+   "dst": "partners",
+   "broad": "high-tcp",
+   "ex": [
+    "postgres"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "library",
+   "svcs": [
+    "ntp",
+    "http"
+   ]
+  }
+ ],
+ "wall_s": 46.39483904838562
+}

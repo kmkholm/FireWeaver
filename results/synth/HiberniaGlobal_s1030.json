@@ -1,0 +1,338 @@
+{
+ "id": "HiberniaGlobal_s1030",
+ "n_intents": 14,
+ "n_gt_rules": 27,
+ "n_zones": 10,
+ "rules": {
+  "eq": false,
+  "mismatch": 0.0125,
+  "n_rules": 26,
+  "fail": 0,
+  "s": 31.896015882492065,
+  "calls": 1,
+  "prompt": 876,
+  "completion": 829
+ },
+ "ir0": {
+  "eq": false,
+  "mismatch": 0.003,
+  "n_rules": 26,
+  "fail": 0,
+  "s": 37.432188749313354,
+  "calls": 14,
+  "prompt": 8937,
+  "completion": 477,
+  "intent_acc": 0.8571428571428571
+ },
+ "ir": {
+  "eq": true,
+  "mismatch": 0.0,
+  "n_rules": 27,
+  "fail": 0,
+  "s": 34.2206974029541,
+  "calls": 14,
+  "prompt": 15251,
+  "completion": 371,
+  "intent_acc": 1.0
+ },
+ "fw": {
+  "eq": false,
+  "mismatch": 0.00025,
+  "n_rules": 28,
+  "fail": 0,
+  "s": 99.03076028823853,
+  "verify_s": 64.81006336212158,
+  "calls": 32,
+  "verify_calls": 18,
+  "flagged": 1,
+  "accepted": 1,
+  "repairs": [
+   {
+    "k": 8,
+    "was_ok": true,
+    "now_ok": false,
+    "history": [
+     1,
+     0
+    ],
+    "calls": 2,
+    "accepted": true,
+    "diff": 1,
+    "win_new": 1,
+    "win_old": 0
+   }
+  ],
+  "intent_acc": 0.9285714285714286
+ },
+ "ir_out": [
+  {
+   "type": "public",
+   "dst": "dev-lab",
+   "svcs": [
+    "ntp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "dev-lab",
+   "dst": "admin",
+   "svcs": [
+    "ntp"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "ntp-servers",
+   "svcs": [
+    "ntp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "dev-lab",
+   "dst": "engineering",
+   "svcs": [
+    "rdp",
+    "syslog"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "guest-wifi",
+   "dst": "monitoring",
+   "svcs": [
+    "ssh",
+    "ntp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "library",
+   "dst": "monitoring",
+   "svcs": [
+    "smb",
+    "smtp",
+    "rdp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "hr",
+   "dst": "admin",
+   "svcs": [
+    "smb",
+    "imap"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "nvr",
+   "svcs": [
+    "dns"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "nvr",
+   "allowed": [
+    [
+     "hr",
+     "ntp"
+    ],
+    [
+     "ntp-servers",
+     "https"
+    ]
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "hr",
+   "dst": "ntp-servers",
+   "svcs": [
+    "dns",
+    "http",
+    "https"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "guest-wifi",
+   "allowed": [
+    [
+     "engineering",
+     "https"
+    ],
+    [
+     "library",
+     "dns"
+    ]
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "guest-wifi",
+   "dst": "ntp-servers",
+   "broad": "any-udp",
+   "ex": [
+    "snmp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "ops",
+   "dst": "guest-wifi",
+   "svcs": [
+    "mysql"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "hr",
+   "allowed": [
+    [
+     "engineering",
+     "ntp"
+    ]
+   ]
+  }
+ ],
+ "fw_out": [
+  {
+   "type": "public",
+   "dst": "dev-lab",
+   "svcs": [
+    "ntp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "dev-lab",
+   "dst": "admin",
+   "svcs": [
+    "ntp"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "ntp-servers",
+   "svcs": [
+    "ntp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "dev-lab",
+   "dst": "engineering",
+   "svcs": [
+    "rdp",
+    "syslog"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "guest-wifi",
+   "dst": "monitoring",
+   "svcs": [
+    "ssh",
+    "ntp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "library",
+   "dst": "monitoring",
+   "svcs": [
+    "smb",
+    "smtp",
+    "rdp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "hr",
+   "dst": "admin",
+   "svcs": [
+    "smb",
+    "imap"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "nvr",
+   "svcs": [
+    "dns"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "nvr",
+   "allowed": [
+    [
+     "hr",
+     "ntp"
+    ],
+    [
+     "ntp-servers",
+     "ntp"
+    ],
+    [
+     "ntp-servers",
+     "https"
+    ]
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "hr",
+   "dst": "ntp-servers",
+   "svcs": [
+    "dns",
+    "http",
+    "https"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "guest-wifi",
+   "allowed": [
+    [
+     "engineering",
+     "https"
+    ],
+    [
+     "library",
+     "dns"
+    ]
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "guest-wifi",
+   "dst": "ntp-servers",
+   "broad": "any-udp",
+   "ex": [
+    "snmp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "ops",
+   "dst": "guest-wifi",
+   "svcs": [
+    "mysql"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "hr",
+   "allowed": [
+    [
+     "engineering",
+     "ntp"
+    ]
+   ]
+  }
+ ],
+ "wall_s": 168.66972184181213
+}

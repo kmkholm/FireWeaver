@@ -1,0 +1,352 @@
+{
+ "id": "Cernet_s1005",
+ "n_intents": 16,
+ "n_gt_rules": 32,
+ "n_zones": 16,
+ "rules": {
+  "eq": false,
+  "mismatch": 0.00775,
+  "n_rules": 0,
+  "fail": 0,
+  "s": 31.580092191696167,
+  "calls": 1,
+  "prompt": 914,
+  "completion": 927
+ },
+ "ir0": {
+  "eq": false,
+  "mismatch": 0.00025,
+  "n_rules": 29,
+  "fail": 0,
+  "s": 21.42857551574707,
+  "calls": 16,
+  "prompt": 10456,
+  "completion": 622,
+  "intent_acc": 0.875
+ },
+ "ir": {
+  "eq": true,
+  "mismatch": 0.0,
+  "n_rules": 32,
+  "fail": 0,
+  "s": 14.330249071121216,
+  "calls": 16,
+  "prompt": 17672,
+  "completion": 413,
+  "intent_acc": 1.0
+ },
+ "fw": {
+  "eq": true,
+  "mismatch": 0.0,
+  "n_rules": 32,
+  "fail": 0,
+  "s": 54.284438133239746,
+  "verify_s": 39.95418930053711,
+  "calls": 38,
+  "verify_calls": 22,
+  "flagged": 1,
+  "accepted": 0,
+  "repairs": [
+   {
+    "k": 9,
+    "was_ok": true,
+    "now_ok": true,
+    "history": [
+     2,
+     2,
+     2
+    ],
+    "calls": 2,
+    "accepted": false
+   }
+  ],
+  "intent_acc": 1.0
+ },
+ "ir_out": [
+  {
+   "type": "allow",
+   "src": "research",
+   "dst": "hr",
+   "svcs": [
+    "imap",
+    "ssh",
+    "ntp"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "research",
+   "dst": "cameras"
+  },
+  {
+   "type": "allow",
+   "src": "nvr",
+   "dst": "dev-lab",
+   "svcs": [
+    "smtp",
+    "dns"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "finance",
+   "dst": "library",
+   "svcs": [
+    "imap"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "monitoring",
+   "dst": "vpn-users",
+   "svcs": [
+    "ssh"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "vpn-users",
+   "dst": "hr",
+   "svcs": [
+    "imap"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "database",
+   "svcs": [
+    "ntp",
+    "dns"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "cameras",
+   "dst": "edge-cache",
+   "svcs": [
+    "imap",
+    "ldap",
+    "rtsp"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "printers",
+   "dst": "mail"
+  },
+  {
+   "type": "isolate",
+   "src": "nvr",
+   "allowed": [
+    [
+     "admin",
+     "syslog"
+    ],
+    [
+     "finance",
+     "https"
+    ]
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "printers",
+   "dst": "database",
+   "svcs": [
+    "postgres",
+    "ssh",
+    "mysql"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "monitoring",
+   "dst": "database",
+   "svcs": [
+    "ssh",
+    "snmp"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "admin",
+   "dst": "monitoring",
+   "broad": "any-udp",
+   "ex": [
+    "snmp"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "database",
+   "svcs": [
+    "dns",
+    "https"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "finance",
+   "allowed": [
+    [
+     "cameras",
+     "https"
+    ]
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "nvr",
+   "dst": "vpn-users",
+   "broad": "any-udp",
+   "ex": [
+    "snmp",
+    "tftp"
+   ]
+  }
+ ],
+ "fw_out": [
+  {
+   "type": "allow",
+   "src": "research",
+   "dst": "hr",
+   "svcs": [
+    "imap",
+    "ssh",
+    "ntp"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "research",
+   "dst": "cameras"
+  },
+  {
+   "type": "allow",
+   "src": "nvr",
+   "dst": "dev-lab",
+   "svcs": [
+    "smtp",
+    "dns"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "finance",
+   "dst": "library",
+   "svcs": [
+    "imap"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "monitoring",
+   "dst": "vpn-users",
+   "svcs": [
+    "ssh"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "vpn-users",
+   "dst": "hr",
+   "svcs": [
+    "imap"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "database",
+   "svcs": [
+    "ntp",
+    "dns"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "cameras",
+   "dst": "edge-cache",
+   "svcs": [
+    "imap",
+    "ldap",
+    "rtsp"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "printers",
+   "dst": "mail"
+  },
+  {
+   "type": "isolate",
+   "src": "nvr",
+   "allowed": [
+    [
+     "admin",
+     "syslog"
+    ],
+    [
+     "finance",
+     "https"
+    ]
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "printers",
+   "dst": "database",
+   "svcs": [
+    "postgres",
+    "ssh",
+    "mysql"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "monitoring",
+   "dst": "database",
+   "svcs": [
+    "ssh",
+    "snmp"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "admin",
+   "dst": "monitoring",
+   "broad": "any-udp",
+   "ex": [
+    "snmp"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "database",
+   "svcs": [
+    "dns",
+    "https"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "finance",
+   "allowed": [
+    [
+     "cameras",
+     "https"
+    ]
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "nvr",
+   "dst": "vpn-users",
+   "broad": "any-udp",
+   "ex": [
+    "snmp",
+    "tftp"
+   ]
+  }
+ ],
+ "wall_s": 107.76895833015442
+}

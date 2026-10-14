@@ -1,0 +1,606 @@
+{
+ "id": "Highwinds_s1058",
+ "topology": "Highwinds",
+ "n_nodes": 18,
+ "edges": [
+  [
+   0,
+   1
+  ],
+  [
+   0,
+   5
+  ],
+  [
+   1,
+   2
+  ],
+  [
+   1,
+   5
+  ],
+  [
+   1,
+   7
+  ],
+  [
+   2,
+   3
+  ],
+  [
+   2,
+   4
+  ],
+  [
+   2,
+   5
+  ],
+  [
+   3,
+   9
+  ],
+  [
+   3,
+   4
+  ],
+  [
+   4,
+   7
+  ],
+  [
+   4,
+   10
+  ],
+  [
+   4,
+   5
+  ],
+  [
+   5,
+   6
+  ],
+  [
+   5,
+   7
+  ],
+  [
+   5,
+   8
+  ],
+  [
+   5,
+   9
+  ],
+  [
+   6,
+   8
+  ],
+  [
+   7,
+   8
+  ],
+  [
+   7,
+   9
+  ],
+  [
+   7,
+   16
+  ],
+  [
+   8,
+   14
+  ],
+  [
+   9,
+   10
+  ],
+  [
+   10,
+   12
+  ],
+  [
+   11,
+   12
+  ],
+  [
+   13,
+   17
+  ],
+  [
+   13,
+   14
+  ],
+  [
+   13,
+   15
+  ],
+  [
+   14,
+   16
+  ],
+  [
+   15,
+   16
+  ],
+  [
+   16,
+   17
+  ]
+ ],
+ "zones": {
+  "vpn-users": {
+   "router": 11,
+   "prefixes": [
+    "100.7.165.0/24"
+   ]
+  },
+  "nvr": {
+   "router": 0,
+   "prefixes": [
+    "2.103.74.0/23"
+   ]
+  },
+  "student-lab": {
+   "router": 6,
+   "prefixes": [
+    "202.201.48.224/27",
+    "145.2.252.0/25"
+   ]
+  },
+  "ntp-servers": {
+   "router": 17,
+   "prefixes": [
+    "61.121.128.0/18",
+    "253.136.159.128/25",
+    "113.221.38.0/23"
+   ]
+  },
+  "printers": {
+   "router": 15,
+   "prefixes": [
+    "104.144.83.0/25",
+    "229.128.88.0/23"
+   ]
+  },
+  "engineering": {
+   "router": 12,
+   "prefixes": [
+    "43.224.81.0/24",
+    "37.134.157.192/26"
+   ]
+  },
+  "scada": {
+   "router": 13,
+   "prefixes": [
+    "177.66.172.0/23"
+   ]
+  },
+  "backup": {
+   "router": 14,
+   "prefixes": [
+    "66.157.238.0/24"
+   ]
+  },
+  "hr": {
+   "router": 3,
+   "prefixes": [
+    "25.75.35.0/24",
+    "124.70.174.0/24",
+    "78.44.112.0/20"
+   ]
+  },
+  "cameras": {
+   "router": 10,
+   "prefixes": [
+    "206.190.247.128/25",
+    "136.107.244.0/23"
+   ]
+  }
+ },
+ "zone_text": [
+  "vpn-users: hosts 100.7.165.0/24 attached to router R11",
+  "nvr: hosts 2.103.74.0/23 attached to router R0",
+  "student-lab: hosts 202.201.48.224/27, 145.2.252.0/25 attached to router R6",
+  "ntp-servers: hosts 61.121.128.0/18, 253.136.159.128/25, 113.221.38.0/23 attached to router R17",
+  "printers: hosts 104.144.83.0/25, 229.128.88.0/23 attached to router R15",
+  "engineering: hosts 43.224.81.0/24, 37.134.157.192/26 attached to router R12",
+  "scada: hosts 177.66.172.0/23 attached to router R13",
+  "backup: hosts 66.157.238.0/24 attached to router R14",
+  "hr: hosts 25.75.35.0/24, 124.70.174.0/24, 78.44.112.0/20 attached to router R3",
+  "cameras: hosts 206.190.247.128/25, 136.107.244.0/23 attached to router R10"
+ ],
+ "intents": [
+  {
+   "type": "allow",
+   "src": "nvr",
+   "dst": "cameras",
+   "svcs": [
+    "smtp",
+    "http"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "backup",
+   "dst": "ntp-servers",
+   "svcs": [
+    "ldap"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "nvr",
+   "dst": "student-lab"
+  },
+  {
+   "type": "allow",
+   "src": "ntp-servers",
+   "dst": "engineering",
+   "svcs": [
+    "https",
+    "mysql"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "hr",
+   "dst": "scada",
+   "svcs": [
+    "smb",
+    "syslog",
+    "dns"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "nvr",
+   "dst": "backup",
+   "svcs": [
+    "https",
+    "smtp",
+    "smb"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "scada",
+   "svcs": [
+    "dns"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "cameras",
+   "dst": "engineering",
+   "svcs": [
+    "syslog",
+    "http"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "nvr",
+   "dst": "ntp-servers",
+   "broad": "any-tcp",
+   "ex": [
+    "rdp",
+    "ftp"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "scada",
+   "dst": "student-lab",
+   "broad": "any-udp",
+   "ex": [
+    "tftp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "student-lab",
+   "dst": "hr",
+   "svcs": [
+    "imap",
+    "snmp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "scada",
+   "dst": "printers",
+   "svcs": [
+    "ldap",
+    "mysql"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "backup",
+   "allowed": [
+    [
+     "engineering",
+     "dns"
+    ]
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "scada",
+   "allowed": [
+    [
+     "student-lab",
+     "https"
+    ]
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "ntp-servers",
+   "svcs": [
+    "http",
+    "https"
+   ]
+  }
+ ],
+ "nl": [
+  "Hosts in nvr may reach cameras over SMTP (TCP 25) and HTTP (TCP 80).",
+  "Allow backup to connect to ntp-servers using LDAP (TCP 389).",
+  "nvr must never reach student-lab, regardless of any other rule.",
+  "Hosts in ntp-servers may reach engineering over HTTPS (TCP 443) and MySQL (TCP 3306).",
+  "Hosts in hr may reach scada over SMB (TCP 445) and syslog (UDP 514) and DNS over UDP 53.",
+  "Hosts in nvr may reach backup over HTTPS (TCP 443) and SMTP (TCP 25) and SMB (TCP 445).",
+  "scada offers DNS over UDP 53 to every zone.",
+  "Allow cameras to connect to engineering using syslog (UDP 514) and HTTP (TCP 80).",
+  "nvr may use any TCP port towards ntp-servers, except RDP (TCP 3389), FTP (TCP 21), which must be blocked.",
+  "scada may use any UDP port towards student-lab, except TFTP (UDP 69), which must be blocked.",
+  "Allow student-lab to connect to hr using IMAP (TCP 143) and SNMP (UDP 161).",
+  "Allow scada to connect to printers using LDAP (TCP 389) and MySQL (TCP 3306).",
+  "Restrict backup so that its only permitted destinations are engineering on DNS over UDP 53; drop all other traffic it originates.",
+  "scada is isolated: it may only reach student-lab on HTTPS (TCP 443), and nothing else.",
+  "ntp-servers offers HTTP (TCP 80) and HTTPS (TCP 443) to every zone."
+ ],
+ "gt": [
+  {
+   "src": "nvr",
+   "dst": "student-lab",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "nvr",
+   "dst": "ntp-servers",
+   "proto": "tcp",
+   "dlo": 3389,
+   "dhi": 3389,
+   "action": "deny"
+  },
+  {
+   "src": "nvr",
+   "dst": "ntp-servers",
+   "proto": "tcp",
+   "dlo": 21,
+   "dhi": 21,
+   "action": "deny"
+  },
+  {
+   "src": "scada",
+   "dst": "student-lab",
+   "proto": "udp",
+   "dlo": 69,
+   "dhi": 69,
+   "action": "deny"
+  },
+  {
+   "src": "nvr",
+   "dst": "cameras",
+   "proto": "tcp",
+   "dlo": 25,
+   "dhi": 25,
+   "action": "permit"
+  },
+  {
+   "src": "nvr",
+   "dst": "cameras",
+   "proto": "tcp",
+   "dlo": 80,
+   "dhi": 80,
+   "action": "permit"
+  },
+  {
+   "src": "backup",
+   "dst": "ntp-servers",
+   "proto": "tcp",
+   "dlo": 389,
+   "dhi": 389,
+   "action": "permit"
+  },
+  {
+   "src": "ntp-servers",
+   "dst": "engineering",
+   "proto": "tcp",
+   "dlo": 443,
+   "dhi": 443,
+   "action": "permit"
+  },
+  {
+   "src": "ntp-servers",
+   "dst": "engineering",
+   "proto": "tcp",
+   "dlo": 3306,
+   "dhi": 3306,
+   "action": "permit"
+  },
+  {
+   "src": "hr",
+   "dst": "scada",
+   "proto": "tcp",
+   "dlo": 445,
+   "dhi": 445,
+   "action": "permit"
+  },
+  {
+   "src": "hr",
+   "dst": "scada",
+   "proto": "udp",
+   "dlo": 514,
+   "dhi": 514,
+   "action": "permit"
+  },
+  {
+   "src": "hr",
+   "dst": "scada",
+   "proto": "udp",
+   "dlo": 53,
+   "dhi": 53,
+   "action": "permit"
+  },
+  {
+   "src": "nvr",
+   "dst": "backup",
+   "proto": "tcp",
+   "dlo": 443,
+   "dhi": 443,
+   "action": "permit"
+  },
+  {
+   "src": "nvr",
+   "dst": "backup",
+   "proto": "tcp",
+   "dlo": 25,
+   "dhi": 25,
+   "action": "permit"
+  },
+  {
+   "src": "nvr",
+   "dst": "backup",
+   "proto": "tcp",
+   "dlo": 445,
+   "dhi": 445,
+   "action": "permit"
+  },
+  {
+   "src": "cameras",
+   "dst": "engineering",
+   "proto": "udp",
+   "dlo": 514,
+   "dhi": 514,
+   "action": "permit"
+  },
+  {
+   "src": "cameras",
+   "dst": "engineering",
+   "proto": "tcp",
+   "dlo": 80,
+   "dhi": 80,
+   "action": "permit"
+  },
+  {
+   "src": "nvr",
+   "dst": "ntp-servers",
+   "proto": "tcp",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "permit"
+  },
+  {
+   "src": "scada",
+   "dst": "student-lab",
+   "proto": "udp",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "permit"
+  },
+  {
+   "src": "student-lab",
+   "dst": "hr",
+   "proto": "tcp",
+   "dlo": 143,
+   "dhi": 143,
+   "action": "permit"
+  },
+  {
+   "src": "student-lab",
+   "dst": "hr",
+   "proto": "udp",
+   "dlo": 161,
+   "dhi": 161,
+   "action": "permit"
+  },
+  {
+   "src": "scada",
+   "dst": "printers",
+   "proto": "tcp",
+   "dlo": 389,
+   "dhi": 389,
+   "action": "permit"
+  },
+  {
+   "src": "scada",
+   "dst": "printers",
+   "proto": "tcp",
+   "dlo": 3306,
+   "dhi": 3306,
+   "action": "permit"
+  },
+  {
+   "src": "backup",
+   "dst": "engineering",
+   "proto": "udp",
+   "dlo": 53,
+   "dhi": 53,
+   "action": "permit"
+  },
+  {
+   "src": "scada",
+   "dst": "student-lab",
+   "proto": "tcp",
+   "dlo": 443,
+   "dhi": 443,
+   "action": "permit"
+  },
+  {
+   "src": "backup",
+   "dst": "*",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "scada",
+   "dst": "*",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "*",
+   "dst": "scada",
+   "proto": "udp",
+   "dlo": 53,
+   "dhi": 53,
+   "action": "permit"
+  },
+  {
+   "src": "*",
+   "dst": "ntp-servers",
+   "proto": "tcp",
+   "dlo": 80,
+   "dhi": 80,
+   "action": "permit"
+  },
+  {
+   "src": "*",
+   "dst": "ntp-servers",
+   "proto": "tcp",
+   "dlo": 443,
+   "dhi": 443,
+   "action": "permit"
+  }
+ ]
+}

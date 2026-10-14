@@ -1,0 +1,1161 @@
+{
+ "id": "BtLatinAmerica_s1051",
+ "topology": "BtLatinAmerica",
+ "n_nodes": 45,
+ "edges": [
+  [
+   0,
+   1
+  ],
+  [
+   0,
+   15
+  ],
+  [
+   2,
+   42
+  ],
+  [
+   3,
+   41
+  ],
+  [
+   3,
+   12
+  ],
+  [
+   3,
+   13
+  ],
+  [
+   3,
+   5
+  ],
+  [
+   4,
+   8
+  ],
+  [
+   4,
+   14
+  ],
+  [
+   5,
+   18
+  ],
+  [
+   6,
+   7
+  ],
+  [
+   7,
+   8
+  ],
+  [
+   7,
+   41
+  ],
+  [
+   8,
+   41
+  ],
+  [
+   9,
+   10
+  ],
+  [
+   10,
+   11
+  ],
+  [
+   10,
+   41
+  ],
+  [
+   13,
+   42
+  ],
+  [
+   13,
+   15
+  ],
+  [
+   14,
+   42
+  ],
+  [
+   14,
+   18
+  ],
+  [
+   15,
+   16
+  ],
+  [
+   16,
+   17
+  ],
+  [
+   19,
+   43
+  ],
+  [
+   20,
+   43
+  ],
+  [
+   20,
+   21
+  ],
+  [
+   21,
+   22
+  ],
+  [
+   21,
+   23
+  ],
+  [
+   22,
+   23
+  ],
+  [
+   23,
+   24
+  ],
+  [
+   24,
+   35
+  ],
+  [
+   25,
+   35
+  ],
+  [
+   25,
+   44
+  ],
+  [
+   25,
+   40
+  ],
+  [
+   25,
+   27
+  ],
+  [
+   26,
+   35
+  ],
+  [
+   26,
+   27
+  ],
+  [
+   28,
+   29
+  ],
+  [
+   29,
+   30
+  ],
+  [
+   30,
+   34
+  ],
+  [
+   30,
+   31
+  ],
+  [
+   30,
+   33
+  ],
+  [
+   31,
+   32
+  ],
+  [
+   34,
+   35
+  ],
+  [
+   35,
+   41
+  ],
+  [
+   35,
+   44
+  ],
+  [
+   36,
+   37
+  ],
+  [
+   37,
+   38
+  ],
+  [
+   38,
+   39
+  ],
+  [
+   39,
+   40
+  ]
+ ],
+ "zones": {
+  "iot-sensors": {
+   "router": 19,
+   "prefixes": [
+    "214.145.0.0/16",
+    "88.193.116.224/27",
+    "202.180.34.192/26"
+   ]
+  },
+  "database": {
+   "router": 12,
+   "prefixes": [
+    "105.129.29.96/27",
+    "150.39.115.128/25"
+   ]
+  },
+  "ops": {
+   "router": 9,
+   "prefixes": [
+    "50.161.229.0/24",
+    "1.161.40.0/23",
+    "186.183.81.64/26"
+   ]
+  },
+  "research": {
+   "router": 2,
+   "prefixes": [
+    "85.213.22.128/25"
+   ]
+  },
+  "backup": {
+   "router": 1,
+   "prefixes": [
+    "8.67.76.128/25",
+    "138.147.88.0/23",
+    "86.103.244.176/28"
+   ]
+  },
+  "hr": {
+   "router": 11,
+   "prefixes": [
+    "86.195.253.0/24",
+    "25.24.177.0/27",
+    "109.122.70.64/26"
+   ]
+  }
+ },
+ "zone_text": [
+  "iot-sensors: hosts 214.145.0.0/16, 88.193.116.224/27, 202.180.34.192/26 attached to router R19",
+  "database: hosts 105.129.29.96/27, 150.39.115.128/25 attached to router R12",
+  "ops: hosts 50.161.229.0/24, 1.161.40.0/23, 186.183.81.64/26 attached to router R9",
+  "research: hosts 85.213.22.128/25 attached to router R2",
+  "backup: hosts 8.67.76.128/25, 138.147.88.0/23, 86.103.244.176/28 attached to router R1",
+  "hr: hosts 86.195.253.0/24, 25.24.177.0/27, 109.122.70.64/26 attached to router R11"
+ ],
+ "intents": [
+  {
+   "type": "block",
+   "src": "database",
+   "dst": "backup"
+  },
+  {
+   "type": "public",
+   "dst": "database",
+   "svcs": [
+    "dns",
+    "http"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "ops",
+   "svcs": [
+    "dns",
+    "ntp"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "ops",
+   "dst": "backup",
+   "broad": "any-udp",
+   "ex": [
+    "snmp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "backup",
+   "dst": "research",
+   "svcs": [
+    "ntp",
+    "rtsp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "database",
+   "dst": "hr",
+   "svcs": [
+    "syslog",
+    "ldap"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "research",
+   "dst": "hr",
+   "svcs": [
+    "ldap",
+    "mysql",
+    "smtp"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "ops",
+   "dst": "database",
+   "broad": "any-tcp",
+   "ex": [
+    "smb",
+    "rdp"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "ops",
+   "dst": "iot-sensors",
+   "broad": "any-udp",
+   "ex": [
+    "tftp",
+    "snmp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "ops",
+   "dst": "iot-sensors",
+   "svcs": [
+    "ntp",
+    "smtp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "backup",
+   "dst": "database",
+   "svcs": [
+    "rtsp",
+    "rdp",
+    "imap"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "iot-sensors",
+   "dst": "backup",
+   "svcs": [
+    "ldap"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "hr",
+   "dst": "research",
+   "svcs": [
+    "ssh",
+    "ntp",
+    "ldap"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "research",
+   "dst": "hr",
+   "svcs": [
+    "smb",
+    "https",
+    "mysql"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "iot-sensors",
+   "dst": "ops",
+   "broad": "any-tcp",
+   "ex": [
+    "telnet",
+    "smb",
+    "rdp"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "hr",
+   "svcs": [
+    "https",
+    "ntp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "ops",
+   "dst": "backup",
+   "svcs": [
+    "postgres",
+    "ldap",
+    "https"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "research",
+   "allowed": [
+    [
+     "backup",
+     "dns"
+    ]
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "iot-sensors",
+   "svcs": [
+    "ntp"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "research",
+   "dst": "backup",
+   "broad": "any-udp",
+   "ex": [
+    "tftp",
+    "snmp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "ops",
+   "dst": "backup",
+   "svcs": [
+    "ntp",
+    "smtp",
+    "ssh"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "iot-sensors",
+   "dst": "hr",
+   "broad": "high-tcp",
+   "ex": [
+    "postgres",
+    "rdp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "iot-sensors",
+   "dst": "ops",
+   "svcs": [
+    "mysql",
+    "smb"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "hr",
+   "dst": "ops",
+   "svcs": [
+    "ntp",
+    "rtsp",
+    "postgres"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "ops",
+   "dst": "backup",
+   "svcs": [
+    "syslog",
+    "snmp",
+    "https"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "database",
+   "dst": "hr"
+  },
+  {
+   "type": "public",
+   "dst": "hr",
+   "svcs": [
+    "ntp",
+    "http"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "database",
+   "svcs": [
+    "dns"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "database",
+   "dst": "research",
+   "svcs": [
+    "postgres",
+    "http"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "backup",
+   "dst": "hr",
+   "broad": "high-tcp",
+   "ex": [
+    "mysql",
+    "postgres",
+    "rdp"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "database",
+   "svcs": [
+    "https",
+    "http"
+   ]
+  }
+ ],
+ "nl": [
+  "No packet from database may enter backup, even for services open to everyone.",
+  "Any zone may connect to database over DNS over UDP 53 and HTTP (TCP 80).",
+  "Any zone may connect to ops over DNS over UDP 53 and NTP (UDP 123).",
+  "ops may use any UDP port towards backup, except SNMP (UDP 161), which must be blocked.",
+  "Allow backup to connect to research using NTP (UDP 123) and RTSP (TCP 554).",
+  "Allow database to connect to hr using syslog (UDP 514) and LDAP (TCP 389).",
+  "Allow research to connect to hr using LDAP (TCP 389) and MySQL (TCP 3306) and SMTP (TCP 25).",
+  "Permit any TCP port from ops to database but deny SMB (TCP 445), RDP (TCP 3389).",
+  "Block TFTP (UDP 69), SNMP (UDP 161) from ops to iot-sensors; the rest of any UDP port between them is allowed.",
+  "Hosts in ops may reach iot-sensors over NTP (UDP 123) and SMTP (TCP 25).",
+  "database must accept RTSP (TCP 554) and RDP (TCP 3389) and IMAP (TCP 143) from backup.",
+  "backup must accept LDAP (TCP 389) from iot-sensors.",
+  "research must accept SSH (TCP 22) and NTP (UDP 123) and LDAP (TCP 389) from hr.",
+  "Hosts in research may reach hr over SMB (TCP 445) and HTTPS (TCP 443) and MySQL (TCP 3306).",
+  "Permit any TCP port from iot-sensors to ops but deny Telnet (TCP 23), SMB (TCP 445), RDP (TCP 3389).",
+  "Any zone may connect to hr over HTTPS (TCP 443) and NTP (UDP 123).",
+  "backup must accept PostgreSQL (TCP 5432) and LDAP (TCP 389) and HTTPS (TCP 443) from ops.",
+  "research is isolated: it may only reach backup on DNS over UDP 53, and nothing else.",
+  "iot-sensors offers NTP (UDP 123) to every zone.",
+  "Permit any UDP port from research to backup but deny TFTP (UDP 69), SNMP (UDP 161).",
+  "backup must accept NTP (UDP 123) and SMTP (TCP 25) and SSH (TCP 22) from ops.",
+  "Block PostgreSQL (TCP 5432), RDP (TCP 3389) from iot-sensors to hr; the rest of TCP ports 1024-65535 between them is allowed.",
+  "Hosts in iot-sensors may reach ops over MySQL (TCP 3306) and SMB (TCP 445).",
+  "ops must accept NTP (UDP 123) and RTSP (TCP 554) and PostgreSQL (TCP 5432) from hr.",
+  "Hosts in ops may reach backup over syslog (UDP 514) and SNMP (UDP 161) and HTTPS (TCP 443).",
+  "Deny all traffic from database to hr (this overrides any public service).",
+  "hr offers NTP (UDP 123) and HTTP (TCP 80) to every zone.",
+  "Any zone may connect to database over DNS over UDP 53.",
+  "Allow database to connect to research using PostgreSQL (TCP 5432) and HTTP (TCP 80).",
+  "Permit TCP ports 1024-65535 from backup to hr but deny MySQL (TCP 3306), PostgreSQL (TCP 5432), RDP (TCP 3389).",
+  "Make HTTPS (TCP 443) and HTTP (TCP 80) on database reachable from all internal zones."
+ ],
+ "gt": [
+  {
+   "src": "database",
+   "dst": "backup",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "database",
+   "dst": "hr",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "ops",
+   "dst": "backup",
+   "proto": "udp",
+   "dlo": 161,
+   "dhi": 161,
+   "action": "deny"
+  },
+  {
+   "src": "ops",
+   "dst": "database",
+   "proto": "tcp",
+   "dlo": 445,
+   "dhi": 445,
+   "action": "deny"
+  },
+  {
+   "src": "ops",
+   "dst": "database",
+   "proto": "tcp",
+   "dlo": 3389,
+   "dhi": 3389,
+   "action": "deny"
+  },
+  {
+   "src": "ops",
+   "dst": "iot-sensors",
+   "proto": "udp",
+   "dlo": 69,
+   "dhi": 69,
+   "action": "deny"
+  },
+  {
+   "src": "ops",
+   "dst": "iot-sensors",
+   "proto": "udp",
+   "dlo": 161,
+   "dhi": 161,
+   "action": "deny"
+  },
+  {
+   "src": "iot-sensors",
+   "dst": "ops",
+   "proto": "tcp",
+   "dlo": 23,
+   "dhi": 23,
+   "action": "deny"
+  },
+  {
+   "src": "iot-sensors",
+   "dst": "ops",
+   "proto": "tcp",
+   "dlo": 445,
+   "dhi": 445,
+   "action": "deny"
+  },
+  {
+   "src": "iot-sensors",
+   "dst": "ops",
+   "proto": "tcp",
+   "dlo": 3389,
+   "dhi": 3389,
+   "action": "deny"
+  },
+  {
+   "src": "research",
+   "dst": "backup",
+   "proto": "udp",
+   "dlo": 69,
+   "dhi": 69,
+   "action": "deny"
+  },
+  {
+   "src": "research",
+   "dst": "backup",
+   "proto": "udp",
+   "dlo": 161,
+   "dhi": 161,
+   "action": "deny"
+  },
+  {
+   "src": "iot-sensors",
+   "dst": "hr",
+   "proto": "tcp",
+   "dlo": 5432,
+   "dhi": 5432,
+   "action": "deny"
+  },
+  {
+   "src": "iot-sensors",
+   "dst": "hr",
+   "proto": "tcp",
+   "dlo": 3389,
+   "dhi": 3389,
+   "action": "deny"
+  },
+  {
+   "src": "backup",
+   "dst": "hr",
+   "proto": "tcp",
+   "dlo": 3306,
+   "dhi": 3306,
+   "action": "deny"
+  },
+  {
+   "src": "backup",
+   "dst": "hr",
+   "proto": "tcp",
+   "dlo": 5432,
+   "dhi": 5432,
+   "action": "deny"
+  },
+  {
+   "src": "backup",
+   "dst": "hr",
+   "proto": "tcp",
+   "dlo": 3389,
+   "dhi": 3389,
+   "action": "deny"
+  },
+  {
+   "src": "ops",
+   "dst": "backup",
+   "proto": "udp",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "permit"
+  },
+  {
+   "src": "backup",
+   "dst": "research",
+   "proto": "udp",
+   "dlo": 123,
+   "dhi": 123,
+   "action": "permit"
+  },
+  {
+   "src": "backup",
+   "dst": "research",
+   "proto": "tcp",
+   "dlo": 554,
+   "dhi": 554,
+   "action": "permit"
+  },
+  {
+   "src": "database",
+   "dst": "hr",
+   "proto": "udp",
+   "dlo": 514,
+   "dhi": 514,
+   "action": "permit"
+  },
+  {
+   "src": "database",
+   "dst": "hr",
+   "proto": "tcp",
+   "dlo": 389,
+   "dhi": 389,
+   "action": "permit"
+  },
+  {
+   "src": "research",
+   "dst": "hr",
+   "proto": "tcp",
+   "dlo": 389,
+   "dhi": 389,
+   "action": "permit"
+  },
+  {
+   "src": "research",
+   "dst": "hr",
+   "proto": "tcp",
+   "dlo": 3306,
+   "dhi": 3306,
+   "action": "permit"
+  },
+  {
+   "src": "research",
+   "dst": "hr",
+   "proto": "tcp",
+   "dlo": 25,
+   "dhi": 25,
+   "action": "permit"
+  },
+  {
+   "src": "ops",
+   "dst": "database",
+   "proto": "tcp",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "permit"
+  },
+  {
+   "src": "ops",
+   "dst": "iot-sensors",
+   "proto": "udp",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "permit"
+  },
+  {
+   "src": "ops",
+   "dst": "iot-sensors",
+   "proto": "udp",
+   "dlo": 123,
+   "dhi": 123,
+   "action": "permit"
+  },
+  {
+   "src": "ops",
+   "dst": "iot-sensors",
+   "proto": "tcp",
+   "dlo": 25,
+   "dhi": 25,
+   "action": "permit"
+  },
+  {
+   "src": "backup",
+   "dst": "database",
+   "proto": "tcp",
+   "dlo": 554,
+   "dhi": 554,
+   "action": "permit"
+  },
+  {
+   "src": "backup",
+   "dst": "database",
+   "proto": "tcp",
+   "dlo": 3389,
+   "dhi": 3389,
+   "action": "permit"
+  },
+  {
+   "src": "backup",
+   "dst": "database",
+   "proto": "tcp",
+   "dlo": 143,
+   "dhi": 143,
+   "action": "permit"
+  },
+  {
+   "src": "iot-sensors",
+   "dst": "backup",
+   "proto": "tcp",
+   "dlo": 389,
+   "dhi": 389,
+   "action": "permit"
+  },
+  {
+   "src": "hr",
+   "dst": "research",
+   "proto": "tcp",
+   "dlo": 22,
+   "dhi": 22,
+   "action": "permit"
+  },
+  {
+   "src": "hr",
+   "dst": "research",
+   "proto": "udp",
+   "dlo": 123,
+   "dhi": 123,
+   "action": "permit"
+  },
+  {
+   "src": "hr",
+   "dst": "research",
+   "proto": "tcp",
+   "dlo": 389,
+   "dhi": 389,
+   "action": "permit"
+  },
+  {
+   "src": "research",
+   "dst": "hr",
+   "proto": "tcp",
+   "dlo": 445,
+   "dhi": 445,
+   "action": "permit"
+  },
+  {
+   "src": "research",
+   "dst": "hr",
+   "proto": "tcp",
+   "dlo": 443,
+   "dhi": 443,
+   "action": "permit"
+  },
+  {
+   "src": "research",
+   "dst": "hr",
+   "proto": "tcp",
+   "dlo": 3306,
+   "dhi": 3306,
+   "action": "permit"
+  },
+  {
+   "src": "iot-sensors",
+   "dst": "ops",
+   "proto": "tcp",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "permit"
+  },
+  {
+   "src": "ops",
+   "dst": "backup",
+   "proto": "tcp",
+   "dlo": 5432,
+   "dhi": 5432,
+   "action": "permit"
+  },
+  {
+   "src": "ops",
+   "dst": "backup",
+   "proto": "tcp",
+   "dlo": 389,
+   "dhi": 389,
+   "action": "permit"
+  },
+  {
+   "src": "ops",
+   "dst": "backup",
+   "proto": "tcp",
+   "dlo": 443,
+   "dhi": 443,
+   "action": "permit"
+  },
+  {
+   "src": "research",
+   "dst": "backup",
+   "proto": "udp",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "permit"
+  },
+  {
+   "src": "ops",
+   "dst": "backup",
+   "proto": "udp",
+   "dlo": 123,
+   "dhi": 123,
+   "action": "permit"
+  },
+  {
+   "src": "ops",
+   "dst": "backup",
+   "proto": "tcp",
+   "dlo": 25,
+   "dhi": 25,
+   "action": "permit"
+  },
+  {
+   "src": "ops",
+   "dst": "backup",
+   "proto": "tcp",
+   "dlo": 22,
+   "dhi": 22,
+   "action": "permit"
+  },
+  {
+   "src": "iot-sensors",
+   "dst": "hr",
+   "proto": "tcp",
+   "dlo": 1024,
+   "dhi": 65535,
+   "action": "permit"
+  },
+  {
+   "src": "iot-sensors",
+   "dst": "ops",
+   "proto": "tcp",
+   "dlo": 3306,
+   "dhi": 3306,
+   "action": "permit"
+  },
+  {
+   "src": "iot-sensors",
+   "dst": "ops",
+   "proto": "tcp",
+   "dlo": 445,
+   "dhi": 445,
+   "action": "permit"
+  },
+  {
+   "src": "hr",
+   "dst": "ops",
+   "proto": "udp",
+   "dlo": 123,
+   "dhi": 123,
+   "action": "permit"
+  },
+  {
+   "src": "hr",
+   "dst": "ops",
+   "proto": "tcp",
+   "dlo": 554,
+   "dhi": 554,
+   "action": "permit"
+  },
+  {
+   "src": "hr",
+   "dst": "ops",
+   "proto": "tcp",
+   "dlo": 5432,
+   "dhi": 5432,
+   "action": "permit"
+  },
+  {
+   "src": "ops",
+   "dst": "backup",
+   "proto": "udp",
+   "dlo": 514,
+   "dhi": 514,
+   "action": "permit"
+  },
+  {
+   "src": "ops",
+   "dst": "backup",
+   "proto": "udp",
+   "dlo": 161,
+   "dhi": 161,
+   "action": "permit"
+  },
+  {
+   "src": "ops",
+   "dst": "backup",
+   "proto": "tcp",
+   "dlo": 443,
+   "dhi": 443,
+   "action": "permit"
+  },
+  {
+   "src": "database",
+   "dst": "research",
+   "proto": "tcp",
+   "dlo": 5432,
+   "dhi": 5432,
+   "action": "permit"
+  },
+  {
+   "src": "database",
+   "dst": "research",
+   "proto": "tcp",
+   "dlo": 80,
+   "dhi": 80,
+   "action": "permit"
+  },
+  {
+   "src": "backup",
+   "dst": "hr",
+   "proto": "tcp",
+   "dlo": 1024,
+   "dhi": 65535,
+   "action": "permit"
+  },
+  {
+   "src": "research",
+   "dst": "backup",
+   "proto": "udp",
+   "dlo": 53,
+   "dhi": 53,
+   "action": "permit"
+  },
+  {
+   "src": "research",
+   "dst": "*",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "*",
+   "dst": "database",
+   "proto": "udp",
+   "dlo": 53,
+   "dhi": 53,
+   "action": "permit"
+  },
+  {
+   "src": "*",
+   "dst": "database",
+   "proto": "tcp",
+   "dlo": 80,
+   "dhi": 80,
+   "action": "permit"
+  },
+  {
+   "src": "*",
+   "dst": "ops",
+   "proto": "udp",
+   "dlo": 53,
+   "dhi": 53,
+   "action": "permit"
+  },
+  {
+   "src": "*",
+   "dst": "ops",
+   "proto": "udp",
+   "dlo": 123,
+   "dhi": 123,
+   "action": "permit"
+  },
+  {
+   "src": "*",
+   "dst": "hr",
+   "proto": "tcp",
+   "dlo": 443,
+   "dhi": 443,
+   "action": "permit"
+  },
+  {
+   "src": "*",
+   "dst": "hr",
+   "proto": "udp",
+   "dlo": 123,
+   "dhi": 123,
+   "action": "permit"
+  },
+  {
+   "src": "*",
+   "dst": "iot-sensors",
+   "proto": "udp",
+   "dlo": 123,
+   "dhi": 123,
+   "action": "permit"
+  },
+  {
+   "src": "*",
+   "dst": "hr",
+   "proto": "udp",
+   "dlo": 123,
+   "dhi": 123,
+   "action": "permit"
+  },
+  {
+   "src": "*",
+   "dst": "hr",
+   "proto": "tcp",
+   "dlo": 80,
+   "dhi": 80,
+   "action": "permit"
+  },
+  {
+   "src": "*",
+   "dst": "database",
+   "proto": "udp",
+   "dlo": 53,
+   "dhi": 53,
+   "action": "permit"
+  },
+  {
+   "src": "*",
+   "dst": "database",
+   "proto": "tcp",
+   "dlo": 443,
+   "dhi": 443,
+   "action": "permit"
+  },
+  {
+   "src": "*",
+   "dst": "database",
+   "proto": "tcp",
+   "dlo": 80,
+   "dhi": 80,
+   "action": "permit"
+  }
+ ]
+}

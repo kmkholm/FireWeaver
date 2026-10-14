@@ -1,0 +1,189 @@
+{
+ "id": "Belnet2003_s1014",
+ "n_intents": 8,
+ "n_gt_rules": 14,
+ "n_zones": 10,
+ "rules": {
+  "eq": false,
+  "mismatch": 0.009,
+  "n_rules": 15,
+  "fail": 0,
+  "s": 16.45527696609497,
+  "calls": 1,
+  "prompt": 696,
+  "completion": 475
+ },
+ "ir0": {
+  "eq": false,
+  "mismatch": 0.00175,
+  "n_rules": 13,
+  "fail": 0,
+  "s": 10.517162322998047,
+  "calls": 8,
+  "prompt": 5110,
+  "completion": 291,
+  "intent_acc": 0.75
+ },
+ "ir": {
+  "eq": true,
+  "mismatch": 0.0,
+  "n_rules": 14,
+  "fail": 0,
+  "s": 8.262072324752808,
+  "calls": 9,
+  "prompt": 9867,
+  "completion": 232,
+  "intent_acc": 1.0
+ },
+ "fw": {
+  "eq": true,
+  "mismatch": 0.0,
+  "n_rules": 14,
+  "fail": 0,
+  "s": 22.75173044204712,
+  "verify_s": 14.48965859413147,
+  "calls": 17,
+  "verify_calls": 8,
+  "flagged": 0,
+  "accepted": 0,
+  "repairs": [],
+  "intent_acc": 1.0
+ },
+ "ir_out": [
+  {
+   "type": "block",
+   "src": "ntp-servers",
+   "dst": "guest-wifi"
+  },
+  {
+   "type": "public",
+   "dst": "dns-servers",
+   "svcs": [
+    "dns"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "scada",
+   "dst": "vpn-users",
+   "svcs": [
+    "snmp",
+    "mysql",
+    "rdp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "library",
+   "dst": "dns-servers",
+   "svcs": [
+    "smb",
+    "ldap",
+    "ssh"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "finance",
+   "svcs": [
+    "http"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "vpn-users",
+   "dst": "library",
+   "broad": "any-tcp",
+   "ex": [
+    "ftp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "dns-servers",
+   "dst": "vpn-users",
+   "svcs": [
+    "postgres"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "vpn-users",
+   "allowed": [
+    [
+     "ntp-servers",
+     "dns"
+    ]
+   ]
+  }
+ ],
+ "fw_out": [
+  {
+   "type": "block",
+   "src": "ntp-servers",
+   "dst": "guest-wifi"
+  },
+  {
+   "type": "public",
+   "dst": "dns-servers",
+   "svcs": [
+    "dns"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "scada",
+   "dst": "vpn-users",
+   "svcs": [
+    "snmp",
+    "mysql",
+    "rdp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "library",
+   "dst": "dns-servers",
+   "svcs": [
+    "smb",
+    "ldap",
+    "ssh"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "finance",
+   "svcs": [
+    "http"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "vpn-users",
+   "dst": "library",
+   "broad": "any-tcp",
+   "ex": [
+    "ftp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "dns-servers",
+   "dst": "vpn-users",
+   "svcs": [
+    "postgres"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "vpn-users",
+   "allowed": [
+    [
+     "ntp-servers",
+     "dns"
+    ]
+   ]
+  }
+ ],
+ "wall_s": 49.97321653366089
+}

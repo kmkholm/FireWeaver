@@ -1,0 +1,784 @@
+{
+ "id": "HiberniaGlobal_s1030",
+ "topology": "HiberniaGlobal",
+ "n_nodes": 55,
+ "edges": [
+  [
+   0,
+   1
+  ],
+  [
+   0,
+   2
+  ],
+  [
+   1,
+   2
+  ],
+  [
+   1,
+   14
+  ],
+  [
+   2,
+   3
+  ],
+  [
+   3,
+   51
+  ],
+  [
+   3,
+   4
+  ],
+  [
+   3,
+   5
+  ],
+  [
+   3,
+   6
+  ],
+  [
+   4,
+   6
+  ],
+  [
+   6,
+   8
+  ],
+  [
+   7,
+   8
+  ],
+  [
+   7,
+   14
+  ],
+  [
+   8,
+   10
+  ],
+  [
+   9,
+   10
+  ],
+  [
+   9,
+   13
+  ],
+  [
+   10,
+   11
+  ],
+  [
+   10,
+   49
+  ],
+  [
+   11,
+   12
+  ],
+  [
+   11,
+   13
+  ],
+  [
+   12,
+   49
+  ],
+  [
+   12,
+   50
+  ],
+  [
+   14,
+   51
+  ],
+  [
+   14,
+   17
+  ],
+  [
+   14,
+   45
+  ],
+  [
+   15,
+   16
+  ],
+  [
+   15,
+   18
+  ],
+  [
+   16,
+   17
+  ],
+  [
+   16,
+   19
+  ],
+  [
+   17,
+   45
+  ],
+  [
+   18,
+   23
+  ],
+  [
+   18,
+   19
+  ],
+  [
+   19,
+   51
+  ],
+  [
+   19,
+   22
+  ],
+  [
+   20,
+   43
+  ],
+  [
+   20,
+   21
+  ],
+  [
+   21,
+   51
+  ],
+  [
+   21,
+   22
+  ],
+  [
+   22,
+   27
+  ],
+  [
+   22,
+   51
+  ],
+  [
+   23,
+   24
+  ],
+  [
+   24,
+   25
+  ],
+  [
+   25,
+   26
+  ],
+  [
+   26,
+   27
+  ],
+  [
+   27,
+   54
+  ],
+  [
+   27,
+   29
+  ],
+  [
+   28,
+   29
+  ],
+  [
+   28,
+   54
+  ],
+  [
+   29,
+   30
+  ],
+  [
+   30,
+   52
+  ],
+  [
+   30,
+   54
+  ],
+  [
+   30,
+   31
+  ],
+  [
+   31,
+   32
+  ],
+  [
+   32,
+   33
+  ],
+  [
+   32,
+   34
+  ],
+  [
+   33,
+   34
+  ],
+  [
+   33,
+   52
+  ],
+  [
+   33,
+   53
+  ],
+  [
+   34,
+   35
+  ],
+  [
+   35,
+   36
+  ],
+  [
+   35,
+   37
+  ],
+  [
+   36,
+   42
+  ],
+  [
+   37,
+   38
+  ],
+  [
+   38,
+   53
+  ],
+  [
+   38,
+   39
+  ],
+  [
+   39,
+   40
+  ],
+  [
+   40,
+   41
+  ],
+  [
+   41,
+   42
+  ],
+  [
+   43,
+   44
+  ],
+  [
+   43,
+   51
+  ],
+  [
+   43,
+   46
+  ],
+  [
+   44,
+   45
+  ],
+  [
+   44,
+   46
+  ],
+  [
+   44,
+   47
+  ],
+  [
+   45,
+   49
+  ],
+  [
+   46,
+   51
+  ],
+  [
+   47,
+   48
+  ],
+  [
+   47,
+   49
+  ],
+  [
+   48,
+   49
+  ],
+  [
+   48,
+   50
+  ],
+  [
+   52,
+   53
+  ]
+ ],
+ "zones": {
+  "dev-lab": {
+   "router": 5,
+   "prefixes": [
+    "72.120.132.0/26",
+    "252.123.160.224/28"
+   ]
+  },
+  "nvr": {
+   "router": 50,
+   "prefixes": [
+    "19.105.112.0/24",
+    "64.80.0.0/16"
+   ]
+  },
+  "ntp-servers": {
+   "router": 7,
+   "prefixes": [
+    "134.93.210.0/23"
+   ]
+  },
+  "engineering": {
+   "router": 9,
+   "prefixes": [
+    "57.132.191.128/25",
+    "7.154.115.64/27",
+    "44.126.74.0/24"
+   ]
+  },
+  "ops": {
+   "router": 13,
+   "prefixes": [
+    "100.7.164.192/26"
+   ]
+  },
+  "library": {
+   "router": 31,
+   "prefixes": [
+    "114.210.192.0/21",
+    "233.77.152.0/21",
+    "127.218.220.0/23"
+   ]
+  },
+  "hr": {
+   "router": 37,
+   "prefixes": [
+    "205.235.242.0/23",
+    "101.93.28.0/23"
+   ]
+  },
+  "guest-wifi": {
+   "router": 40,
+   "prefixes": [
+    "186.181.232.0/24",
+    "80.62.107.0/24",
+    "175.184.70.96/28"
+   ]
+  },
+  "admin": {
+   "router": 0,
+   "prefixes": [
+    "8.214.85.0/24",
+    "194.237.251.112/28"
+   ]
+  },
+  "monitoring": {
+   "router": 42,
+   "prefixes": [
+    "95.53.213.128/25",
+    "146.49.43.0/24",
+    "33.185.85.128/25"
+   ]
+  }
+ },
+ "zone_text": [
+  "dev-lab: hosts 72.120.132.0/26, 252.123.160.224/28 attached to router R5",
+  "nvr: hosts 19.105.112.0/24, 64.80.0.0/16 attached to router R50",
+  "ntp-servers: hosts 134.93.210.0/23 attached to router R7",
+  "engineering: hosts 57.132.191.128/25, 7.154.115.64/27, 44.126.74.0/24 attached to router R9",
+  "ops: hosts 100.7.164.192/26 attached to router R13",
+  "library: hosts 114.210.192.0/21, 233.77.152.0/21, 127.218.220.0/23 attached to router R31",
+  "hr: hosts 205.235.242.0/23, 101.93.28.0/23 attached to router R37",
+  "guest-wifi: hosts 186.181.232.0/24, 80.62.107.0/24, 175.184.70.96/28 attached to router R40",
+  "admin: hosts 8.214.85.0/24, 194.237.251.112/28 attached to router R0",
+  "monitoring: hosts 95.53.213.128/25, 146.49.43.0/24, 33.185.85.128/25 attached to router R42"
+ ],
+ "intents": [
+  {
+   "type": "public",
+   "dst": "dev-lab",
+   "svcs": [
+    "ntp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "dev-lab",
+   "dst": "admin",
+   "svcs": [
+    "ntp"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "ntp-servers",
+   "svcs": [
+    "ntp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "dev-lab",
+   "dst": "engineering",
+   "svcs": [
+    "rdp",
+    "syslog"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "guest-wifi",
+   "dst": "monitoring",
+   "svcs": [
+    "ssh",
+    "ntp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "library",
+   "dst": "monitoring",
+   "svcs": [
+    "smb",
+    "smtp",
+    "rdp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "hr",
+   "dst": "admin",
+   "svcs": [
+    "smb",
+    "imap"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "nvr",
+   "svcs": [
+    "dns"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "nvr",
+   "allowed": [
+    [
+     "hr",
+     "ntp"
+    ],
+    [
+     "ntp-servers",
+     "https"
+    ]
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "hr",
+   "dst": "ntp-servers",
+   "svcs": [
+    "dns",
+    "http",
+    "https"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "guest-wifi",
+   "allowed": [
+    [
+     "engineering",
+     "https"
+    ],
+    [
+     "library",
+     "dns"
+    ]
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "guest-wifi",
+   "dst": "ntp-servers",
+   "broad": "any-udp",
+   "ex": [
+    "snmp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "ops",
+   "dst": "guest-wifi",
+   "svcs": [
+    "mysql"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "hr",
+   "allowed": [
+    [
+     "engineering",
+     "ntp"
+    ]
+   ]
+  }
+ ],
+ "nl": [
+  "dev-lab offers NTP (UDP 123) to every zone.",
+  "admin must accept NTP (UDP 123) from dev-lab.",
+  "Any zone may connect to ntp-servers over NTP (UDP 123).",
+  "Hosts in dev-lab may reach engineering over RDP (TCP 3389) and syslog (UDP 514).",
+  "monitoring must accept SSH (TCP 22) and NTP (UDP 123) from guest-wifi.",
+  "Hosts in library may reach monitoring over SMB (TCP 445) and SMTP (TCP 25) and RDP (TCP 3389).",
+  "admin must accept SMB (TCP 445) and IMAP (TCP 143) from hr.",
+  "nvr offers DNS over UDP 53 to every zone.",
+  "Restrict nvr so that its only permitted destinations are hr on NTP (UDP 123); ntp-servers on HTTPS (TCP 443); drop all other traffic it originates.",
+  "Allow hr to connect to ntp-servers using DNS over UDP 53 and HTTP (TCP 80) and HTTPS (TCP 443).",
+  "guest-wifi is isolated: it may only reach engineering on HTTPS (TCP 443); library on DNS over UDP 53, and nothing else.",
+  "guest-wifi may use any UDP port towards ntp-servers, except SNMP (UDP 161), which must be blocked.",
+  "Allow ops to connect to guest-wifi using MySQL (TCP 3306).",
+  "Apart from engineering on NTP (UDP 123), all traffic originating in hr must be dropped."
+ ],
+ "gt": [
+  {
+   "src": "guest-wifi",
+   "dst": "ntp-servers",
+   "proto": "udp",
+   "dlo": 161,
+   "dhi": 161,
+   "action": "deny"
+  },
+  {
+   "src": "dev-lab",
+   "dst": "admin",
+   "proto": "udp",
+   "dlo": 123,
+   "dhi": 123,
+   "action": "permit"
+  },
+  {
+   "src": "dev-lab",
+   "dst": "engineering",
+   "proto": "tcp",
+   "dlo": 3389,
+   "dhi": 3389,
+   "action": "permit"
+  },
+  {
+   "src": "dev-lab",
+   "dst": "engineering",
+   "proto": "udp",
+   "dlo": 514,
+   "dhi": 514,
+   "action": "permit"
+  },
+  {
+   "src": "guest-wifi",
+   "dst": "monitoring",
+   "proto": "tcp",
+   "dlo": 22,
+   "dhi": 22,
+   "action": "permit"
+  },
+  {
+   "src": "guest-wifi",
+   "dst": "monitoring",
+   "proto": "udp",
+   "dlo": 123,
+   "dhi": 123,
+   "action": "permit"
+  },
+  {
+   "src": "library",
+   "dst": "monitoring",
+   "proto": "tcp",
+   "dlo": 445,
+   "dhi": 445,
+   "action": "permit"
+  },
+  {
+   "src": "library",
+   "dst": "monitoring",
+   "proto": "tcp",
+   "dlo": 25,
+   "dhi": 25,
+   "action": "permit"
+  },
+  {
+   "src": "library",
+   "dst": "monitoring",
+   "proto": "tcp",
+   "dlo": 3389,
+   "dhi": 3389,
+   "action": "permit"
+  },
+  {
+   "src": "hr",
+   "dst": "admin",
+   "proto": "tcp",
+   "dlo": 445,
+   "dhi": 445,
+   "action": "permit"
+  },
+  {
+   "src": "hr",
+   "dst": "admin",
+   "proto": "tcp",
+   "dlo": 143,
+   "dhi": 143,
+   "action": "permit"
+  },
+  {
+   "src": "hr",
+   "dst": "ntp-servers",
+   "proto": "udp",
+   "dlo": 53,
+   "dhi": 53,
+   "action": "permit"
+  },
+  {
+   "src": "hr",
+   "dst": "ntp-servers",
+   "proto": "tcp",
+   "dlo": 80,
+   "dhi": 80,
+   "action": "permit"
+  },
+  {
+   "src": "hr",
+   "dst": "ntp-servers",
+   "proto": "tcp",
+   "dlo": 443,
+   "dhi": 443,
+   "action": "permit"
+  },
+  {
+   "src": "guest-wifi",
+   "dst": "ntp-servers",
+   "proto": "udp",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "permit"
+  },
+  {
+   "src": "ops",
+   "dst": "guest-wifi",
+   "proto": "tcp",
+   "dlo": 3306,
+   "dhi": 3306,
+   "action": "permit"
+  },
+  {
+   "src": "nvr",
+   "dst": "hr",
+   "proto": "udp",
+   "dlo": 123,
+   "dhi": 123,
+   "action": "permit"
+  },
+  {
+   "src": "nvr",
+   "dst": "ntp-servers",
+   "proto": "tcp",
+   "dlo": 443,
+   "dhi": 443,
+   "action": "permit"
+  },
+  {
+   "src": "guest-wifi",
+   "dst": "engineering",
+   "proto": "tcp",
+   "dlo": 443,
+   "dhi": 443,
+   "action": "permit"
+  },
+  {
+   "src": "guest-wifi",
+   "dst": "library",
+   "proto": "udp",
+   "dlo": 53,
+   "dhi": 53,
+   "action": "permit"
+  },
+  {
+   "src": "hr",
+   "dst": "engineering",
+   "proto": "udp",
+   "dlo": 123,
+   "dhi": 123,
+   "action": "permit"
+  },
+  {
+   "src": "nvr",
+   "dst": "*",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "guest-wifi",
+   "dst": "*",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "hr",
+   "dst": "*",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "*",
+   "dst": "dev-lab",
+   "proto": "udp",
+   "dlo": 123,
+   "dhi": 123,
+   "action": "permit"
+  },
+  {
+   "src": "*",
+   "dst": "ntp-servers",
+   "proto": "udp",
+   "dlo": 123,
+   "dhi": 123,
+   "action": "permit"
+  },
+  {
+   "src": "*",
+   "dst": "nvr",
+   "proto": "udp",
+   "dlo": 53,
+   "dhi": 53,
+   "action": "permit"
+  }
+ ]
+}

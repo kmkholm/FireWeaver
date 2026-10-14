@@ -1,0 +1,212 @@
+{
+ "id": "Eunetworks_s1053",
+ "n_intents": 7,
+ "n_gt_rules": 15,
+ "n_zones": 16,
+ "rules": {
+  "eq": false,
+  "mismatch": 0.006,
+  "n_rules": 15,
+  "fail": 0,
+  "s": 17.432976484298706,
+  "calls": 1,
+  "prompt": 707,
+  "completion": 474
+ },
+ "ir0": {
+  "eq": false,
+  "mismatch": 0.0,
+  "n_rules": 14,
+  "fail": 0,
+  "s": 19.282420873641968,
+  "calls": 7,
+  "prompt": 4634,
+  "completion": 278,
+  "intent_acc": 0.8571428571428571
+ },
+ "ir": {
+  "eq": true,
+  "mismatch": 0.0,
+  "n_rules": 15,
+  "fail": 0,
+  "s": 15.839588165283203,
+  "calls": 7,
+  "prompt": 7791,
+  "completion": 189,
+  "intent_acc": 1.0
+ },
+ "fw": {
+  "eq": false,
+  "mismatch": 0.0,
+  "n_rules": 16,
+  "fail": 0,
+  "s": 49.82454967498779,
+  "verify_s": 33.98496222496033,
+  "calls": 18,
+  "verify_calls": 11,
+  "flagged": 1,
+  "accepted": 1,
+  "repairs": [
+   {
+    "k": 1,
+    "was_ok": true,
+    "now_ok": false,
+    "history": [
+     1,
+     0
+    ],
+    "calls": 2,
+    "accepted": true,
+    "diff": 1,
+    "win_new": 1,
+    "win_old": 0
+   }
+  ],
+  "intent_acc": 0.8571428571428571
+ },
+ "ir_out": [
+  {
+   "type": "allow_except",
+   "src": "student-lab",
+   "dst": "research",
+   "broad": "any-tcp",
+   "ex": [
+    "ftp",
+    "telnet"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "finance",
+   "allowed": [
+    [
+     "guest-wifi",
+     "dns"
+    ],
+    [
+     "edge-cache",
+     "ntp"
+    ]
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "ntp-servers",
+   "dst": "hr",
+   "svcs": [
+    "postgres"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "mail",
+   "dst": "dev-lab",
+   "svcs": [
+    "ldap",
+    "imap"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "hr",
+   "dst": "edge-cache",
+   "svcs": [
+    "imap",
+    "rtsp"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "research",
+   "svcs": [
+    "ntp",
+    "https"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "vpn-users",
+   "allowed": [
+    [
+     "engineering",
+     "ntp"
+    ]
+   ]
+  }
+ ],
+ "fw_out": [
+  {
+   "type": "allow_except",
+   "src": "student-lab",
+   "dst": "research",
+   "broad": "any-tcp",
+   "ex": [
+    "ftp",
+    "telnet"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "finance",
+   "allowed": [
+    [
+     "guest-wifi",
+     "dns"
+    ],
+    [
+     "edge-cache",
+     "ntp"
+    ],
+    [
+     "edge-cache",
+     "dns"
+    ]
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "ntp-servers",
+   "dst": "hr",
+   "svcs": [
+    "postgres"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "mail",
+   "dst": "dev-lab",
+   "svcs": [
+    "ldap",
+    "imap"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "hr",
+   "dst": "edge-cache",
+   "svcs": [
+    "imap",
+    "rtsp"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "research",
+   "svcs": [
+    "ntp",
+    "https"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "vpn-users",
+   "allowed": [
+    [
+     "engineering",
+     "ntp"
+    ]
+   ]
+  }
+ ],
+ "wall_s": 86.93138718605042
+}

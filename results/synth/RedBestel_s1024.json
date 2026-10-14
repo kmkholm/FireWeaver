@@ -1,0 +1,285 @@
+{
+ "id": "RedBestel_s1024",
+ "n_intents": 15,
+ "n_gt_rules": 23,
+ "n_zones": 10,
+ "rules": {
+  "eq": false,
+  "mismatch": 0.01575,
+  "n_rules": 0,
+  "fail": 0,
+  "s": 26.840542554855347,
+  "calls": 1,
+  "prompt": 864,
+  "completion": 742
+ },
+ "ir0": {
+  "eq": false,
+  "mismatch": 0.00075,
+  "n_rules": 23,
+  "fail": 0,
+  "s": 34.116846561431885,
+  "calls": 15,
+  "prompt": 9563,
+  "completion": 446,
+  "intent_acc": 0.9333333333333333
+ },
+ "ir": {
+  "eq": true,
+  "mismatch": 0.0,
+  "n_rules": 23,
+  "fail": 0,
+  "s": 63.1204617023468,
+  "calls": 15,
+  "prompt": 16328,
+  "completion": 369,
+  "intent_acc": 1.0
+ },
+ "fw": {
+  "eq": true,
+  "mismatch": 0.0,
+  "n_rules": 23,
+  "fail": 0,
+  "s": 106.81820225715637,
+  "verify_s": 43.69774103164673,
+  "calls": 30,
+  "verify_calls": 15,
+  "flagged": 0,
+  "accepted": 0,
+  "repairs": [],
+  "intent_acc": 1.0
+ },
+ "ir_out": [
+  {
+   "type": "block",
+   "src": "monitoring",
+   "dst": "scada"
+  },
+  {
+   "type": "allow",
+   "src": "engineering",
+   "dst": "vpn-users",
+   "svcs": [
+    "smtp"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "engineering",
+   "dst": "guest-wifi"
+  },
+  {
+   "type": "allow",
+   "src": "scada",
+   "dst": "guest-wifi",
+   "svcs": [
+    "smtp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "guest-wifi",
+   "dst": "iot-sensors",
+   "svcs": [
+    "imap"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "partners",
+   "dst": "vpn-users",
+   "svcs": [
+    "imap",
+    "smtp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "partners",
+   "dst": "engineering",
+   "svcs": [
+    "postgres",
+    "ssh"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "nvr",
+   "dst": "vpn-users",
+   "broad": "high-tcp",
+   "ex": [
+    "rdp",
+    "mysql"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "guest-wifi",
+   "dst": "partners",
+   "svcs": [
+    "ldap",
+    "postgres"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "dns-servers",
+   "dst": "scada"
+  },
+  {
+   "type": "block",
+   "src": "backup",
+   "dst": "scada"
+  },
+  {
+   "type": "allow",
+   "src": "scada",
+   "dst": "backup",
+   "svcs": [
+    "smb"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "vpn-users",
+   "svcs": [
+    "dns"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "monitoring",
+   "dst": "dns-servers",
+   "svcs": [
+    "ntp",
+    "mysql",
+    "syslog"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "iot-sensors",
+   "svcs": [
+    "http",
+    "ntp"
+   ]
+  }
+ ],
+ "fw_out": [
+  {
+   "type": "block",
+   "src": "monitoring",
+   "dst": "scada"
+  },
+  {
+   "type": "allow",
+   "src": "engineering",
+   "dst": "vpn-users",
+   "svcs": [
+    "smtp"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "engineering",
+   "dst": "guest-wifi"
+  },
+  {
+   "type": "allow",
+   "src": "scada",
+   "dst": "guest-wifi",
+   "svcs": [
+    "smtp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "guest-wifi",
+   "dst": "iot-sensors",
+   "svcs": [
+    "imap"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "partners",
+   "dst": "vpn-users",
+   "svcs": [
+    "imap",
+    "smtp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "partners",
+   "dst": "engineering",
+   "svcs": [
+    "postgres",
+    "ssh"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "nvr",
+   "dst": "vpn-users",
+   "broad": "high-tcp",
+   "ex": [
+    "rdp",
+    "mysql"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "guest-wifi",
+   "dst": "partners",
+   "svcs": [
+    "ldap",
+    "postgres"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "dns-servers",
+   "dst": "scada"
+  },
+  {
+   "type": "block",
+   "src": "backup",
+   "dst": "scada"
+  },
+  {
+   "type": "allow",
+   "src": "scada",
+   "dst": "backup",
+   "svcs": [
+    "smb"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "vpn-users",
+   "svcs": [
+    "dns"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "monitoring",
+   "dst": "dns-servers",
+   "svcs": [
+    "ntp",
+    "mysql",
+    "syslog"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "iot-sensors",
+   "svcs": [
+    "http",
+    "ntp"
+   ]
+  }
+ ],
+ "wall_s": 168.02527403831482
+}

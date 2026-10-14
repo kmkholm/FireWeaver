@@ -1,0 +1,325 @@
+{
+ "id": "Arn_s1034",
+ "n_intents": 15,
+ "n_gt_rules": 35,
+ "n_zones": 10,
+ "rules": {
+  "eq": false,
+  "mismatch": 0.02725,
+  "n_rules": 34,
+  "fail": 0,
+  "s": 37.89825963973999,
+  "calls": 1,
+  "prompt": 967,
+  "completion": 1114
+ },
+ "ir0": {
+  "eq": false,
+  "mismatch": 0.001,
+  "n_rules": 32,
+  "fail": 0,
+  "s": 22.914785861968994,
+  "calls": 16,
+  "prompt": 10398,
+  "completion": 677,
+  "intent_acc": 0.9333333333333333
+ },
+ "ir": {
+  "eq": true,
+  "mismatch": 0.0,
+  "n_rules": 35,
+  "fail": 0,
+  "s": 14.892662763595581,
+  "calls": 15,
+  "prompt": 16459,
+  "completion": 429,
+  "intent_acc": 1.0
+ },
+ "fw": {
+  "eq": true,
+  "mismatch": 0.0,
+  "n_rules": 35,
+  "fail": 0,
+  "s": 47.9545955657959,
+  "verify_s": 33.06193280220032,
+  "calls": 31,
+  "verify_calls": 16,
+  "flagged": 0,
+  "accepted": 0,
+  "repairs": [],
+  "intent_acc": 1.0
+ },
+ "ir_out": [
+  {
+   "type": "allow_except",
+   "src": "iot-sensors",
+   "dst": "guest-wifi",
+   "broad": "any-udp",
+   "ex": [
+    "snmp",
+    "tftp"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "ops",
+   "dst": "dns-servers",
+   "broad": "high-tcp",
+   "ex": [
+    "rdp",
+    "postgres",
+    "mysql"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "engineering",
+   "svcs": [
+    "dns",
+    "https"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "edge-cache",
+   "dst": "engineering"
+  },
+  {
+   "type": "public",
+   "dst": "dns-servers",
+   "svcs": [
+    "http",
+    "https"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "vpn-users",
+   "allowed": [
+    [
+     "nvr",
+     "https"
+    ]
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "vpn-users",
+   "dst": "guest-wifi",
+   "svcs": [
+    "smtp",
+    "rtsp",
+    "syslog"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "nvr",
+   "dst": "mail"
+  },
+  {
+   "type": "isolate",
+   "src": "dns-servers",
+   "allowed": [
+    [
+     "guest-wifi",
+     "syslog"
+    ]
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "dns-servers",
+   "dst": "iot-sensors",
+   "broad": "any-udp",
+   "ex": [
+    "snmp",
+    "tftp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "nvr",
+   "dst": "engineering",
+   "svcs": [
+    "ntp",
+    "https",
+    "smb"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "vpn-users",
+   "dst": "mail",
+   "svcs": [
+    "http",
+    "rtsp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "nvr",
+   "dst": "iot-sensors",
+   "svcs": [
+    "smtp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "dev-lab",
+   "dst": "mail",
+   "svcs": [
+    "dns",
+    "rtsp",
+    "https"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "dev-lab",
+   "dst": "dns-servers",
+   "broad": "high-tcp",
+   "ex": [
+    "mysql",
+    "rdp"
+   ]
+  }
+ ],
+ "fw_out": [
+  {
+   "type": "allow_except",
+   "src": "iot-sensors",
+   "dst": "guest-wifi",
+   "broad": "any-udp",
+   "ex": [
+    "snmp",
+    "tftp"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "ops",
+   "dst": "dns-servers",
+   "broad": "high-tcp",
+   "ex": [
+    "rdp",
+    "postgres",
+    "mysql"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "engineering",
+   "svcs": [
+    "dns",
+    "https"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "edge-cache",
+   "dst": "engineering"
+  },
+  {
+   "type": "public",
+   "dst": "dns-servers",
+   "svcs": [
+    "http",
+    "https"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "vpn-users",
+   "allowed": [
+    [
+     "nvr",
+     "https"
+    ]
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "vpn-users",
+   "dst": "guest-wifi",
+   "svcs": [
+    "smtp",
+    "rtsp",
+    "syslog"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "nvr",
+   "dst": "mail"
+  },
+  {
+   "type": "isolate",
+   "src": "dns-servers",
+   "allowed": [
+    [
+     "guest-wifi",
+     "syslog"
+    ]
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "dns-servers",
+   "dst": "iot-sensors",
+   "broad": "any-udp",
+   "ex": [
+    "snmp",
+    "tftp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "nvr",
+   "dst": "engineering",
+   "svcs": [
+    "ntp",
+    "https",
+    "smb"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "vpn-users",
+   "dst": "mail",
+   "svcs": [
+    "http",
+    "rtsp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "nvr",
+   "dst": "iot-sensors",
+   "svcs": [
+    "smtp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "dev-lab",
+   "dst": "mail",
+   "svcs": [
+    "dns",
+    "rtsp",
+    "https"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "dev-lab",
+   "dst": "dns-servers",
+   "broad": "high-tcp",
+   "ex": [
+    "mysql",
+    "rdp"
+   ]
+  }
+ ],
+ "wall_s": 109.15809535980225
+}

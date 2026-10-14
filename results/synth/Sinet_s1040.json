@@ -1,0 +1,602 @@
+{
+ "id": "Sinet_s1040",
+ "n_intents": 32,
+ "n_gt_rules": 60,
+ "n_zones": 10,
+ "rules": {
+  "eq": false,
+  "mismatch": 0.056,
+  "n_rules": 68,
+  "fail": 0,
+  "s": 216.6702618598938,
+  "calls": 2,
+  "prompt": 3395,
+  "completion": 6037
+ },
+ "ir0": {
+  "eq": false,
+  "mismatch": 0.02475,
+  "n_rules": 51,
+  "fail": 0,
+  "s": 86.6209146976471,
+  "calls": 32,
+  "prompt": 20233,
+  "completion": 1352,
+  "intent_acc": 0.78125
+ },
+ "ir": {
+  "eq": true,
+  "mismatch": 0.0,
+  "n_rules": 60,
+  "fail": 0,
+  "s": 67.14160227775574,
+  "calls": 32,
+  "prompt": 34665,
+  "completion": 775,
+  "intent_acc": 1.0
+ },
+ "fw": {
+  "eq": true,
+  "mismatch": 0.0,
+  "n_rules": 60,
+  "fail": 0,
+  "s": 293.88204646110535,
+  "verify_s": 226.7404444217682,
+  "calls": 67,
+  "verify_calls": 35,
+  "flagged": 1,
+  "accepted": 0,
+  "repairs": [
+   {
+    "k": 13,
+    "was_ok": true,
+    "now_ok": true,
+    "history": [
+     2,
+     2,
+     2
+    ],
+    "calls": 2,
+    "accepted": false
+   }
+  ],
+  "intent_acc": 1.0
+ },
+ "ir_out": [
+  {
+   "type": "allow",
+   "src": "vpn-users",
+   "dst": "database",
+   "svcs": [
+    "http",
+    "mysql",
+    "smb"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "dev-lab",
+   "dst": "admin",
+   "broad": "any-udp",
+   "ex": [
+    "tftp",
+    "snmp"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "partners",
+   "svcs": [
+    "http"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "hr",
+   "dst": "backup",
+   "svcs": [
+    "http",
+    "smb",
+    "mysql"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "database",
+   "dst": "backup",
+   "svcs": [
+    "dns",
+    "rtsp"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "vpn-users",
+   "dst": "backup"
+  },
+  {
+   "type": "public",
+   "dst": "library",
+   "svcs": [
+    "dns"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "research",
+   "dst": "backup",
+   "svcs": [
+    "rtsp",
+    "postgres"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "library",
+   "dst": "database"
+  },
+  {
+   "type": "public",
+   "dst": "backup",
+   "svcs": [
+    "https"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "backup",
+   "dst": "research"
+  },
+  {
+   "type": "allow_except",
+   "src": "admin",
+   "dst": "backup",
+   "broad": "any-udp",
+   "ex": [
+    "tftp",
+    "snmp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "hr",
+   "dst": "admin",
+   "svcs": [
+    "syslog"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "partners",
+   "allowed": [
+    [
+     "hr",
+     "https"
+    ],
+    [
+     "admin",
+     "ntp"
+    ]
+   ]
+  },
+  {
+   "type": "block",
+   "src": "admin",
+   "dst": "vpn-users"
+  },
+  {
+   "type": "allow",
+   "src": "dev-lab",
+   "dst": "library",
+   "svcs": [
+    "http",
+    "rdp",
+    "postgres"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "vpn-users",
+   "dst": "database",
+   "svcs": [
+    "mysql",
+    "rtsp",
+    "https"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "nvr",
+   "svcs": [
+    "http",
+    "ntp"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "research",
+   "dst": "admin",
+   "broad": "any-tcp",
+   "ex": [
+    "telnet",
+    "ftp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "hr",
+   "dst": "database",
+   "svcs": [
+    "smb",
+    "https",
+    "syslog"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "research",
+   "dst": "partners",
+   "svcs": [
+    "imap",
+    "http"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "nvr",
+   "dst": "vpn-users",
+   "svcs": [
+    "mysql"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "library",
+   "dst": "dev-lab"
+  },
+  {
+   "type": "isolate",
+   "src": "library",
+   "allowed": [
+    [
+     "dev-lab",
+     "https"
+    ]
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "admin",
+   "allowed": [
+    [
+     "database",
+     "https"
+    ]
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "backup",
+   "svcs": [
+    "http",
+    "dns"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "hr",
+   "svcs": [
+    "https",
+    "dns"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "admin",
+   "svcs": [
+    "http",
+    "dns"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "research",
+   "dst": "admin",
+   "svcs": [
+    "syslog"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "library",
+   "svcs": [
+    "https"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "library",
+   "dst": "nvr",
+   "svcs": [
+    "rtsp",
+    "imap"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "vpn-users",
+   "svcs": [
+    "http"
+   ]
+  }
+ ],
+ "fw_out": [
+  {
+   "type": "allow",
+   "src": "vpn-users",
+   "dst": "database",
+   "svcs": [
+    "http",
+    "mysql",
+    "smb"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "dev-lab",
+   "dst": "admin",
+   "broad": "any-udp",
+   "ex": [
+    "tftp",
+    "snmp"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "partners",
+   "svcs": [
+    "http"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "hr",
+   "dst": "backup",
+   "svcs": [
+    "http",
+    "smb",
+    "mysql"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "database",
+   "dst": "backup",
+   "svcs": [
+    "dns",
+    "rtsp"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "vpn-users",
+   "dst": "backup"
+  },
+  {
+   "type": "public",
+   "dst": "library",
+   "svcs": [
+    "dns"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "research",
+   "dst": "backup",
+   "svcs": [
+    "rtsp",
+    "postgres"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "library",
+   "dst": "database"
+  },
+  {
+   "type": "public",
+   "dst": "backup",
+   "svcs": [
+    "https"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "backup",
+   "dst": "research"
+  },
+  {
+   "type": "allow_except",
+   "src": "admin",
+   "dst": "backup",
+   "broad": "any-udp",
+   "ex": [
+    "tftp",
+    "snmp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "hr",
+   "dst": "admin",
+   "svcs": [
+    "syslog"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "partners",
+   "allowed": [
+    [
+     "hr",
+     "https"
+    ],
+    [
+     "admin",
+     "ntp"
+    ]
+   ]
+  },
+  {
+   "type": "block",
+   "src": "admin",
+   "dst": "vpn-users"
+  },
+  {
+   "type": "allow",
+   "src": "dev-lab",
+   "dst": "library",
+   "svcs": [
+    "http",
+    "rdp",
+    "postgres"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "vpn-users",
+   "dst": "database",
+   "svcs": [
+    "mysql",
+    "rtsp",
+    "https"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "nvr",
+   "svcs": [
+    "http",
+    "ntp"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "research",
+   "dst": "admin",
+   "broad": "any-tcp",
+   "ex": [
+    "telnet",
+    "ftp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "hr",
+   "dst": "database",
+   "svcs": [
+    "smb",
+    "https",
+    "syslog"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "research",
+   "dst": "partners",
+   "svcs": [
+    "imap",
+    "http"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "nvr",
+   "dst": "vpn-users",
+   "svcs": [
+    "mysql"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "library",
+   "dst": "dev-lab"
+  },
+  {
+   "type": "isolate",
+   "src": "library",
+   "allowed": [
+    [
+     "dev-lab",
+     "https"
+    ]
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "admin",
+   "allowed": [
+    [
+     "database",
+     "https"
+    ]
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "backup",
+   "svcs": [
+    "http",
+    "dns"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "hr",
+   "svcs": [
+    "https",
+    "dns"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "admin",
+   "svcs": [
+    "http",
+    "dns"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "research",
+   "dst": "admin",
+   "svcs": [
+    "syslog"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "library",
+   "svcs": [
+    "https"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "library",
+   "dst": "nvr",
+   "svcs": [
+    "rtsp",
+    "imap"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "vpn-users",
+   "svcs": [
+    "http"
+   ]
+  }
+ ],
+ "wall_s": 597.7800030708313
+}

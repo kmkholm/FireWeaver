@@ -1,0 +1,302 @@
+{
+ "id": "Sago_s1036",
+ "topology": "Sago",
+ "n_nodes": 18,
+ "edges": [
+  [
+   0,
+   1
+  ],
+  [
+   1,
+   2
+  ],
+  [
+   2,
+   3
+  ],
+  [
+   3,
+   4
+  ],
+  [
+   4,
+   5
+  ],
+  [
+   5,
+   6
+  ],
+  [
+   6,
+   7
+  ],
+  [
+   7,
+   8
+  ],
+  [
+   8,
+   9
+  ],
+  [
+   8,
+   12
+  ],
+  [
+   9,
+   10
+  ],
+  [
+   10,
+   11
+  ],
+  [
+   11,
+   15
+  ],
+  [
+   12,
+   13
+  ],
+  [
+   13,
+   14
+  ],
+  [
+   15,
+   16
+  ],
+  [
+   16,
+   17
+  ]
+ ],
+ "zones": {
+  "database": {
+   "router": 17,
+   "prefixes": [
+    "206.180.85.0/24"
+   ]
+  },
+  "guest-wifi": {
+   "router": 14,
+   "prefixes": [
+    "252.109.141.192/26",
+    "82.53.25.64/27",
+    "99.176.28.0/23"
+   ]
+  },
+  "edge-cache": {
+   "router": 0,
+   "prefixes": [
+    "34.114.222.0/25"
+   ]
+  },
+  "finance": {
+   "router": 3,
+   "prefixes": [
+    "80.52.88.224/28",
+    "74.87.44.0/23",
+    "126.68.20.0/23"
+   ]
+  },
+  "mail": {
+   "router": 6,
+   "prefixes": [
+    "176.67.0.0/16",
+    "35.185.129.64/27"
+   ]
+  },
+  "ntp-servers": {
+   "router": 4,
+   "prefixes": [
+    "230.59.136.96/27",
+    "154.233.214.0/23",
+    "92.14.71.0/24"
+   ]
+  },
+  "monitoring": {
+   "router": 15,
+   "prefixes": [
+    "207.249.124.0/24",
+    "205.228.188.0/22",
+    "191.72.255.128/26"
+   ]
+  },
+  "dns-servers": {
+   "router": 5,
+   "prefixes": [
+    "47.161.173.96/27"
+   ]
+  },
+  "cameras": {
+   "router": 2,
+   "prefixes": [
+    "239.233.237.64/26",
+    "196.81.0.0/16"
+   ]
+  },
+  "engineering": {
+   "router": 16,
+   "prefixes": [
+    "124.44.65.0/25"
+   ]
+  }
+ },
+ "zone_text": [
+  "database: hosts 206.180.85.0/24 attached to router R17",
+  "guest-wifi: hosts 252.109.141.192/26, 82.53.25.64/27, 99.176.28.0/23 attached to router R14",
+  "edge-cache: hosts 34.114.222.0/25 attached to router R0",
+  "finance: hosts 80.52.88.224/28, 74.87.44.0/23, 126.68.20.0/23 attached to router R3",
+  "mail: hosts 176.67.0.0/16, 35.185.129.64/27 attached to router R6",
+  "ntp-servers: hosts 230.59.136.96/27, 154.233.214.0/23, 92.14.71.0/24 attached to router R4",
+  "monitoring: hosts 207.249.124.0/24, 205.228.188.0/22, 191.72.255.128/26 attached to router R15",
+  "dns-servers: hosts 47.161.173.96/27 attached to router R5",
+  "cameras: hosts 239.233.237.64/26, 196.81.0.0/16 attached to router R2",
+  "engineering: hosts 124.44.65.0/25 attached to router R16"
+ ],
+ "intents": [
+  {
+   "type": "isolate",
+   "src": "cameras",
+   "allowed": [
+    [
+     "finance",
+     "https"
+    ]
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "monitoring",
+   "dst": "edge-cache",
+   "svcs": [
+    "smb"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "ntp-servers",
+   "dst": "monitoring"
+  },
+  {
+   "type": "isolate",
+   "src": "monitoring",
+   "allowed": [
+    [
+     "edge-cache",
+     "ntp"
+    ]
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "engineering",
+   "dst": "guest-wifi",
+   "svcs": [
+    "postgres"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "cameras",
+   "dst": "ntp-servers",
+   "broad": "any-udp",
+   "ex": [
+    "snmp",
+    "tftp"
+   ]
+  }
+ ],
+ "nl": [
+  "Apart from finance on HTTPS (TCP 443), all traffic originating in cameras must be dropped.",
+  "edge-cache must accept SMB (TCP 445) from monitoring.",
+  "Deny all traffic from ntp-servers to monitoring (this overrides any public service).",
+  "Restrict monitoring so that its only permitted destinations are edge-cache on NTP (UDP 123); drop all other traffic it originates.",
+  "Allow engineering to connect to guest-wifi using PostgreSQL (TCP 5432).",
+  "Block SNMP (UDP 161), TFTP (UDP 69) from cameras to ntp-servers; the rest of any UDP port between them is allowed."
+ ],
+ "gt": [
+  {
+   "src": "ntp-servers",
+   "dst": "monitoring",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "cameras",
+   "dst": "ntp-servers",
+   "proto": "udp",
+   "dlo": 161,
+   "dhi": 161,
+   "action": "deny"
+  },
+  {
+   "src": "cameras",
+   "dst": "ntp-servers",
+   "proto": "udp",
+   "dlo": 69,
+   "dhi": 69,
+   "action": "deny"
+  },
+  {
+   "src": "monitoring",
+   "dst": "edge-cache",
+   "proto": "tcp",
+   "dlo": 445,
+   "dhi": 445,
+   "action": "permit"
+  },
+  {
+   "src": "engineering",
+   "dst": "guest-wifi",
+   "proto": "tcp",
+   "dlo": 5432,
+   "dhi": 5432,
+   "action": "permit"
+  },
+  {
+   "src": "cameras",
+   "dst": "ntp-servers",
+   "proto": "udp",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "permit"
+  },
+  {
+   "src": "cameras",
+   "dst": "finance",
+   "proto": "tcp",
+   "dlo": 443,
+   "dhi": 443,
+   "action": "permit"
+  },
+  {
+   "src": "monitoring",
+   "dst": "edge-cache",
+   "proto": "udp",
+   "dlo": 123,
+   "dhi": 123,
+   "action": "permit"
+  },
+  {
+   "src": "cameras",
+   "dst": "*",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "monitoring",
+   "dst": "*",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  }
+ ]
+}

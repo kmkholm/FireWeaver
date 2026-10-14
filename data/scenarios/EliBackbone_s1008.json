@@ -1,0 +1,607 @@
+{
+ "id": "EliBackbone_s1008",
+ "topology": "EliBackbone",
+ "n_nodes": 20,
+ "edges": [
+  [
+   0,
+   1
+  ],
+  [
+   0,
+   19
+  ],
+  [
+   1,
+   2
+  ],
+  [
+   1,
+   19
+  ],
+  [
+   2,
+   19
+  ],
+  [
+   2,
+   4
+  ],
+  [
+   2,
+   14
+  ],
+  [
+   2,
+   12
+  ],
+  [
+   3,
+   19
+  ],
+  [
+   3,
+   4
+  ],
+  [
+   4,
+   10
+  ],
+  [
+   4,
+   5
+  ],
+  [
+   5,
+   6
+  ],
+  [
+   6,
+   7
+  ],
+  [
+   7,
+   8
+  ],
+  [
+   7,
+   10
+  ],
+  [
+   8,
+   9
+  ],
+  [
+   9,
+   10
+  ],
+  [
+   10,
+   11
+  ],
+  [
+   11,
+   12
+  ],
+  [
+   11,
+   13
+  ],
+  [
+   12,
+   13
+  ],
+  [
+   13,
+   16
+  ],
+  [
+   14,
+   17
+  ],
+  [
+   14,
+   18
+  ],
+  [
+   14,
+   15
+  ],
+  [
+   15,
+   16
+  ],
+  [
+   15,
+   19
+  ],
+  [
+   17,
+   18
+  ],
+  [
+   18,
+   19
+  ]
+ ],
+ "zones": {
+  "guest-wifi": {
+   "router": 0,
+   "prefixes": [
+    "85.11.127.64/28"
+   ]
+  },
+  "student-lab": {
+   "router": 8,
+   "prefixes": [
+    "37.134.157.128/25",
+    "167.65.32.0/22",
+    "123.127.237.0/25"
+   ]
+  },
+  "admin": {
+   "router": 17,
+   "prefixes": [
+    "154.18.214.96/27",
+    "100.7.164.144/28",
+    "105.129.103.192/27"
+   ]
+  },
+  "iot-sensors": {
+   "router": 9,
+   "prefixes": [
+    "3.132.106.160/27",
+    "111.29.35.0/24",
+    "152.134.8.0/21"
+   ]
+  },
+  "scada": {
+   "router": 6,
+   "prefixes": [
+    "78.87.238.128/25"
+   ]
+  },
+  "research": {
+   "router": 16,
+   "prefixes": [
+    "33.51.0.0/16"
+   ]
+  },
+  "mail": {
+   "router": 5,
+   "prefixes": [
+    "141.181.224.0/19",
+    "119.101.176.0/24",
+    "145.174.142.128/25"
+   ]
+  },
+  "ntp-servers": {
+   "router": 3,
+   "prefixes": [
+    "185.194.0.0/18"
+   ]
+  },
+  "nvr": {
+   "router": 7,
+   "prefixes": [
+    "203.241.225.128/25"
+   ]
+  },
+  "printers": {
+   "router": 11,
+   "prefixes": [
+    "206.165.112.0/21",
+    "126.153.130.0/23",
+    "207.12.51.0/24"
+   ]
+  }
+ },
+ "zone_text": [
+  "guest-wifi: hosts 85.11.127.64/28 attached to router R0",
+  "student-lab: hosts 37.134.157.128/25, 167.65.32.0/22, 123.127.237.0/25 attached to router R8",
+  "admin: hosts 154.18.214.96/27, 100.7.164.144/28, 105.129.103.192/27 attached to router R17",
+  "iot-sensors: hosts 3.132.106.160/27, 111.29.35.0/24, 152.134.8.0/21 attached to router R9",
+  "scada: hosts 78.87.238.128/25 attached to router R6",
+  "research: hosts 33.51.0.0/16 attached to router R16",
+  "mail: hosts 141.181.224.0/19, 119.101.176.0/24, 145.174.142.128/25 attached to router R5",
+  "ntp-servers: hosts 185.194.0.0/18 attached to router R3",
+  "nvr: hosts 203.241.225.128/25 attached to router R7",
+  "printers: hosts 206.165.112.0/21, 126.153.130.0/23, 207.12.51.0/24 attached to router R11"
+ ],
+ "intents": [
+  {
+   "type": "block",
+   "src": "iot-sensors",
+   "dst": "research"
+  },
+  {
+   "type": "allow",
+   "src": "ntp-servers",
+   "dst": "mail",
+   "svcs": [
+    "ntp",
+    "dns",
+    "rdp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "guest-wifi",
+   "dst": "admin",
+   "svcs": [
+    "dns",
+    "imap"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "iot-sensors",
+   "dst": "research",
+   "broad": "any-tcp",
+   "ex": [
+    "ftp",
+    "rdp"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "nvr",
+   "allowed": [
+    [
+     "mail",
+     "dns"
+    ],
+    [
+     "printers",
+     "ntp"
+    ]
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "nvr",
+   "dst": "printers",
+   "broad": "high-tcp",
+   "ex": [
+    "rdp",
+    "postgres"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "mail",
+   "dst": "ntp-servers",
+   "svcs": [
+    "https",
+    "http"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "ntp-servers",
+   "dst": "mail",
+   "svcs": [
+    "dns"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "mail",
+   "allowed": [
+    [
+     "guest-wifi",
+     "ntp"
+    ]
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "scada",
+   "dst": "guest-wifi",
+   "svcs": [
+    "https",
+    "postgres"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "admin",
+   "svcs": [
+    "http",
+    "dns"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "nvr",
+   "dst": "ntp-servers",
+   "svcs": [
+    "snmp"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "iot-sensors",
+   "dst": "research",
+   "broad": "any-udp",
+   "ex": [
+    "snmp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "mail",
+   "dst": "guest-wifi",
+   "svcs": [
+    "ntp"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "student-lab",
+   "svcs": [
+    "https",
+    "http"
+   ]
+  }
+ ],
+ "nl": [
+  "Deny all traffic from iot-sensors to research (this overrides any public service).",
+  "Hosts in ntp-servers may reach mail over NTP (UDP 123) and DNS over UDP 53 and RDP (TCP 3389).",
+  "Hosts in guest-wifi may reach admin over DNS over UDP 53 and IMAP (TCP 143).",
+  "iot-sensors may use any TCP port towards research, except FTP (TCP 21), RDP (TCP 3389), which must be blocked.",
+  "Restrict nvr so that its only permitted destinations are mail on DNS over UDP 53; printers on NTP (UDP 123); drop all other traffic it originates.",
+  "nvr may use TCP ports 1024-65535 towards printers, except RDP (TCP 3389), PostgreSQL (TCP 5432), which must be blocked.",
+  "ntp-servers must accept HTTPS (TCP 443) and HTTP (TCP 80) from mail.",
+  "Hosts in ntp-servers may reach mail over DNS over UDP 53.",
+  "Restrict mail so that its only permitted destinations are guest-wifi on NTP (UDP 123); drop all other traffic it originates.",
+  "guest-wifi must accept HTTPS (TCP 443) and PostgreSQL (TCP 5432) from scada.",
+  "Make HTTP (TCP 80) and DNS over UDP 53 on admin reachable from all internal zones.",
+  "Hosts in nvr may reach ntp-servers over SNMP (UDP 161).",
+  "iot-sensors may use any UDP port towards research, except SNMP (UDP 161), which must be blocked.",
+  "guest-wifi must accept NTP (UDP 123) from mail.",
+  "Any zone may connect to student-lab over HTTPS (TCP 443) and HTTP (TCP 80)."
+ ],
+ "gt": [
+  {
+   "src": "iot-sensors",
+   "dst": "research",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "iot-sensors",
+   "dst": "research",
+   "proto": "tcp",
+   "dlo": 21,
+   "dhi": 21,
+   "action": "deny"
+  },
+  {
+   "src": "iot-sensors",
+   "dst": "research",
+   "proto": "tcp",
+   "dlo": 3389,
+   "dhi": 3389,
+   "action": "deny"
+  },
+  {
+   "src": "nvr",
+   "dst": "printers",
+   "proto": "tcp",
+   "dlo": 3389,
+   "dhi": 3389,
+   "action": "deny"
+  },
+  {
+   "src": "nvr",
+   "dst": "printers",
+   "proto": "tcp",
+   "dlo": 5432,
+   "dhi": 5432,
+   "action": "deny"
+  },
+  {
+   "src": "iot-sensors",
+   "dst": "research",
+   "proto": "udp",
+   "dlo": 161,
+   "dhi": 161,
+   "action": "deny"
+  },
+  {
+   "src": "ntp-servers",
+   "dst": "mail",
+   "proto": "udp",
+   "dlo": 123,
+   "dhi": 123,
+   "action": "permit"
+  },
+  {
+   "src": "ntp-servers",
+   "dst": "mail",
+   "proto": "udp",
+   "dlo": 53,
+   "dhi": 53,
+   "action": "permit"
+  },
+  {
+   "src": "ntp-servers",
+   "dst": "mail",
+   "proto": "tcp",
+   "dlo": 3389,
+   "dhi": 3389,
+   "action": "permit"
+  },
+  {
+   "src": "guest-wifi",
+   "dst": "admin",
+   "proto": "udp",
+   "dlo": 53,
+   "dhi": 53,
+   "action": "permit"
+  },
+  {
+   "src": "guest-wifi",
+   "dst": "admin",
+   "proto": "tcp",
+   "dlo": 143,
+   "dhi": 143,
+   "action": "permit"
+  },
+  {
+   "src": "iot-sensors",
+   "dst": "research",
+   "proto": "tcp",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "permit"
+  },
+  {
+   "src": "nvr",
+   "dst": "printers",
+   "proto": "tcp",
+   "dlo": 1024,
+   "dhi": 65535,
+   "action": "permit"
+  },
+  {
+   "src": "mail",
+   "dst": "ntp-servers",
+   "proto": "tcp",
+   "dlo": 443,
+   "dhi": 443,
+   "action": "permit"
+  },
+  {
+   "src": "mail",
+   "dst": "ntp-servers",
+   "proto": "tcp",
+   "dlo": 80,
+   "dhi": 80,
+   "action": "permit"
+  },
+  {
+   "src": "ntp-servers",
+   "dst": "mail",
+   "proto": "udp",
+   "dlo": 53,
+   "dhi": 53,
+   "action": "permit"
+  },
+  {
+   "src": "scada",
+   "dst": "guest-wifi",
+   "proto": "tcp",
+   "dlo": 443,
+   "dhi": 443,
+   "action": "permit"
+  },
+  {
+   "src": "scada",
+   "dst": "guest-wifi",
+   "proto": "tcp",
+   "dlo": 5432,
+   "dhi": 5432,
+   "action": "permit"
+  },
+  {
+   "src": "nvr",
+   "dst": "ntp-servers",
+   "proto": "udp",
+   "dlo": 161,
+   "dhi": 161,
+   "action": "permit"
+  },
+  {
+   "src": "iot-sensors",
+   "dst": "research",
+   "proto": "udp",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "permit"
+  },
+  {
+   "src": "mail",
+   "dst": "guest-wifi",
+   "proto": "udp",
+   "dlo": 123,
+   "dhi": 123,
+   "action": "permit"
+  },
+  {
+   "src": "nvr",
+   "dst": "mail",
+   "proto": "udp",
+   "dlo": 53,
+   "dhi": 53,
+   "action": "permit"
+  },
+  {
+   "src": "nvr",
+   "dst": "printers",
+   "proto": "udp",
+   "dlo": 123,
+   "dhi": 123,
+   "action": "permit"
+  },
+  {
+   "src": "mail",
+   "dst": "guest-wifi",
+   "proto": "udp",
+   "dlo": 123,
+   "dhi": 123,
+   "action": "permit"
+  },
+  {
+   "src": "nvr",
+   "dst": "*",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "mail",
+   "dst": "*",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "*",
+   "dst": "admin",
+   "proto": "tcp",
+   "dlo": 80,
+   "dhi": 80,
+   "action": "permit"
+  },
+  {
+   "src": "*",
+   "dst": "admin",
+   "proto": "udp",
+   "dlo": 53,
+   "dhi": 53,
+   "action": "permit"
+  },
+  {
+   "src": "*",
+   "dst": "student-lab",
+   "proto": "tcp",
+   "dlo": 443,
+   "dhi": 443,
+   "action": "permit"
+  },
+  {
+   "src": "*",
+   "dst": "student-lab",
+   "proto": "tcp",
+   "dlo": 80,
+   "dhi": 80,
+   "action": "permit"
+  }
+ ]
+}

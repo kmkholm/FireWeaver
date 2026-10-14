@@ -1,0 +1,956 @@
+{
+ "id": "Garr200404_s1045",
+ "topology": "Garr200404",
+ "n_nodes": 22,
+ "edges": [
+  [
+   0,
+   17
+  ],
+  [
+   1,
+   13
+  ],
+  [
+   2,
+   13
+  ],
+  [
+   3,
+   4
+  ],
+  [
+   4,
+   5
+  ],
+  [
+   4,
+   6
+  ],
+  [
+   4,
+   8
+  ],
+  [
+   4,
+   13
+  ],
+  [
+   4,
+   17
+  ],
+  [
+   4,
+   20
+  ],
+  [
+   7,
+   8
+  ],
+  [
+   8,
+   9
+  ],
+  [
+   8,
+   10
+  ],
+  [
+   8,
+   13
+  ],
+  [
+   8,
+   17
+  ],
+  [
+   8,
+   19
+  ],
+  [
+   11,
+   13
+  ],
+  [
+   12,
+   17
+  ],
+  [
+   13,
+   14
+  ],
+  [
+   13,
+   15
+  ],
+  [
+   13,
+   17
+  ],
+  [
+   13,
+   21
+  ],
+  [
+   16,
+   17
+  ],
+  [
+   17,
+   18
+  ]
+ ],
+ "zones": {
+  "edge-cache": {
+   "router": 12,
+   "prefixes": [
+    "88.45.97.0/24",
+    "73.102.128.0/19"
+   ]
+  },
+  "dmz-web": {
+   "router": 20,
+   "prefixes": [
+    "220.108.133.144/28",
+    "203.19.4.0/23"
+   ]
+  },
+  "backup": {
+   "router": 18,
+   "prefixes": [
+    "88.57.251.0/24",
+    "58.148.0.0/16"
+   ]
+  },
+  "library": {
+   "router": 7,
+   "prefixes": [
+    "189.238.198.0/24",
+    "251.26.124.0/25",
+    "126.94.0.0/16"
+   ]
+  },
+  "nvr": {
+   "router": 1,
+   "prefixes": [
+    "74.78.44.0/22",
+    "179.178.161.208/28"
+   ]
+  },
+  "partners": {
+   "router": 6,
+   "prefixes": [
+    "125.41.57.0/24"
+   ]
+  },
+  "hr": {
+   "router": 10,
+   "prefixes": [
+    "210.51.74.0/24"
+   ]
+  },
+  "research": {
+   "router": 21,
+   "prefixes": [
+    "4.174.83.32/27",
+    "41.155.191.224/27",
+    "131.96.224.224/27"
+   ]
+  },
+  "voip": {
+   "router": 5,
+   "prefixes": [
+    "5.100.150.0/23",
+    "184.23.244.0/22"
+   ]
+  },
+  "dev-lab": {
+   "router": 3,
+   "prefixes": [
+    "231.35.188.160/27",
+    "170.246.75.80/28",
+    "72.175.128.0/18"
+   ]
+  },
+  "mail": {
+   "router": 15,
+   "prefixes": [
+    "55.100.208.0/23",
+    "145.138.75.160/28"
+   ]
+  },
+  "cameras": {
+   "router": 9,
+   "prefixes": [
+    "87.227.118.0/25",
+    "28.80.27.0/26"
+   ]
+  },
+  "scada": {
+   "router": 2,
+   "prefixes": [
+    "78.248.50.0/26",
+    "54.139.81.0/24",
+    "227.39.4.0/23"
+   ]
+  },
+  "dns-servers": {
+   "router": 14,
+   "prefixes": [
+    "57.213.0.0/18",
+    "241.251.245.0/24"
+   ]
+  },
+  "ntp-servers": {
+   "router": 11,
+   "prefixes": [
+    "242.164.70.0/23"
+   ]
+  },
+  "admin": {
+   "router": 16,
+   "prefixes": [
+    "60.146.128.0/17",
+    "103.64.153.0/25",
+    "248.242.225.240/28"
+   ]
+  }
+ },
+ "zone_text": [
+  "edge-cache: hosts 88.45.97.0/24, 73.102.128.0/19 attached to router R12",
+  "dmz-web: hosts 220.108.133.144/28, 203.19.4.0/23 attached to router R20",
+  "backup: hosts 88.57.251.0/24, 58.148.0.0/16 attached to router R18",
+  "library: hosts 189.238.198.0/24, 251.26.124.0/25, 126.94.0.0/16 attached to router R7",
+  "nvr: hosts 74.78.44.0/22, 179.178.161.208/28 attached to router R1",
+  "partners: hosts 125.41.57.0/24 attached to router R6",
+  "hr: hosts 210.51.74.0/24 attached to router R10",
+  "research: hosts 4.174.83.32/27, 41.155.191.224/27, 131.96.224.224/27 attached to router R21",
+  "voip: hosts 5.100.150.0/23, 184.23.244.0/22 attached to router R5",
+  "dev-lab: hosts 231.35.188.160/27, 170.246.75.80/28, 72.175.128.0/18 attached to router R3",
+  "mail: hosts 55.100.208.0/23, 145.138.75.160/28 attached to router R15",
+  "cameras: hosts 87.227.118.0/25, 28.80.27.0/26 attached to router R9",
+  "scada: hosts 78.248.50.0/26, 54.139.81.0/24, 227.39.4.0/23 attached to router R2",
+  "dns-servers: hosts 57.213.0.0/18, 241.251.245.0/24 attached to router R14",
+  "ntp-servers: hosts 242.164.70.0/23 attached to router R11",
+  "admin: hosts 60.146.128.0/17, 103.64.153.0/25, 248.242.225.240/28 attached to router R16"
+ ],
+ "intents": [
+  {
+   "type": "allow",
+   "src": "dmz-web",
+   "dst": "library",
+   "svcs": [
+    "smtp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "partners",
+   "dst": "mail",
+   "svcs": [
+    "snmp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "cameras",
+   "dst": "admin",
+   "svcs": [
+    "smtp",
+    "syslog"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "cameras",
+   "dst": "scada",
+   "svcs": [
+    "snmp"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "research",
+   "svcs": [
+    "ntp",
+    "https"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "scada",
+   "svcs": [
+    "https",
+    "dns"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "mail",
+   "dst": "dev-lab",
+   "svcs": [
+    "postgres",
+    "snmp",
+    "ssh"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "voip",
+   "allowed": [
+    [
+     "library",
+     "syslog"
+    ],
+    [
+     "cameras",
+     "ntp"
+    ]
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "dns-servers",
+   "dst": "edge-cache",
+   "svcs": [
+    "rdp",
+    "smb"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "scada",
+   "dst": "dns-servers",
+   "svcs": [
+    "smb"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "nvr",
+   "dst": "dev-lab",
+   "svcs": [
+    "smb"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "mail",
+   "allowed": [
+    [
+     "edge-cache",
+     "syslog"
+    ]
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "library",
+   "dst": "edge-cache",
+   "svcs": [
+    "smtp",
+    "mysql"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "dmz-web",
+   "dst": "backup",
+   "svcs": [
+    "postgres"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "backup",
+   "dst": "hr"
+  },
+  {
+   "type": "allow_except",
+   "src": "cameras",
+   "dst": "partners",
+   "broad": "high-tcp",
+   "ex": [
+    "mysql"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "research",
+   "dst": "dev-lab",
+   "svcs": [
+    "http",
+    "ldap",
+    "ssh"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "library",
+   "dst": "dmz-web"
+  },
+  {
+   "type": "block",
+   "src": "ntp-servers",
+   "dst": "voip"
+  },
+  {
+   "type": "isolate",
+   "src": "ntp-servers",
+   "allowed": [
+    [
+     "dev-lab",
+     "syslog"
+    ],
+    [
+     "backup",
+     "dns"
+    ]
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "edge-cache",
+   "dst": "nvr",
+   "broad": "any-udp",
+   "ex": [
+    "snmp",
+    "tftp"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "nvr",
+   "dst": "edge-cache"
+  },
+  {
+   "type": "allow",
+   "src": "edge-cache",
+   "dst": "library",
+   "svcs": [
+    "https"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "research",
+   "dst": "scada",
+   "svcs": [
+    "mysql",
+    "snmp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "partners",
+   "dst": "hr",
+   "svcs": [
+    "smb"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "backup",
+   "dst": "dev-lab",
+   "svcs": [
+    "smtp",
+    "dns",
+    "mysql"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "library",
+   "svcs": [
+    "ntp",
+    "http"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "scada",
+   "dst": "voip"
+  },
+  {
+   "type": "block",
+   "src": "backup",
+   "dst": "nvr"
+  },
+  {
+   "type": "allow",
+   "src": "edge-cache",
+   "dst": "scada",
+   "svcs": [
+    "postgres",
+    "http"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "dev-lab",
+   "dst": "research",
+   "svcs": [
+    "smtp"
+   ]
+  }
+ ],
+ "nl": [
+  "library must accept SMTP (TCP 25) from dmz-web.",
+  "Allow partners to connect to mail using SNMP (UDP 161).",
+  "Hosts in cameras may reach admin over SMTP (TCP 25) and syslog (UDP 514).",
+  "Allow cameras to connect to scada using SNMP (UDP 161).",
+  "research offers NTP (UDP 123) and HTTPS (TCP 443) to every zone.",
+  "Make HTTPS (TCP 443) and DNS over UDP 53 on scada reachable from all internal zones.",
+  "Allow mail to connect to dev-lab using PostgreSQL (TCP 5432) and SNMP (UDP 161) and SSH (TCP 22).",
+  "voip is isolated: it may only reach library on syslog (UDP 514); cameras on NTP (UDP 123), and nothing else.",
+  "Hosts in dns-servers may reach edge-cache over RDP (TCP 3389) and SMB (TCP 445).",
+  "dns-servers must accept SMB (TCP 445) from scada.",
+  "Hosts in nvr may reach dev-lab over SMB (TCP 445).",
+  "Apart from edge-cache on syslog (UDP 514), all traffic originating in mail must be dropped.",
+  "edge-cache must accept SMTP (TCP 25) and MySQL (TCP 3306) from library.",
+  "Allow dmz-web to connect to backup using PostgreSQL (TCP 5432).",
+  "No packet from backup may enter hr, even for services open to everyone.",
+  "Permit TCP ports 1024-65535 from cameras to partners but deny MySQL (TCP 3306).",
+  "dev-lab must accept HTTP (TCP 80) and LDAP (TCP 389) and SSH (TCP 22) from research.",
+  "library must never reach dmz-web, regardless of any other rule.",
+  "ntp-servers must never reach voip, regardless of any other rule.",
+  "Restrict ntp-servers so that its only permitted destinations are dev-lab on syslog (UDP 514); backup on DNS over UDP 53; drop all other traffic it originates.",
+  "Permit any UDP port from edge-cache to nvr but deny SNMP (UDP 161), TFTP (UDP 69).",
+  "No packet from nvr may enter edge-cache, even for services open to everyone.",
+  "library must accept HTTPS (TCP 443) from edge-cache.",
+  "Hosts in research may reach scada over MySQL (TCP 3306) and SNMP (UDP 161).",
+  "Hosts in partners may reach hr over SMB (TCP 445).",
+  "Hosts in backup may reach dev-lab over SMTP (TCP 25) and DNS over UDP 53 and MySQL (TCP 3306).",
+  "library offers NTP (UDP 123) and HTTP (TCP 80) to every zone.",
+  "scada must never reach voip, regardless of any other rule.",
+  "backup must never reach nvr, regardless of any other rule.",
+  "Allow edge-cache to connect to scada using PostgreSQL (TCP 5432) and HTTP (TCP 80).",
+  "research must accept SMTP (TCP 25) from dev-lab."
+ ],
+ "gt": [
+  {
+   "src": "backup",
+   "dst": "hr",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "library",
+   "dst": "dmz-web",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "ntp-servers",
+   "dst": "voip",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "nvr",
+   "dst": "edge-cache",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "scada",
+   "dst": "voip",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "backup",
+   "dst": "nvr",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "cameras",
+   "dst": "partners",
+   "proto": "tcp",
+   "dlo": 3306,
+   "dhi": 3306,
+   "action": "deny"
+  },
+  {
+   "src": "edge-cache",
+   "dst": "nvr",
+   "proto": "udp",
+   "dlo": 161,
+   "dhi": 161,
+   "action": "deny"
+  },
+  {
+   "src": "edge-cache",
+   "dst": "nvr",
+   "proto": "udp",
+   "dlo": 69,
+   "dhi": 69,
+   "action": "deny"
+  },
+  {
+   "src": "dmz-web",
+   "dst": "library",
+   "proto": "tcp",
+   "dlo": 25,
+   "dhi": 25,
+   "action": "permit"
+  },
+  {
+   "src": "partners",
+   "dst": "mail",
+   "proto": "udp",
+   "dlo": 161,
+   "dhi": 161,
+   "action": "permit"
+  },
+  {
+   "src": "cameras",
+   "dst": "admin",
+   "proto": "tcp",
+   "dlo": 25,
+   "dhi": 25,
+   "action": "permit"
+  },
+  {
+   "src": "cameras",
+   "dst": "admin",
+   "proto": "udp",
+   "dlo": 514,
+   "dhi": 514,
+   "action": "permit"
+  },
+  {
+   "src": "cameras",
+   "dst": "scada",
+   "proto": "udp",
+   "dlo": 161,
+   "dhi": 161,
+   "action": "permit"
+  },
+  {
+   "src": "mail",
+   "dst": "dev-lab",
+   "proto": "tcp",
+   "dlo": 5432,
+   "dhi": 5432,
+   "action": "permit"
+  },
+  {
+   "src": "mail",
+   "dst": "dev-lab",
+   "proto": "udp",
+   "dlo": 161,
+   "dhi": 161,
+   "action": "permit"
+  },
+  {
+   "src": "mail",
+   "dst": "dev-lab",
+   "proto": "tcp",
+   "dlo": 22,
+   "dhi": 22,
+   "action": "permit"
+  },
+  {
+   "src": "dns-servers",
+   "dst": "edge-cache",
+   "proto": "tcp",
+   "dlo": 3389,
+   "dhi": 3389,
+   "action": "permit"
+  },
+  {
+   "src": "dns-servers",
+   "dst": "edge-cache",
+   "proto": "tcp",
+   "dlo": 445,
+   "dhi": 445,
+   "action": "permit"
+  },
+  {
+   "src": "scada",
+   "dst": "dns-servers",
+   "proto": "tcp",
+   "dlo": 445,
+   "dhi": 445,
+   "action": "permit"
+  },
+  {
+   "src": "nvr",
+   "dst": "dev-lab",
+   "proto": "tcp",
+   "dlo": 445,
+   "dhi": 445,
+   "action": "permit"
+  },
+  {
+   "src": "library",
+   "dst": "edge-cache",
+   "proto": "tcp",
+   "dlo": 25,
+   "dhi": 25,
+   "action": "permit"
+  },
+  {
+   "src": "library",
+   "dst": "edge-cache",
+   "proto": "tcp",
+   "dlo": 3306,
+   "dhi": 3306,
+   "action": "permit"
+  },
+  {
+   "src": "dmz-web",
+   "dst": "backup",
+   "proto": "tcp",
+   "dlo": 5432,
+   "dhi": 5432,
+   "action": "permit"
+  },
+  {
+   "src": "cameras",
+   "dst": "partners",
+   "proto": "tcp",
+   "dlo": 1024,
+   "dhi": 65535,
+   "action": "permit"
+  },
+  {
+   "src": "research",
+   "dst": "dev-lab",
+   "proto": "tcp",
+   "dlo": 80,
+   "dhi": 80,
+   "action": "permit"
+  },
+  {
+   "src": "research",
+   "dst": "dev-lab",
+   "proto": "tcp",
+   "dlo": 389,
+   "dhi": 389,
+   "action": "permit"
+  },
+  {
+   "src": "research",
+   "dst": "dev-lab",
+   "proto": "tcp",
+   "dlo": 22,
+   "dhi": 22,
+   "action": "permit"
+  },
+  {
+   "src": "edge-cache",
+   "dst": "nvr",
+   "proto": "udp",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "permit"
+  },
+  {
+   "src": "edge-cache",
+   "dst": "library",
+   "proto": "tcp",
+   "dlo": 443,
+   "dhi": 443,
+   "action": "permit"
+  },
+  {
+   "src": "research",
+   "dst": "scada",
+   "proto": "tcp",
+   "dlo": 3306,
+   "dhi": 3306,
+   "action": "permit"
+  },
+  {
+   "src": "research",
+   "dst": "scada",
+   "proto": "udp",
+   "dlo": 161,
+   "dhi": 161,
+   "action": "permit"
+  },
+  {
+   "src": "partners",
+   "dst": "hr",
+   "proto": "tcp",
+   "dlo": 445,
+   "dhi": 445,
+   "action": "permit"
+  },
+  {
+   "src": "backup",
+   "dst": "dev-lab",
+   "proto": "tcp",
+   "dlo": 25,
+   "dhi": 25,
+   "action": "permit"
+  },
+  {
+   "src": "backup",
+   "dst": "dev-lab",
+   "proto": "udp",
+   "dlo": 53,
+   "dhi": 53,
+   "action": "permit"
+  },
+  {
+   "src": "backup",
+   "dst": "dev-lab",
+   "proto": "tcp",
+   "dlo": 3306,
+   "dhi": 3306,
+   "action": "permit"
+  },
+  {
+   "src": "edge-cache",
+   "dst": "scada",
+   "proto": "tcp",
+   "dlo": 5432,
+   "dhi": 5432,
+   "action": "permit"
+  },
+  {
+   "src": "edge-cache",
+   "dst": "scada",
+   "proto": "tcp",
+   "dlo": 80,
+   "dhi": 80,
+   "action": "permit"
+  },
+  {
+   "src": "dev-lab",
+   "dst": "research",
+   "proto": "tcp",
+   "dlo": 25,
+   "dhi": 25,
+   "action": "permit"
+  },
+  {
+   "src": "voip",
+   "dst": "library",
+   "proto": "udp",
+   "dlo": 514,
+   "dhi": 514,
+   "action": "permit"
+  },
+  {
+   "src": "voip",
+   "dst": "cameras",
+   "proto": "udp",
+   "dlo": 123,
+   "dhi": 123,
+   "action": "permit"
+  },
+  {
+   "src": "mail",
+   "dst": "edge-cache",
+   "proto": "udp",
+   "dlo": 514,
+   "dhi": 514,
+   "action": "permit"
+  },
+  {
+   "src": "ntp-servers",
+   "dst": "dev-lab",
+   "proto": "udp",
+   "dlo": 514,
+   "dhi": 514,
+   "action": "permit"
+  },
+  {
+   "src": "ntp-servers",
+   "dst": "backup",
+   "proto": "udp",
+   "dlo": 53,
+   "dhi": 53,
+   "action": "permit"
+  },
+  {
+   "src": "voip",
+   "dst": "*",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "mail",
+   "dst": "*",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "ntp-servers",
+   "dst": "*",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "*",
+   "dst": "research",
+   "proto": "udp",
+   "dlo": 123,
+   "dhi": 123,
+   "action": "permit"
+  },
+  {
+   "src": "*",
+   "dst": "research",
+   "proto": "tcp",
+   "dlo": 443,
+   "dhi": 443,
+   "action": "permit"
+  },
+  {
+   "src": "*",
+   "dst": "scada",
+   "proto": "tcp",
+   "dlo": 443,
+   "dhi": 443,
+   "action": "permit"
+  },
+  {
+   "src": "*",
+   "dst": "scada",
+   "proto": "udp",
+   "dlo": 53,
+   "dhi": 53,
+   "action": "permit"
+  },
+  {
+   "src": "*",
+   "dst": "library",
+   "proto": "udp",
+   "dlo": 123,
+   "dhi": 123,
+   "action": "permit"
+  },
+  {
+   "src": "*",
+   "dst": "library",
+   "proto": "tcp",
+   "dlo": 80,
+   "dhi": 80,
+   "action": "permit"
+  }
+ ]
+}

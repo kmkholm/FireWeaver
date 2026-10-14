@@ -1,0 +1,209 @@
+{
+ "id": "RoedunetFibre_s1000",
+ "n_intents": 8,
+ "n_gt_rules": 19,
+ "n_zones": 6,
+ "rules": {
+  "eq": false,
+  "mismatch": 0.00275,
+  "n_rules": 20,
+  "fail": 0,
+  "s": 24.033930778503418,
+  "calls": 1,
+  "prompt": 755,
+  "completion": 660
+ },
+ "ir0": {
+  "eq": false,
+  "mismatch": 0.00725,
+  "n_rules": 16,
+  "fail": 0,
+  "s": 22.944714784622192,
+  "calls": 8,
+  "prompt": 5067,
+  "completion": 371,
+  "intent_acc": 0.875
+ },
+ "ir": {
+  "eq": true,
+  "mismatch": 0.0,
+  "n_rules": 19,
+  "fail": 0,
+  "s": 18.508358478546143,
+  "calls": 8,
+  "prompt": 8675,
+  "completion": 234,
+  "intent_acc": 1.0
+ },
+ "fw": {
+  "eq": true,
+  "mismatch": 0.0,
+  "n_rules": 19,
+  "fail": 0,
+  "s": 49.58887529373169,
+  "verify_s": 31.080517530441284,
+  "calls": 16,
+  "verify_calls": 8,
+  "flagged": 0,
+  "accepted": 0,
+  "repairs": [],
+  "intent_acc": 1.0
+ },
+ "ir_out": [
+  {
+   "type": "allow",
+   "src": "backup",
+   "dst": "nvr",
+   "svcs": [
+    "postgres",
+    "http"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "nvr",
+   "dst": "backup",
+   "svcs": [
+    "rdp",
+    "snmp",
+    "smb"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "ntp-servers",
+   "dst": "dmz-web",
+   "broad": "high-tcp",
+   "ex": [
+    "postgres",
+    "mysql",
+    "rdp"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "ntp-servers",
+   "allowed": [
+    [
+     "dmz-web",
+     "https"
+    ],
+    [
+     "dev-lab",
+     "https"
+    ]
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "dmz-web",
+   "dst": "backup",
+   "svcs": [
+    "syslog",
+    "rdp"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "nvr",
+   "dst": "dmz-web"
+  },
+  {
+   "type": "allow",
+   "src": "backup",
+   "dst": "nvr",
+   "svcs": [
+    "smb",
+    "http",
+    "mysql"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "backup",
+   "dst": "dmz-web",
+   "svcs": [
+    "snmp"
+   ]
+  }
+ ],
+ "fw_out": [
+  {
+   "type": "allow",
+   "src": "backup",
+   "dst": "nvr",
+   "svcs": [
+    "postgres",
+    "http"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "nvr",
+   "dst": "backup",
+   "svcs": [
+    "rdp",
+    "snmp",
+    "smb"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "ntp-servers",
+   "dst": "dmz-web",
+   "broad": "high-tcp",
+   "ex": [
+    "postgres",
+    "mysql",
+    "rdp"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "ntp-servers",
+   "allowed": [
+    [
+     "dmz-web",
+     "https"
+    ],
+    [
+     "dev-lab",
+     "https"
+    ]
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "dmz-web",
+   "dst": "backup",
+   "svcs": [
+    "syslog",
+    "rdp"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "nvr",
+   "dst": "dmz-web"
+  },
+  {
+   "type": "allow",
+   "src": "backup",
+   "dst": "nvr",
+   "svcs": [
+    "smb",
+    "http",
+    "mysql"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "backup",
+   "dst": "dmz-web",
+   "svcs": [
+    "snmp"
+   ]
+  }
+ ],
+ "wall_s": 96.72117018699646
+}

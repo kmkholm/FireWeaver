@@ -1,0 +1,481 @@
+{
+ "id": "Belnet2005_s1054",
+ "topology": "Belnet2005",
+ "n_nodes": 23,
+ "edges": [
+  [
+   0,
+   16
+  ],
+  [
+   0,
+   14
+  ],
+  [
+   1,
+   16
+  ],
+  [
+   1,
+   14
+  ],
+  [
+   2,
+   16
+  ],
+  [
+   2,
+   14
+  ],
+  [
+   3,
+   16
+  ],
+  [
+   3,
+   14
+  ],
+  [
+   4,
+   16
+  ],
+  [
+   4,
+   14
+  ],
+  [
+   5,
+   16
+  ],
+  [
+   5,
+   14
+  ],
+  [
+   6,
+   16
+  ],
+  [
+   6,
+   14
+  ],
+  [
+   7,
+   16
+  ],
+  [
+   7,
+   14
+  ],
+  [
+   8,
+   16
+  ],
+  [
+   8,
+   14
+  ],
+  [
+   9,
+   14
+  ],
+  [
+   9,
+   15
+  ],
+  [
+   9,
+   16
+  ],
+  [
+   9,
+   17
+  ],
+  [
+   9,
+   18
+  ],
+  [
+   9,
+   19
+  ],
+  [
+   9,
+   20
+  ],
+  [
+   9,
+   21
+  ],
+  [
+   9,
+   22
+  ],
+  [
+   10,
+   16
+  ],
+  [
+   10,
+   14
+  ],
+  [
+   11,
+   16
+  ],
+  [
+   11,
+   14
+  ],
+  [
+   12,
+   16
+  ],
+  [
+   12,
+   14
+  ],
+  [
+   13,
+   16
+  ],
+  [
+   13,
+   14
+  ],
+  [
+   14,
+   15
+  ],
+  [
+   14,
+   16
+  ],
+  [
+   15,
+   16
+  ],
+  [
+   15,
+   20
+  ],
+  [
+   15,
+   21
+  ],
+  [
+   15,
+   22
+  ]
+ ],
+ "zones": {
+  "mail": {
+   "router": 18,
+   "prefixes": [
+    "136.183.108.0/22",
+    "190.0.40.80/28",
+    "124.215.66.0/23"
+   ]
+  },
+  "engineering": {
+   "router": 17,
+   "prefixes": [
+    "199.39.233.0/24",
+    "178.38.125.0/24"
+   ]
+  },
+  "partners": {
+   "router": 19,
+   "prefixes": [
+    "209.102.204.0/22",
+    "248.240.164.0/22",
+    "172.18.175.128/25"
+   ]
+  },
+  "database": {
+   "router": 0,
+   "prefixes": [
+    "100.7.164.0/23"
+   ]
+  },
+  "voip": {
+   "router": 5,
+   "prefixes": [
+    "46.133.168.0/23",
+    "172.102.50.0/24",
+    "123.170.132.0/23"
+   ]
+  },
+  "vpn-users": {
+   "router": 10,
+   "prefixes": [
+    "121.8.93.192/27",
+    "37.74.42.0/24",
+    "71.80.69.64/26"
+   ]
+  },
+  "backup": {
+   "router": 8,
+   "prefixes": [
+    "253.115.0.0/18"
+   ]
+  },
+  "hr": {
+   "router": 11,
+   "prefixes": [
+    "61.12.188.0/24"
+   ]
+  },
+  "dns-servers": {
+   "router": 4,
+   "prefixes": [
+    "50.216.33.128/26"
+   ]
+  },
+  "printers": {
+   "router": 13,
+   "prefixes": [
+    "67.90.126.0/23",
+    "67.90.124.0/24"
+   ]
+  },
+  "finance": {
+   "router": 21,
+   "prefixes": [
+    "61.237.80.0/22",
+    "133.200.166.0/23",
+    "178.66.5.48/28"
+   ]
+  },
+  "edge-cache": {
+   "router": 20,
+   "prefixes": [
+    "240.82.147.96/27"
+   ]
+  },
+  "cameras": {
+   "router": 2,
+   "prefixes": [
+    "127.191.0.0/25"
+   ]
+  },
+  "dmz-web": {
+   "router": 22,
+   "prefixes": [
+    "63.16.103.128/25",
+    "78.147.99.0/24"
+   ]
+  },
+  "library": {
+   "router": 3,
+   "prefixes": [
+    "220.140.115.0/24",
+    "255.93.17.0/24",
+    "202.168.152.0/22"
+   ]
+  },
+  "ops": {
+   "router": 1,
+   "prefixes": [
+    "108.7.160.224/27"
+   ]
+  }
+ },
+ "zone_text": [
+  "mail: hosts 136.183.108.0/22, 190.0.40.80/28, 124.215.66.0/23 attached to router R18",
+  "engineering: hosts 199.39.233.0/24, 178.38.125.0/24 attached to router R17",
+  "partners: hosts 209.102.204.0/22, 248.240.164.0/22, 172.18.175.128/25 attached to router R19",
+  "database: hosts 100.7.164.0/23 attached to router R0",
+  "voip: hosts 46.133.168.0/23, 172.102.50.0/24, 123.170.132.0/23 attached to router R5",
+  "vpn-users: hosts 121.8.93.192/27, 37.74.42.0/24, 71.80.69.64/26 attached to router R10",
+  "backup: hosts 253.115.0.0/18 attached to router R8",
+  "hr: hosts 61.12.188.0/24 attached to router R11",
+  "dns-servers: hosts 50.216.33.128/26 attached to router R4",
+  "printers: hosts 67.90.126.0/23, 67.90.124.0/24 attached to router R13",
+  "finance: hosts 61.237.80.0/22, 133.200.166.0/23, 178.66.5.48/28 attached to router R21",
+  "edge-cache: hosts 240.82.147.96/27 attached to router R20",
+  "cameras: hosts 127.191.0.0/25 attached to router R2",
+  "dmz-web: hosts 63.16.103.128/25, 78.147.99.0/24 attached to router R22",
+  "library: hosts 220.140.115.0/24, 255.93.17.0/24, 202.168.152.0/22 attached to router R3",
+  "ops: hosts 108.7.160.224/27 attached to router R1"
+ ],
+ "intents": [
+  {
+   "type": "allow",
+   "src": "library",
+   "dst": "backup",
+   "svcs": [
+    "ssh",
+    "mysql"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "dmz-web",
+   "dst": "library"
+  },
+  {
+   "type": "allow",
+   "src": "vpn-users",
+   "dst": "partners",
+   "svcs": [
+    "snmp",
+    "syslog"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "dmz-web",
+   "allowed": [
+    [
+     "printers",
+     "https"
+    ],
+    [
+     "partners",
+     "syslog"
+    ]
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "hr",
+   "dst": "ops",
+   "svcs": [
+    "https"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "engineering",
+   "dst": "partners",
+   "broad": "high-tcp",
+   "ex": [
+    "postgres"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "library",
+   "svcs": [
+    "ntp",
+    "http"
+   ]
+  }
+ ],
+ "nl": [
+  "Hosts in library may reach backup over SSH (TCP 22) and MySQL (TCP 3306).",
+  "No packet from dmz-web may enter library, even for services open to everyone.",
+  "Hosts in vpn-users may reach partners over SNMP (UDP 161) and syslog (UDP 514).",
+  "dmz-web is isolated: it may only reach printers on HTTPS (TCP 443); partners on syslog (UDP 514), and nothing else.",
+  "Allow hr to connect to ops using HTTPS (TCP 443).",
+  "engineering may use TCP ports 1024-65535 towards partners, except PostgreSQL (TCP 5432), which must be blocked.",
+  "Any zone may connect to library over NTP (UDP 123) and HTTP (TCP 80)."
+ ],
+ "gt": [
+  {
+   "src": "dmz-web",
+   "dst": "library",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "engineering",
+   "dst": "partners",
+   "proto": "tcp",
+   "dlo": 5432,
+   "dhi": 5432,
+   "action": "deny"
+  },
+  {
+   "src": "library",
+   "dst": "backup",
+   "proto": "tcp",
+   "dlo": 22,
+   "dhi": 22,
+   "action": "permit"
+  },
+  {
+   "src": "library",
+   "dst": "backup",
+   "proto": "tcp",
+   "dlo": 3306,
+   "dhi": 3306,
+   "action": "permit"
+  },
+  {
+   "src": "vpn-users",
+   "dst": "partners",
+   "proto": "udp",
+   "dlo": 161,
+   "dhi": 161,
+   "action": "permit"
+  },
+  {
+   "src": "vpn-users",
+   "dst": "partners",
+   "proto": "udp",
+   "dlo": 514,
+   "dhi": 514,
+   "action": "permit"
+  },
+  {
+   "src": "hr",
+   "dst": "ops",
+   "proto": "tcp",
+   "dlo": 443,
+   "dhi": 443,
+   "action": "permit"
+  },
+  {
+   "src": "engineering",
+   "dst": "partners",
+   "proto": "tcp",
+   "dlo": 1024,
+   "dhi": 65535,
+   "action": "permit"
+  },
+  {
+   "src": "dmz-web",
+   "dst": "printers",
+   "proto": "tcp",
+   "dlo": 443,
+   "dhi": 443,
+   "action": "permit"
+  },
+  {
+   "src": "dmz-web",
+   "dst": "partners",
+   "proto": "udp",
+   "dlo": 514,
+   "dhi": 514,
+   "action": "permit"
+  },
+  {
+   "src": "dmz-web",
+   "dst": "*",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "*",
+   "dst": "library",
+   "proto": "udp",
+   "dlo": 123,
+   "dhi": 123,
+   "action": "permit"
+  },
+  {
+   "src": "*",
+   "dst": "library",
+   "proto": "tcp",
+   "dlo": 80,
+   "dhi": 80,
+   "action": "permit"
+  }
+ ]
+}

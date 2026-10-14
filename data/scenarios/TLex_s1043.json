@@ -1,0 +1,925 @@
+{
+ "id": "TLex_s1043",
+ "topology": "TLex",
+ "n_nodes": 12,
+ "edges": [
+  [
+   0,
+   7
+  ],
+  [
+   1,
+   7
+  ],
+  [
+   2,
+   7
+  ],
+  [
+   3,
+   7
+  ],
+  [
+   4,
+   7
+  ],
+  [
+   5,
+   6
+  ],
+  [
+   6,
+   9
+  ],
+  [
+   6,
+   7
+  ],
+  [
+   7,
+   8
+  ],
+  [
+   7,
+   9
+  ],
+  [
+   8,
+   9
+  ],
+  [
+   9,
+   10
+  ],
+  [
+   9,
+   11
+  ]
+ ],
+ "zones": {
+  "student-lab": {
+   "router": 1,
+   "prefixes": [
+    "33.160.74.0/26"
+   ]
+  },
+  "database": {
+   "router": 4,
+   "prefixes": [
+    "41.164.128.0/24",
+    "251.159.74.0/23",
+    "63.106.179.0/24"
+   ]
+  },
+  "library": {
+   "router": 0,
+   "prefixes": [
+    "220.8.129.0/25",
+    "255.102.16.0/20",
+    "37.109.112.0/21"
+   ]
+  },
+  "ops": {
+   "router": 10,
+   "prefixes": [
+    "206.20.69.192/27"
+   ]
+  },
+  "printers": {
+   "router": 2,
+   "prefixes": [
+    "38.174.156.0/22"
+   ]
+  },
+  "hr": {
+   "router": 5,
+   "prefixes": [
+    "18.171.25.0/24",
+    "239.233.240.0/20",
+    "17.160.93.0/26"
+   ]
+  },
+  "iot-sensors": {
+   "router": 11,
+   "prefixes": [
+    "206.31.178.0/24",
+    "217.132.211.0/24"
+   ]
+  },
+  "cameras": {
+   "router": 3,
+   "prefixes": [
+    "51.151.150.0/24"
+   ]
+  },
+  "admin": {
+   "router": 8,
+   "prefixes": [
+    "3.181.102.0/23",
+    "44.76.92.0/22"
+   ]
+  },
+  "mail": {
+   "router": 6,
+   "prefixes": [
+    "143.59.13.240/28",
+    "2.42.240.0/21"
+   ]
+  }
+ },
+ "zone_text": [
+  "student-lab: hosts 33.160.74.0/26 attached to router R1",
+  "database: hosts 41.164.128.0/24, 251.159.74.0/23, 63.106.179.0/24 attached to router R4",
+  "library: hosts 220.8.129.0/25, 255.102.16.0/20, 37.109.112.0/21 attached to router R0",
+  "ops: hosts 206.20.69.192/27 attached to router R10",
+  "printers: hosts 38.174.156.0/22 attached to router R2",
+  "hr: hosts 18.171.25.0/24, 239.233.240.0/20, 17.160.93.0/26 attached to router R5",
+  "iot-sensors: hosts 206.31.178.0/24, 217.132.211.0/24 attached to router R11",
+  "cameras: hosts 51.151.150.0/24 attached to router R3",
+  "admin: hosts 3.181.102.0/23, 44.76.92.0/22 attached to router R8",
+  "mail: hosts 143.59.13.240/28, 2.42.240.0/21 attached to router R6"
+ ],
+ "intents": [
+  {
+   "type": "allow",
+   "src": "hr",
+   "dst": "database",
+   "svcs": [
+    "ssh"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "ops",
+   "allowed": [
+    [
+     "library",
+     "https"
+    ]
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "database",
+   "dst": "student-lab",
+   "svcs": [
+    "ssh",
+    "imap"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "iot-sensors",
+   "dst": "admin",
+   "broad": "any-tcp",
+   "ex": [
+    "ftp"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "printers",
+   "allowed": [
+    [
+     "ops",
+     "syslog"
+    ],
+    [
+     "database",
+     "dns"
+    ]
+   ]
+  },
+  {
+   "type": "block",
+   "src": "ops",
+   "dst": "printers"
+  },
+  {
+   "type": "allow",
+   "src": "database",
+   "dst": "ops",
+   "svcs": [
+    "postgres",
+    "imap"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "hr",
+   "svcs": [
+    "https",
+    "dns"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "cameras",
+   "dst": "admin",
+   "svcs": [
+    "postgres",
+    "https"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "mail",
+   "dst": "iot-sensors",
+   "svcs": [
+    "http",
+    "rdp",
+    "smtp"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "database",
+   "allowed": [
+    [
+     "library",
+     "https"
+    ],
+    [
+     "cameras",
+     "https"
+    ]
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "cameras",
+   "dst": "ops",
+   "svcs": [
+    "rtsp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "cameras",
+   "dst": "student-lab",
+   "svcs": [
+    "dns",
+    "https"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "cameras",
+   "dst": "hr"
+  },
+  {
+   "type": "public",
+   "dst": "student-lab",
+   "svcs": [
+    "ntp"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "student-lab",
+   "allowed": [
+    [
+     "printers",
+     "https"
+    ]
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "admin",
+   "dst": "printers",
+   "broad": "any-tcp",
+   "ex": [
+    "telnet",
+    "ftp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "cameras",
+   "dst": "hr",
+   "svcs": [
+    "rdp",
+    "snmp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "printers",
+   "dst": "admin",
+   "svcs": [
+    "smtp"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "admin",
+   "dst": "student-lab"
+  },
+  {
+   "type": "allow",
+   "src": "ops",
+   "dst": "printers",
+   "svcs": [
+    "ldap",
+    "smtp"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "database",
+   "dst": "student-lab",
+   "broad": "high-tcp",
+   "ex": [
+    "rdp",
+    "postgres",
+    "mysql"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "ops",
+   "dst": "student-lab",
+   "svcs": [
+    "smtp",
+    "http",
+    "rtsp"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "mail",
+   "svcs": [
+    "ntp",
+    "http"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "ops",
+   "dst": "admin",
+   "svcs": [
+    "dns",
+    "ntp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "iot-sensors",
+   "dst": "ops",
+   "svcs": [
+    "smb",
+    "mysql"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "library",
+   "dst": "printers",
+   "svcs": [
+    "ntp",
+    "ldap"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "iot-sensors",
+   "dst": "library",
+   "svcs": [
+    "dns",
+    "rdp",
+    "postgres"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "cameras",
+   "svcs": [
+    "http",
+    "ntp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "database",
+   "dst": "library",
+   "svcs": [
+    "smtp"
+   ]
+  }
+ ],
+ "nl": [
+  "Hosts in hr may reach database over SSH (TCP 22).",
+  "ops is isolated: it may only reach library on HTTPS (TCP 443), and nothing else.",
+  "Hosts in database may reach student-lab over SSH (TCP 22) and IMAP (TCP 143).",
+  "Permit any TCP port from iot-sensors to admin but deny FTP (TCP 21).",
+  "Apart from ops on syslog (UDP 514); database on DNS over UDP 53, all traffic originating in printers must be dropped.",
+  "ops must never reach printers, regardless of any other rule.",
+  "Hosts in database may reach ops over PostgreSQL (TCP 5432) and IMAP (TCP 143).",
+  "hr offers HTTPS (TCP 443) and DNS over UDP 53 to every zone.",
+  "admin must accept PostgreSQL (TCP 5432) and HTTPS (TCP 443) from cameras.",
+  "Allow mail to connect to iot-sensors using HTTP (TCP 80) and RDP (TCP 3389) and SMTP (TCP 25).",
+  "database is isolated: it may only reach library on HTTPS (TCP 443); cameras on HTTPS (TCP 443), and nothing else.",
+  "Hosts in cameras may reach ops over RTSP (TCP 554).",
+  "Hosts in cameras may reach student-lab over DNS over UDP 53 and HTTPS (TCP 443).",
+  "No packet from cameras may enter hr, even for services open to everyone.",
+  "Any zone may connect to student-lab over NTP (UDP 123).",
+  "student-lab is isolated: it may only reach printers on HTTPS (TCP 443), and nothing else.",
+  "Permit any TCP port from admin to printers but deny Telnet (TCP 23), FTP (TCP 21).",
+  "Hosts in cameras may reach hr over RDP (TCP 3389) and SNMP (UDP 161).",
+  "admin must accept SMTP (TCP 25) from printers.",
+  "Deny all traffic from admin to student-lab (this overrides any public service).",
+  "Allow ops to connect to printers using LDAP (TCP 389) and SMTP (TCP 25).",
+  "Block RDP (TCP 3389), PostgreSQL (TCP 5432), MySQL (TCP 3306) from database to student-lab; the rest of TCP ports 1024-65535 between them is allowed.",
+  "student-lab must accept SMTP (TCP 25) and HTTP (TCP 80) and RTSP (TCP 554) from ops.",
+  "mail offers NTP (UDP 123) and HTTP (TCP 80) to every zone.",
+  "admin must accept DNS over UDP 53 and NTP (UDP 123) from ops.",
+  "Hosts in iot-sensors may reach ops over SMB (TCP 445) and MySQL (TCP 3306).",
+  "printers must accept NTP (UDP 123) and LDAP (TCP 389) from library.",
+  "library must accept DNS over UDP 53 and RDP (TCP 3389) and PostgreSQL (TCP 5432) from iot-sensors.",
+  "cameras offers HTTP (TCP 80) and NTP (UDP 123) to every zone.",
+  "library must accept SMTP (TCP 25) from database."
+ ],
+ "gt": [
+  {
+   "src": "ops",
+   "dst": "printers",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "cameras",
+   "dst": "hr",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "admin",
+   "dst": "student-lab",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "iot-sensors",
+   "dst": "admin",
+   "proto": "tcp",
+   "dlo": 21,
+   "dhi": 21,
+   "action": "deny"
+  },
+  {
+   "src": "admin",
+   "dst": "printers",
+   "proto": "tcp",
+   "dlo": 23,
+   "dhi": 23,
+   "action": "deny"
+  },
+  {
+   "src": "admin",
+   "dst": "printers",
+   "proto": "tcp",
+   "dlo": 21,
+   "dhi": 21,
+   "action": "deny"
+  },
+  {
+   "src": "database",
+   "dst": "student-lab",
+   "proto": "tcp",
+   "dlo": 3389,
+   "dhi": 3389,
+   "action": "deny"
+  },
+  {
+   "src": "database",
+   "dst": "student-lab",
+   "proto": "tcp",
+   "dlo": 5432,
+   "dhi": 5432,
+   "action": "deny"
+  },
+  {
+   "src": "database",
+   "dst": "student-lab",
+   "proto": "tcp",
+   "dlo": 3306,
+   "dhi": 3306,
+   "action": "deny"
+  },
+  {
+   "src": "hr",
+   "dst": "database",
+   "proto": "tcp",
+   "dlo": 22,
+   "dhi": 22,
+   "action": "permit"
+  },
+  {
+   "src": "database",
+   "dst": "student-lab",
+   "proto": "tcp",
+   "dlo": 22,
+   "dhi": 22,
+   "action": "permit"
+  },
+  {
+   "src": "database",
+   "dst": "student-lab",
+   "proto": "tcp",
+   "dlo": 143,
+   "dhi": 143,
+   "action": "permit"
+  },
+  {
+   "src": "iot-sensors",
+   "dst": "admin",
+   "proto": "tcp",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "permit"
+  },
+  {
+   "src": "database",
+   "dst": "ops",
+   "proto": "tcp",
+   "dlo": 5432,
+   "dhi": 5432,
+   "action": "permit"
+  },
+  {
+   "src": "database",
+   "dst": "ops",
+   "proto": "tcp",
+   "dlo": 143,
+   "dhi": 143,
+   "action": "permit"
+  },
+  {
+   "src": "cameras",
+   "dst": "admin",
+   "proto": "tcp",
+   "dlo": 5432,
+   "dhi": 5432,
+   "action": "permit"
+  },
+  {
+   "src": "cameras",
+   "dst": "admin",
+   "proto": "tcp",
+   "dlo": 443,
+   "dhi": 443,
+   "action": "permit"
+  },
+  {
+   "src": "mail",
+   "dst": "iot-sensors",
+   "proto": "tcp",
+   "dlo": 80,
+   "dhi": 80,
+   "action": "permit"
+  },
+  {
+   "src": "mail",
+   "dst": "iot-sensors",
+   "proto": "tcp",
+   "dlo": 3389,
+   "dhi": 3389,
+   "action": "permit"
+  },
+  {
+   "src": "mail",
+   "dst": "iot-sensors",
+   "proto": "tcp",
+   "dlo": 25,
+   "dhi": 25,
+   "action": "permit"
+  },
+  {
+   "src": "cameras",
+   "dst": "ops",
+   "proto": "tcp",
+   "dlo": 554,
+   "dhi": 554,
+   "action": "permit"
+  },
+  {
+   "src": "cameras",
+   "dst": "student-lab",
+   "proto": "udp",
+   "dlo": 53,
+   "dhi": 53,
+   "action": "permit"
+  },
+  {
+   "src": "cameras",
+   "dst": "student-lab",
+   "proto": "tcp",
+   "dlo": 443,
+   "dhi": 443,
+   "action": "permit"
+  },
+  {
+   "src": "admin",
+   "dst": "printers",
+   "proto": "tcp",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "permit"
+  },
+  {
+   "src": "cameras",
+   "dst": "hr",
+   "proto": "tcp",
+   "dlo": 3389,
+   "dhi": 3389,
+   "action": "permit"
+  },
+  {
+   "src": "cameras",
+   "dst": "hr",
+   "proto": "udp",
+   "dlo": 161,
+   "dhi": 161,
+   "action": "permit"
+  },
+  {
+   "src": "printers",
+   "dst": "admin",
+   "proto": "tcp",
+   "dlo": 25,
+   "dhi": 25,
+   "action": "permit"
+  },
+  {
+   "src": "ops",
+   "dst": "printers",
+   "proto": "tcp",
+   "dlo": 389,
+   "dhi": 389,
+   "action": "permit"
+  },
+  {
+   "src": "ops",
+   "dst": "printers",
+   "proto": "tcp",
+   "dlo": 25,
+   "dhi": 25,
+   "action": "permit"
+  },
+  {
+   "src": "database",
+   "dst": "student-lab",
+   "proto": "tcp",
+   "dlo": 1024,
+   "dhi": 65535,
+   "action": "permit"
+  },
+  {
+   "src": "ops",
+   "dst": "student-lab",
+   "proto": "tcp",
+   "dlo": 25,
+   "dhi": 25,
+   "action": "permit"
+  },
+  {
+   "src": "ops",
+   "dst": "student-lab",
+   "proto": "tcp",
+   "dlo": 80,
+   "dhi": 80,
+   "action": "permit"
+  },
+  {
+   "src": "ops",
+   "dst": "student-lab",
+   "proto": "tcp",
+   "dlo": 554,
+   "dhi": 554,
+   "action": "permit"
+  },
+  {
+   "src": "ops",
+   "dst": "admin",
+   "proto": "udp",
+   "dlo": 53,
+   "dhi": 53,
+   "action": "permit"
+  },
+  {
+   "src": "ops",
+   "dst": "admin",
+   "proto": "udp",
+   "dlo": 123,
+   "dhi": 123,
+   "action": "permit"
+  },
+  {
+   "src": "iot-sensors",
+   "dst": "ops",
+   "proto": "tcp",
+   "dlo": 445,
+   "dhi": 445,
+   "action": "permit"
+  },
+  {
+   "src": "iot-sensors",
+   "dst": "ops",
+   "proto": "tcp",
+   "dlo": 3306,
+   "dhi": 3306,
+   "action": "permit"
+  },
+  {
+   "src": "library",
+   "dst": "printers",
+   "proto": "udp",
+   "dlo": 123,
+   "dhi": 123,
+   "action": "permit"
+  },
+  {
+   "src": "library",
+   "dst": "printers",
+   "proto": "tcp",
+   "dlo": 389,
+   "dhi": 389,
+   "action": "permit"
+  },
+  {
+   "src": "iot-sensors",
+   "dst": "library",
+   "proto": "udp",
+   "dlo": 53,
+   "dhi": 53,
+   "action": "permit"
+  },
+  {
+   "src": "iot-sensors",
+   "dst": "library",
+   "proto": "tcp",
+   "dlo": 3389,
+   "dhi": 3389,
+   "action": "permit"
+  },
+  {
+   "src": "iot-sensors",
+   "dst": "library",
+   "proto": "tcp",
+   "dlo": 5432,
+   "dhi": 5432,
+   "action": "permit"
+  },
+  {
+   "src": "database",
+   "dst": "library",
+   "proto": "tcp",
+   "dlo": 25,
+   "dhi": 25,
+   "action": "permit"
+  },
+  {
+   "src": "ops",
+   "dst": "library",
+   "proto": "tcp",
+   "dlo": 443,
+   "dhi": 443,
+   "action": "permit"
+  },
+  {
+   "src": "printers",
+   "dst": "ops",
+   "proto": "udp",
+   "dlo": 514,
+   "dhi": 514,
+   "action": "permit"
+  },
+  {
+   "src": "printers",
+   "dst": "database",
+   "proto": "udp",
+   "dlo": 53,
+   "dhi": 53,
+   "action": "permit"
+  },
+  {
+   "src": "database",
+   "dst": "library",
+   "proto": "tcp",
+   "dlo": 443,
+   "dhi": 443,
+   "action": "permit"
+  },
+  {
+   "src": "database",
+   "dst": "cameras",
+   "proto": "tcp",
+   "dlo": 443,
+   "dhi": 443,
+   "action": "permit"
+  },
+  {
+   "src": "student-lab",
+   "dst": "printers",
+   "proto": "tcp",
+   "dlo": 443,
+   "dhi": 443,
+   "action": "permit"
+  },
+  {
+   "src": "ops",
+   "dst": "*",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "printers",
+   "dst": "*",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "database",
+   "dst": "*",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "student-lab",
+   "dst": "*",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "*",
+   "dst": "hr",
+   "proto": "tcp",
+   "dlo": 443,
+   "dhi": 443,
+   "action": "permit"
+  },
+  {
+   "src": "*",
+   "dst": "hr",
+   "proto": "udp",
+   "dlo": 53,
+   "dhi": 53,
+   "action": "permit"
+  },
+  {
+   "src": "*",
+   "dst": "student-lab",
+   "proto": "udp",
+   "dlo": 123,
+   "dhi": 123,
+   "action": "permit"
+  },
+  {
+   "src": "*",
+   "dst": "mail",
+   "proto": "udp",
+   "dlo": 123,
+   "dhi": 123,
+   "action": "permit"
+  },
+  {
+   "src": "*",
+   "dst": "mail",
+   "proto": "tcp",
+   "dlo": 80,
+   "dhi": 80,
+   "action": "permit"
+  },
+  {
+   "src": "*",
+   "dst": "cameras",
+   "proto": "tcp",
+   "dlo": 80,
+   "dhi": 80,
+   "action": "permit"
+  },
+  {
+   "src": "*",
+   "dst": "cameras",
+   "proto": "udp",
+   "dlo": 123,
+   "dhi": 123,
+   "action": "permit"
+  }
+ ]
+}

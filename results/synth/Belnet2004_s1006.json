@@ -1,0 +1,185 @@
+{
+ "id": "Belnet2004_s1006",
+ "n_intents": 8,
+ "n_gt_rules": 12,
+ "n_zones": 6,
+ "rules": {
+  "eq": false,
+  "mismatch": 0.0015,
+  "n_rules": 11,
+  "fail": 0,
+  "s": 12.544219732284546,
+  "calls": 1,
+  "prompt": 665,
+  "completion": 364
+ },
+ "ir0": {
+  "eq": true,
+  "mismatch": 0.0,
+  "n_rules": 12,
+  "fail": 0,
+  "s": 8.180612325668335,
+  "calls": 8,
+  "prompt": 4955,
+  "completion": 228,
+  "intent_acc": 1.0
+ },
+ "ir": {
+  "eq": true,
+  "mismatch": 0.0,
+  "n_rules": 12,
+  "fail": 0,
+  "s": 7.054424047470093,
+  "calls": 8,
+  "prompt": 8563,
+  "completion": 201,
+  "intent_acc": 1.0
+ },
+ "fw": {
+  "eq": true,
+  "mismatch": 0.0,
+  "n_rules": 12,
+  "fail": 0,
+  "s": 21.73466944694519,
+  "verify_s": 14.680246114730835,
+  "calls": 16,
+  "verify_calls": 8,
+  "flagged": 0,
+  "accepted": 0,
+  "repairs": [],
+  "intent_acc": 1.0
+ },
+ "ir_out": [
+  {
+   "type": "allow",
+   "src": "iot-sensors",
+   "dst": "printers",
+   "svcs": [
+    "smtp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "printers",
+   "dst": "voip",
+   "svcs": [
+    "rdp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "voip",
+   "dst": "cameras",
+   "svcs": [
+    "mysql",
+    "postgres"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "voip",
+   "dst": "printers",
+   "svcs": [
+    "postgres",
+    "dns"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "edge-cache",
+   "dst": "cameras",
+   "svcs": [
+    "postgres",
+    "rtsp",
+    "https"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "printers",
+   "dst": "voip"
+  },
+  {
+   "type": "allow",
+   "src": "monitoring",
+   "dst": "edge-cache",
+   "svcs": [
+    "ldap"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "voip",
+   "svcs": [
+    "ntp"
+   ]
+  }
+ ],
+ "fw_out": [
+  {
+   "type": "allow",
+   "src": "iot-sensors",
+   "dst": "printers",
+   "svcs": [
+    "smtp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "printers",
+   "dst": "voip",
+   "svcs": [
+    "rdp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "voip",
+   "dst": "cameras",
+   "svcs": [
+    "mysql",
+    "postgres"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "voip",
+   "dst": "printers",
+   "svcs": [
+    "postgres",
+    "dns"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "edge-cache",
+   "dst": "cameras",
+   "svcs": [
+    "postgres",
+    "rtsp",
+    "https"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "printers",
+   "dst": "voip"
+  },
+  {
+   "type": "allow",
+   "src": "monitoring",
+   "dst": "edge-cache",
+   "svcs": [
+    "ldap"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "voip",
+   "svcs": [
+    "ntp"
+   ]
+  }
+ ],
+ "wall_s": 42.66289305686951
+}

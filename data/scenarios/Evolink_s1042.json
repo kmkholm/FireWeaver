@@ -1,0 +1,383 @@
+{
+ "id": "Evolink_s1042",
+ "topology": "Evolink",
+ "n_nodes": 37,
+ "edges": [
+  [
+   0,
+   33
+  ],
+  [
+   0,
+   34
+  ],
+  [
+   1,
+   3
+  ],
+  [
+   2,
+   3
+  ],
+  [
+   3,
+   4
+  ],
+  [
+   3,
+   5
+  ],
+  [
+   4,
+   34
+  ],
+  [
+   5,
+   6
+  ],
+  [
+   6,
+   20
+  ],
+  [
+   7,
+   34
+  ],
+  [
+   8,
+   33
+  ],
+  [
+   8,
+   34
+  ],
+  [
+   8,
+   31
+  ],
+  [
+   9,
+   10
+  ],
+  [
+   9,
+   20
+  ],
+  [
+   10,
+   11
+  ],
+  [
+   11,
+   12
+  ],
+  [
+   12,
+   14
+  ],
+  [
+   13,
+   14
+  ],
+  [
+   14,
+   31
+  ],
+  [
+   15,
+   16
+  ],
+  [
+   15,
+   34
+  ],
+  [
+   15,
+   31
+  ],
+  [
+   16,
+   17
+  ],
+  [
+   17,
+   18
+  ],
+  [
+   18,
+   32
+  ],
+  [
+   18,
+   19
+  ],
+  [
+   18,
+   34
+  ],
+  [
+   18,
+   29
+  ],
+  [
+   21,
+   34
+  ],
+  [
+   22,
+   34
+  ],
+  [
+   23,
+   34
+  ],
+  [
+   24,
+   25
+  ],
+  [
+   24,
+   34
+  ],
+  [
+   26,
+   32
+  ],
+  [
+   27,
+   32
+  ],
+  [
+   27,
+   34
+  ],
+  [
+   28,
+   34
+  ],
+  [
+   29,
+   32
+  ],
+  [
+   29,
+   30
+  ],
+  [
+   31,
+   34
+  ],
+  [
+   32,
+   34
+  ],
+  [
+   32,
+   36
+  ],
+  [
+   33,
+   34
+  ],
+  [
+   35,
+   36
+  ]
+ ],
+ "zones": {
+  "dmz-web": {
+   "router": 13,
+   "prefixes": [
+    "53.253.130.0/23",
+    "37.134.157.192/26",
+    "1.85.64.0/21"
+   ]
+  },
+  "database": {
+   "router": 21,
+   "prefixes": [
+    "34.99.38.0/23",
+    "4.94.124.0/23",
+    "235.217.192.0/23"
+   ]
+  },
+  "mail": {
+   "router": 22,
+   "prefixes": [
+    "94.150.156.0/25"
+   ]
+  },
+  "scada": {
+   "router": 30,
+   "prefixes": [
+    "91.123.152.0/21",
+    "104.15.252.0/23"
+   ]
+  },
+  "backup": {
+   "router": 1,
+   "prefixes": [
+    "194.139.114.0/23"
+   ]
+  },
+  "monitoring": {
+   "router": 26,
+   "prefixes": [
+    "22.83.24.0/21"
+   ]
+  }
+ },
+ "zone_text": [
+  "dmz-web: hosts 53.253.130.0/23, 37.134.157.192/26, 1.85.64.0/21 attached to router R13",
+  "database: hosts 34.99.38.0/23, 4.94.124.0/23, 235.217.192.0/23 attached to router R21",
+  "mail: hosts 94.150.156.0/25 attached to router R22",
+  "scada: hosts 91.123.152.0/21, 104.15.252.0/23 attached to router R30",
+  "backup: hosts 194.139.114.0/23 attached to router R1",
+  "monitoring: hosts 22.83.24.0/21 attached to router R26"
+ ],
+ "intents": [
+  {
+   "type": "allow",
+   "src": "backup",
+   "dst": "scada",
+   "svcs": [
+    "ssh"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "dmz-web",
+   "dst": "backup"
+  },
+  {
+   "type": "block",
+   "src": "mail",
+   "dst": "database"
+  },
+  {
+   "type": "allow",
+   "src": "mail",
+   "dst": "scada",
+   "svcs": [
+    "rtsp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "mail",
+   "dst": "backup",
+   "svcs": [
+    "mysql",
+    "postgres"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "mail",
+   "svcs": [
+    "https"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "backup",
+   "dst": "database",
+   "svcs": [
+    "rdp",
+    "postgres",
+    "ssh"
+   ]
+  }
+ ],
+ "nl": [
+  "Allow backup to connect to scada using SSH (TCP 22).",
+  "dmz-web must never reach backup, regardless of any other rule.",
+  "No packet from mail may enter database, even for services open to everyone.",
+  "scada must accept RTSP (TCP 554) from mail.",
+  "Hosts in mail may reach backup over MySQL (TCP 3306) and PostgreSQL (TCP 5432).",
+  "mail offers HTTPS (TCP 443) to every zone.",
+  "database must accept RDP (TCP 3389) and PostgreSQL (TCP 5432) and SSH (TCP 22) from backup."
+ ],
+ "gt": [
+  {
+   "src": "dmz-web",
+   "dst": "backup",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "mail",
+   "dst": "database",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "backup",
+   "dst": "scada",
+   "proto": "tcp",
+   "dlo": 22,
+   "dhi": 22,
+   "action": "permit"
+  },
+  {
+   "src": "mail",
+   "dst": "scada",
+   "proto": "tcp",
+   "dlo": 554,
+   "dhi": 554,
+   "action": "permit"
+  },
+  {
+   "src": "mail",
+   "dst": "backup",
+   "proto": "tcp",
+   "dlo": 3306,
+   "dhi": 3306,
+   "action": "permit"
+  },
+  {
+   "src": "mail",
+   "dst": "backup",
+   "proto": "tcp",
+   "dlo": 5432,
+   "dhi": 5432,
+   "action": "permit"
+  },
+  {
+   "src": "backup",
+   "dst": "database",
+   "proto": "tcp",
+   "dlo": 3389,
+   "dhi": 3389,
+   "action": "permit"
+  },
+  {
+   "src": "backup",
+   "dst": "database",
+   "proto": "tcp",
+   "dlo": 5432,
+   "dhi": 5432,
+   "action": "permit"
+  },
+  {
+   "src": "backup",
+   "dst": "database",
+   "proto": "tcp",
+   "dlo": 22,
+   "dhi": 22,
+   "action": "permit"
+  },
+  {
+   "src": "*",
+   "dst": "mail",
+   "proto": "tcp",
+   "dlo": 443,
+   "dhi": 443,
+   "action": "permit"
+  }
+ ]
+}

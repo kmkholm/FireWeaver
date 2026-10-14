@@ -1,0 +1,1137 @@
+{
+ "id": "Garr201201_s1016",
+ "topology": "Garr201201",
+ "n_nodes": 61,
+ "edges": [
+  [
+   0,
+   51
+  ],
+  [
+   1,
+   46
+  ],
+  [
+   2,
+   50
+  ],
+  [
+   2,
+   54
+  ],
+  [
+   2,
+   6
+  ],
+  [
+   2,
+   45
+  ],
+  [
+   2,
+   16
+  ],
+  [
+   2,
+   17
+  ],
+  [
+   2,
+   18
+  ],
+  [
+   2,
+   22
+  ],
+  [
+   2,
+   30
+  ],
+  [
+   2,
+   14
+  ],
+  [
+   2,
+   19
+  ],
+  [
+   2,
+   59
+  ],
+  [
+   3,
+   43
+  ],
+  [
+   3,
+   44
+  ],
+  [
+   3,
+   45
+  ],
+  [
+   3,
+   39
+  ],
+  [
+   4,
+   50
+  ],
+  [
+   5,
+   45
+  ],
+  [
+   5,
+   57
+  ],
+  [
+   6,
+   49
+  ],
+  [
+   6,
+   46
+  ],
+  [
+   6,
+   47
+  ],
+  [
+   7,
+   20
+  ],
+  [
+   8,
+   45
+  ],
+  [
+   9,
+   43
+  ],
+  [
+   10,
+   43
+  ],
+  [
+   11,
+   45
+  ],
+  [
+   12,
+   43
+  ],
+  [
+   13,
+   16
+  ],
+  [
+   14,
+   21
+  ],
+  [
+   15,
+   16
+  ],
+  [
+   16,
+   18
+  ],
+  [
+   18,
+   33
+  ],
+  [
+   18,
+   21
+  ],
+  [
+   18,
+   22
+  ],
+  [
+   20,
+   50
+  ],
+  [
+   23,
+   30
+  ],
+  [
+   24,
+   25
+  ],
+  [
+   25,
+   50
+  ],
+  [
+   25,
+   30
+  ],
+  [
+   25,
+   26
+  ],
+  [
+   25,
+   28
+  ],
+  [
+   25,
+   27
+  ],
+  [
+   25,
+   60
+  ],
+  [
+   29,
+   30
+  ],
+  [
+   30,
+   33
+  ],
+  [
+   31,
+   33
+  ],
+  [
+   32,
+   52
+  ],
+  [
+   32,
+   33
+  ],
+  [
+   33,
+   34
+  ],
+  [
+   33,
+   35
+  ],
+  [
+   34,
+   56
+  ],
+  [
+   36,
+   45
+  ],
+  [
+   37,
+   45
+  ],
+  [
+   38,
+   40
+  ],
+  [
+   39,
+   40
+  ],
+  [
+   40,
+   43
+  ],
+  [
+   40,
+   50
+  ],
+  [
+   40,
+   55
+  ],
+  [
+   40,
+   42
+  ],
+  [
+   41,
+   55
+  ],
+  [
+   42,
+   45
+  ],
+  [
+   43,
+   45
+  ],
+  [
+   43,
+   50
+  ],
+  [
+   43,
+   51
+  ],
+  [
+   44,
+   45
+  ],
+  [
+   45,
+   46
+  ],
+  [
+   45,
+   51
+  ],
+  [
+   45,
+   47
+  ],
+  [
+   48,
+   49
+  ],
+  [
+   49,
+   50
+  ],
+  [
+   49,
+   53
+  ],
+  [
+   50,
+   58
+  ]
+ ],
+ "zones": {
+  "guest-wifi": {
+   "router": 11,
+   "prefixes": [
+    "141.12.240.0/20"
+   ]
+  },
+  "scada": {
+   "router": 38,
+   "prefixes": [
+    "35.185.130.0/23"
+   ]
+  },
+  "iot-sensors": {
+   "router": 23,
+   "prefixes": [
+    "170.114.80.0/20",
+    "20.207.217.0/24",
+    "80.49.0.0/16"
+   ]
+  },
+  "edge-cache": {
+   "router": 37,
+   "prefixes": [
+    "3.132.106.160/27",
+    "229.3.81.0/24"
+   ]
+  },
+  "vpn-users": {
+   "router": 29,
+   "prefixes": [
+    "197.241.251.0/24",
+    "37.109.56.0/23"
+   ]
+  },
+  "voip": {
+   "router": 60,
+   "prefixes": [
+    "142.222.47.224/27",
+    "11.208.111.128/25"
+   ]
+  },
+  "library": {
+   "router": 0,
+   "prefixes": [
+    "217.122.95.64/26",
+    "207.165.96.128/25",
+    "248.180.215.96/27"
+   ]
+  },
+  "dev-lab": {
+   "router": 28,
+   "prefixes": [
+    "225.192.162.0/23"
+   ]
+  },
+  "research": {
+   "router": 53,
+   "prefixes": [
+    "227.216.171.0/25",
+    "233.190.138.128/26",
+    "136.107.244.0/22"
+   ]
+  },
+  "backup": {
+   "router": 36,
+   "prefixes": [
+    "119.214.0.0/16",
+    "24.206.1.160/27"
+   ]
+  }
+ },
+ "zone_text": [
+  "guest-wifi: hosts 141.12.240.0/20 attached to router R11",
+  "scada: hosts 35.185.130.0/23 attached to router R38",
+  "iot-sensors: hosts 170.114.80.0/20, 20.207.217.0/24, 80.49.0.0/16 attached to router R23",
+  "edge-cache: hosts 3.132.106.160/27, 229.3.81.0/24 attached to router R37",
+  "vpn-users: hosts 197.241.251.0/24, 37.109.56.0/23 attached to router R29",
+  "voip: hosts 142.222.47.224/27, 11.208.111.128/25 attached to router R60",
+  "library: hosts 217.122.95.64/26, 207.165.96.128/25, 248.180.215.96/27 attached to router R0",
+  "dev-lab: hosts 225.192.162.0/23 attached to router R28",
+  "research: hosts 227.216.171.0/25, 233.190.138.128/26, 136.107.244.0/22 attached to router R53",
+  "backup: hosts 119.214.0.0/16, 24.206.1.160/27 attached to router R36"
+ ],
+ "intents": [
+  {
+   "type": "allow",
+   "src": "edge-cache",
+   "dst": "vpn-users",
+   "svcs": [
+    "smtp"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "vpn-users",
+   "allowed": [
+    [
+     "scada",
+     "syslog"
+    ]
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "guest-wifi",
+   "svcs": [
+    "http"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "voip",
+   "dst": "scada",
+   "svcs": [
+    "ldap",
+    "mysql"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "edge-cache",
+   "dst": "library",
+   "svcs": [
+    "ldap",
+    "smb"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "dev-lab",
+   "allowed": [
+    [
+     "voip",
+     "dns"
+    ],
+    [
+     "research",
+     "dns"
+    ]
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "vpn-users",
+   "dst": "guest-wifi",
+   "svcs": [
+    "rdp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "voip",
+   "dst": "vpn-users",
+   "svcs": [
+    "imap",
+    "snmp"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "edge-cache",
+   "allowed": [
+    [
+     "library",
+     "https"
+    ],
+    [
+     "vpn-users",
+     "https"
+    ]
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "edge-cache",
+   "dst": "vpn-users",
+   "svcs": [
+    "ssh",
+    "ldap"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "vpn-users",
+   "svcs": [
+    "ntp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "backup",
+   "dst": "edge-cache",
+   "svcs": [
+    "ldap"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "edge-cache",
+   "dst": "voip",
+   "broad": "high-tcp",
+   "ex": [
+    "rdp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "research",
+   "dst": "dev-lab",
+   "svcs": [
+    "dns"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "backup",
+   "dst": "dev-lab",
+   "svcs": [
+    "syslog"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "library",
+   "dst": "dev-lab",
+   "svcs": [
+    "https",
+    "ssh",
+    "syslog"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "vpn-users",
+   "svcs": [
+    "dns"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "guest-wifi",
+   "dst": "scada",
+   "broad": "any-udp",
+   "ex": [
+    "tftp"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "dev-lab",
+   "svcs": [
+    "dns",
+    "https"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "scada",
+   "dst": "voip",
+   "svcs": [
+    "dns",
+    "https",
+    "smtp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "scada",
+   "dst": "backup",
+   "svcs": [
+    "ssh"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "edge-cache",
+   "dst": "research"
+  },
+  {
+   "type": "allow",
+   "src": "vpn-users",
+   "dst": "voip",
+   "svcs": [
+    "ssh",
+    "https",
+    "imap"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "edge-cache",
+   "svcs": [
+    "ntp"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "edge-cache",
+   "dst": "dev-lab"
+  },
+  {
+   "type": "public",
+   "dst": "library",
+   "svcs": [
+    "ntp",
+    "https"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "guest-wifi",
+   "dst": "dev-lab",
+   "svcs": [
+    "ldap",
+    "https"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "vpn-users",
+   "dst": "edge-cache",
+   "svcs": [
+    "ssh",
+    "https",
+    "mysql"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "vpn-users",
+   "svcs": [
+    "https",
+    "dns"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "research",
+   "dst": "dev-lab",
+   "broad": "any-tcp",
+   "ex": [
+    "rdp",
+    "telnet",
+    "ftp"
+   ]
+  }
+ ],
+ "nl": [
+  "Hosts in edge-cache may reach vpn-users over SMTP (TCP 25).",
+  "vpn-users is isolated: it may only reach scada on syslog (UDP 514), and nothing else.",
+  "Any zone may connect to guest-wifi over HTTP (TCP 80).",
+  "Allow voip to connect to scada using LDAP (TCP 389) and MySQL (TCP 3306).",
+  "library must accept LDAP (TCP 389) and SMB (TCP 445) from edge-cache.",
+  "Restrict dev-lab so that its only permitted destinations are voip on DNS over UDP 53; research on DNS over UDP 53; drop all other traffic it originates.",
+  "guest-wifi must accept RDP (TCP 3389) from vpn-users.",
+  "vpn-users must accept IMAP (TCP 143) and SNMP (UDP 161) from voip.",
+  "Restrict edge-cache so that its only permitted destinations are library on HTTPS (TCP 443); vpn-users on HTTPS (TCP 443); drop all other traffic it originates.",
+  "Allow edge-cache to connect to vpn-users using SSH (TCP 22) and LDAP (TCP 389).",
+  "Make NTP (UDP 123) on vpn-users reachable from all internal zones.",
+  "Allow backup to connect to edge-cache using LDAP (TCP 389).",
+  "Permit TCP ports 1024-65535 from edge-cache to voip but deny RDP (TCP 3389).",
+  "dev-lab must accept DNS over UDP 53 from research.",
+  "Allow backup to connect to dev-lab using syslog (UDP 514).",
+  "dev-lab must accept HTTPS (TCP 443) and SSH (TCP 22) and syslog (UDP 514) from library.",
+  "Make DNS over UDP 53 on vpn-users reachable from all internal zones.",
+  "guest-wifi may use any UDP port towards scada, except TFTP (UDP 69), which must be blocked.",
+  "dev-lab offers DNS over UDP 53 and HTTPS (TCP 443) to every zone.",
+  "voip must accept DNS over UDP 53 and HTTPS (TCP 443) and SMTP (TCP 25) from scada.",
+  "backup must accept SSH (TCP 22) from scada.",
+  "edge-cache must never reach research, regardless of any other rule.",
+  "Hosts in vpn-users may reach voip over SSH (TCP 22) and HTTPS (TCP 443) and IMAP (TCP 143).",
+  "Make NTP (UDP 123) on edge-cache reachable from all internal zones.",
+  "Deny all traffic from edge-cache to dev-lab (this overrides any public service).",
+  "library offers NTP (UDP 123) and HTTPS (TCP 443) to every zone.",
+  "Allow guest-wifi to connect to dev-lab using LDAP (TCP 389) and HTTPS (TCP 443).",
+  "edge-cache must accept SSH (TCP 22) and HTTPS (TCP 443) and MySQL (TCP 3306) from vpn-users.",
+  "Any zone may connect to vpn-users over HTTPS (TCP 443) and DNS over UDP 53.",
+  "research may use any TCP port towards dev-lab, except RDP (TCP 3389), Telnet (TCP 23), FTP (TCP 21), which must be blocked."
+ ],
+ "gt": [
+  {
+   "src": "edge-cache",
+   "dst": "research",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "edge-cache",
+   "dst": "dev-lab",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "edge-cache",
+   "dst": "voip",
+   "proto": "tcp",
+   "dlo": 3389,
+   "dhi": 3389,
+   "action": "deny"
+  },
+  {
+   "src": "guest-wifi",
+   "dst": "scada",
+   "proto": "udp",
+   "dlo": 69,
+   "dhi": 69,
+   "action": "deny"
+  },
+  {
+   "src": "research",
+   "dst": "dev-lab",
+   "proto": "tcp",
+   "dlo": 3389,
+   "dhi": 3389,
+   "action": "deny"
+  },
+  {
+   "src": "research",
+   "dst": "dev-lab",
+   "proto": "tcp",
+   "dlo": 23,
+   "dhi": 23,
+   "action": "deny"
+  },
+  {
+   "src": "research",
+   "dst": "dev-lab",
+   "proto": "tcp",
+   "dlo": 21,
+   "dhi": 21,
+   "action": "deny"
+  },
+  {
+   "src": "edge-cache",
+   "dst": "vpn-users",
+   "proto": "tcp",
+   "dlo": 25,
+   "dhi": 25,
+   "action": "permit"
+  },
+  {
+   "src": "voip",
+   "dst": "scada",
+   "proto": "tcp",
+   "dlo": 389,
+   "dhi": 389,
+   "action": "permit"
+  },
+  {
+   "src": "voip",
+   "dst": "scada",
+   "proto": "tcp",
+   "dlo": 3306,
+   "dhi": 3306,
+   "action": "permit"
+  },
+  {
+   "src": "edge-cache",
+   "dst": "library",
+   "proto": "tcp",
+   "dlo": 389,
+   "dhi": 389,
+   "action": "permit"
+  },
+  {
+   "src": "edge-cache",
+   "dst": "library",
+   "proto": "tcp",
+   "dlo": 445,
+   "dhi": 445,
+   "action": "permit"
+  },
+  {
+   "src": "vpn-users",
+   "dst": "guest-wifi",
+   "proto": "tcp",
+   "dlo": 3389,
+   "dhi": 3389,
+   "action": "permit"
+  },
+  {
+   "src": "voip",
+   "dst": "vpn-users",
+   "proto": "tcp",
+   "dlo": 143,
+   "dhi": 143,
+   "action": "permit"
+  },
+  {
+   "src": "voip",
+   "dst": "vpn-users",
+   "proto": "udp",
+   "dlo": 161,
+   "dhi": 161,
+   "action": "permit"
+  },
+  {
+   "src": "edge-cache",
+   "dst": "vpn-users",
+   "proto": "tcp",
+   "dlo": 22,
+   "dhi": 22,
+   "action": "permit"
+  },
+  {
+   "src": "edge-cache",
+   "dst": "vpn-users",
+   "proto": "tcp",
+   "dlo": 389,
+   "dhi": 389,
+   "action": "permit"
+  },
+  {
+   "src": "backup",
+   "dst": "edge-cache",
+   "proto": "tcp",
+   "dlo": 389,
+   "dhi": 389,
+   "action": "permit"
+  },
+  {
+   "src": "edge-cache",
+   "dst": "voip",
+   "proto": "tcp",
+   "dlo": 1024,
+   "dhi": 65535,
+   "action": "permit"
+  },
+  {
+   "src": "research",
+   "dst": "dev-lab",
+   "proto": "udp",
+   "dlo": 53,
+   "dhi": 53,
+   "action": "permit"
+  },
+  {
+   "src": "backup",
+   "dst": "dev-lab",
+   "proto": "udp",
+   "dlo": 514,
+   "dhi": 514,
+   "action": "permit"
+  },
+  {
+   "src": "library",
+   "dst": "dev-lab",
+   "proto": "tcp",
+   "dlo": 443,
+   "dhi": 443,
+   "action": "permit"
+  },
+  {
+   "src": "library",
+   "dst": "dev-lab",
+   "proto": "tcp",
+   "dlo": 22,
+   "dhi": 22,
+   "action": "permit"
+  },
+  {
+   "src": "library",
+   "dst": "dev-lab",
+   "proto": "udp",
+   "dlo": 514,
+   "dhi": 514,
+   "action": "permit"
+  },
+  {
+   "src": "guest-wifi",
+   "dst": "scada",
+   "proto": "udp",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "permit"
+  },
+  {
+   "src": "scada",
+   "dst": "voip",
+   "proto": "udp",
+   "dlo": 53,
+   "dhi": 53,
+   "action": "permit"
+  },
+  {
+   "src": "scada",
+   "dst": "voip",
+   "proto": "tcp",
+   "dlo": 443,
+   "dhi": 443,
+   "action": "permit"
+  },
+  {
+   "src": "scada",
+   "dst": "voip",
+   "proto": "tcp",
+   "dlo": 25,
+   "dhi": 25,
+   "action": "permit"
+  },
+  {
+   "src": "scada",
+   "dst": "backup",
+   "proto": "tcp",
+   "dlo": 22,
+   "dhi": 22,
+   "action": "permit"
+  },
+  {
+   "src": "vpn-users",
+   "dst": "voip",
+   "proto": "tcp",
+   "dlo": 22,
+   "dhi": 22,
+   "action": "permit"
+  },
+  {
+   "src": "vpn-users",
+   "dst": "voip",
+   "proto": "tcp",
+   "dlo": 443,
+   "dhi": 443,
+   "action": "permit"
+  },
+  {
+   "src": "vpn-users",
+   "dst": "voip",
+   "proto": "tcp",
+   "dlo": 143,
+   "dhi": 143,
+   "action": "permit"
+  },
+  {
+   "src": "guest-wifi",
+   "dst": "dev-lab",
+   "proto": "tcp",
+   "dlo": 389,
+   "dhi": 389,
+   "action": "permit"
+  },
+  {
+   "src": "guest-wifi",
+   "dst": "dev-lab",
+   "proto": "tcp",
+   "dlo": 443,
+   "dhi": 443,
+   "action": "permit"
+  },
+  {
+   "src": "vpn-users",
+   "dst": "edge-cache",
+   "proto": "tcp",
+   "dlo": 22,
+   "dhi": 22,
+   "action": "permit"
+  },
+  {
+   "src": "vpn-users",
+   "dst": "edge-cache",
+   "proto": "tcp",
+   "dlo": 443,
+   "dhi": 443,
+   "action": "permit"
+  },
+  {
+   "src": "vpn-users",
+   "dst": "edge-cache",
+   "proto": "tcp",
+   "dlo": 3306,
+   "dhi": 3306,
+   "action": "permit"
+  },
+  {
+   "src": "research",
+   "dst": "dev-lab",
+   "proto": "tcp",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "permit"
+  },
+  {
+   "src": "vpn-users",
+   "dst": "scada",
+   "proto": "udp",
+   "dlo": 514,
+   "dhi": 514,
+   "action": "permit"
+  },
+  {
+   "src": "dev-lab",
+   "dst": "voip",
+   "proto": "udp",
+   "dlo": 53,
+   "dhi": 53,
+   "action": "permit"
+  },
+  {
+   "src": "dev-lab",
+   "dst": "research",
+   "proto": "udp",
+   "dlo": 53,
+   "dhi": 53,
+   "action": "permit"
+  },
+  {
+   "src": "edge-cache",
+   "dst": "library",
+   "proto": "tcp",
+   "dlo": 443,
+   "dhi": 443,
+   "action": "permit"
+  },
+  {
+   "src": "edge-cache",
+   "dst": "vpn-users",
+   "proto": "tcp",
+   "dlo": 443,
+   "dhi": 443,
+   "action": "permit"
+  },
+  {
+   "src": "vpn-users",
+   "dst": "*",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "dev-lab",
+   "dst": "*",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "edge-cache",
+   "dst": "*",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "*",
+   "dst": "guest-wifi",
+   "proto": "tcp",
+   "dlo": 80,
+   "dhi": 80,
+   "action": "permit"
+  },
+  {
+   "src": "*",
+   "dst": "vpn-users",
+   "proto": "udp",
+   "dlo": 123,
+   "dhi": 123,
+   "action": "permit"
+  },
+  {
+   "src": "*",
+   "dst": "vpn-users",
+   "proto": "udp",
+   "dlo": 53,
+   "dhi": 53,
+   "action": "permit"
+  },
+  {
+   "src": "*",
+   "dst": "dev-lab",
+   "proto": "udp",
+   "dlo": 53,
+   "dhi": 53,
+   "action": "permit"
+  },
+  {
+   "src": "*",
+   "dst": "dev-lab",
+   "proto": "tcp",
+   "dlo": 443,
+   "dhi": 443,
+   "action": "permit"
+  },
+  {
+   "src": "*",
+   "dst": "edge-cache",
+   "proto": "udp",
+   "dlo": 123,
+   "dhi": 123,
+   "action": "permit"
+  },
+  {
+   "src": "*",
+   "dst": "library",
+   "proto": "udp",
+   "dlo": 123,
+   "dhi": 123,
+   "action": "permit"
+  },
+  {
+   "src": "*",
+   "dst": "library",
+   "proto": "tcp",
+   "dlo": 443,
+   "dhi": 443,
+   "action": "permit"
+  },
+  {
+   "src": "*",
+   "dst": "vpn-users",
+   "proto": "tcp",
+   "dlo": 443,
+   "dhi": 443,
+   "action": "permit"
+  },
+  {
+   "src": "*",
+   "dst": "vpn-users",
+   "proto": "udp",
+   "dlo": 53,
+   "dhi": 53,
+   "action": "permit"
+  }
+ ]
+}

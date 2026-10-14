@@ -1,0 +1,567 @@
+{
+ "id": "Navigata_s1004",
+ "n_intents": 30,
+ "n_gt_rules": 53,
+ "n_zones": 16,
+ "rules": {
+  "eq": false,
+  "mismatch": 0.019,
+  "n_rules": 0,
+  "fail": 1,
+  "s": 432.07729148864746,
+  "calls": 3,
+  "prompt": 6162,
+  "completion": 12000
+ },
+ "ir0": {
+  "eq": false,
+  "mismatch": 0.0055,
+  "n_rules": 46,
+  "fail": 0,
+  "s": 94.11316680908203,
+  "calls": 32,
+  "prompt": 21219,
+  "completion": 1207,
+  "intent_acc": 0.8333333333333334
+ },
+ "ir": {
+  "eq": true,
+  "mismatch": 0.0,
+  "n_rules": 53,
+  "fail": 0,
+  "s": 93.49953198432922,
+  "calls": 30,
+  "prompt": 33313,
+  "completion": 788,
+  "intent_acc": 0.9666666666666667
+ },
+ "fw": {
+  "eq": true,
+  "mismatch": 0.0,
+  "n_rules": 53,
+  "fail": 0,
+  "s": 222.196772813797,
+  "verify_s": 128.6972415447235,
+  "calls": 61,
+  "verify_calls": 31,
+  "flagged": 0,
+  "accepted": 0,
+  "repairs": [],
+  "intent_acc": 0.9666666666666667
+ },
+ "ir_out": [
+  {
+   "type": "allow_except",
+   "src": "finance",
+   "dst": "guest-wifi",
+   "broad": "any-tcp",
+   "ex": [
+    "telnet"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "printers",
+   "dst": "research",
+   "svcs": [
+    "rdp",
+    "rtsp",
+    "imap"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "ntp-servers",
+   "dst": "monitoring",
+   "broad": "any-tcp",
+   "ex": [
+    "ftp"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "guest-wifi",
+   "svcs": [
+    "http",
+    "ntp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "partners",
+   "dst": "guest-wifi",
+   "svcs": [
+    "imap",
+    "ldap"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "mail",
+   "dst": "printers",
+   "svcs": [
+    "ssh"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "mail",
+   "dst": "monitoring",
+   "svcs": [
+    "ssh"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "guest-wifi",
+   "dst": "voip"
+  },
+  {
+   "type": "isolate",
+   "src": "finance",
+   "allowed": [
+    [
+     "partners",
+     "syslog"
+    ],
+    [
+     "cameras",
+     "syslog"
+    ]
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "mail",
+   "dst": "guest-wifi",
+   "svcs": [
+    "snmp",
+    "mysql",
+    "postgres"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "ops",
+   "dst": "finance",
+   "broad": "high-tcp",
+   "ex": [
+    "postgres",
+    "rdp"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "vpn-users",
+   "svcs": [
+    "http"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "printers",
+   "svcs": [
+    "dns"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "finance",
+   "dst": "ops",
+   "svcs": [
+    "dns",
+    "mysql"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "voip",
+   "allowed": [
+    [
+     "guest-wifi",
+     "syslog"
+    ]
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "mail",
+   "dst": "edge-cache",
+   "svcs": [
+    "snmp"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "vpn-users",
+   "svcs": [
+    "http"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "partners",
+   "dst": "iot-sensors",
+   "svcs": [
+    "snmp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "research",
+   "dst": "mail",
+   "svcs": [
+    "smtp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "dev-lab",
+   "dst": "cameras",
+   "svcs": [
+    "ldap",
+    "dns"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "guest-wifi",
+   "dst": "ops",
+   "svcs": [
+    "https"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "monitoring",
+   "allowed": [
+    [
+     "cameras",
+     "dns"
+    ]
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "voip",
+   "dst": "iot-sensors",
+   "broad": "any-tcp",
+   "ex": [
+    "rdp",
+    "smb",
+    "telnet"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "ntp-servers",
+   "dst": "cameras",
+   "svcs": [
+    "https",
+    "syslog"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "cameras",
+   "svcs": [
+    "http"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "mail",
+   "dst": "vpn-users"
+  },
+  {
+   "type": "allow_except",
+   "src": "iot-sensors",
+   "dst": "printers",
+   "broad": "any-udp",
+   "ex": [
+    "tftp"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "research",
+   "dst": "guest-wifi"
+  },
+  {
+   "type": "allow",
+   "src": "hr",
+   "dst": "vpn-users",
+   "svcs": [
+    "imap"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "ntp-servers",
+   "dst": "research",
+   "svcs": [
+    "ldap",
+    "rdp",
+    "https"
+   ]
+  }
+ ],
+ "fw_out": [
+  {
+   "type": "allow_except",
+   "src": "finance",
+   "dst": "guest-wifi",
+   "broad": "any-tcp",
+   "ex": [
+    "telnet"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "printers",
+   "dst": "research",
+   "svcs": [
+    "rdp",
+    "rtsp",
+    "imap"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "ntp-servers",
+   "dst": "monitoring",
+   "broad": "any-tcp",
+   "ex": [
+    "ftp"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "guest-wifi",
+   "svcs": [
+    "http",
+    "ntp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "partners",
+   "dst": "guest-wifi",
+   "svcs": [
+    "imap",
+    "ldap"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "mail",
+   "dst": "printers",
+   "svcs": [
+    "ssh"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "mail",
+   "dst": "monitoring",
+   "svcs": [
+    "ssh"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "guest-wifi",
+   "dst": "voip"
+  },
+  {
+   "type": "isolate",
+   "src": "finance",
+   "allowed": [
+    [
+     "partners",
+     "syslog"
+    ],
+    [
+     "cameras",
+     "syslog"
+    ]
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "mail",
+   "dst": "guest-wifi",
+   "svcs": [
+    "snmp",
+    "mysql",
+    "postgres"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "ops",
+   "dst": "finance",
+   "broad": "high-tcp",
+   "ex": [
+    "postgres",
+    "rdp"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "vpn-users",
+   "svcs": [
+    "http"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "printers",
+   "svcs": [
+    "dns"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "finance",
+   "dst": "ops",
+   "svcs": [
+    "dns",
+    "mysql"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "voip",
+   "allowed": [
+    [
+     "guest-wifi",
+     "syslog"
+    ]
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "mail",
+   "dst": "edge-cache",
+   "svcs": [
+    "snmp"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "vpn-users",
+   "svcs": [
+    "http"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "partners",
+   "dst": "iot-sensors",
+   "svcs": [
+    "snmp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "research",
+   "dst": "mail",
+   "svcs": [
+    "smtp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "dev-lab",
+   "dst": "cameras",
+   "svcs": [
+    "ldap",
+    "dns"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "guest-wifi",
+   "dst": "ops",
+   "svcs": [
+    "https"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "monitoring",
+   "allowed": [
+    [
+     "cameras",
+     "dns"
+    ]
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "voip",
+   "dst": "iot-sensors",
+   "broad": "any-tcp",
+   "ex": [
+    "rdp",
+    "smb",
+    "telnet"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "ntp-servers",
+   "dst": "cameras",
+   "svcs": [
+    "https",
+    "syslog"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "cameras",
+   "svcs": [
+    "http"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "mail",
+   "dst": "vpn-users"
+  },
+  {
+   "type": "allow_except",
+   "src": "iot-sensors",
+   "dst": "printers",
+   "broad": "any-udp",
+   "ex": [
+    "tftp"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "research",
+   "dst": "guest-wifi"
+  },
+  {
+   "type": "allow",
+   "src": "hr",
+   "dst": "vpn-users",
+   "svcs": [
+    "imap"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "ntp-servers",
+   "dst": "research",
+   "svcs": [
+    "ldap",
+    "rdp",
+    "https"
+   ]
+  }
+ ],
+ "wall_s": 749.016229391098
+}

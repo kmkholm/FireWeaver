@@ -1,0 +1,8 @@
+{"removed": 0}
+
+up {'n_routers': 37, 'n_links': 56, 'n_zones': 10, 'setup_s': 64.0900936126709, 'converged': True, 'converge_s': 3.135556936264038, 'dataplane_ready': True, 'dataplane_s': 1.4063904285430908, 'ecmp_nexthops': 1063} 72s
+fireweaver {'cfgset': 'fireweaver', 'deploy_s': 17.732601404190063, 'per_router_max_s': 8.135751247406006, 'rules_installed': 355, 'rules_expected': 355} {'n': 2702, 'conform': 2702, 'leaks': 0, 'wrongly_blocked': 0}
+ecmp1 {'cfgset': 'ecmp1', 'deploy_s': 18.103522777557373, 'per_router_max_s': 8.830418109893799, 'rules_installed': 349, 'rules_expected': 349} {'n': 2702, 'conform': 2447, 'leaks': 255, 'wrongly_blocked': 0}
+none {'cfgset': 'none', 'deploy_s': 18.486422300338745, 'per_router_max_s': 8.508545875549316, 'rules_installed': 0, 'rules_expected': 0} {'n': 2702, 'conform': 156, 'leaks': 2546, 'wrongly_blocked': 0}
+{"removed": 37}
+

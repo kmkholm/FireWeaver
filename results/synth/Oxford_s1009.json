@@ -1,0 +1,289 @@
+{
+ "id": "Oxford_s1009",
+ "n_intents": 14,
+ "n_gt_rules": 26,
+ "n_zones": 6,
+ "rules": {
+  "eq": false,
+  "mismatch": 0.13525,
+  "n_rules": 43,
+  "fail": 0,
+  "s": 48.29297876358032,
+  "calls": 1,
+  "prompt": 854,
+  "completion": 1353
+ },
+ "ir0": {
+  "eq": false,
+  "mismatch": 0.00575,
+  "n_rules": 24,
+  "fail": 0,
+  "s": 32.33712077140808,
+  "calls": 14,
+  "prompt": 8729,
+  "completion": 426,
+  "intent_acc": 0.9285714285714286
+ },
+ "ir": {
+  "eq": true,
+  "mismatch": 0.0,
+  "n_rules": 26,
+  "fail": 0,
+  "s": 30.245711088180542,
+  "calls": 14,
+  "prompt": 15043,
+  "completion": 358,
+  "intent_acc": 1.0
+ },
+ "fw": {
+  "eq": true,
+  "mismatch": 0.0,
+  "n_rules": 26,
+  "fail": 0,
+  "s": 114.59433484077454,
+  "verify_s": 84.34862422943115,
+  "calls": 29,
+  "verify_calls": 15,
+  "flagged": 0,
+  "accepted": 0,
+  "repairs": [],
+  "intent_acc": 1.0
+ },
+ "ir_out": [
+  {
+   "type": "isolate",
+   "src": "edge-cache",
+   "allowed": [
+    [
+     "ntp-servers",
+     "https"
+    ],
+    [
+     "admin",
+     "syslog"
+    ]
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "ntp-servers",
+   "svcs": [
+    "dns",
+    "ntp"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "edge-cache",
+   "dst": "finance"
+  },
+  {
+   "type": "allow",
+   "src": "printers",
+   "dst": "ntp-servers",
+   "svcs": [
+    "postgres",
+    "snmp",
+    "dns"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "finance",
+   "svcs": [
+    "dns",
+    "https"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "ntp-servers",
+   "dst": "printers",
+   "svcs": [
+    "syslog"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "student-lab",
+   "dst": "finance",
+   "svcs": [
+    "smb",
+    "rtsp"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "admin",
+   "dst": "edge-cache"
+  },
+  {
+   "type": "allow",
+   "src": "edge-cache",
+   "dst": "ntp-servers",
+   "svcs": [
+    "smtp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "edge-cache",
+   "dst": "ntp-servers",
+   "svcs": [
+    "http",
+    "syslog",
+    "dns"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "admin",
+   "svcs": [
+    "https",
+    "http"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "student-lab",
+   "dst": "finance"
+  },
+  {
+   "type": "allow",
+   "src": "ntp-servers",
+   "dst": "student-lab",
+   "svcs": [
+    "snmp",
+    "rtsp",
+    "syslog"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "admin",
+   "dst": "student-lab",
+   "svcs": [
+    "smb"
+   ]
+  }
+ ],
+ "fw_out": [
+  {
+   "type": "isolate",
+   "src": "edge-cache",
+   "allowed": [
+    [
+     "ntp-servers",
+     "https"
+    ],
+    [
+     "admin",
+     "syslog"
+    ]
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "ntp-servers",
+   "svcs": [
+    "dns",
+    "ntp"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "edge-cache",
+   "dst": "finance"
+  },
+  {
+   "type": "allow",
+   "src": "printers",
+   "dst": "ntp-servers",
+   "svcs": [
+    "postgres",
+    "snmp",
+    "dns"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "finance",
+   "svcs": [
+    "dns",
+    "https"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "ntp-servers",
+   "dst": "printers",
+   "svcs": [
+    "syslog"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "student-lab",
+   "dst": "finance",
+   "svcs": [
+    "smb",
+    "rtsp"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "admin",
+   "dst": "edge-cache"
+  },
+  {
+   "type": "allow",
+   "src": "edge-cache",
+   "dst": "ntp-servers",
+   "svcs": [
+    "smtp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "edge-cache",
+   "dst": "ntp-servers",
+   "svcs": [
+    "http",
+    "syslog",
+    "dns"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "admin",
+   "svcs": [
+    "https",
+    "http"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "student-lab",
+   "dst": "finance"
+  },
+  {
+   "type": "allow",
+   "src": "ntp-servers",
+   "dst": "student-lab",
+   "svcs": [
+    "snmp",
+    "rtsp",
+    "syslog"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "admin",
+   "dst": "student-lab",
+   "svcs": [
+    "smb"
+   ]
+  }
+ ],
+ "wall_s": 195.47566056251526
+}

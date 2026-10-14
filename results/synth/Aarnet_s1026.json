@@ -1,0 +1,335 @@
+{
+ "id": "Aarnet_s1026",
+ "n_intents": 16,
+ "n_gt_rules": 30,
+ "n_zones": 6,
+ "rules": {
+  "eq": false,
+  "mismatch": 0.04725,
+  "n_rules": 28,
+  "fail": 0,
+  "s": 16.37749934196472,
+  "calls": 1,
+  "prompt": 911,
+  "completion": 877
+ },
+ "ir0": {
+  "eq": false,
+  "mismatch": 0.00325,
+  "n_rules": 27,
+  "fail": 0,
+  "s": 10.123489379882812,
+  "calls": 16,
+  "prompt": 9948,
+  "completion": 514,
+  "intent_acc": 0.875
+ },
+ "ir": {
+  "eq": true,
+  "mismatch": 0.0,
+  "n_rules": 30,
+  "fail": 0,
+  "s": 8.519979476928711,
+  "calls": 16,
+  "prompt": 17164,
+  "completion": 421,
+  "intent_acc": 1.0
+ },
+ "fw": {
+  "eq": true,
+  "mismatch": 0.0,
+  "n_rules": 30,
+  "fail": 0,
+  "s": 34.82929301261902,
+  "verify_s": 26.309314727783203,
+  "calls": 34,
+  "verify_calls": 18,
+  "flagged": 0,
+  "accepted": 0,
+  "repairs": [],
+  "intent_acc": 1.0
+ },
+ "ir_out": [
+  {
+   "type": "allow",
+   "src": "nvr",
+   "dst": "engineering",
+   "svcs": [
+    "snmp"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "nvr",
+   "allowed": [
+    [
+     "cameras",
+     "ntp"
+    ],
+    [
+     "cameras",
+     "dns"
+    ]
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "database",
+   "dst": "nvr",
+   "svcs": [
+    "imap",
+    "ssh"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "edge-cache",
+   "dst": "engineering",
+   "svcs": [
+    "http",
+    "https"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "edge-cache",
+   "svcs": [
+    "https"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "guest-wifi",
+   "dst": "nvr"
+  },
+  {
+   "type": "allow_except",
+   "src": "edge-cache",
+   "dst": "engineering",
+   "broad": "any-udp",
+   "ex": [
+    "tftp",
+    "snmp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "cameras",
+   "dst": "guest-wifi",
+   "svcs": [
+    "ntp",
+    "syslog",
+    "http"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "cameras",
+   "dst": "database",
+   "svcs": [
+    "smtp"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "cameras",
+   "svcs": [
+    "https"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "guest-wifi",
+   "dst": "nvr"
+  },
+  {
+   "type": "allow",
+   "src": "engineering",
+   "dst": "database",
+   "svcs": [
+    "postgres",
+    "snmp",
+    "imap"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "database",
+   "dst": "engineering",
+   "svcs": [
+    "rtsp"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "edge-cache",
+   "allowed": [
+    [
+     "guest-wifi",
+     "https"
+    ]
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "guest-wifi",
+   "dst": "nvr",
+   "svcs": [
+    "rdp",
+    "smtp"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "nvr",
+   "dst": "cameras",
+   "broad": "high-tcp",
+   "ex": [
+    "rdp",
+    "postgres"
+   ]
+  }
+ ],
+ "fw_out": [
+  {
+   "type": "allow",
+   "src": "nvr",
+   "dst": "engineering",
+   "svcs": [
+    "snmp"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "nvr",
+   "allowed": [
+    [
+     "cameras",
+     "ntp"
+    ],
+    [
+     "cameras",
+     "dns"
+    ]
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "database",
+   "dst": "nvr",
+   "svcs": [
+    "imap",
+    "ssh"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "edge-cache",
+   "dst": "engineering",
+   "svcs": [
+    "http",
+    "https"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "edge-cache",
+   "svcs": [
+    "https"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "guest-wifi",
+   "dst": "nvr"
+  },
+  {
+   "type": "allow_except",
+   "src": "edge-cache",
+   "dst": "engineering",
+   "broad": "any-udp",
+   "ex": [
+    "tftp",
+    "snmp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "cameras",
+   "dst": "guest-wifi",
+   "svcs": [
+    "ntp",
+    "syslog",
+    "http"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "cameras",
+   "dst": "database",
+   "svcs": [
+    "smtp"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "cameras",
+   "svcs": [
+    "https"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "guest-wifi",
+   "dst": "nvr"
+  },
+  {
+   "type": "allow",
+   "src": "engineering",
+   "dst": "database",
+   "svcs": [
+    "postgres",
+    "snmp",
+    "imap"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "database",
+   "dst": "engineering",
+   "svcs": [
+    "rtsp"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "edge-cache",
+   "allowed": [
+    [
+     "guest-wifi",
+     "https"
+    ]
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "guest-wifi",
+   "dst": "nvr",
+   "svcs": [
+    "rdp",
+    "smtp"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "nvr",
+   "dst": "cameras",
+   "broad": "high-tcp",
+   "ex": [
+    "rdp",
+    "postgres"
+   ]
+  }
+ ],
+ "wall_s": 61.5443274974823
+}

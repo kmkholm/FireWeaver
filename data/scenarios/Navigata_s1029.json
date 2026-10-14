@@ -1,0 +1,419 @@
+{
+ "id": "Navigata_s1029",
+ "topology": "Navigata",
+ "n_nodes": 13,
+ "edges": [
+  [
+   0,
+   1
+  ],
+  [
+   0,
+   2
+  ],
+  [
+   0,
+   3
+  ],
+  [
+   0,
+   4
+  ],
+  [
+   0,
+   5
+  ],
+  [
+   0,
+   6
+  ],
+  [
+   0,
+   8
+  ],
+  [
+   3,
+   4
+  ],
+  [
+   3,
+   5
+  ],
+  [
+   3,
+   6
+  ],
+  [
+   5,
+   9
+  ],
+  [
+   5,
+   7
+  ],
+  [
+   6,
+   9
+  ],
+  [
+   6,
+   7
+  ],
+  [
+   9,
+   10
+  ],
+  [
+   9,
+   11
+  ],
+  [
+   9,
+   12
+  ]
+ ],
+ "zones": {
+  "mail": {
+   "router": 2,
+   "prefixes": [
+    "120.213.0.0/18"
+   ]
+  },
+  "dmz-web": {
+   "router": 12,
+   "prefixes": [
+    "143.142.145.128/27",
+    "171.93.0.0/16"
+   ]
+  },
+  "vpn-users": {
+   "router": 10,
+   "prefixes": [
+    "95.102.102.80/28",
+    "55.100.216.0/22",
+    "36.119.58.0/24"
+   ]
+  },
+  "partners": {
+   "router": 1,
+   "prefixes": [
+    "166.219.159.64/26"
+   ]
+  },
+  "scada": {
+   "router": 8,
+   "prefixes": [
+    "127.218.220.0/23",
+    "245.248.11.128/25",
+    "2.42.249.64/27"
+   ]
+  },
+  "edge-cache": {
+   "router": 11,
+   "prefixes": [
+    "25.88.120.0/24"
+   ]
+  },
+  "printers": {
+   "router": 7,
+   "prefixes": [
+    "161.111.118.0/25",
+    "216.213.245.0/24",
+    "184.93.8.0/22"
+   ]
+  },
+  "backup": {
+   "router": 4,
+   "prefixes": [
+    "100.90.116.128/25",
+    "14.122.52.0/23",
+    "187.184.20.0/24"
+   ]
+  },
+  "finance": {
+   "router": 3,
+   "prefixes": [
+    "106.228.132.0/24"
+   ]
+  },
+  "student-lab": {
+   "router": 5,
+   "prefixes": [
+    "12.65.36.0/22",
+    "163.216.93.176/28",
+    "243.102.0.0/16"
+   ]
+  }
+ },
+ "zone_text": [
+  "mail: hosts 120.213.0.0/18 attached to router R2",
+  "dmz-web: hosts 143.142.145.128/27, 171.93.0.0/16 attached to router R12",
+  "vpn-users: hosts 95.102.102.80/28, 55.100.216.0/22, 36.119.58.0/24 attached to router R10",
+  "partners: hosts 166.219.159.64/26 attached to router R1",
+  "scada: hosts 127.218.220.0/23, 245.248.11.128/25, 2.42.249.64/27 attached to router R8",
+  "edge-cache: hosts 25.88.120.0/24 attached to router R11",
+  "printers: hosts 161.111.118.0/25, 216.213.245.0/24, 184.93.8.0/22 attached to router R7",
+  "backup: hosts 100.90.116.128/25, 14.122.52.0/23, 187.184.20.0/24 attached to router R4",
+  "finance: hosts 106.228.132.0/24 attached to router R3",
+  "student-lab: hosts 12.65.36.0/22, 163.216.93.176/28, 243.102.0.0/16 attached to router R5"
+ ],
+ "intents": [
+  {
+   "type": "isolate",
+   "src": "scada",
+   "allowed": [
+    [
+     "student-lab",
+     "syslog"
+    ]
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "edge-cache",
+   "dst": "student-lab",
+   "broad": "any-udp",
+   "ex": [
+    "snmp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "edge-cache",
+   "dst": "mail",
+   "svcs": [
+    "imap",
+    "ssh",
+    "ldap"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "partners",
+   "dst": "edge-cache",
+   "broad": "high-tcp",
+   "ex": [
+    "postgres",
+    "mysql",
+    "rdp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "backup",
+   "dst": "vpn-users",
+   "svcs": [
+    "https",
+    "http",
+    "syslog"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "edge-cache",
+   "dst": "scada",
+   "svcs": [
+    "smb",
+    "ntp"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "scada",
+   "svcs": [
+    "https",
+    "ntp"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "dmz-web",
+   "dst": "backup",
+   "broad": "any-udp",
+   "ex": [
+    "snmp",
+    "tftp"
+   ]
+  }
+ ],
+ "nl": [
+  "scada is isolated: it may only reach student-lab on syslog (UDP 514), and nothing else.",
+  "Block SNMP (UDP 161) from edge-cache to student-lab; the rest of any UDP port between them is allowed.",
+  "Allow edge-cache to connect to mail using IMAP (TCP 143) and SSH (TCP 22) and LDAP (TCP 389).",
+  "Permit TCP ports 1024-65535 from partners to edge-cache but deny PostgreSQL (TCP 5432), MySQL (TCP 3306), RDP (TCP 3389).",
+  "Hosts in backup may reach vpn-users over HTTPS (TCP 443) and HTTP (TCP 80) and syslog (UDP 514).",
+  "Allow edge-cache to connect to scada using SMB (TCP 445) and NTP (UDP 123).",
+  "scada offers HTTPS (TCP 443) and NTP (UDP 123) to every zone.",
+  "Block SNMP (UDP 161), TFTP (UDP 69) from dmz-web to backup; the rest of any UDP port between them is allowed."
+ ],
+ "gt": [
+  {
+   "src": "edge-cache",
+   "dst": "student-lab",
+   "proto": "udp",
+   "dlo": 161,
+   "dhi": 161,
+   "action": "deny"
+  },
+  {
+   "src": "partners",
+   "dst": "edge-cache",
+   "proto": "tcp",
+   "dlo": 5432,
+   "dhi": 5432,
+   "action": "deny"
+  },
+  {
+   "src": "partners",
+   "dst": "edge-cache",
+   "proto": "tcp",
+   "dlo": 3306,
+   "dhi": 3306,
+   "action": "deny"
+  },
+  {
+   "src": "partners",
+   "dst": "edge-cache",
+   "proto": "tcp",
+   "dlo": 3389,
+   "dhi": 3389,
+   "action": "deny"
+  },
+  {
+   "src": "dmz-web",
+   "dst": "backup",
+   "proto": "udp",
+   "dlo": 161,
+   "dhi": 161,
+   "action": "deny"
+  },
+  {
+   "src": "dmz-web",
+   "dst": "backup",
+   "proto": "udp",
+   "dlo": 69,
+   "dhi": 69,
+   "action": "deny"
+  },
+  {
+   "src": "edge-cache",
+   "dst": "student-lab",
+   "proto": "udp",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "permit"
+  },
+  {
+   "src": "edge-cache",
+   "dst": "mail",
+   "proto": "tcp",
+   "dlo": 143,
+   "dhi": 143,
+   "action": "permit"
+  },
+  {
+   "src": "edge-cache",
+   "dst": "mail",
+   "proto": "tcp",
+   "dlo": 22,
+   "dhi": 22,
+   "action": "permit"
+  },
+  {
+   "src": "edge-cache",
+   "dst": "mail",
+   "proto": "tcp",
+   "dlo": 389,
+   "dhi": 389,
+   "action": "permit"
+  },
+  {
+   "src": "partners",
+   "dst": "edge-cache",
+   "proto": "tcp",
+   "dlo": 1024,
+   "dhi": 65535,
+   "action": "permit"
+  },
+  {
+   "src": "backup",
+   "dst": "vpn-users",
+   "proto": "tcp",
+   "dlo": 443,
+   "dhi": 443,
+   "action": "permit"
+  },
+  {
+   "src": "backup",
+   "dst": "vpn-users",
+   "proto": "tcp",
+   "dlo": 80,
+   "dhi": 80,
+   "action": "permit"
+  },
+  {
+   "src": "backup",
+   "dst": "vpn-users",
+   "proto": "udp",
+   "dlo": 514,
+   "dhi": 514,
+   "action": "permit"
+  },
+  {
+   "src": "edge-cache",
+   "dst": "scada",
+   "proto": "tcp",
+   "dlo": 445,
+   "dhi": 445,
+   "action": "permit"
+  },
+  {
+   "src": "edge-cache",
+   "dst": "scada",
+   "proto": "udp",
+   "dlo": 123,
+   "dhi": 123,
+   "action": "permit"
+  },
+  {
+   "src": "dmz-web",
+   "dst": "backup",
+   "proto": "udp",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "permit"
+  },
+  {
+   "src": "scada",
+   "dst": "student-lab",
+   "proto": "udp",
+   "dlo": 514,
+   "dhi": 514,
+   "action": "permit"
+  },
+  {
+   "src": "scada",
+   "dst": "*",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "*",
+   "dst": "scada",
+   "proto": "tcp",
+   "dlo": 443,
+   "dhi": 443,
+   "action": "permit"
+  },
+  {
+   "src": "*",
+   "dst": "scada",
+   "proto": "udp",
+   "dlo": 123,
+   "dhi": 123,
+   "action": "permit"
+  }
+ ]
+}

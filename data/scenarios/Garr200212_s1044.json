@@ -1,0 +1,395 @@
+{
+ "id": "Garr200212_s1044",
+ "topology": "Garr200212",
+ "n_nodes": 27,
+ "edges": [
+  [
+   0,
+   20
+  ],
+  [
+   1,
+   16
+  ],
+  [
+   2,
+   16
+  ],
+  [
+   3,
+   5
+  ],
+  [
+   4,
+   5
+  ],
+  [
+   5,
+   6
+  ],
+  [
+   5,
+   7
+  ],
+  [
+   5,
+   8
+  ],
+  [
+   5,
+   10
+  ],
+  [
+   5,
+   16
+  ],
+  [
+   5,
+   20
+  ],
+  [
+   5,
+   21
+  ],
+  [
+   5,
+   24
+  ],
+  [
+   9,
+   10
+  ],
+  [
+   10,
+   11
+  ],
+  [
+   10,
+   12
+  ],
+  [
+   10,
+   13
+  ],
+  [
+   10,
+   16
+  ],
+  [
+   10,
+   23
+  ],
+  [
+   14,
+   16
+  ],
+  [
+   15,
+   16
+  ],
+  [
+   16,
+   17
+  ],
+  [
+   16,
+   18
+  ],
+  [
+   16,
+   20
+  ],
+  [
+   16,
+   25
+  ],
+  [
+   16,
+   26
+  ],
+  [
+   19,
+   20
+  ],
+  [
+   20,
+   22
+  ]
+ ],
+ "zones": {
+  "finance": {
+   "router": 0,
+   "prefixes": [
+    "134.84.250.240/28",
+    "166.219.159.32/28"
+   ]
+  },
+  "hr": {
+   "router": 26,
+   "prefixes": [
+    "235.183.162.0/23"
+   ]
+  },
+  "guest-wifi": {
+   "router": 2,
+   "prefixes": [
+    "37.109.120.0/22"
+   ]
+  },
+  "backup": {
+   "router": 22,
+   "prefixes": [
+    "166.32.67.0/24",
+    "75.254.120.0/24"
+   ]
+  },
+  "mail": {
+   "router": 23,
+   "prefixes": [
+    "87.29.38.0/23",
+    "7.139.238.128/25",
+    "238.164.88.224/27"
+   ]
+  },
+  "dns-servers": {
+   "router": 19,
+   "prefixes": [
+    "118.41.220.0/24",
+    "89.45.223.128/25",
+    "51.89.6.128/25"
+   ]
+  }
+ },
+ "zone_text": [
+  "finance: hosts 134.84.250.240/28, 166.219.159.32/28 attached to router R0",
+  "hr: hosts 235.183.162.0/23 attached to router R26",
+  "guest-wifi: hosts 37.109.120.0/22 attached to router R2",
+  "backup: hosts 166.32.67.0/24, 75.254.120.0/24 attached to router R22",
+  "mail: hosts 87.29.38.0/23, 7.139.238.128/25, 238.164.88.224/27 attached to router R23",
+  "dns-servers: hosts 118.41.220.0/24, 89.45.223.128/25, 51.89.6.128/25 attached to router R19"
+ ],
+ "intents": [
+  {
+   "type": "public",
+   "dst": "finance",
+   "svcs": [
+    "ntp",
+    "http"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "guest-wifi",
+   "dst": "backup"
+  },
+  {
+   "type": "allow_except",
+   "src": "mail",
+   "dst": "backup",
+   "broad": "high-tcp",
+   "ex": [
+    "postgres",
+    "mysql",
+    "rdp"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "backup",
+   "dst": "guest-wifi"
+  },
+  {
+   "type": "public",
+   "dst": "mail",
+   "svcs": [
+    "ntp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "hr",
+   "dst": "dns-servers",
+   "svcs": [
+    "ldap",
+    "rdp",
+    "rtsp"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "backup",
+   "dst": "mail",
+   "broad": "high-tcp",
+   "ex": [
+    "mysql",
+    "rdp",
+    "postgres"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "guest-wifi",
+   "dst": "mail",
+   "svcs": [
+    "mysql",
+    "snmp"
+   ]
+  }
+ ],
+ "nl": [
+  "Any zone may connect to finance over NTP (UDP 123) and HTTP (TCP 80).",
+  "No packet from guest-wifi may enter backup, even for services open to everyone.",
+  "mail may use TCP ports 1024-65535 towards backup, except PostgreSQL (TCP 5432), MySQL (TCP 3306), RDP (TCP 3389), which must be blocked.",
+  "backup must never reach guest-wifi, regardless of any other rule.",
+  "Make NTP (UDP 123) on mail reachable from all internal zones.",
+  "Hosts in hr may reach dns-servers over LDAP (TCP 389) and RDP (TCP 3389) and RTSP (TCP 554).",
+  "Permit TCP ports 1024-65535 from backup to mail but deny MySQL (TCP 3306), RDP (TCP 3389), PostgreSQL (TCP 5432).",
+  "Hosts in guest-wifi may reach mail over MySQL (TCP 3306) and SNMP (UDP 161)."
+ ],
+ "gt": [
+  {
+   "src": "guest-wifi",
+   "dst": "backup",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "backup",
+   "dst": "guest-wifi",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "mail",
+   "dst": "backup",
+   "proto": "tcp",
+   "dlo": 5432,
+   "dhi": 5432,
+   "action": "deny"
+  },
+  {
+   "src": "mail",
+   "dst": "backup",
+   "proto": "tcp",
+   "dlo": 3306,
+   "dhi": 3306,
+   "action": "deny"
+  },
+  {
+   "src": "mail",
+   "dst": "backup",
+   "proto": "tcp",
+   "dlo": 3389,
+   "dhi": 3389,
+   "action": "deny"
+  },
+  {
+   "src": "backup",
+   "dst": "mail",
+   "proto": "tcp",
+   "dlo": 3306,
+   "dhi": 3306,
+   "action": "deny"
+  },
+  {
+   "src": "backup",
+   "dst": "mail",
+   "proto": "tcp",
+   "dlo": 3389,
+   "dhi": 3389,
+   "action": "deny"
+  },
+  {
+   "src": "backup",
+   "dst": "mail",
+   "proto": "tcp",
+   "dlo": 5432,
+   "dhi": 5432,
+   "action": "deny"
+  },
+  {
+   "src": "mail",
+   "dst": "backup",
+   "proto": "tcp",
+   "dlo": 1024,
+   "dhi": 65535,
+   "action": "permit"
+  },
+  {
+   "src": "hr",
+   "dst": "dns-servers",
+   "proto": "tcp",
+   "dlo": 389,
+   "dhi": 389,
+   "action": "permit"
+  },
+  {
+   "src": "hr",
+   "dst": "dns-servers",
+   "proto": "tcp",
+   "dlo": 3389,
+   "dhi": 3389,
+   "action": "permit"
+  },
+  {
+   "src": "hr",
+   "dst": "dns-servers",
+   "proto": "tcp",
+   "dlo": 554,
+   "dhi": 554,
+   "action": "permit"
+  },
+  {
+   "src": "backup",
+   "dst": "mail",
+   "proto": "tcp",
+   "dlo": 1024,
+   "dhi": 65535,
+   "action": "permit"
+  },
+  {
+   "src": "guest-wifi",
+   "dst": "mail",
+   "proto": "tcp",
+   "dlo": 3306,
+   "dhi": 3306,
+   "action": "permit"
+  },
+  {
+   "src": "guest-wifi",
+   "dst": "mail",
+   "proto": "udp",
+   "dlo": 161,
+   "dhi": 161,
+   "action": "permit"
+  },
+  {
+   "src": "*",
+   "dst": "finance",
+   "proto": "udp",
+   "dlo": 123,
+   "dhi": 123,
+   "action": "permit"
+  },
+  {
+   "src": "*",
+   "dst": "finance",
+   "proto": "tcp",
+   "dlo": 80,
+   "dhi": 80,
+   "action": "permit"
+  },
+  {
+   "src": "*",
+   "dst": "mail",
+   "proto": "udp",
+   "dlo": 123,
+   "dhi": 123,
+   "action": "permit"
+  }
+ ]
+}

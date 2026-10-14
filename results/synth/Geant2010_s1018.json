@@ -1,0 +1,221 @@
+{
+ "id": "Geant2010_s1018",
+ "n_intents": 8,
+ "n_gt_rules": 22,
+ "n_zones": 10,
+ "rules": {
+  "eq": false,
+  "mismatch": 0.00325,
+  "n_rules": 24,
+  "fail": 0,
+  "s": 27.48016047477722,
+  "calls": 1,
+  "prompt": 778,
+  "completion": 779
+ },
+ "ir0": {
+  "eq": false,
+  "mismatch": 0.0115,
+  "n_rules": 11,
+  "fail": 1,
+  "s": 38.819571018218994,
+  "calls": 12,
+  "prompt": 8245,
+  "completion": 737,
+  "intent_acc": 0.375
+ },
+ "ir": {
+  "eq": true,
+  "mismatch": 0.0,
+  "n_rules": 22,
+  "fail": 0,
+  "s": 17.554922819137573,
+  "calls": 8,
+  "prompt": 8772,
+  "completion": 239,
+  "intent_acc": 1.0
+ },
+ "fw": {
+  "eq": true,
+  "mismatch": 0.0,
+  "n_rules": 22,
+  "fail": 0,
+  "s": 50.64348077774048,
+  "verify_s": 33.08855843544006,
+  "calls": 16,
+  "verify_calls": 8,
+  "flagged": 0,
+  "accepted": 0,
+  "repairs": [],
+  "intent_acc": 1.0
+ },
+ "ir_out": [
+  {
+   "type": "isolate",
+   "src": "hr",
+   "allowed": [
+    [
+     "vpn-users",
+     "ntp"
+    ],
+    [
+     "library",
+     "https"
+    ]
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "library",
+   "dst": "dev-lab",
+   "broad": "high-tcp",
+   "ex": [
+    "rdp",
+    "postgres",
+    "mysql"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "dev-lab",
+   "dst": "guest-wifi",
+   "broad": "high-tcp",
+   "ex": [
+    "postgres"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "vpn-users",
+   "allowed": [
+    [
+     "guest-wifi",
+     "dns"
+    ]
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "printers",
+   "dst": "partners",
+   "svcs": [
+    "smb",
+    "ssh",
+    "postgres"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "library",
+   "svcs": [
+    "http"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "library",
+   "dst": "backup",
+   "svcs": [
+    "imap",
+    "rtsp",
+    "postgres"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "partners",
+   "dst": "printers",
+   "broad": "any-tcp",
+   "ex": [
+    "smb",
+    "telnet",
+    "rdp"
+   ]
+  }
+ ],
+ "fw_out": [
+  {
+   "type": "isolate",
+   "src": "hr",
+   "allowed": [
+    [
+     "vpn-users",
+     "ntp"
+    ],
+    [
+     "library",
+     "https"
+    ]
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "library",
+   "dst": "dev-lab",
+   "broad": "high-tcp",
+   "ex": [
+    "rdp",
+    "postgres",
+    "mysql"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "dev-lab",
+   "dst": "guest-wifi",
+   "broad": "high-tcp",
+   "ex": [
+    "postgres"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "vpn-users",
+   "allowed": [
+    [
+     "guest-wifi",
+     "dns"
+    ]
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "printers",
+   "dst": "partners",
+   "svcs": [
+    "smb",
+    "ssh",
+    "postgres"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "library",
+   "svcs": [
+    "http"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "library",
+   "dst": "backup",
+   "svcs": [
+    "imap",
+    "rtsp",
+    "postgres"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "partners",
+   "dst": "printers",
+   "broad": "any-tcp",
+   "ex": [
+    "smb",
+    "telnet",
+    "rdp"
+   ]
+  }
+ ],
+ "wall_s": 117.1379222869873
+}

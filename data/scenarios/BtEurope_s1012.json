@@ -1,0 +1,415 @@
+{
+ "id": "BtEurope_s1012",
+ "topology": "BtEurope",
+ "n_nodes": 24,
+ "edges": [
+  [
+   0,
+   1
+  ],
+  [
+   0,
+   10
+  ],
+  [
+   0,
+   7
+  ],
+  [
+   0,
+   21
+  ],
+  [
+   0,
+   5
+  ],
+  [
+   1,
+   2
+  ],
+  [
+   1,
+   3
+  ],
+  [
+   1,
+   4
+  ],
+  [
+   1,
+   5
+  ],
+  [
+   1,
+   12
+  ],
+  [
+   1,
+   14
+  ],
+  [
+   1,
+   15
+  ],
+  [
+   1,
+   17
+  ],
+  [
+   1,
+   18
+  ],
+  [
+   1,
+   20
+  ],
+  [
+   1,
+   22
+  ],
+  [
+   1,
+   23
+  ],
+  [
+   3,
+   5
+  ],
+  [
+   5,
+   6
+  ],
+  [
+   5,
+   7
+  ],
+  [
+   5,
+   11
+  ],
+  [
+   5,
+   15
+  ],
+  [
+   5,
+   16
+  ],
+  [
+   5,
+   17
+  ],
+  [
+   5,
+   19
+  ],
+  [
+   6,
+   7
+  ],
+  [
+   7,
+   8
+  ],
+  [
+   7,
+   9
+  ],
+  [
+   10,
+   17
+  ],
+  [
+   11,
+   17
+  ],
+  [
+   12,
+   17
+  ],
+  [
+   13,
+   16
+  ],
+  [
+   13,
+   17
+  ],
+  [
+   14,
+   17
+  ],
+  [
+   16,
+   17
+  ],
+  [
+   17,
+   18
+  ],
+  [
+   19,
+   20
+  ]
+ ],
+ "zones": {
+  "guest-wifi": {
+   "router": 2,
+   "prefixes": [
+    "251.177.8.0/24",
+    "20.207.0.0/17"
+   ]
+  },
+  "monitoring": {
+   "router": 23,
+   "prefixes": [
+    "191.187.105.32/27",
+    "228.246.244.0/23",
+    "194.146.182.64/26"
+   ]
+  },
+  "database": {
+   "router": 4,
+   "prefixes": [
+    "121.152.119.0/24",
+    "68.148.33.32/27",
+    "211.73.0.0/16"
+   ]
+  },
+  "admin": {
+   "router": 22,
+   "prefixes": [
+    "239.233.237.64/26"
+   ]
+  },
+  "scada": {
+   "router": 21,
+   "prefixes": [
+    "88.244.176.0/24",
+    "8.216.195.0/25"
+   ]
+  },
+  "nvr": {
+   "router": 9,
+   "prefixes": [
+    "94.209.170.208/28"
+   ]
+  }
+ },
+ "zone_text": [
+  "guest-wifi: hosts 251.177.8.0/24, 20.207.0.0/17 attached to router R2",
+  "monitoring: hosts 191.187.105.32/27, 228.246.244.0/23, 194.146.182.64/26 attached to router R23",
+  "database: hosts 121.152.119.0/24, 68.148.33.32/27, 211.73.0.0/16 attached to router R4",
+  "admin: hosts 239.233.237.64/26 attached to router R22",
+  "scada: hosts 88.244.176.0/24, 8.216.195.0/25 attached to router R21",
+  "nvr: hosts 94.209.170.208/28 attached to router R9"
+ ],
+ "intents": [
+  {
+   "type": "block",
+   "src": "monitoring",
+   "dst": "database"
+  },
+  {
+   "type": "block",
+   "src": "guest-wifi",
+   "dst": "scada"
+  },
+  {
+   "type": "allow",
+   "src": "guest-wifi",
+   "dst": "admin",
+   "svcs": [
+    "ssh"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "guest-wifi",
+   "dst": "admin",
+   "broad": "any-tcp",
+   "ex": [
+    "telnet",
+    "ftp"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "nvr",
+   "dst": "admin",
+   "broad": "high-tcp",
+   "ex": [
+    "mysql",
+    "rdp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "nvr",
+   "dst": "admin",
+   "svcs": [
+    "rdp",
+    "rtsp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "guest-wifi",
+   "dst": "monitoring",
+   "svcs": [
+    "imap",
+    "dns"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "guest-wifi",
+   "dst": "admin",
+   "broad": "any-udp",
+   "ex": [
+    "tftp",
+    "snmp"
+   ]
+  }
+ ],
+ "nl": [
+  "No packet from monitoring may enter database, even for services open to everyone.",
+  "guest-wifi must never reach scada, regardless of any other rule.",
+  "Allow guest-wifi to connect to admin using SSH (TCP 22).",
+  "Permit any TCP port from guest-wifi to admin but deny Telnet (TCP 23), FTP (TCP 21).",
+  "Block MySQL (TCP 3306), RDP (TCP 3389) from nvr to admin; the rest of TCP ports 1024-65535 between them is allowed.",
+  "Allow nvr to connect to admin using RDP (TCP 3389) and RTSP (TCP 554).",
+  "Hosts in guest-wifi may reach monitoring over IMAP (TCP 143) and DNS over UDP 53.",
+  "guest-wifi may use any UDP port towards admin, except TFTP (UDP 69), SNMP (UDP 161), which must be blocked."
+ ],
+ "gt": [
+  {
+   "src": "monitoring",
+   "dst": "database",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "guest-wifi",
+   "dst": "scada",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "guest-wifi",
+   "dst": "admin",
+   "proto": "tcp",
+   "dlo": 23,
+   "dhi": 23,
+   "action": "deny"
+  },
+  {
+   "src": "guest-wifi",
+   "dst": "admin",
+   "proto": "tcp",
+   "dlo": 21,
+   "dhi": 21,
+   "action": "deny"
+  },
+  {
+   "src": "nvr",
+   "dst": "admin",
+   "proto": "tcp",
+   "dlo": 3306,
+   "dhi": 3306,
+   "action": "deny"
+  },
+  {
+   "src": "nvr",
+   "dst": "admin",
+   "proto": "tcp",
+   "dlo": 3389,
+   "dhi": 3389,
+   "action": "deny"
+  },
+  {
+   "src": "guest-wifi",
+   "dst": "admin",
+   "proto": "udp",
+   "dlo": 69,
+   "dhi": 69,
+   "action": "deny"
+  },
+  {
+   "src": "guest-wifi",
+   "dst": "admin",
+   "proto": "udp",
+   "dlo": 161,
+   "dhi": 161,
+   "action": "deny"
+  },
+  {
+   "src": "guest-wifi",
+   "dst": "admin",
+   "proto": "tcp",
+   "dlo": 22,
+   "dhi": 22,
+   "action": "permit"
+  },
+  {
+   "src": "guest-wifi",
+   "dst": "admin",
+   "proto": "tcp",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "permit"
+  },
+  {
+   "src": "nvr",
+   "dst": "admin",
+   "proto": "tcp",
+   "dlo": 1024,
+   "dhi": 65535,
+   "action": "permit"
+  },
+  {
+   "src": "nvr",
+   "dst": "admin",
+   "proto": "tcp",
+   "dlo": 3389,
+   "dhi": 3389,
+   "action": "permit"
+  },
+  {
+   "src": "nvr",
+   "dst": "admin",
+   "proto": "tcp",
+   "dlo": 554,
+   "dhi": 554,
+   "action": "permit"
+  },
+  {
+   "src": "guest-wifi",
+   "dst": "monitoring",
+   "proto": "tcp",
+   "dlo": 143,
+   "dhi": 143,
+   "action": "permit"
+  },
+  {
+   "src": "guest-wifi",
+   "dst": "monitoring",
+   "proto": "udp",
+   "dlo": 53,
+   "dhi": 53,
+   "action": "permit"
+  },
+  {
+   "src": "guest-wifi",
+   "dst": "admin",
+   "proto": "udp",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "permit"
+  }
+ ]
+}

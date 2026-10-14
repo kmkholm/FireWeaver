@@ -1,0 +1,63 @@
+=== Aarnet_s1039
+{"removed": 0}
+
+up {'n_routers': 19, 'n_links': 24, 'n_zones': 6, 'setup_s': 36.444249391555786, 'converged': True, 'converge_s': 7.3183746337890625, 'ecmp_nexthops': 312} 46s
+fireweaver {'cfgset': 'fireweaver', 'deploy_s': 11.946865797042847, 'per_router_max_s': 6.782216787338257, 'rules_installed': 455, 'rules_expected': 455} {'n': 1762, 'conform': 1762, 'leaks': 0, 'wrongly_blocked': 0}
+ecmp1 {'cfgset': 'ecmp1', 'deploy_s': 11.424912691116333, 'per_router_max_s': 6.325242757797241, 'rules_installed': 455, 'rules_expected': 455} {'n': 1762, 'conform': 1757, 'leaks': 5, 'wrongly_blocked': 0}
+none {'cfgset': 'none', 'deploy_s': 11.082271337509155, 'per_router_max_s': 5.794428110122681, 'rules_installed': 0, 'rules_expected': 0} {'n': 1762, 'conform': 360, 'leaks': 1402, 'wrongly_blocked': 0}
+{"removed": 19}
+
+=== Belnet2003_s1014
+{"removed": 0}
+
+up {'n_routers': 23, 'n_links': 39, 'n_zones': 10, 'setup_s': 55.374046325683594, 'converged': True, 'converge_s': 2.275200128555298, 'ecmp_nexthops': 1102} 61s
+fireweaver {'cfgset': 'fireweaver', 'deploy_s': 14.651883363723755, 'per_router_max_s': 7.878200531005859, 'rules_installed': 780, 'rules_expected': 780} {'n': 2606, 'conform': 2606, 'leaks': 0, 'wrongly_blocked': 0}
+ecmp1 {'cfgset': 'ecmp1', 'deploy_s': 13.393318891525269, 'per_router_max_s': 6.922067165374756, 'rules_installed': 780, 'rules_expected': 780} {'n': 2606, 'conform': 2522, 'leaks': 84, 'wrongly_blocked': 0}
+none {'cfgset': 'none', 'deploy_s': 12.767364501953125, 'per_router_max_s': 6.931879281997681, 'rules_installed': 0, 'rules_expected': 0} {'n': 2606, 'conform': 116, 'leaks': 2490, 'wrongly_blocked': 0}
+{"removed": 23}
+
+=== HurricaneElectric_s1047
+{"removed": 0}
+
+up {'n_routers': 24, 'n_links': 37, 'n_zones': 10, 'setup_s': 49.40619158744812, 'converged': True, 'converge_s': 2.27908992767334, 'ecmp_nexthops': 508} 54s
+fireweaver {'cfgset': 'fireweaver', 'deploy_s': 14.826789855957031, 'per_router_max_s': 7.893270015716553, 'rules_installed': 500, 'rules_expected': 500} {'n': 3090, 'conform': 3090, 'leaks': 0, 'wrongly_blocked': 0}
+ecmp1 {'cfgset': 'ecmp1', 'deploy_s': 14.46709680557251, 'per_router_max_s': 7.310202360153198, 'rules_installed': 500, 'rules_expected': 500} {'n': 3090, 'conform': 2979, 'leaks': 111, 'wrongly_blocked': 0}
+none {'cfgset': 'none', 'deploy_s': 13.38270115852356, 'per_router_max_s': 7.353349924087524, 'rules_installed': 0, 'rules_expected': 0} {'n': 3090, 'conform': 300, 'leaks': 2790, 'wrongly_blocked': 0}
+{"removed": 24}
+
+=== Iinet_s1031
+{"removed": 0}
+
+up {'n_routers': 31, 'n_links': 35, 'n_zones': 10, 'setup_s': 56.891082525253296, 'converged': True, 'converge_s': 3.0570688247680664, 'ecmp_nexthops': 287} 64s
+fireweaver {'cfgset': 'fireweaver', 'deploy_s': 18.71768307685852, 'per_router_max_s': 9.66213846206665, 'rules_installed': 465, 'rules_expected': 465} {'n': 2758, 'conform': 2758, 'leaks': 0, 'wrongly_blocked': 0}
+ecmp1 {'cfgset': 'ecmp1', 'deploy_s': 15.489927053451538, 'per_router_max_s': 7.837054014205933, 'rules_installed': 465, 'rules_expected': 465} {'n': 2758, 'conform': 2755, 'leaks': 3, 'wrongly_blocked': 0}
+none {'cfgset': 'none', 'deploy_s': 15.771899461746216, 'per_router_max_s': 8.521230936050415, 'rules_installed': 0, 'rules_expected': 0} {'n': 2758, 'conform': 172, 'leaks': 2586, 'wrongly_blocked': 0}
+{"removed": 31}
+
+=== Gambia_s1041
+{"removed": 0}
+
+up {'n_routers': 28, 'n_links': 28, 'n_zones': 16, 'setup_s': 52.56293082237244, 'converged': True, 'converge_s': 2.38840651512146, 'ecmp_nexthops': 104} 58s
+fireweaver {'cfgset': 'fireweaver', 'deploy_s': 14.75247049331665, 'per_router_max_s': 7.786974668502808, 'rules_installed': 974, 'rules_expected': 974} {'n': 6592, 'conform': 6592, 'leaks': 0, 'wrongly_blocked': 0}
+ecmp1 {'cfgset': 'ecmp1', 'deploy_s': 14.155094385147095, 'per_router_max_s': 7.275920867919922, 'rules_installed': 974, 'rules_expected': 974} {'n': 6592, 'conform': 6576, 'leaks': 16, 'wrongly_blocked': 0}
+none {'cfgset': 'none', 'deploy_s': 13.904555320739746, 'per_router_max_s': 6.853015661239624, 'rules_installed': 0, 'rules_expected': 0} {'n': 6592, 'conform': 284, 'leaks': 6308, 'wrongly_blocked': 0}
+{"removed": 28}
+
+=== Geant2010_s1018
+{"removed": 0}
+
+up {'n_routers': 37, 'n_links': 56, 'n_zones': 10, 'setup_s': 62.4667181968689, 'converged': True, 'converge_s': 3.0685572624206543, 'ecmp_nexthops': 1063} 69s
+fireweaver {'cfgset': 'fireweaver', 'deploy_s': 18.686169862747192, 'per_router_max_s': 9.053845882415771, 'rules_installed': 355, 'rules_expected': 355} {'n': 2702, 'conform': 2546, 'leaks': 0, 'wrongly_blocked': 156}
+ecmp1 {'cfgset': 'ecmp1', 'deploy_s': 471.3830065727234, 'per_router_max_s': 9.566446781158447, 'rules_installed': 349, 'rules_expected': 349} {'n': 2702, 'conform': 2414, 'leaks': 288, 'wrongly_blocked': 0}
+none {'cfgset': 'none', 'deploy_s': 17.62476658821106, 'per_router_max_s': 8.788378715515137, 'rules_installed': 0, 'rules_expected': 0} {'n': 2702, 'conform': 156, 'leaks': 2546, 'wrongly_blocked': 0}
+{"removed": 37}
+
+=== Ntelos_s1046
+{"removed": 0}
+
+up {'n_routers': 47, 'n_links': 58, 'n_zones': 6, 'setup_s': 69.80698418617249, 'converged': True, 'converge_s': 4.250094413757324, 'ecmp_nexthops': 1037} 79s
+fireweaver {'cfgset': 'fireweaver', 'deploy_s': 23.617117643356323, 'per_router_max_s': 10.397948265075684, 'rules_installed': 390, 'rules_expected': 390} {'n': 1206, 'conform': 1206, 'leaks': 0, 'wrongly_blocked': 0}
+ecmp1 {'cfgset': 'ecmp1', 'deploy_s': 22.23266291618347, 'per_router_max_s': 9.808377504348755, 'rules_installed': 390, 'rules_expected': 390} {'n': 1206, 'conform': 1170, 'leaks': 36, 'wrongly_blocked': 0}
+none {'cfgset': 'none', 'deploy_s': 23.764641284942627, 'per_router_max_s': 12.34018325805664, 'rules_installed': 0, 'rules_expected': 0} {'n': 1206, 'conform': 188, 'leaks': 1018, 'wrongly_blocked': 0}
+{"removed": 47}
+

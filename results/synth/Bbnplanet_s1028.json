@@ -1,0 +1,208 @@
+{
+ "id": "Bbnplanet_s1028",
+ "n_intents": 8,
+ "n_gt_rules": 13,
+ "n_zones": 6,
+ "rules": {
+  "eq": false,
+  "mismatch": 0.01875,
+  "n_rules": 14,
+  "fail": 0,
+  "s": 15.669674158096313,
+  "calls": 1,
+  "prompt": 695,
+  "completion": 453
+ },
+ "ir0": {
+  "eq": true,
+  "mismatch": 0.0,
+  "n_rules": 13,
+  "fail": 0,
+  "s": 7.765726804733276,
+  "calls": 8,
+  "prompt": 5015,
+  "completion": 223,
+  "intent_acc": 1.0
+ },
+ "ir": {
+  "eq": true,
+  "mismatch": 0.0,
+  "n_rules": 13,
+  "fail": 0,
+  "s": 7.2564826011657715,
+  "calls": 8,
+  "prompt": 8623,
+  "completion": 203,
+  "intent_acc": 1.0
+ },
+ "fw": {
+  "eq": true,
+  "mismatch": 0.0,
+  "n_rules": 13,
+  "fail": 0,
+  "s": 24.158700704574585,
+  "verify_s": 16.90221905708313,
+  "calls": 19,
+  "verify_calls": 11,
+  "flagged": 1,
+  "accepted": 0,
+  "repairs": [
+   {
+    "k": 5,
+    "was_ok": true,
+    "now_ok": true,
+    "history": [
+     1,
+     0
+    ],
+    "calls": 2,
+    "accepted": false,
+    "diff": 1,
+    "win_new": 0,
+    "win_old": 1
+   }
+  ],
+  "intent_acc": 1.0
+ },
+ "ir_out": [
+  {
+   "type": "block",
+   "src": "printers",
+   "dst": "dev-lab"
+  },
+  {
+   "type": "allow",
+   "src": "ntp-servers",
+   "dst": "iot-sensors",
+   "svcs": [
+    "dns"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "research",
+   "dst": "iot-sensors",
+   "svcs": [
+    "ntp"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "ntp-servers",
+   "svcs": [
+    "http",
+    "ntp"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "nvr",
+   "svcs": [
+    "https",
+    "http"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "nvr",
+   "allowed": [
+    [
+     "ntp-servers",
+     "https"
+    ],
+    [
+     "research",
+     "dns"
+    ]
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "printers",
+   "dst": "research",
+   "svcs": [
+    "postgres"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "ntp-servers",
+   "dst": "iot-sensors",
+   "svcs": [
+    "rdp",
+    "smb"
+   ]
+  }
+ ],
+ "fw_out": [
+  {
+   "type": "block",
+   "src": "printers",
+   "dst": "dev-lab"
+  },
+  {
+   "type": "allow",
+   "src": "ntp-servers",
+   "dst": "iot-sensors",
+   "svcs": [
+    "dns"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "research",
+   "dst": "iot-sensors",
+   "svcs": [
+    "ntp"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "ntp-servers",
+   "svcs": [
+    "http",
+    "ntp"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "nvr",
+   "svcs": [
+    "https",
+    "http"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "nvr",
+   "allowed": [
+    [
+     "ntp-servers",
+     "https"
+    ],
+    [
+     "research",
+     "dns"
+    ]
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "printers",
+   "dst": "research",
+   "svcs": [
+    "postgres"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "ntp-servers",
+   "dst": "iot-sensors",
+   "svcs": [
+    "rdp",
+    "smb"
+   ]
+  }
+ ],
+ "wall_s": 47.797386169433594
+}

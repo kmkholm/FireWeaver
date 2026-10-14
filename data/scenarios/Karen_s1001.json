@@ -1,0 +1,593 @@
+{
+ "id": "Karen_s1001",
+ "topology": "Karen",
+ "n_nodes": 25,
+ "edges": [
+  [
+   0,
+   7
+  ],
+  [
+   1,
+   5
+  ],
+  [
+   2,
+   4
+  ],
+  [
+   3,
+   10
+  ],
+  [
+   4,
+   24
+  ],
+  [
+   4,
+   5
+  ],
+  [
+   5,
+   6
+  ],
+  [
+   6,
+   7
+  ],
+  [
+   7,
+   8
+  ],
+  [
+   7,
+   11
+  ],
+  [
+   7,
+   22
+  ],
+  [
+   7,
+   23
+  ],
+  [
+   8,
+   9
+  ],
+  [
+   10,
+   24
+  ],
+  [
+   10,
+   12
+  ],
+  [
+   11,
+   24
+  ],
+  [
+   11,
+   20
+  ],
+  [
+   11,
+   12
+  ],
+  [
+   11,
+   21
+  ],
+  [
+   12,
+   19
+  ],
+  [
+   12,
+   17
+  ],
+  [
+   12,
+   13
+  ],
+  [
+   13,
+   16
+  ],
+  [
+   13,
+   14
+  ],
+  [
+   13,
+   15
+  ],
+  [
+   16,
+   17
+  ],
+  [
+   17,
+   18
+  ],
+  [
+   17,
+   19
+  ]
+ ],
+ "zones": {
+  "student-lab": {
+   "router": 1,
+   "prefixes": [
+    "157.158.160.0/24",
+    "125.219.218.0/23"
+   ]
+  },
+  "edge-cache": {
+   "router": 18,
+   "prefixes": [
+    "103.236.146.0/23"
+   ]
+  },
+  "partners": {
+   "router": 23,
+   "prefixes": [
+    "96.126.46.0/25"
+   ]
+  },
+  "hr": {
+   "router": 9,
+   "prefixes": [
+    "37.132.108.0/23",
+    "54.121.233.0/24"
+   ]
+  },
+  "cameras": {
+   "router": 2,
+   "prefixes": [
+    "90.224.164.0/23"
+   ]
+  },
+  "engineering": {
+   "router": 15,
+   "prefixes": [
+    "92.29.242.0/23",
+    "182.231.84.0/22",
+    "151.111.118.0/23"
+   ]
+  },
+  "guest-wifi": {
+   "router": 20,
+   "prefixes": [
+    "59.56.45.0/27",
+    "58.1.72.0/21"
+   ]
+  },
+  "dns-servers": {
+   "router": 14,
+   "prefixes": [
+    "51.188.252.0/24",
+    "97.27.0.0/16"
+   ]
+  },
+  "ntp-servers": {
+   "router": 0,
+   "prefixes": [
+    "150.47.0.0/23",
+    "182.177.202.0/23",
+    "195.183.20.128/26"
+   ]
+  },
+  "backup": {
+   "router": 22,
+   "prefixes": [
+    "231.130.112.16/28"
+   ]
+  }
+ },
+ "zone_text": [
+  "student-lab: hosts 157.158.160.0/24, 125.219.218.0/23 attached to router R1",
+  "edge-cache: hosts 103.236.146.0/23 attached to router R18",
+  "partners: hosts 96.126.46.0/25 attached to router R23",
+  "hr: hosts 37.132.108.0/23, 54.121.233.0/24 attached to router R9",
+  "cameras: hosts 90.224.164.0/23 attached to router R2",
+  "engineering: hosts 92.29.242.0/23, 182.231.84.0/22, 151.111.118.0/23 attached to router R15",
+  "guest-wifi: hosts 59.56.45.0/27, 58.1.72.0/21 attached to router R20",
+  "dns-servers: hosts 51.188.252.0/24, 97.27.0.0/16 attached to router R14",
+  "ntp-servers: hosts 150.47.0.0/23, 182.177.202.0/23, 195.183.20.128/26 attached to router R0",
+  "backup: hosts 231.130.112.16/28 attached to router R22"
+ ],
+ "intents": [
+  {
+   "type": "allow_except",
+   "src": "engineering",
+   "dst": "student-lab",
+   "broad": "any-tcp",
+   "ex": [
+    "smb"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "edge-cache",
+   "dst": "cameras"
+  },
+  {
+   "type": "allow",
+   "src": "engineering",
+   "dst": "dns-servers",
+   "svcs": [
+    "rdp",
+    "ldap"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "engineering",
+   "dst": "cameras",
+   "svcs": [
+    "ntp",
+    "rdp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "backup",
+   "dst": "dns-servers",
+   "svcs": [
+    "ldap",
+    "ntp",
+    "ssh"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "hr",
+   "allowed": [
+    [
+     "guest-wifi",
+     "syslog"
+    ],
+    [
+     "partners",
+     "ntp"
+    ]
+   ]
+  },
+  {
+   "type": "block",
+   "src": "cameras",
+   "dst": "engineering"
+  },
+  {
+   "type": "block",
+   "src": "engineering",
+   "dst": "guest-wifi"
+  },
+  {
+   "type": "block",
+   "src": "cameras",
+   "dst": "student-lab"
+  },
+  {
+   "type": "allow_except",
+   "src": "dns-servers",
+   "dst": "backup",
+   "broad": "any-udp",
+   "ex": [
+    "snmp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "cameras",
+   "dst": "edge-cache",
+   "svcs": [
+    "rdp",
+    "http",
+    "smb"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "guest-wifi",
+   "dst": "dns-servers",
+   "broad": "any-tcp",
+   "ex": [
+    "smb"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "guest-wifi",
+   "svcs": [
+    "ntp",
+    "https"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "engineering",
+   "dst": "edge-cache"
+  },
+  {
+   "type": "isolate",
+   "src": "cameras",
+   "allowed": [
+    [
+     "partners",
+     "ntp"
+    ]
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "hr",
+   "svcs": [
+    "http",
+    "ntp"
+   ]
+  }
+ ],
+ "nl": [
+  "Permit any TCP port from engineering to student-lab but deny SMB (TCP 445).",
+  "edge-cache must never reach cameras, regardless of any other rule.",
+  "Hosts in engineering may reach dns-servers over RDP (TCP 3389) and LDAP (TCP 389).",
+  "Hosts in engineering may reach cameras over NTP (UDP 123) and RDP (TCP 3389).",
+  "Hosts in backup may reach dns-servers over LDAP (TCP 389) and NTP (UDP 123) and SSH (TCP 22).",
+  "Apart from guest-wifi on syslog (UDP 514); partners on NTP (UDP 123), all traffic originating in hr must be dropped.",
+  "Deny all traffic from cameras to engineering (this overrides any public service).",
+  "engineering must never reach guest-wifi, regardless of any other rule.",
+  "Deny all traffic from cameras to student-lab (this overrides any public service).",
+  "Permit any UDP port from dns-servers to backup but deny SNMP (UDP 161).",
+  "Hosts in cameras may reach edge-cache over RDP (TCP 3389) and HTTP (TCP 80) and SMB (TCP 445).",
+  "Permit any TCP port from guest-wifi to dns-servers but deny SMB (TCP 445).",
+  "Make NTP (UDP 123) and HTTPS (TCP 443) on guest-wifi reachable from all internal zones.",
+  "engineering must never reach edge-cache, regardless of any other rule.",
+  "Restrict cameras so that its only permitted destinations are partners on NTP (UDP 123); drop all other traffic it originates.",
+  "hr offers HTTP (TCP 80) and NTP (UDP 123) to every zone."
+ ],
+ "gt": [
+  {
+   "src": "edge-cache",
+   "dst": "cameras",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "cameras",
+   "dst": "engineering",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "engineering",
+   "dst": "guest-wifi",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "cameras",
+   "dst": "student-lab",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "engineering",
+   "dst": "edge-cache",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "engineering",
+   "dst": "student-lab",
+   "proto": "tcp",
+   "dlo": 445,
+   "dhi": 445,
+   "action": "deny"
+  },
+  {
+   "src": "dns-servers",
+   "dst": "backup",
+   "proto": "udp",
+   "dlo": 161,
+   "dhi": 161,
+   "action": "deny"
+  },
+  {
+   "src": "guest-wifi",
+   "dst": "dns-servers",
+   "proto": "tcp",
+   "dlo": 445,
+   "dhi": 445,
+   "action": "deny"
+  },
+  {
+   "src": "engineering",
+   "dst": "student-lab",
+   "proto": "tcp",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "permit"
+  },
+  {
+   "src": "engineering",
+   "dst": "dns-servers",
+   "proto": "tcp",
+   "dlo": 3389,
+   "dhi": 3389,
+   "action": "permit"
+  },
+  {
+   "src": "engineering",
+   "dst": "dns-servers",
+   "proto": "tcp",
+   "dlo": 389,
+   "dhi": 389,
+   "action": "permit"
+  },
+  {
+   "src": "engineering",
+   "dst": "cameras",
+   "proto": "udp",
+   "dlo": 123,
+   "dhi": 123,
+   "action": "permit"
+  },
+  {
+   "src": "engineering",
+   "dst": "cameras",
+   "proto": "tcp",
+   "dlo": 3389,
+   "dhi": 3389,
+   "action": "permit"
+  },
+  {
+   "src": "backup",
+   "dst": "dns-servers",
+   "proto": "tcp",
+   "dlo": 389,
+   "dhi": 389,
+   "action": "permit"
+  },
+  {
+   "src": "backup",
+   "dst": "dns-servers",
+   "proto": "udp",
+   "dlo": 123,
+   "dhi": 123,
+   "action": "permit"
+  },
+  {
+   "src": "backup",
+   "dst": "dns-servers",
+   "proto": "tcp",
+   "dlo": 22,
+   "dhi": 22,
+   "action": "permit"
+  },
+  {
+   "src": "dns-servers",
+   "dst": "backup",
+   "proto": "udp",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "permit"
+  },
+  {
+   "src": "cameras",
+   "dst": "edge-cache",
+   "proto": "tcp",
+   "dlo": 3389,
+   "dhi": 3389,
+   "action": "permit"
+  },
+  {
+   "src": "cameras",
+   "dst": "edge-cache",
+   "proto": "tcp",
+   "dlo": 80,
+   "dhi": 80,
+   "action": "permit"
+  },
+  {
+   "src": "cameras",
+   "dst": "edge-cache",
+   "proto": "tcp",
+   "dlo": 445,
+   "dhi": 445,
+   "action": "permit"
+  },
+  {
+   "src": "guest-wifi",
+   "dst": "dns-servers",
+   "proto": "tcp",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "permit"
+  },
+  {
+   "src": "hr",
+   "dst": "guest-wifi",
+   "proto": "udp",
+   "dlo": 514,
+   "dhi": 514,
+   "action": "permit"
+  },
+  {
+   "src": "hr",
+   "dst": "partners",
+   "proto": "udp",
+   "dlo": 123,
+   "dhi": 123,
+   "action": "permit"
+  },
+  {
+   "src": "cameras",
+   "dst": "partners",
+   "proto": "udp",
+   "dlo": 123,
+   "dhi": 123,
+   "action": "permit"
+  },
+  {
+   "src": "hr",
+   "dst": "*",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "cameras",
+   "dst": "*",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "*",
+   "dst": "guest-wifi",
+   "proto": "udp",
+   "dlo": 123,
+   "dhi": 123,
+   "action": "permit"
+  },
+  {
+   "src": "*",
+   "dst": "guest-wifi",
+   "proto": "tcp",
+   "dlo": 443,
+   "dhi": 443,
+   "action": "permit"
+  },
+  {
+   "src": "*",
+   "dst": "hr",
+   "proto": "tcp",
+   "dlo": 80,
+   "dhi": 80,
+   "action": "permit"
+  },
+  {
+   "src": "*",
+   "dst": "hr",
+   "proto": "udp",
+   "dlo": 123,
+   "dhi": 123,
+   "action": "permit"
+  }
+ ]
+}

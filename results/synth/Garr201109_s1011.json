@@ -1,0 +1,334 @@
+{
+ "id": "Garr201109_s1011",
+ "n_intents": 16,
+ "n_gt_rules": 28,
+ "n_zones": 10,
+ "rules": {
+  "eq": false,
+  "mismatch": 0.019,
+  "n_rules": 28,
+  "fail": 0,
+  "s": 32.20150327682495,
+  "calls": 1,
+  "prompt": 919,
+  "completion": 907
+ },
+ "ir0": {
+  "eq": false,
+  "mismatch": 0.0045,
+  "n_rules": 20,
+  "fail": 0,
+  "s": 38.66035461425781,
+  "calls": 16,
+  "prompt": 10245,
+  "completion": 609,
+  "intent_acc": 0.75
+ },
+ "ir": {
+  "eq": true,
+  "mismatch": 0.0,
+  "n_rules": 28,
+  "fail": 0,
+  "s": 32.24924612045288,
+  "calls": 16,
+  "prompt": 17461,
+  "completion": 412,
+  "intent_acc": 1.0
+ },
+ "fw": {
+  "eq": true,
+  "mismatch": 0.0,
+  "n_rules": 28,
+  "fail": 0,
+  "s": 293.71453833580017,
+  "verify_s": 261.46529269218445,
+  "calls": 35,
+  "verify_calls": 19,
+  "flagged": 1,
+  "accepted": 0,
+  "repairs": [
+   {
+    "k": 1,
+    "was_ok": true,
+    "now_ok": true,
+    "history": [
+     1,
+     1,
+     1
+    ],
+    "calls": 2,
+    "accepted": false
+   }
+  ],
+  "intent_acc": 1.0
+ },
+ "ir_out": [
+  {
+   "type": "allow_except",
+   "src": "backup",
+   "dst": "dev-lab",
+   "broad": "high-tcp",
+   "ex": [
+    "rdp",
+    "mysql"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "ntp-servers",
+   "allowed": [
+    [
+     "guest-wifi",
+     "https"
+    ],
+    [
+     "guest-wifi",
+     "dns"
+    ]
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "voip",
+   "dst": "backup",
+   "svcs": [
+    "imap"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "engineering",
+   "dst": "guest-wifi"
+  },
+  {
+   "type": "allow",
+   "src": "ntp-servers",
+   "dst": "engineering",
+   "svcs": [
+    "snmp"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "vpn-users",
+   "dst": "ntp-servers",
+   "broad": "high-tcp",
+   "ex": [
+    "postgres",
+    "rdp",
+    "mysql"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "dev-lab",
+   "dst": "vpn-users"
+  },
+  {
+   "type": "allow",
+   "src": "voip",
+   "dst": "dns-servers",
+   "svcs": [
+    "smtp"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "finance",
+   "dst": "dev-lab"
+  },
+  {
+   "type": "allow_except",
+   "src": "backup",
+   "dst": "vpn-users",
+   "broad": "any-udp",
+   "ex": [
+    "snmp"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "ntp-servers",
+   "dst": "engineering"
+  },
+  {
+   "type": "public",
+   "dst": "dns-servers",
+   "svcs": [
+    "http",
+    "https"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "dev-lab",
+   "allowed": [
+    [
+     "voip",
+     "https"
+    ]
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "engineering",
+   "svcs": [
+    "http",
+    "dns"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "finance",
+   "dst": "partners",
+   "svcs": [
+    "rdp"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "engineering",
+   "allowed": [
+    [
+     "backup",
+     "ntp"
+    ]
+   ]
+  }
+ ],
+ "fw_out": [
+  {
+   "type": "allow_except",
+   "src": "backup",
+   "dst": "dev-lab",
+   "broad": "high-tcp",
+   "ex": [
+    "rdp",
+    "mysql"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "ntp-servers",
+   "allowed": [
+    [
+     "guest-wifi",
+     "https"
+    ],
+    [
+     "guest-wifi",
+     "dns"
+    ]
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "voip",
+   "dst": "backup",
+   "svcs": [
+    "imap"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "engineering",
+   "dst": "guest-wifi"
+  },
+  {
+   "type": "allow",
+   "src": "ntp-servers",
+   "dst": "engineering",
+   "svcs": [
+    "snmp"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "vpn-users",
+   "dst": "ntp-servers",
+   "broad": "high-tcp",
+   "ex": [
+    "postgres",
+    "rdp",
+    "mysql"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "dev-lab",
+   "dst": "vpn-users"
+  },
+  {
+   "type": "allow",
+   "src": "voip",
+   "dst": "dns-servers",
+   "svcs": [
+    "smtp"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "finance",
+   "dst": "dev-lab"
+  },
+  {
+   "type": "allow_except",
+   "src": "backup",
+   "dst": "vpn-users",
+   "broad": "any-udp",
+   "ex": [
+    "snmp"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "ntp-servers",
+   "dst": "engineering"
+  },
+  {
+   "type": "public",
+   "dst": "dns-servers",
+   "svcs": [
+    "http",
+    "https"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "dev-lab",
+   "allowed": [
+    [
+     "voip",
+     "https"
+    ]
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "engineering",
+   "svcs": [
+    "http",
+    "dns"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "finance",
+   "dst": "partners",
+   "svcs": [
+    "rdp"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "engineering",
+   "allowed": [
+    [
+     "backup",
+     "ntp"
+    ]
+   ]
+  }
+ ],
+ "wall_s": 364.8555910587311
+}

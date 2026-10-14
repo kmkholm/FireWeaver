@@ -1,0 +1,407 @@
+{
+ "id": "Eunetworks_s1053",
+ "topology": "Eunetworks",
+ "n_nodes": 14,
+ "edges": [
+  [
+   0,
+   1
+  ],
+  [
+   1,
+   2
+  ],
+  [
+   1,
+   5
+  ],
+  [
+   2,
+   3
+  ],
+  [
+   2,
+   9
+  ],
+  [
+   3,
+   4
+  ],
+  [
+   4,
+   5
+  ],
+  [
+   5,
+   6
+  ],
+  [
+   6,
+   7
+  ],
+  [
+   7,
+   8
+  ],
+  [
+   7,
+   12
+  ],
+  [
+   8,
+   9
+  ],
+  [
+   9,
+   10
+  ],
+  [
+   10,
+   11
+  ],
+  [
+   11,
+   13
+  ],
+  [
+   12,
+   13
+  ]
+ ],
+ "zones": {
+  "guest-wifi": {
+   "router": 6,
+   "prefixes": [
+    "125.149.236.32/27",
+    "173.93.129.128/26",
+    "0.157.202.0/23"
+   ]
+  },
+  "backup": {
+   "router": 8,
+   "prefixes": [
+    "8.147.0.0/16",
+    "248.180.214.0/24"
+   ]
+  },
+  "ntp-servers": {
+   "router": 2,
+   "prefixes": [
+    "240.250.79.0/24",
+    "125.220.210.0/23",
+    "208.41.108.0/22"
+   ]
+  },
+  "database": {
+   "router": 0,
+   "prefixes": [
+    "80.49.0.0/19"
+   ]
+  },
+  "student-lab": {
+   "router": 11,
+   "prefixes": [
+    "245.188.0.0/17",
+    "205.235.242.0/23"
+   ]
+  },
+  "research": {
+   "router": 11,
+   "prefixes": [
+    "225.91.243.224/27"
+   ]
+  },
+  "vpn-users": {
+   "router": 9,
+   "prefixes": [
+    "23.2.210.0/24",
+    "13.157.99.224/28"
+   ]
+  },
+  "mail": {
+   "router": 10,
+   "prefixes": [
+    "104.148.28.0/22",
+    "66.112.26.0/23",
+    "83.191.0.0/16"
+   ]
+  },
+  "nvr": {
+   "router": 3,
+   "prefixes": [
+    "196.196.175.0/24"
+   ]
+  },
+  "partners": {
+   "router": 2,
+   "prefixes": [
+    "215.136.48.0/20",
+    "10.12.0.0/16",
+    "61.122.4.160/27"
+   ]
+  },
+  "dev-lab": {
+   "router": 11,
+   "prefixes": [
+    "89.168.184.0/21"
+   ]
+  },
+  "engineering": {
+   "router": 8,
+   "prefixes": [
+    "242.58.234.0/23",
+    "123.239.191.64/27",
+    "229.128.81.128/25"
+   ]
+  },
+  "ops": {
+   "router": 7,
+   "prefixes": [
+    "69.148.0.0/20",
+    "12.41.173.0/24"
+   ]
+  },
+  "hr": {
+   "router": 11,
+   "prefixes": [
+    "255.126.54.0/23",
+    "33.211.92.0/23",
+    "82.54.156.0/23"
+   ]
+  },
+  "edge-cache": {
+   "router": 10,
+   "prefixes": [
+    "231.35.251.0/24",
+    "25.221.125.0/24",
+    "26.211.28.0/22"
+   ]
+  },
+  "finance": {
+   "router": 5,
+   "prefixes": [
+    "21.8.236.0/25",
+    "43.31.71.0/24"
+   ]
+  }
+ },
+ "zone_text": [
+  "guest-wifi: hosts 125.149.236.32/27, 173.93.129.128/26, 0.157.202.0/23 attached to router R6",
+  "backup: hosts 8.147.0.0/16, 248.180.214.0/24 attached to router R8",
+  "ntp-servers: hosts 240.250.79.0/24, 125.220.210.0/23, 208.41.108.0/22 attached to router R2",
+  "database: hosts 80.49.0.0/19 attached to router R0",
+  "student-lab: hosts 245.188.0.0/17, 205.235.242.0/23 attached to router R11",
+  "research: hosts 225.91.243.224/27 attached to router R11",
+  "vpn-users: hosts 23.2.210.0/24, 13.157.99.224/28 attached to router R9",
+  "mail: hosts 104.148.28.0/22, 66.112.26.0/23, 83.191.0.0/16 attached to router R10",
+  "nvr: hosts 196.196.175.0/24 attached to router R3",
+  "partners: hosts 215.136.48.0/20, 10.12.0.0/16, 61.122.4.160/27 attached to router R2",
+  "dev-lab: hosts 89.168.184.0/21 attached to router R11",
+  "engineering: hosts 242.58.234.0/23, 123.239.191.64/27, 229.128.81.128/25 attached to router R8",
+  "ops: hosts 69.148.0.0/20, 12.41.173.0/24 attached to router R7",
+  "hr: hosts 255.126.54.0/23, 33.211.92.0/23, 82.54.156.0/23 attached to router R11",
+  "edge-cache: hosts 231.35.251.0/24, 25.221.125.0/24, 26.211.28.0/22 attached to router R10",
+  "finance: hosts 21.8.236.0/25, 43.31.71.0/24 attached to router R5"
+ ],
+ "intents": [
+  {
+   "type": "allow_except",
+   "src": "student-lab",
+   "dst": "research",
+   "broad": "any-tcp",
+   "ex": [
+    "ftp",
+    "telnet"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "finance",
+   "allowed": [
+    [
+     "guest-wifi",
+     "dns"
+    ],
+    [
+     "edge-cache",
+     "ntp"
+    ]
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "ntp-servers",
+   "dst": "hr",
+   "svcs": [
+    "postgres"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "mail",
+   "dst": "dev-lab",
+   "svcs": [
+    "ldap",
+    "imap"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "hr",
+   "dst": "edge-cache",
+   "svcs": [
+    "imap",
+    "rtsp"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "research",
+   "svcs": [
+    "ntp",
+    "https"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "vpn-users",
+   "allowed": [
+    [
+     "engineering",
+     "ntp"
+    ]
+   ]
+  }
+ ],
+ "nl": [
+  "student-lab may use any TCP port towards research, except FTP (TCP 21), Telnet (TCP 23), which must be blocked.",
+  "finance is isolated: it may only reach guest-wifi on DNS over UDP 53; edge-cache on NTP (UDP 123), and nothing else.",
+  "Hosts in ntp-servers may reach hr over PostgreSQL (TCP 5432).",
+  "Allow mail to connect to dev-lab using LDAP (TCP 389) and IMAP (TCP 143).",
+  "Hosts in hr may reach edge-cache over IMAP (TCP 143) and RTSP (TCP 554).",
+  "research offers NTP (UDP 123) and HTTPS (TCP 443) to every zone.",
+  "Apart from engineering on NTP (UDP 123), all traffic originating in vpn-users must be dropped."
+ ],
+ "gt": [
+  {
+   "src": "student-lab",
+   "dst": "research",
+   "proto": "tcp",
+   "dlo": 21,
+   "dhi": 21,
+   "action": "deny"
+  },
+  {
+   "src": "student-lab",
+   "dst": "research",
+   "proto": "tcp",
+   "dlo": 23,
+   "dhi": 23,
+   "action": "deny"
+  },
+  {
+   "src": "student-lab",
+   "dst": "research",
+   "proto": "tcp",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "permit"
+  },
+  {
+   "src": "ntp-servers",
+   "dst": "hr",
+   "proto": "tcp",
+   "dlo": 5432,
+   "dhi": 5432,
+   "action": "permit"
+  },
+  {
+   "src": "mail",
+   "dst": "dev-lab",
+   "proto": "tcp",
+   "dlo": 389,
+   "dhi": 389,
+   "action": "permit"
+  },
+  {
+   "src": "mail",
+   "dst": "dev-lab",
+   "proto": "tcp",
+   "dlo": 143,
+   "dhi": 143,
+   "action": "permit"
+  },
+  {
+   "src": "hr",
+   "dst": "edge-cache",
+   "proto": "tcp",
+   "dlo": 143,
+   "dhi": 143,
+   "action": "permit"
+  },
+  {
+   "src": "hr",
+   "dst": "edge-cache",
+   "proto": "tcp",
+   "dlo": 554,
+   "dhi": 554,
+   "action": "permit"
+  },
+  {
+   "src": "finance",
+   "dst": "guest-wifi",
+   "proto": "udp",
+   "dlo": 53,
+   "dhi": 53,
+   "action": "permit"
+  },
+  {
+   "src": "finance",
+   "dst": "edge-cache",
+   "proto": "udp",
+   "dlo": 123,
+   "dhi": 123,
+   "action": "permit"
+  },
+  {
+   "src": "vpn-users",
+   "dst": "engineering",
+   "proto": "udp",
+   "dlo": 123,
+   "dhi": 123,
+   "action": "permit"
+  },
+  {
+   "src": "finance",
+   "dst": "*",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "vpn-users",
+   "dst": "*",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "*",
+   "dst": "research",
+   "proto": "udp",
+   "dlo": 123,
+   "dhi": 123,
+   "action": "permit"
+  },
+  {
+   "src": "*",
+   "dst": "research",
+   "proto": "tcp",
+   "dlo": 443,
+   "dhi": 443,
+   "action": "permit"
+  }
+ ]
+}

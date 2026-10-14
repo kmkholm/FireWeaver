@@ -1,0 +1,766 @@
+{
+ "id": "Garr201109_s1011",
+ "topology": "Garr201109",
+ "n_nodes": 59,
+ "edges": [
+  [
+   0,
+   51
+  ],
+  [
+   1,
+   46
+  ],
+  [
+   2,
+   50
+  ],
+  [
+   2,
+   54
+  ],
+  [
+   2,
+   6
+  ],
+  [
+   2,
+   45
+  ],
+  [
+   2,
+   14
+  ],
+  [
+   2,
+   16
+  ],
+  [
+   2,
+   17
+  ],
+  [
+   2,
+   18
+  ],
+  [
+   2,
+   22
+  ],
+  [
+   2,
+   30
+  ],
+  [
+   2,
+   19
+  ],
+  [
+   3,
+   43
+  ],
+  [
+   3,
+   44
+  ],
+  [
+   3,
+   45
+  ],
+  [
+   3,
+   39
+  ],
+  [
+   4,
+   50
+  ],
+  [
+   5,
+   45
+  ],
+  [
+   5,
+   57
+  ],
+  [
+   6,
+   49
+  ],
+  [
+   6,
+   46
+  ],
+  [
+   6,
+   47
+  ],
+  [
+   7,
+   20
+  ],
+  [
+   8,
+   45
+  ],
+  [
+   9,
+   43
+  ],
+  [
+   10,
+   43
+  ],
+  [
+   11,
+   45
+  ],
+  [
+   12,
+   43
+  ],
+  [
+   13,
+   16
+  ],
+  [
+   14,
+   21
+  ],
+  [
+   15,
+   16
+  ],
+  [
+   16,
+   18
+  ],
+  [
+   18,
+   33
+  ],
+  [
+   18,
+   20
+  ],
+  [
+   18,
+   21
+  ],
+  [
+   18,
+   22
+  ],
+  [
+   20,
+   50
+  ],
+  [
+   23,
+   30
+  ],
+  [
+   24,
+   25
+  ],
+  [
+   25,
+   50
+  ],
+  [
+   25,
+   27
+  ],
+  [
+   25,
+   30
+  ],
+  [
+   25,
+   26
+  ],
+  [
+   25,
+   28
+  ],
+  [
+   29,
+   30
+  ],
+  [
+   30,
+   33
+  ],
+  [
+   31,
+   33
+  ],
+  [
+   32,
+   52
+  ],
+  [
+   32,
+   33
+  ],
+  [
+   33,
+   34
+  ],
+  [
+   33,
+   35
+  ],
+  [
+   34,
+   56
+  ],
+  [
+   36,
+   45
+  ],
+  [
+   37,
+   45
+  ],
+  [
+   38,
+   40
+  ],
+  [
+   39,
+   40
+  ],
+  [
+   40,
+   43
+  ],
+  [
+   40,
+   50
+  ],
+  [
+   40,
+   55
+  ],
+  [
+   40,
+   42
+  ],
+  [
+   41,
+   55
+  ],
+  [
+   42,
+   45
+  ],
+  [
+   43,
+   45
+  ],
+  [
+   43,
+   50
+  ],
+  [
+   43,
+   51
+  ],
+  [
+   44,
+   45
+  ],
+  [
+   45,
+   46
+  ],
+  [
+   45,
+   51
+  ],
+  [
+   45,
+   47
+  ],
+  [
+   48,
+   49
+  ],
+  [
+   49,
+   50
+  ],
+  [
+   49,
+   53
+  ],
+  [
+   50,
+   58
+  ]
+ ],
+ "zones": {
+  "backup": {
+   "router": 10,
+   "prefixes": [
+    "1.133.236.0/22",
+    "127.162.40.0/21"
+   ]
+  },
+  "dns-servers": {
+   "router": 26,
+   "prefixes": [
+    "213.128.0.128/28",
+    "178.116.32.0/24"
+   ]
+  },
+  "engineering": {
+   "router": 52,
+   "prefixes": [
+    "123.141.72.0/23",
+    "123.127.238.0/23",
+    "127.184.114.0/24"
+   ]
+  },
+  "finance": {
+   "router": 4,
+   "prefixes": [
+    "223.67.46.128/25",
+    "231.242.69.128/25",
+    "191.187.108.0/22"
+   ]
+  },
+  "vpn-users": {
+   "router": 57,
+   "prefixes": [
+    "100.90.116.128/25"
+   ]
+  },
+  "voip": {
+   "router": 17,
+   "prefixes": [
+    "60.4.5.0/25"
+   ]
+  },
+  "ntp-servers": {
+   "router": 58,
+   "prefixes": [
+    "19.126.138.32/27",
+    "248.76.232.0/21",
+    "229.217.112.0/22"
+   ]
+  },
+  "dev-lab": {
+   "router": 29,
+   "prefixes": [
+    "40.135.148.0/22",
+    "85.11.25.64/26"
+   ]
+  },
+  "guest-wifi": {
+   "router": 31,
+   "prefixes": [
+    "248.242.225.240/28",
+    "194.180.32.0/21"
+   ]
+  },
+  "partners": {
+   "router": 0,
+   "prefixes": [
+    "160.204.124.0/23",
+    "155.227.195.0/24"
+   ]
+  }
+ },
+ "zone_text": [
+  "backup: hosts 1.133.236.0/22, 127.162.40.0/21 attached to router R10",
+  "dns-servers: hosts 213.128.0.128/28, 178.116.32.0/24 attached to router R26",
+  "engineering: hosts 123.141.72.0/23, 123.127.238.0/23, 127.184.114.0/24 attached to router R52",
+  "finance: hosts 223.67.46.128/25, 231.242.69.128/25, 191.187.108.0/22 attached to router R4",
+  "vpn-users: hosts 100.90.116.128/25 attached to router R57",
+  "voip: hosts 60.4.5.0/25 attached to router R17",
+  "ntp-servers: hosts 19.126.138.32/27, 248.76.232.0/21, 229.217.112.0/22 attached to router R58",
+  "dev-lab: hosts 40.135.148.0/22, 85.11.25.64/26 attached to router R29",
+  "guest-wifi: hosts 248.242.225.240/28, 194.180.32.0/21 attached to router R31",
+  "partners: hosts 160.204.124.0/23, 155.227.195.0/24 attached to router R0"
+ ],
+ "intents": [
+  {
+   "type": "allow_except",
+   "src": "backup",
+   "dst": "dev-lab",
+   "broad": "high-tcp",
+   "ex": [
+    "rdp",
+    "mysql"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "ntp-servers",
+   "allowed": [
+    [
+     "guest-wifi",
+     "https"
+    ],
+    [
+     "guest-wifi",
+     "dns"
+    ]
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "voip",
+   "dst": "backup",
+   "svcs": [
+    "imap"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "engineering",
+   "dst": "guest-wifi"
+  },
+  {
+   "type": "allow",
+   "src": "ntp-servers",
+   "dst": "engineering",
+   "svcs": [
+    "snmp"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "vpn-users",
+   "dst": "ntp-servers",
+   "broad": "high-tcp",
+   "ex": [
+    "postgres",
+    "rdp",
+    "mysql"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "dev-lab",
+   "dst": "vpn-users"
+  },
+  {
+   "type": "allow",
+   "src": "voip",
+   "dst": "dns-servers",
+   "svcs": [
+    "smtp"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "finance",
+   "dst": "dev-lab"
+  },
+  {
+   "type": "allow_except",
+   "src": "backup",
+   "dst": "vpn-users",
+   "broad": "any-udp",
+   "ex": [
+    "snmp"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "ntp-servers",
+   "dst": "engineering"
+  },
+  {
+   "type": "public",
+   "dst": "dns-servers",
+   "svcs": [
+    "http",
+    "https"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "dev-lab",
+   "allowed": [
+    [
+     "voip",
+     "https"
+    ]
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "engineering",
+   "svcs": [
+    "http",
+    "dns"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "finance",
+   "dst": "partners",
+   "svcs": [
+    "rdp"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "engineering",
+   "allowed": [
+    [
+     "backup",
+     "ntp"
+    ]
+   ]
+  }
+ ],
+ "nl": [
+  "Block RDP (TCP 3389), MySQL (TCP 3306) from backup to dev-lab; the rest of TCP ports 1024-65535 between them is allowed.",
+  "Apart from guest-wifi on HTTPS (TCP 443); guest-wifi on DNS over UDP 53, all traffic originating in ntp-servers must be dropped.",
+  "Allow voip to connect to backup using IMAP (TCP 143).",
+  "No packet from engineering may enter guest-wifi, even for services open to everyone.",
+  "Hosts in ntp-servers may reach engineering over SNMP (UDP 161).",
+  "Permit TCP ports 1024-65535 from vpn-users to ntp-servers but deny PostgreSQL (TCP 5432), RDP (TCP 3389), MySQL (TCP 3306).",
+  "dev-lab must never reach vpn-users, regardless of any other rule.",
+  "Allow voip to connect to dns-servers using SMTP (TCP 25).",
+  "No packet from finance may enter dev-lab, even for services open to everyone.",
+  "Permit any UDP port from backup to vpn-users but deny SNMP (UDP 161).",
+  "ntp-servers must never reach engineering, regardless of any other rule.",
+  "Make HTTP (TCP 80) and HTTPS (TCP 443) on dns-servers reachable from all internal zones.",
+  "Restrict dev-lab so that its only permitted destinations are voip on HTTPS (TCP 443); drop all other traffic it originates.",
+  "engineering offers HTTP (TCP 80) and DNS over UDP 53 to every zone.",
+  "Allow finance to connect to partners using RDP (TCP 3389).",
+  "Apart from backup on NTP (UDP 123), all traffic originating in engineering must be dropped."
+ ],
+ "gt": [
+  {
+   "src": "engineering",
+   "dst": "guest-wifi",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "dev-lab",
+   "dst": "vpn-users",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "finance",
+   "dst": "dev-lab",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "ntp-servers",
+   "dst": "engineering",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "backup",
+   "dst": "dev-lab",
+   "proto": "tcp",
+   "dlo": 3389,
+   "dhi": 3389,
+   "action": "deny"
+  },
+  {
+   "src": "backup",
+   "dst": "dev-lab",
+   "proto": "tcp",
+   "dlo": 3306,
+   "dhi": 3306,
+   "action": "deny"
+  },
+  {
+   "src": "vpn-users",
+   "dst": "ntp-servers",
+   "proto": "tcp",
+   "dlo": 5432,
+   "dhi": 5432,
+   "action": "deny"
+  },
+  {
+   "src": "vpn-users",
+   "dst": "ntp-servers",
+   "proto": "tcp",
+   "dlo": 3389,
+   "dhi": 3389,
+   "action": "deny"
+  },
+  {
+   "src": "vpn-users",
+   "dst": "ntp-servers",
+   "proto": "tcp",
+   "dlo": 3306,
+   "dhi": 3306,
+   "action": "deny"
+  },
+  {
+   "src": "backup",
+   "dst": "vpn-users",
+   "proto": "udp",
+   "dlo": 161,
+   "dhi": 161,
+   "action": "deny"
+  },
+  {
+   "src": "backup",
+   "dst": "dev-lab",
+   "proto": "tcp",
+   "dlo": 1024,
+   "dhi": 65535,
+   "action": "permit"
+  },
+  {
+   "src": "voip",
+   "dst": "backup",
+   "proto": "tcp",
+   "dlo": 143,
+   "dhi": 143,
+   "action": "permit"
+  },
+  {
+   "src": "ntp-servers",
+   "dst": "engineering",
+   "proto": "udp",
+   "dlo": 161,
+   "dhi": 161,
+   "action": "permit"
+  },
+  {
+   "src": "vpn-users",
+   "dst": "ntp-servers",
+   "proto": "tcp",
+   "dlo": 1024,
+   "dhi": 65535,
+   "action": "permit"
+  },
+  {
+   "src": "voip",
+   "dst": "dns-servers",
+   "proto": "tcp",
+   "dlo": 25,
+   "dhi": 25,
+   "action": "permit"
+  },
+  {
+   "src": "backup",
+   "dst": "vpn-users",
+   "proto": "udp",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "permit"
+  },
+  {
+   "src": "finance",
+   "dst": "partners",
+   "proto": "tcp",
+   "dlo": 3389,
+   "dhi": 3389,
+   "action": "permit"
+  },
+  {
+   "src": "ntp-servers",
+   "dst": "guest-wifi",
+   "proto": "tcp",
+   "dlo": 443,
+   "dhi": 443,
+   "action": "permit"
+  },
+  {
+   "src": "ntp-servers",
+   "dst": "guest-wifi",
+   "proto": "udp",
+   "dlo": 53,
+   "dhi": 53,
+   "action": "permit"
+  },
+  {
+   "src": "dev-lab",
+   "dst": "voip",
+   "proto": "tcp",
+   "dlo": 443,
+   "dhi": 443,
+   "action": "permit"
+  },
+  {
+   "src": "engineering",
+   "dst": "backup",
+   "proto": "udp",
+   "dlo": 123,
+   "dhi": 123,
+   "action": "permit"
+  },
+  {
+   "src": "ntp-servers",
+   "dst": "*",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "dev-lab",
+   "dst": "*",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "engineering",
+   "dst": "*",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "*",
+   "dst": "dns-servers",
+   "proto": "tcp",
+   "dlo": 80,
+   "dhi": 80,
+   "action": "permit"
+  },
+  {
+   "src": "*",
+   "dst": "dns-servers",
+   "proto": "tcp",
+   "dlo": 443,
+   "dhi": 443,
+   "action": "permit"
+  },
+  {
+   "src": "*",
+   "dst": "engineering",
+   "proto": "tcp",
+   "dlo": 80,
+   "dhi": 80,
+   "action": "permit"
+  },
+  {
+   "src": "*",
+   "dst": "engineering",
+   "proto": "udp",
+   "dlo": 53,
+   "dhi": 53,
+   "action": "permit"
+  }
+ ]
+}

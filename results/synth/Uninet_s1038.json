@@ -1,0 +1,591 @@
+{
+ "id": "Uninet_s1038",
+ "n_intents": 30,
+ "n_gt_rules": 67,
+ "n_zones": 10,
+ "rules": {
+  "eq": false,
+  "mismatch": 0.01375,
+  "n_rules": 63,
+  "fail": 0,
+  "s": 215.36019325256348,
+  "calls": 2,
+  "prompt": 3580,
+  "completion": 5988
+ },
+ "ir0": {
+  "eq": false,
+  "mismatch": 0.002,
+  "n_rules": 67,
+  "fail": 0,
+  "s": 75.38544201850891,
+  "calls": 31,
+  "prompt": 20002,
+  "completion": 1043,
+  "intent_acc": 0.9
+ },
+ "ir": {
+  "eq": true,
+  "mismatch": 0.0,
+  "n_rules": 66,
+  "fail": 0,
+  "s": 65.9598228931427,
+  "calls": 30,
+  "prompt": 32828,
+  "completion": 809,
+  "intent_acc": 1.0
+ },
+ "fw": {
+  "eq": true,
+  "mismatch": 0.0,
+  "n_rules": 66,
+  "fail": 0,
+  "s": 172.53253531455994,
+  "verify_s": 106.57271265983582,
+  "calls": 61,
+  "verify_calls": 31,
+  "flagged": 0,
+  "accepted": 0,
+  "repairs": [],
+  "intent_acc": 1.0
+ },
+ "ir_out": [
+  {
+   "type": "block",
+   "src": "dns-servers",
+   "dst": "engineering"
+  },
+  {
+   "type": "public",
+   "dst": "database",
+   "svcs": [
+    "dns"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "guest-wifi",
+   "allowed": [
+    [
+     "engineering",
+     "syslog"
+    ]
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "student-lab",
+   "dst": "ntp-servers",
+   "svcs": [
+    "ldap",
+    "smb"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "printers",
+   "dst": "guest-wifi",
+   "svcs": [
+    "postgres",
+    "mysql"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "backup",
+   "dst": "dns-servers",
+   "svcs": [
+    "dns",
+    "snmp",
+    "ssh"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "dns-servers",
+   "dst": "admin",
+   "broad": "any-udp",
+   "ex": [
+    "snmp",
+    "tftp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "backup",
+   "dst": "database",
+   "svcs": [
+    "ssh",
+    "dns",
+    "rtsp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "vpn-users",
+   "dst": "engineering",
+   "svcs": [
+    "ssh",
+    "imap"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "vpn-users",
+   "dst": "guest-wifi",
+   "svcs": [
+    "syslog",
+    "http"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "backup",
+   "allowed": [
+    [
+     "printers",
+     "https"
+    ]
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "vpn-users",
+   "dst": "backup",
+   "svcs": [
+    "smb",
+    "syslog",
+    "postgres"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "admin",
+   "allowed": [
+    [
+     "ntp-servers",
+     "syslog"
+    ]
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "admin",
+   "dst": "database",
+   "svcs": [
+    "postgres",
+    "ssh"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "printers",
+   "svcs": [
+    "dns"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "database",
+   "dst": "admin",
+   "svcs": [
+    "ldap",
+    "snmp"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "guest-wifi",
+   "svcs": [
+    "ntp",
+    "dns"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "engineering",
+   "dst": "vpn-users",
+   "broad": "any-tcp",
+   "ex": [
+    "rdp",
+    "ftp",
+    "smb"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "engineering",
+   "svcs": [
+    "https"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "guest-wifi",
+   "svcs": [
+    "ntp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "dns-servers",
+   "dst": "database",
+   "svcs": [
+    "rtsp",
+    "smtp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "ntp-servers",
+   "dst": "database",
+   "svcs": [
+    "postgres",
+    "rdp",
+    "ntp"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "dns-servers",
+   "dst": "printers",
+   "broad": "high-tcp",
+   "ex": [
+    "rdp",
+    "postgres",
+    "mysql"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "vpn-users",
+   "dst": "admin",
+   "svcs": [
+    "postgres",
+    "mysql"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "ntp-servers",
+   "dst": "vpn-users",
+   "svcs": [
+    "https",
+    "imap",
+    "rtsp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "guest-wifi",
+   "dst": "engineering",
+   "svcs": [
+    "mysql",
+    "postgres"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "backup",
+   "dst": "ntp-servers",
+   "svcs": [
+    "dns",
+    "http",
+    "ldap"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "dns-servers",
+   "dst": "ntp-servers"
+  },
+  {
+   "type": "allow",
+   "src": "student-lab",
+   "dst": "vpn-users",
+   "svcs": [
+    "rtsp",
+    "ldap",
+    "smb"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "ntp-servers",
+   "svcs": [
+    "dns",
+    "ntp"
+   ]
+  }
+ ],
+ "fw_out": [
+  {
+   "type": "block",
+   "src": "dns-servers",
+   "dst": "engineering"
+  },
+  {
+   "type": "public",
+   "dst": "database",
+   "svcs": [
+    "dns"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "guest-wifi",
+   "allowed": [
+    [
+     "engineering",
+     "syslog"
+    ]
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "student-lab",
+   "dst": "ntp-servers",
+   "svcs": [
+    "ldap",
+    "smb"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "printers",
+   "dst": "guest-wifi",
+   "svcs": [
+    "postgres",
+    "mysql"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "backup",
+   "dst": "dns-servers",
+   "svcs": [
+    "dns",
+    "snmp",
+    "ssh"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "dns-servers",
+   "dst": "admin",
+   "broad": "any-udp",
+   "ex": [
+    "snmp",
+    "tftp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "backup",
+   "dst": "database",
+   "svcs": [
+    "ssh",
+    "dns",
+    "rtsp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "vpn-users",
+   "dst": "engineering",
+   "svcs": [
+    "ssh",
+    "imap"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "vpn-users",
+   "dst": "guest-wifi",
+   "svcs": [
+    "syslog",
+    "http"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "backup",
+   "allowed": [
+    [
+     "printers",
+     "https"
+    ]
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "vpn-users",
+   "dst": "backup",
+   "svcs": [
+    "smb",
+    "syslog",
+    "postgres"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "admin",
+   "allowed": [
+    [
+     "ntp-servers",
+     "syslog"
+    ]
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "admin",
+   "dst": "database",
+   "svcs": [
+    "postgres",
+    "ssh"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "printers",
+   "svcs": [
+    "dns"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "database",
+   "dst": "admin",
+   "svcs": [
+    "ldap",
+    "snmp"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "guest-wifi",
+   "svcs": [
+    "ntp",
+    "dns"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "engineering",
+   "dst": "vpn-users",
+   "broad": "any-tcp",
+   "ex": [
+    "rdp",
+    "ftp",
+    "smb"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "engineering",
+   "svcs": [
+    "https"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "guest-wifi",
+   "svcs": [
+    "ntp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "dns-servers",
+   "dst": "database",
+   "svcs": [
+    "rtsp",
+    "smtp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "ntp-servers",
+   "dst": "database",
+   "svcs": [
+    "postgres",
+    "rdp",
+    "ntp"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "dns-servers",
+   "dst": "printers",
+   "broad": "high-tcp",
+   "ex": [
+    "rdp",
+    "postgres",
+    "mysql"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "vpn-users",
+   "dst": "admin",
+   "svcs": [
+    "postgres",
+    "mysql"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "ntp-servers",
+   "dst": "vpn-users",
+   "svcs": [
+    "https",
+    "imap",
+    "rtsp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "guest-wifi",
+   "dst": "engineering",
+   "svcs": [
+    "mysql",
+    "postgres"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "backup",
+   "dst": "ntp-servers",
+   "svcs": [
+    "dns",
+    "http",
+    "ldap"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "dns-servers",
+   "dst": "ntp-servers"
+  },
+  {
+   "type": "allow",
+   "src": "student-lab",
+   "dst": "vpn-users",
+   "svcs": [
+    "rtsp",
+    "ldap",
+    "smb"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "ntp-servers",
+   "svcs": [
+    "dns",
+    "ntp"
+   ]
+  }
+ ],
+ "wall_s": 463.8178856372833
+}

@@ -1,0 +1,445 @@
+{
+ "id": "Belnet2003_s1014",
+ "topology": "Belnet2003",
+ "n_nodes": 23,
+ "edges": [
+  [
+   0,
+   16
+  ],
+  [
+   0,
+   14
+  ],
+  [
+   1,
+   16
+  ],
+  [
+   1,
+   14
+  ],
+  [
+   2,
+   16
+  ],
+  [
+   2,
+   14
+  ],
+  [
+   3,
+   16
+  ],
+  [
+   3,
+   14
+  ],
+  [
+   4,
+   16
+  ],
+  [
+   4,
+   14
+  ],
+  [
+   5,
+   16
+  ],
+  [
+   5,
+   14
+  ],
+  [
+   6,
+   16
+  ],
+  [
+   6,
+   14
+  ],
+  [
+   7,
+   16
+  ],
+  [
+   7,
+   14
+  ],
+  [
+   8,
+   16
+  ],
+  [
+   8,
+   14
+  ],
+  [
+   9,
+   16
+  ],
+  [
+   9,
+   14
+  ],
+  [
+   9,
+   21
+  ],
+  [
+   9,
+   22
+  ],
+  [
+   9,
+   15
+  ],
+  [
+   10,
+   16
+  ],
+  [
+   10,
+   14
+  ],
+  [
+   11,
+   16
+  ],
+  [
+   11,
+   14
+  ],
+  [
+   12,
+   16
+  ],
+  [
+   12,
+   14
+  ],
+  [
+   13,
+   16
+  ],
+  [
+   13,
+   14
+  ],
+  [
+   14,
+   15
+  ],
+  [
+   14,
+   16
+  ],
+  [
+   15,
+   16
+  ],
+  [
+   15,
+   17
+  ],
+  [
+   15,
+   18
+  ],
+  [
+   15,
+   19
+  ],
+  [
+   15,
+   20
+  ],
+  [
+   15,
+   22
+  ]
+ ],
+ "zones": {
+  "vpn-users": {
+   "router": 21,
+   "prefixes": [
+    "122.231.22.144/28",
+    "235.205.64.0/24"
+   ]
+  },
+  "guest-wifi": {
+   "router": 19,
+   "prefixes": [
+    "245.36.246.192/27",
+    "172.18.204.0/25",
+    "150.103.82.0/23"
+   ]
+  },
+  "edge-cache": {
+   "router": 18,
+   "prefixes": [
+    "118.103.76.0/23",
+    "109.87.244.0/24",
+    "3.151.160.0/23"
+   ]
+  },
+  "ntp-servers": {
+   "router": 17,
+   "prefixes": [
+    "96.157.155.64/28",
+    "8.151.92.0/22"
+   ]
+  },
+  "ops": {
+   "router": 20,
+   "prefixes": [
+    "148.221.73.0/24",
+    "139.32.195.128/26"
+   ]
+  },
+  "library": {
+   "router": 5,
+   "prefixes": [
+    "233.217.106.0/24",
+    "78.37.180.0/27",
+    "208.56.125.208/28"
+   ]
+  },
+  "finance": {
+   "router": 12,
+   "prefixes": [
+    "100.151.128.0/17",
+    "92.64.213.176/28"
+   ]
+  },
+  "dns-servers": {
+   "router": 0,
+   "prefixes": [
+    "90.18.75.0/24",
+    "173.159.207.96/27",
+    "46.169.86.0/23"
+   ]
+  },
+  "mail": {
+   "router": 11,
+   "prefixes": [
+    "84.32.136.0/22",
+    "83.154.192.0/27",
+    "33.185.85.128/25"
+   ]
+  },
+  "scada": {
+   "router": 4,
+   "prefixes": [
+    "148.239.22.0/23",
+    "117.168.237.0/25",
+    "37.242.58.0/24"
+   ]
+  }
+ },
+ "zone_text": [
+  "vpn-users: hosts 122.231.22.144/28, 235.205.64.0/24 attached to router R21",
+  "guest-wifi: hosts 245.36.246.192/27, 172.18.204.0/25, 150.103.82.0/23 attached to router R19",
+  "edge-cache: hosts 118.103.76.0/23, 109.87.244.0/24, 3.151.160.0/23 attached to router R18",
+  "ntp-servers: hosts 96.157.155.64/28, 8.151.92.0/22 attached to router R17",
+  "ops: hosts 148.221.73.0/24, 139.32.195.128/26 attached to router R20",
+  "library: hosts 233.217.106.0/24, 78.37.180.0/27, 208.56.125.208/28 attached to router R5",
+  "finance: hosts 100.151.128.0/17, 92.64.213.176/28 attached to router R12",
+  "dns-servers: hosts 90.18.75.0/24, 173.159.207.96/27, 46.169.86.0/23 attached to router R0",
+  "mail: hosts 84.32.136.0/22, 83.154.192.0/27, 33.185.85.128/25 attached to router R11",
+  "scada: hosts 148.239.22.0/23, 117.168.237.0/25, 37.242.58.0/24 attached to router R4"
+ ],
+ "intents": [
+  {
+   "type": "block",
+   "src": "ntp-servers",
+   "dst": "guest-wifi"
+  },
+  {
+   "type": "public",
+   "dst": "dns-servers",
+   "svcs": [
+    "dns"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "scada",
+   "dst": "vpn-users",
+   "svcs": [
+    "snmp",
+    "mysql",
+    "rdp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "library",
+   "dst": "dns-servers",
+   "svcs": [
+    "smb",
+    "ldap",
+    "ssh"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "finance",
+   "svcs": [
+    "http"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "vpn-users",
+   "dst": "library",
+   "broad": "any-tcp",
+   "ex": [
+    "ftp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "dns-servers",
+   "dst": "vpn-users",
+   "svcs": [
+    "postgres"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "vpn-users",
+   "allowed": [
+    [
+     "ntp-servers",
+     "dns"
+    ]
+   ]
+  }
+ ],
+ "nl": [
+  "No packet from ntp-servers may enter guest-wifi, even for services open to everyone.",
+  "Make DNS over UDP 53 on dns-servers reachable from all internal zones.",
+  "Allow scada to connect to vpn-users using SNMP (UDP 161) and MySQL (TCP 3306) and RDP (TCP 3389).",
+  "Hosts in library may reach dns-servers over SMB (TCP 445) and LDAP (TCP 389) and SSH (TCP 22).",
+  "finance offers HTTP (TCP 80) to every zone.",
+  "Block FTP (TCP 21) from vpn-users to library; the rest of any TCP port between them is allowed.",
+  "vpn-users must accept PostgreSQL (TCP 5432) from dns-servers.",
+  "Apart from ntp-servers on DNS over UDP 53, all traffic originating in vpn-users must be dropped."
+ ],
+ "gt": [
+  {
+   "src": "ntp-servers",
+   "dst": "guest-wifi",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "vpn-users",
+   "dst": "library",
+   "proto": "tcp",
+   "dlo": 21,
+   "dhi": 21,
+   "action": "deny"
+  },
+  {
+   "src": "scada",
+   "dst": "vpn-users",
+   "proto": "udp",
+   "dlo": 161,
+   "dhi": 161,
+   "action": "permit"
+  },
+  {
+   "src": "scada",
+   "dst": "vpn-users",
+   "proto": "tcp",
+   "dlo": 3306,
+   "dhi": 3306,
+   "action": "permit"
+  },
+  {
+   "src": "scada",
+   "dst": "vpn-users",
+   "proto": "tcp",
+   "dlo": 3389,
+   "dhi": 3389,
+   "action": "permit"
+  },
+  {
+   "src": "library",
+   "dst": "dns-servers",
+   "proto": "tcp",
+   "dlo": 445,
+   "dhi": 445,
+   "action": "permit"
+  },
+  {
+   "src": "library",
+   "dst": "dns-servers",
+   "proto": "tcp",
+   "dlo": 389,
+   "dhi": 389,
+   "action": "permit"
+  },
+  {
+   "src": "library",
+   "dst": "dns-servers",
+   "proto": "tcp",
+   "dlo": 22,
+   "dhi": 22,
+   "action": "permit"
+  },
+  {
+   "src": "vpn-users",
+   "dst": "library",
+   "proto": "tcp",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "permit"
+  },
+  {
+   "src": "dns-servers",
+   "dst": "vpn-users",
+   "proto": "tcp",
+   "dlo": 5432,
+   "dhi": 5432,
+   "action": "permit"
+  },
+  {
+   "src": "vpn-users",
+   "dst": "ntp-servers",
+   "proto": "udp",
+   "dlo": 53,
+   "dhi": 53,
+   "action": "permit"
+  },
+  {
+   "src": "vpn-users",
+   "dst": "*",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "*",
+   "dst": "dns-servers",
+   "proto": "udp",
+   "dlo": 53,
+   "dhi": 53,
+   "action": "permit"
+  },
+  {
+   "src": "*",
+   "dst": "finance",
+   "proto": "tcp",
+   "dlo": 80,
+   "dhi": 80,
+   "action": "permit"
+  }
+ ]
+}

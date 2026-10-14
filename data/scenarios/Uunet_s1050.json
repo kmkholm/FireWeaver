@@ -1,0 +1,625 @@
+{
+ "id": "Uunet_s1050",
+ "topology": "Uunet",
+ "n_nodes": 49,
+ "edges": [
+  [
+   0,
+   8
+  ],
+  [
+   0,
+   1
+  ],
+  [
+   0,
+   29
+  ],
+  [
+   1,
+   2
+  ],
+  [
+   2,
+   3
+  ],
+  [
+   2,
+   4
+  ],
+  [
+   2,
+   45
+  ],
+  [
+   2,
+   47
+  ],
+  [
+   2,
+   28
+  ],
+  [
+   2,
+   31
+  ],
+  [
+   3,
+   4
+  ],
+  [
+   4,
+   5
+  ],
+  [
+   4,
+   45
+  ],
+  [
+   4,
+   47
+  ],
+  [
+   4,
+   16
+  ],
+  [
+   4,
+   19
+  ],
+  [
+   4,
+   23
+  ],
+  [
+   4,
+   27
+  ],
+  [
+   4,
+   31
+  ],
+  [
+   5,
+   6
+  ],
+  [
+   6,
+   22
+  ],
+  [
+   6,
+   47
+  ],
+  [
+   7,
+   41
+  ],
+  [
+   7,
+   45
+  ],
+  [
+   8,
+   9
+  ],
+  [
+   8,
+   10
+  ],
+  [
+   8,
+   11
+  ],
+  [
+   8,
+   48
+  ],
+  [
+   11,
+   12
+  ],
+  [
+   12,
+   16
+  ],
+  [
+   12,
+   13
+  ],
+  [
+   14,
+   16
+  ],
+  [
+   14,
+   19
+  ],
+  [
+   14,
+   15
+  ],
+  [
+   15,
+   48
+  ],
+  [
+   16,
+   40
+  ],
+  [
+   16,
+   41
+  ],
+  [
+   16,
+   45
+  ],
+  [
+   16,
+   17
+  ],
+  [
+   16,
+   31
+  ],
+  [
+   17,
+   18
+  ],
+  [
+   18,
+   19
+  ],
+  [
+   19,
+   32
+  ],
+  [
+   19,
+   38
+  ],
+  [
+   19,
+   39
+  ],
+  [
+   19,
+   43
+  ],
+  [
+   19,
+   45
+  ],
+  [
+   19,
+   47
+  ],
+  [
+   19,
+   20
+  ],
+  [
+   19,
+   21
+  ],
+  [
+   19,
+   23
+  ],
+  [
+   19,
+   31
+  ],
+  [
+   20,
+   21
+  ],
+  [
+   21,
+   34
+  ],
+  [
+   21,
+   36
+  ],
+  [
+   21,
+   45
+  ],
+  [
+   21,
+   31
+  ],
+  [
+   22,
+   25
+  ],
+  [
+   22,
+   23
+  ],
+  [
+   23,
+   24
+  ],
+  [
+   23,
+   26
+  ],
+  [
+   23,
+   31
+  ],
+  [
+   24,
+   25
+  ],
+  [
+   25,
+   32
+  ],
+  [
+   30,
+   32
+  ],
+  [
+   30,
+   31
+  ],
+  [
+   31,
+   32
+  ],
+  [
+   31,
+   45
+  ],
+  [
+   31,
+   47
+  ],
+  [
+   32,
+   33
+  ],
+  [
+   32,
+   36
+  ],
+  [
+   33,
+   35
+  ],
+  [
+   33,
+   36
+  ],
+  [
+   34,
+   35
+  ],
+  [
+   35,
+   36
+  ],
+  [
+   36,
+   37
+  ],
+  [
+   41,
+   48
+  ],
+  [
+   41,
+   42
+  ],
+  [
+   41,
+   43
+  ],
+  [
+   42,
+   45
+  ],
+  [
+   44,
+   45
+  ],
+  [
+   44,
+   46
+  ],
+  [
+   45,
+   47
+  ],
+  [
+   46,
+   47
+  ]
+ ],
+ "zones": {
+  "nvr": {
+   "router": 28,
+   "prefixes": [
+    "195.0.4.0/22"
+   ]
+  },
+  "dns-servers": {
+   "router": 38,
+   "prefixes": [
+    "209.247.242.128/25",
+    "95.191.149.192/27",
+    "231.35.10.0/23"
+   ]
+  },
+  "backup": {
+   "router": 39,
+   "prefixes": [
+    "199.39.84.0/22",
+    "105.160.32.0/23"
+   ]
+  },
+  "student-lab": {
+   "router": 9,
+   "prefixes": [
+    "213.128.0.160/27",
+    "24.92.78.0/24"
+   ]
+  },
+  "ops": {
+   "router": 10,
+   "prefixes": [
+    "20.213.189.0/25",
+    "228.4.34.192/27",
+    "16.122.28.224/28"
+   ]
+  },
+  "vpn-users": {
+   "router": 27,
+   "prefixes": [
+    "34.147.102.0/23",
+    "147.83.189.0/24"
+   ]
+  },
+  "edge-cache": {
+   "router": 26,
+   "prefixes": [
+    "160.191.149.160/27",
+    "72.120.0.0/17",
+    "1.184.46.0/25"
+   ]
+  },
+  "ntp-servers": {
+   "router": 13,
+   "prefixes": [
+    "20.207.0.0/17",
+    "244.107.32.0/24"
+   ]
+  },
+  "partners": {
+   "router": 40,
+   "prefixes": [
+    "179.209.120.0/22",
+    "196.164.224.128/26",
+    "18.171.128.0/17"
+   ]
+  },
+  "scada": {
+   "router": 29,
+   "prefixes": [
+    "248.159.25.0/24"
+   ]
+  }
+ },
+ "zone_text": [
+  "nvr: hosts 195.0.4.0/22 attached to router R28",
+  "dns-servers: hosts 209.247.242.128/25, 95.191.149.192/27, 231.35.10.0/23 attached to router R38",
+  "backup: hosts 199.39.84.0/22, 105.160.32.0/23 attached to router R39",
+  "student-lab: hosts 213.128.0.160/27, 24.92.78.0/24 attached to router R9",
+  "ops: hosts 20.213.189.0/25, 228.4.34.192/27, 16.122.28.224/28 attached to router R10",
+  "vpn-users: hosts 34.147.102.0/23, 147.83.189.0/24 attached to router R27",
+  "edge-cache: hosts 160.191.149.160/27, 72.120.0.0/17, 1.184.46.0/25 attached to router R26",
+  "ntp-servers: hosts 20.207.0.0/17, 244.107.32.0/24 attached to router R13",
+  "partners: hosts 179.209.120.0/22, 196.164.224.128/26, 18.171.128.0/17 attached to router R40",
+  "scada: hosts 248.159.25.0/24 attached to router R29"
+ ],
+ "intents": [
+  {
+   "type": "isolate",
+   "src": "dns-servers",
+   "allowed": [
+    [
+     "backup",
+     "dns"
+    ]
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "nvr",
+   "svcs": [
+    "https"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "backup",
+   "svcs": [
+    "https"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "ops",
+   "dst": "student-lab",
+   "svcs": [
+    "syslog",
+    "ssh"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "ops",
+   "allowed": [
+    [
+     "dns-servers",
+     "https"
+    ]
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "scada",
+   "dst": "ops",
+   "svcs": [
+    "dns"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "scada",
+   "dst": "student-lab",
+   "broad": "high-tcp",
+   "ex": [
+    "mysql"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "scada",
+   "dst": "dns-servers",
+   "svcs": [
+    "imap",
+    "ntp",
+    "postgres"
+   ]
+  }
+ ],
+ "nl": [
+  "Apart from backup on DNS over UDP 53, all traffic originating in dns-servers must be dropped.",
+  "Any zone may connect to nvr over HTTPS (TCP 443).",
+  "Any zone may connect to backup over HTTPS (TCP 443).",
+  "student-lab must accept syslog (UDP 514) and SSH (TCP 22) from ops.",
+  "Apart from dns-servers on HTTPS (TCP 443), all traffic originating in ops must be dropped.",
+  "Allow scada to connect to ops using DNS over UDP 53.",
+  "Block MySQL (TCP 3306) from scada to student-lab; the rest of TCP ports 1024-65535 between them is allowed.",
+  "Hosts in scada may reach dns-servers over IMAP (TCP 143) and NTP (UDP 123) and PostgreSQL (TCP 5432)."
+ ],
+ "gt": [
+  {
+   "src": "scada",
+   "dst": "student-lab",
+   "proto": "tcp",
+   "dlo": 3306,
+   "dhi": 3306,
+   "action": "deny"
+  },
+  {
+   "src": "ops",
+   "dst": "student-lab",
+   "proto": "udp",
+   "dlo": 514,
+   "dhi": 514,
+   "action": "permit"
+  },
+  {
+   "src": "ops",
+   "dst": "student-lab",
+   "proto": "tcp",
+   "dlo": 22,
+   "dhi": 22,
+   "action": "permit"
+  },
+  {
+   "src": "scada",
+   "dst": "ops",
+   "proto": "udp",
+   "dlo": 53,
+   "dhi": 53,
+   "action": "permit"
+  },
+  {
+   "src": "scada",
+   "dst": "student-lab",
+   "proto": "tcp",
+   "dlo": 1024,
+   "dhi": 65535,
+   "action": "permit"
+  },
+  {
+   "src": "scada",
+   "dst": "dns-servers",
+   "proto": "tcp",
+   "dlo": 143,
+   "dhi": 143,
+   "action": "permit"
+  },
+  {
+   "src": "scada",
+   "dst": "dns-servers",
+   "proto": "udp",
+   "dlo": 123,
+   "dhi": 123,
+   "action": "permit"
+  },
+  {
+   "src": "scada",
+   "dst": "dns-servers",
+   "proto": "tcp",
+   "dlo": 5432,
+   "dhi": 5432,
+   "action": "permit"
+  },
+  {
+   "src": "dns-servers",
+   "dst": "backup",
+   "proto": "udp",
+   "dlo": 53,
+   "dhi": 53,
+   "action": "permit"
+  },
+  {
+   "src": "ops",
+   "dst": "dns-servers",
+   "proto": "tcp",
+   "dlo": 443,
+   "dhi": 443,
+   "action": "permit"
+  },
+  {
+   "src": "dns-servers",
+   "dst": "*",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "ops",
+   "dst": "*",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "*",
+   "dst": "nvr",
+   "proto": "tcp",
+   "dlo": 443,
+   "dhi": 443,
+   "action": "permit"
+  },
+  {
+   "src": "*",
+   "dst": "backup",
+   "proto": "tcp",
+   "dlo": 443,
+   "dhi": 443,
+   "action": "permit"
+  }
+ ]
+}

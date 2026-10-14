@@ -1,0 +1,526 @@
+{
+ "id": "HiberniaUk_s1033",
+ "topology": "HiberniaUk",
+ "n_nodes": 15,
+ "edges": [
+  [
+   0,
+   1
+  ],
+  [
+   0,
+   11
+  ],
+  [
+   1,
+   2
+  ],
+  [
+   2,
+   3
+  ],
+  [
+   3,
+   4
+  ],
+  [
+   4,
+   5
+  ],
+  [
+   5,
+   10
+  ],
+  [
+   6,
+   14
+  ],
+  [
+   6,
+   10
+  ],
+  [
+   7,
+   8
+  ],
+  [
+   7,
+   14
+  ],
+  [
+   8,
+   9
+  ],
+  [
+   9,
+   11
+  ],
+  [
+   9,
+   13
+  ],
+  [
+   11,
+   12
+  ]
+ ],
+ "zones": {
+  "edge-cache": {
+   "router": 12,
+   "prefixes": [
+    "27.18.224.128/25",
+    "18.244.85.0/24",
+    "29.49.233.0/24"
+   ]
+  },
+  "research": {
+   "router": 13,
+   "prefixes": [
+    "100.7.164.0/27",
+    "169.128.112.0/21",
+    "49.38.178.0/23"
+   ]
+  },
+  "mail": {
+   "router": 14,
+   "prefixes": [
+    "221.197.129.0/24",
+    "41.164.130.0/23",
+    "11.42.168.0/21"
+   ]
+  },
+  "guest-wifi": {
+   "router": 7,
+   "prefixes": [
+    "68.229.0.0/17"
+   ]
+  },
+  "engineering": {
+   "router": 8,
+   "prefixes": [
+    "158.120.68.0/22",
+    "37.48.176.0/22",
+    "74.209.0.0/17"
+   ]
+  },
+  "vpn-users": {
+   "router": 10,
+   "prefixes": [
+    "41.149.113.128/28"
+   ]
+  },
+  "admin": {
+   "router": 4,
+   "prefixes": [
+    "41.155.143.0/24",
+    "250.161.98.0/25"
+   ]
+  },
+  "dev-lab": {
+   "router": 6,
+   "prefixes": [
+    "76.221.166.128/25",
+    "98.206.20.64/26",
+    "28.175.133.0/25"
+   ]
+  },
+  "iot-sensors": {
+   "router": 3,
+   "prefixes": [
+    "137.111.128.0/17"
+   ]
+  },
+  "printers": {
+   "router": 0,
+   "prefixes": [
+    "191.72.255.224/27",
+    "101.101.128.0/17"
+   ]
+  }
+ },
+ "zone_text": [
+  "edge-cache: hosts 27.18.224.128/25, 18.244.85.0/24, 29.49.233.0/24 attached to router R12",
+  "research: hosts 100.7.164.0/27, 169.128.112.0/21, 49.38.178.0/23 attached to router R13",
+  "mail: hosts 221.197.129.0/24, 41.164.130.0/23, 11.42.168.0/21 attached to router R14",
+  "guest-wifi: hosts 68.229.0.0/17 attached to router R7",
+  "engineering: hosts 158.120.68.0/22, 37.48.176.0/22, 74.209.0.0/17 attached to router R8",
+  "vpn-users: hosts 41.149.113.128/28 attached to router R10",
+  "admin: hosts 41.155.143.0/24, 250.161.98.0/25 attached to router R4",
+  "dev-lab: hosts 76.221.166.128/25, 98.206.20.64/26, 28.175.133.0/25 attached to router R6",
+  "iot-sensors: hosts 137.111.128.0/17 attached to router R3",
+  "printers: hosts 191.72.255.224/27, 101.101.128.0/17 attached to router R0"
+ ],
+ "intents": [
+  {
+   "type": "block",
+   "src": "research",
+   "dst": "vpn-users"
+  },
+  {
+   "type": "public",
+   "dst": "guest-wifi",
+   "svcs": [
+    "http",
+    "dns"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "guest-wifi",
+   "dst": "admin",
+   "svcs": [
+    "dns"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "mail",
+   "dst": "iot-sensors",
+   "svcs": [
+    "smtp",
+    "imap",
+    "mysql"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "admin",
+   "dst": "mail",
+   "broad": "any-tcp",
+   "ex": [
+    "smb",
+    "telnet"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "research",
+   "dst": "mail"
+  },
+  {
+   "type": "block",
+   "src": "research",
+   "dst": "edge-cache"
+  },
+  {
+   "type": "allow",
+   "src": "iot-sensors",
+   "dst": "engineering",
+   "svcs": [
+    "rdp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "edge-cache",
+   "dst": "dev-lab",
+   "svcs": [
+    "rdp"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "printers",
+   "dst": "edge-cache"
+  },
+  {
+   "type": "allow_except",
+   "src": "guest-wifi",
+   "dst": "edge-cache",
+   "broad": "any-tcp",
+   "ex": [
+    "telnet",
+    "rdp",
+    "ftp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "research",
+   "dst": "vpn-users",
+   "svcs": [
+    "ssh"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "iot-sensors",
+   "allowed": [
+    [
+     "edge-cache",
+     "dns"
+    ]
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "edge-cache",
+   "dst": "dev-lab",
+   "svcs": [
+    "smtp",
+    "rdp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "engineering",
+   "dst": "edge-cache",
+   "svcs": [
+    "smtp",
+    "dns"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "admin",
+   "svcs": [
+    "dns",
+    "https"
+   ]
+  }
+ ],
+ "nl": [
+  "research must never reach vpn-users, regardless of any other rule.",
+  "Any zone may connect to guest-wifi over HTTP (TCP 80) and DNS over UDP 53.",
+  "Hosts in guest-wifi may reach admin over DNS over UDP 53.",
+  "Hosts in mail may reach iot-sensors over SMTP (TCP 25) and IMAP (TCP 143) and MySQL (TCP 3306).",
+  "Permit any TCP port from admin to mail but deny SMB (TCP 445), Telnet (TCP 23).",
+  "research must never reach mail, regardless of any other rule.",
+  "No packet from research may enter edge-cache, even for services open to everyone.",
+  "Allow iot-sensors to connect to engineering using RDP (TCP 3389).",
+  "Allow edge-cache to connect to dev-lab using RDP (TCP 3389).",
+  "Deny all traffic from printers to edge-cache (this overrides any public service).",
+  "Permit any TCP port from guest-wifi to edge-cache but deny Telnet (TCP 23), RDP (TCP 3389), FTP (TCP 21).",
+  "Allow research to connect to vpn-users using SSH (TCP 22).",
+  "Apart from edge-cache on DNS over UDP 53, all traffic originating in iot-sensors must be dropped.",
+  "Allow edge-cache to connect to dev-lab using SMTP (TCP 25) and RDP (TCP 3389).",
+  "Hosts in engineering may reach edge-cache over SMTP (TCP 25) and DNS over UDP 53.",
+  "Any zone may connect to admin over DNS over UDP 53 and HTTPS (TCP 443)."
+ ],
+ "gt": [
+  {
+   "src": "research",
+   "dst": "vpn-users",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "research",
+   "dst": "mail",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "research",
+   "dst": "edge-cache",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "printers",
+   "dst": "edge-cache",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "admin",
+   "dst": "mail",
+   "proto": "tcp",
+   "dlo": 445,
+   "dhi": 445,
+   "action": "deny"
+  },
+  {
+   "src": "admin",
+   "dst": "mail",
+   "proto": "tcp",
+   "dlo": 23,
+   "dhi": 23,
+   "action": "deny"
+  },
+  {
+   "src": "guest-wifi",
+   "dst": "edge-cache",
+   "proto": "tcp",
+   "dlo": 23,
+   "dhi": 23,
+   "action": "deny"
+  },
+  {
+   "src": "guest-wifi",
+   "dst": "edge-cache",
+   "proto": "tcp",
+   "dlo": 3389,
+   "dhi": 3389,
+   "action": "deny"
+  },
+  {
+   "src": "guest-wifi",
+   "dst": "edge-cache",
+   "proto": "tcp",
+   "dlo": 21,
+   "dhi": 21,
+   "action": "deny"
+  },
+  {
+   "src": "guest-wifi",
+   "dst": "admin",
+   "proto": "udp",
+   "dlo": 53,
+   "dhi": 53,
+   "action": "permit"
+  },
+  {
+   "src": "mail",
+   "dst": "iot-sensors",
+   "proto": "tcp",
+   "dlo": 25,
+   "dhi": 25,
+   "action": "permit"
+  },
+  {
+   "src": "mail",
+   "dst": "iot-sensors",
+   "proto": "tcp",
+   "dlo": 143,
+   "dhi": 143,
+   "action": "permit"
+  },
+  {
+   "src": "mail",
+   "dst": "iot-sensors",
+   "proto": "tcp",
+   "dlo": 3306,
+   "dhi": 3306,
+   "action": "permit"
+  },
+  {
+   "src": "admin",
+   "dst": "mail",
+   "proto": "tcp",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "permit"
+  },
+  {
+   "src": "iot-sensors",
+   "dst": "engineering",
+   "proto": "tcp",
+   "dlo": 3389,
+   "dhi": 3389,
+   "action": "permit"
+  },
+  {
+   "src": "edge-cache",
+   "dst": "dev-lab",
+   "proto": "tcp",
+   "dlo": 3389,
+   "dhi": 3389,
+   "action": "permit"
+  },
+  {
+   "src": "guest-wifi",
+   "dst": "edge-cache",
+   "proto": "tcp",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "permit"
+  },
+  {
+   "src": "research",
+   "dst": "vpn-users",
+   "proto": "tcp",
+   "dlo": 22,
+   "dhi": 22,
+   "action": "permit"
+  },
+  {
+   "src": "edge-cache",
+   "dst": "dev-lab",
+   "proto": "tcp",
+   "dlo": 25,
+   "dhi": 25,
+   "action": "permit"
+  },
+  {
+   "src": "edge-cache",
+   "dst": "dev-lab",
+   "proto": "tcp",
+   "dlo": 3389,
+   "dhi": 3389,
+   "action": "permit"
+  },
+  {
+   "src": "engineering",
+   "dst": "edge-cache",
+   "proto": "tcp",
+   "dlo": 25,
+   "dhi": 25,
+   "action": "permit"
+  },
+  {
+   "src": "engineering",
+   "dst": "edge-cache",
+   "proto": "udp",
+   "dlo": 53,
+   "dhi": 53,
+   "action": "permit"
+  },
+  {
+   "src": "iot-sensors",
+   "dst": "edge-cache",
+   "proto": "udp",
+   "dlo": 53,
+   "dhi": 53,
+   "action": "permit"
+  },
+  {
+   "src": "iot-sensors",
+   "dst": "*",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "*",
+   "dst": "guest-wifi",
+   "proto": "tcp",
+   "dlo": 80,
+   "dhi": 80,
+   "action": "permit"
+  },
+  {
+   "src": "*",
+   "dst": "guest-wifi",
+   "proto": "udp",
+   "dlo": 53,
+   "dhi": 53,
+   "action": "permit"
+  },
+  {
+   "src": "*",
+   "dst": "admin",
+   "proto": "udp",
+   "dlo": 53,
+   "dhi": 53,
+   "action": "permit"
+  },
+  {
+   "src": "*",
+   "dst": "admin",
+   "proto": "tcp",
+   "dlo": 443,
+   "dhi": 443,
+   "action": "permit"
+  }
+ ]
+}

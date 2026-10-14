@@ -1,0 +1,1125 @@
+{
+ "id": "Garr201105_s1025",
+ "topology": "Garr201105",
+ "n_nodes": 59,
+ "edges": [
+  [
+   0,
+   51
+  ],
+  [
+   1,
+   46
+  ],
+  [
+   2,
+   50
+  ],
+  [
+   2,
+   54
+  ],
+  [
+   2,
+   6
+  ],
+  [
+   2,
+   45
+  ],
+  [
+   2,
+   14
+  ],
+  [
+   2,
+   16
+  ],
+  [
+   2,
+   17
+  ],
+  [
+   2,
+   18
+  ],
+  [
+   2,
+   22
+  ],
+  [
+   2,
+   30
+  ],
+  [
+   3,
+   43
+  ],
+  [
+   3,
+   44
+  ],
+  [
+   3,
+   45
+  ],
+  [
+   3,
+   39
+  ],
+  [
+   4,
+   50
+  ],
+  [
+   5,
+   45
+  ],
+  [
+   5,
+   57
+  ],
+  [
+   6,
+   49
+  ],
+  [
+   6,
+   46
+  ],
+  [
+   6,
+   47
+  ],
+  [
+   7,
+   20
+  ],
+  [
+   8,
+   45
+  ],
+  [
+   9,
+   43
+  ],
+  [
+   10,
+   43
+  ],
+  [
+   11,
+   45
+  ],
+  [
+   12,
+   43
+  ],
+  [
+   13,
+   16
+  ],
+  [
+   14,
+   21
+  ],
+  [
+   15,
+   16
+  ],
+  [
+   16,
+   18
+  ],
+  [
+   18,
+   33
+  ],
+  [
+   18,
+   19
+  ],
+  [
+   18,
+   20
+  ],
+  [
+   18,
+   21
+  ],
+  [
+   18,
+   22
+  ],
+  [
+   20,
+   50
+  ],
+  [
+   23,
+   30
+  ],
+  [
+   24,
+   25
+  ],
+  [
+   25,
+   50
+  ],
+  [
+   25,
+   26
+  ],
+  [
+   25,
+   27
+  ],
+  [
+   25,
+   28
+  ],
+  [
+   25,
+   30
+  ],
+  [
+   29,
+   30
+  ],
+  [
+   30,
+   33
+  ],
+  [
+   31,
+   33
+  ],
+  [
+   32,
+   33
+  ],
+  [
+   32,
+   52
+  ],
+  [
+   33,
+   34
+  ],
+  [
+   33,
+   35
+  ],
+  [
+   34,
+   56
+  ],
+  [
+   36,
+   45
+  ],
+  [
+   37,
+   45
+  ],
+  [
+   38,
+   40
+  ],
+  [
+   39,
+   40
+  ],
+  [
+   40,
+   43
+  ],
+  [
+   40,
+   50
+  ],
+  [
+   40,
+   55
+  ],
+  [
+   40,
+   42
+  ],
+  [
+   41,
+   55
+  ],
+  [
+   42,
+   45
+  ],
+  [
+   43,
+   45
+  ],
+  [
+   43,
+   50
+  ],
+  [
+   43,
+   51
+  ],
+  [
+   44,
+   45
+  ],
+  [
+   45,
+   46
+  ],
+  [
+   45,
+   51
+  ],
+  [
+   45,
+   47
+  ],
+  [
+   48,
+   49
+  ],
+  [
+   49,
+   50
+  ],
+  [
+   49,
+   53
+  ],
+  [
+   50,
+   58
+  ]
+ ],
+ "zones": {
+  "dmz-web": {
+   "router": 7,
+   "prefixes": [
+    "157.227.232.0/23",
+    "111.247.160.0/21"
+   ]
+  },
+  "iot-sensors": {
+   "router": 54,
+   "prefixes": [
+    "189.177.200.0/25",
+    "88.113.32.128/25"
+   ]
+  },
+  "library": {
+   "router": 19,
+   "prefixes": [
+    "214.145.35.0/24",
+    "117.43.160.0/23"
+   ]
+  },
+  "vpn-users": {
+   "router": 24,
+   "prefixes": [
+    "251.227.252.0/25"
+   ]
+  },
+  "student-lab": {
+   "router": 53,
+   "prefixes": [
+    "233.9.72.0/23",
+    "205.6.167.0/24"
+   ]
+  },
+  "admin": {
+   "router": 15,
+   "prefixes": [
+    "41.149.127.0/26"
+   ]
+  },
+  "voip": {
+   "router": 26,
+   "prefixes": [
+    "125.149.60.128/25"
+   ]
+  },
+  "edge-cache": {
+   "router": 27,
+   "prefixes": [
+    "118.143.50.0/24",
+    "253.136.187.0/24",
+    "103.41.64.0/20"
+   ]
+  },
+  "dev-lab": {
+   "router": 38,
+   "prefixes": [
+    "103.228.205.0/24",
+    "178.56.130.0/24"
+   ]
+  },
+  "scada": {
+   "router": 10,
+   "prefixes": [
+    "179.178.161.192/27",
+    "43.235.30.0/24"
+   ]
+  }
+ },
+ "zone_text": [
+  "dmz-web: hosts 157.227.232.0/23, 111.247.160.0/21 attached to router R7",
+  "iot-sensors: hosts 189.177.200.0/25, 88.113.32.128/25 attached to router R54",
+  "library: hosts 214.145.35.0/24, 117.43.160.0/23 attached to router R19",
+  "vpn-users: hosts 251.227.252.0/25 attached to router R24",
+  "student-lab: hosts 233.9.72.0/23, 205.6.167.0/24 attached to router R53",
+  "admin: hosts 41.149.127.0/26 attached to router R15",
+  "voip: hosts 125.149.60.128/25 attached to router R26",
+  "edge-cache: hosts 118.143.50.0/24, 253.136.187.0/24, 103.41.64.0/20 attached to router R27",
+  "dev-lab: hosts 103.228.205.0/24, 178.56.130.0/24 attached to router R38",
+  "scada: hosts 179.178.161.192/27, 43.235.30.0/24 attached to router R10"
+ ],
+ "intents": [
+  {
+   "type": "allow",
+   "src": "edge-cache",
+   "dst": "dmz-web",
+   "svcs": [
+    "ntp"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "student-lab",
+   "dst": "iot-sensors",
+   "broad": "any-udp",
+   "ex": [
+    "snmp"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "voip",
+   "allowed": [
+    [
+     "edge-cache",
+     "https"
+    ],
+    [
+     "scada",
+     "dns"
+    ]
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "student-lab",
+   "dst": "library",
+   "broad": "any-udp",
+   "ex": [
+    "tftp",
+    "snmp"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "iot-sensors",
+   "allowed": [
+    [
+     "dmz-web",
+     "dns"
+    ],
+    [
+     "edge-cache",
+     "syslog"
+    ]
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "dev-lab",
+   "dst": "voip",
+   "svcs": [
+    "rdp"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "library",
+   "allowed": [
+    [
+     "voip",
+     "ntp"
+    ],
+    [
+     "edge-cache",
+     "dns"
+    ]
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "library",
+   "dst": "scada",
+   "svcs": [
+    "ldap"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "edge-cache",
+   "dst": "vpn-users",
+   "svcs": [
+    "https"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "dmz-web",
+   "dst": "library",
+   "svcs": [
+    "snmp",
+    "smtp",
+    "rdp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "scada",
+   "dst": "edge-cache",
+   "svcs": [
+    "smtp",
+    "snmp",
+    "ssh"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "edge-cache",
+   "svcs": [
+    "http",
+    "https"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "edge-cache",
+   "dst": "student-lab",
+   "svcs": [
+    "imap"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "iot-sensors",
+   "svcs": [
+    "dns"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "voip",
+   "dst": "edge-cache",
+   "svcs": [
+    "rdp",
+    "smb",
+    "mysql"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "voip",
+   "dst": "vpn-users",
+   "svcs": [
+    "rdp",
+    "rtsp",
+    "postgres"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "vpn-users",
+   "dst": "voip",
+   "svcs": [
+    "imap"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "dev-lab",
+   "dst": "scada"
+  },
+  {
+   "type": "public",
+   "dst": "iot-sensors",
+   "svcs": [
+    "dns",
+    "ntp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "student-lab",
+   "dst": "dmz-web",
+   "svcs": [
+    "rdp",
+    "http",
+    "snmp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "dev-lab",
+   "dst": "student-lab",
+   "svcs": [
+    "imap",
+    "ldap"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "scada",
+   "dst": "edge-cache",
+   "svcs": [
+    "imap",
+    "ldap",
+    "rtsp"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "voip",
+   "dst": "iot-sensors",
+   "broad": "high-tcp",
+   "ex": [
+    "mysql",
+    "rdp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "admin",
+   "dst": "edge-cache",
+   "svcs": [
+    "ssh"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "admin",
+   "svcs": [
+    "dns",
+    "ntp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "vpn-users",
+   "dst": "voip",
+   "svcs": [
+    "ssh",
+    "smb",
+    "syslog"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "edge-cache",
+   "dst": "dmz-web",
+   "broad": "high-tcp",
+   "ex": [
+    "postgres"
+   ]
+  }
+ ],
+ "nl": [
+  "Allow edge-cache to connect to dmz-web using NTP (UDP 123).",
+  "Block SNMP (UDP 161) from student-lab to iot-sensors; the rest of any UDP port between them is allowed.",
+  "voip is isolated: it may only reach edge-cache on HTTPS (TCP 443); scada on DNS over UDP 53, and nothing else.",
+  "Block TFTP (UDP 69), SNMP (UDP 161) from student-lab to library; the rest of any UDP port between them is allowed.",
+  "Restrict iot-sensors so that its only permitted destinations are dmz-web on DNS over UDP 53; edge-cache on syslog (UDP 514); drop all other traffic it originates.",
+  "Allow dev-lab to connect to voip using RDP (TCP 3389).",
+  "Apart from voip on NTP (UDP 123); edge-cache on DNS over UDP 53, all traffic originating in library must be dropped.",
+  "Hosts in library may reach scada over LDAP (TCP 389).",
+  "Hosts in edge-cache may reach vpn-users over HTTPS (TCP 443).",
+  "Hosts in dmz-web may reach library over SNMP (UDP 161) and SMTP (TCP 25) and RDP (TCP 3389).",
+  "edge-cache must accept SMTP (TCP 25) and SNMP (UDP 161) and SSH (TCP 22) from scada.",
+  "edge-cache offers HTTP (TCP 80) and HTTPS (TCP 443) to every zone.",
+  "Hosts in edge-cache may reach student-lab over IMAP (TCP 143).",
+  "Any zone may connect to iot-sensors over DNS over UDP 53.",
+  "edge-cache must accept RDP (TCP 3389) and SMB (TCP 445) and MySQL (TCP 3306) from voip.",
+  "vpn-users must accept RDP (TCP 3389) and RTSP (TCP 554) and PostgreSQL (TCP 5432) from voip.",
+  "voip must accept IMAP (TCP 143) from vpn-users.",
+  "dev-lab must never reach scada, regardless of any other rule.",
+  "Any zone may connect to iot-sensors over DNS over UDP 53 and NTP (UDP 123).",
+  "Allow student-lab to connect to dmz-web using RDP (TCP 3389) and HTTP (TCP 80) and SNMP (UDP 161).",
+  "Hosts in dev-lab may reach student-lab over IMAP (TCP 143) and LDAP (TCP 389).",
+  "edge-cache must accept IMAP (TCP 143) and LDAP (TCP 389) and RTSP (TCP 554) from scada.",
+  "Block MySQL (TCP 3306), RDP (TCP 3389) from voip to iot-sensors; the rest of TCP ports 1024-65535 between them is allowed.",
+  "edge-cache must accept SSH (TCP 22) from admin.",
+  "Any zone may connect to admin over DNS over UDP 53 and NTP (UDP 123).",
+  "Hosts in vpn-users may reach voip over SSH (TCP 22) and SMB (TCP 445) and syslog (UDP 514).",
+  "edge-cache may use TCP ports 1024-65535 towards dmz-web, except PostgreSQL (TCP 5432), which must be blocked."
+ ],
+ "gt": [
+  {
+   "src": "dev-lab",
+   "dst": "scada",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "student-lab",
+   "dst": "iot-sensors",
+   "proto": "udp",
+   "dlo": 161,
+   "dhi": 161,
+   "action": "deny"
+  },
+  {
+   "src": "student-lab",
+   "dst": "library",
+   "proto": "udp",
+   "dlo": 69,
+   "dhi": 69,
+   "action": "deny"
+  },
+  {
+   "src": "student-lab",
+   "dst": "library",
+   "proto": "udp",
+   "dlo": 161,
+   "dhi": 161,
+   "action": "deny"
+  },
+  {
+   "src": "voip",
+   "dst": "iot-sensors",
+   "proto": "tcp",
+   "dlo": 3306,
+   "dhi": 3306,
+   "action": "deny"
+  },
+  {
+   "src": "voip",
+   "dst": "iot-sensors",
+   "proto": "tcp",
+   "dlo": 3389,
+   "dhi": 3389,
+   "action": "deny"
+  },
+  {
+   "src": "edge-cache",
+   "dst": "dmz-web",
+   "proto": "tcp",
+   "dlo": 5432,
+   "dhi": 5432,
+   "action": "deny"
+  },
+  {
+   "src": "edge-cache",
+   "dst": "dmz-web",
+   "proto": "udp",
+   "dlo": 123,
+   "dhi": 123,
+   "action": "permit"
+  },
+  {
+   "src": "student-lab",
+   "dst": "iot-sensors",
+   "proto": "udp",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "permit"
+  },
+  {
+   "src": "student-lab",
+   "dst": "library",
+   "proto": "udp",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "permit"
+  },
+  {
+   "src": "dev-lab",
+   "dst": "voip",
+   "proto": "tcp",
+   "dlo": 3389,
+   "dhi": 3389,
+   "action": "permit"
+  },
+  {
+   "src": "library",
+   "dst": "scada",
+   "proto": "tcp",
+   "dlo": 389,
+   "dhi": 389,
+   "action": "permit"
+  },
+  {
+   "src": "edge-cache",
+   "dst": "vpn-users",
+   "proto": "tcp",
+   "dlo": 443,
+   "dhi": 443,
+   "action": "permit"
+  },
+  {
+   "src": "dmz-web",
+   "dst": "library",
+   "proto": "udp",
+   "dlo": 161,
+   "dhi": 161,
+   "action": "permit"
+  },
+  {
+   "src": "dmz-web",
+   "dst": "library",
+   "proto": "tcp",
+   "dlo": 25,
+   "dhi": 25,
+   "action": "permit"
+  },
+  {
+   "src": "dmz-web",
+   "dst": "library",
+   "proto": "tcp",
+   "dlo": 3389,
+   "dhi": 3389,
+   "action": "permit"
+  },
+  {
+   "src": "scada",
+   "dst": "edge-cache",
+   "proto": "tcp",
+   "dlo": 25,
+   "dhi": 25,
+   "action": "permit"
+  },
+  {
+   "src": "scada",
+   "dst": "edge-cache",
+   "proto": "udp",
+   "dlo": 161,
+   "dhi": 161,
+   "action": "permit"
+  },
+  {
+   "src": "scada",
+   "dst": "edge-cache",
+   "proto": "tcp",
+   "dlo": 22,
+   "dhi": 22,
+   "action": "permit"
+  },
+  {
+   "src": "edge-cache",
+   "dst": "student-lab",
+   "proto": "tcp",
+   "dlo": 143,
+   "dhi": 143,
+   "action": "permit"
+  },
+  {
+   "src": "voip",
+   "dst": "edge-cache",
+   "proto": "tcp",
+   "dlo": 3389,
+   "dhi": 3389,
+   "action": "permit"
+  },
+  {
+   "src": "voip",
+   "dst": "edge-cache",
+   "proto": "tcp",
+   "dlo": 445,
+   "dhi": 445,
+   "action": "permit"
+  },
+  {
+   "src": "voip",
+   "dst": "edge-cache",
+   "proto": "tcp",
+   "dlo": 3306,
+   "dhi": 3306,
+   "action": "permit"
+  },
+  {
+   "src": "voip",
+   "dst": "vpn-users",
+   "proto": "tcp",
+   "dlo": 3389,
+   "dhi": 3389,
+   "action": "permit"
+  },
+  {
+   "src": "voip",
+   "dst": "vpn-users",
+   "proto": "tcp",
+   "dlo": 554,
+   "dhi": 554,
+   "action": "permit"
+  },
+  {
+   "src": "voip",
+   "dst": "vpn-users",
+   "proto": "tcp",
+   "dlo": 5432,
+   "dhi": 5432,
+   "action": "permit"
+  },
+  {
+   "src": "vpn-users",
+   "dst": "voip",
+   "proto": "tcp",
+   "dlo": 143,
+   "dhi": 143,
+   "action": "permit"
+  },
+  {
+   "src": "student-lab",
+   "dst": "dmz-web",
+   "proto": "tcp",
+   "dlo": 3389,
+   "dhi": 3389,
+   "action": "permit"
+  },
+  {
+   "src": "student-lab",
+   "dst": "dmz-web",
+   "proto": "tcp",
+   "dlo": 80,
+   "dhi": 80,
+   "action": "permit"
+  },
+  {
+   "src": "student-lab",
+   "dst": "dmz-web",
+   "proto": "udp",
+   "dlo": 161,
+   "dhi": 161,
+   "action": "permit"
+  },
+  {
+   "src": "dev-lab",
+   "dst": "student-lab",
+   "proto": "tcp",
+   "dlo": 143,
+   "dhi": 143,
+   "action": "permit"
+  },
+  {
+   "src": "dev-lab",
+   "dst": "student-lab",
+   "proto": "tcp",
+   "dlo": 389,
+   "dhi": 389,
+   "action": "permit"
+  },
+  {
+   "src": "scada",
+   "dst": "edge-cache",
+   "proto": "tcp",
+   "dlo": 143,
+   "dhi": 143,
+   "action": "permit"
+  },
+  {
+   "src": "scada",
+   "dst": "edge-cache",
+   "proto": "tcp",
+   "dlo": 389,
+   "dhi": 389,
+   "action": "permit"
+  },
+  {
+   "src": "scada",
+   "dst": "edge-cache",
+   "proto": "tcp",
+   "dlo": 554,
+   "dhi": 554,
+   "action": "permit"
+  },
+  {
+   "src": "voip",
+   "dst": "iot-sensors",
+   "proto": "tcp",
+   "dlo": 1024,
+   "dhi": 65535,
+   "action": "permit"
+  },
+  {
+   "src": "admin",
+   "dst": "edge-cache",
+   "proto": "tcp",
+   "dlo": 22,
+   "dhi": 22,
+   "action": "permit"
+  },
+  {
+   "src": "vpn-users",
+   "dst": "voip",
+   "proto": "tcp",
+   "dlo": 22,
+   "dhi": 22,
+   "action": "permit"
+  },
+  {
+   "src": "vpn-users",
+   "dst": "voip",
+   "proto": "tcp",
+   "dlo": 445,
+   "dhi": 445,
+   "action": "permit"
+  },
+  {
+   "src": "vpn-users",
+   "dst": "voip",
+   "proto": "udp",
+   "dlo": 514,
+   "dhi": 514,
+   "action": "permit"
+  },
+  {
+   "src": "edge-cache",
+   "dst": "dmz-web",
+   "proto": "tcp",
+   "dlo": 1024,
+   "dhi": 65535,
+   "action": "permit"
+  },
+  {
+   "src": "voip",
+   "dst": "edge-cache",
+   "proto": "tcp",
+   "dlo": 443,
+   "dhi": 443,
+   "action": "permit"
+  },
+  {
+   "src": "voip",
+   "dst": "scada",
+   "proto": "udp",
+   "dlo": 53,
+   "dhi": 53,
+   "action": "permit"
+  },
+  {
+   "src": "iot-sensors",
+   "dst": "dmz-web",
+   "proto": "udp",
+   "dlo": 53,
+   "dhi": 53,
+   "action": "permit"
+  },
+  {
+   "src": "iot-sensors",
+   "dst": "edge-cache",
+   "proto": "udp",
+   "dlo": 514,
+   "dhi": 514,
+   "action": "permit"
+  },
+  {
+   "src": "library",
+   "dst": "voip",
+   "proto": "udp",
+   "dlo": 123,
+   "dhi": 123,
+   "action": "permit"
+  },
+  {
+   "src": "library",
+   "dst": "edge-cache",
+   "proto": "udp",
+   "dlo": 53,
+   "dhi": 53,
+   "action": "permit"
+  },
+  {
+   "src": "voip",
+   "dst": "*",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "iot-sensors",
+   "dst": "*",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "library",
+   "dst": "*",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "*",
+   "dst": "edge-cache",
+   "proto": "tcp",
+   "dlo": 80,
+   "dhi": 80,
+   "action": "permit"
+  },
+  {
+   "src": "*",
+   "dst": "edge-cache",
+   "proto": "tcp",
+   "dlo": 443,
+   "dhi": 443,
+   "action": "permit"
+  },
+  {
+   "src": "*",
+   "dst": "iot-sensors",
+   "proto": "udp",
+   "dlo": 53,
+   "dhi": 53,
+   "action": "permit"
+  },
+  {
+   "src": "*",
+   "dst": "iot-sensors",
+   "proto": "udp",
+   "dlo": 53,
+   "dhi": 53,
+   "action": "permit"
+  },
+  {
+   "src": "*",
+   "dst": "iot-sensors",
+   "proto": "udp",
+   "dlo": 123,
+   "dhi": 123,
+   "action": "permit"
+  },
+  {
+   "src": "*",
+   "dst": "admin",
+   "proto": "udp",
+   "dlo": 53,
+   "dhi": 53,
+   "action": "permit"
+  },
+  {
+   "src": "*",
+   "dst": "admin",
+   "proto": "udp",
+   "dlo": 123,
+   "dhi": 123,
+   "action": "permit"
+  }
+ ]
+}

@@ -1,0 +1,545 @@
+{
+ "id": "HurricaneElectric_s1059",
+ "n_intents": 30,
+ "n_gt_rules": 54,
+ "n_zones": 10,
+ "rules": {
+  "eq": false,
+  "mismatch": 0.036,
+  "n_rules": 59,
+  "fail": 0,
+  "s": 203.60391521453857,
+  "calls": 2,
+  "prompt": 3289,
+  "completion": 5795
+ },
+ "ir0": {
+  "eq": false,
+  "mismatch": 0.012,
+  "n_rules": 48,
+  "fail": 0,
+  "s": 89.41153144836426,
+  "calls": 32,
+  "prompt": 20529,
+  "completion": 1121,
+  "intent_acc": 0.9
+ },
+ "ir": {
+  "eq": true,
+  "mismatch": 0.0,
+  "n_rules": 54,
+  "fail": 0,
+  "s": 83.3960280418396,
+  "calls": 30,
+  "prompt": 32674,
+  "completion": 760,
+  "intent_acc": 1.0
+ },
+ "fw": {
+  "eq": true,
+  "mismatch": 0.0,
+  "n_rules": 54,
+  "fail": 0,
+  "s": 191.66709065437317,
+  "verify_s": 108.2710633277893,
+  "calls": 60,
+  "verify_calls": 30,
+  "flagged": 0,
+  "accepted": 0,
+  "repairs": [],
+  "intent_acc": 1.0
+ },
+ "ir_out": [
+  {
+   "type": "block",
+   "src": "engineering",
+   "dst": "dev-lab"
+  },
+  {
+   "type": "block",
+   "src": "admin",
+   "dst": "engineering"
+  },
+  {
+   "type": "public",
+   "dst": "voip",
+   "svcs": [
+    "https"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "dev-lab",
+   "dst": "library",
+   "svcs": [
+    "http",
+    "ssh"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "engineering",
+   "dst": "guest-wifi",
+   "broad": "any-udp",
+   "ex": [
+    "tftp",
+    "snmp"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "research",
+   "svcs": [
+    "dns",
+    "https"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "dev-lab",
+   "dst": "iot-sensors",
+   "svcs": [
+    "imap"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "iot-sensors",
+   "dst": "guest-wifi",
+   "svcs": [
+    "syslog"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "hr",
+   "dst": "iot-sensors",
+   "svcs": [
+    "snmp",
+    "smb"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "hr",
+   "dst": "guest-wifi",
+   "svcs": [
+    "smb"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "voip",
+   "allowed": [
+    [
+     "engineering",
+     "https"
+    ]
+   ]
+  },
+  {
+   "type": "block",
+   "src": "research",
+   "dst": "hr"
+  },
+  {
+   "type": "allow_except",
+   "src": "engineering",
+   "dst": "library",
+   "broad": "any-tcp",
+   "ex": [
+    "smb",
+    "telnet"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "hr",
+   "dst": "research",
+   "svcs": [
+    "ntp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "engineering",
+   "dst": "hr",
+   "svcs": [
+    "postgres",
+    "ssh",
+    "rtsp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "admin",
+   "dst": "dns-servers",
+   "svcs": [
+    "ntp",
+    "mysql",
+    "postgres"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "voip",
+   "dst": "dev-lab"
+  },
+  {
+   "type": "allow",
+   "src": "engineering",
+   "dst": "dns-servers",
+   "svcs": [
+    "http",
+    "smtp",
+    "snmp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "dns-servers",
+   "dst": "voip",
+   "svcs": [
+    "imap",
+    "ssh",
+    "smtp"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "voip",
+   "dst": "engineering"
+  },
+  {
+   "type": "allow_except",
+   "src": "dns-servers",
+   "dst": "library",
+   "broad": "high-tcp",
+   "ex": [
+    "mysql",
+    "postgres"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "research",
+   "allowed": [
+    [
+     "dev-lab",
+     "syslog"
+    ]
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "research",
+   "dst": "library",
+   "svcs": [
+    "ssh",
+    "mysql"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "research",
+   "svcs": [
+    "http",
+    "https"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "research",
+   "dst": "library",
+   "svcs": [
+    "smtp",
+    "smb"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "research",
+   "svcs": [
+    "dns"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "engineering",
+   "dst": "admin",
+   "svcs": [
+    "snmp"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "dns-servers",
+   "dst": "research",
+   "broad": "any-udp",
+   "ex": [
+    "snmp",
+    "tftp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "research",
+   "dst": "library",
+   "svcs": [
+    "http"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "hr",
+   "dst": "engineering"
+  }
+ ],
+ "fw_out": [
+  {
+   "type": "block",
+   "src": "engineering",
+   "dst": "dev-lab"
+  },
+  {
+   "type": "block",
+   "src": "admin",
+   "dst": "engineering"
+  },
+  {
+   "type": "public",
+   "dst": "voip",
+   "svcs": [
+    "https"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "dev-lab",
+   "dst": "library",
+   "svcs": [
+    "http",
+    "ssh"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "engineering",
+   "dst": "guest-wifi",
+   "broad": "any-udp",
+   "ex": [
+    "tftp",
+    "snmp"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "research",
+   "svcs": [
+    "dns",
+    "https"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "dev-lab",
+   "dst": "iot-sensors",
+   "svcs": [
+    "imap"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "iot-sensors",
+   "dst": "guest-wifi",
+   "svcs": [
+    "syslog"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "hr",
+   "dst": "iot-sensors",
+   "svcs": [
+    "snmp",
+    "smb"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "hr",
+   "dst": "guest-wifi",
+   "svcs": [
+    "smb"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "voip",
+   "allowed": [
+    [
+     "engineering",
+     "https"
+    ]
+   ]
+  },
+  {
+   "type": "block",
+   "src": "research",
+   "dst": "hr"
+  },
+  {
+   "type": "allow_except",
+   "src": "engineering",
+   "dst": "library",
+   "broad": "any-tcp",
+   "ex": [
+    "smb",
+    "telnet"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "hr",
+   "dst": "research",
+   "svcs": [
+    "ntp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "engineering",
+   "dst": "hr",
+   "svcs": [
+    "postgres",
+    "ssh",
+    "rtsp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "admin",
+   "dst": "dns-servers",
+   "svcs": [
+    "ntp",
+    "mysql",
+    "postgres"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "voip",
+   "dst": "dev-lab"
+  },
+  {
+   "type": "allow",
+   "src": "engineering",
+   "dst": "dns-servers",
+   "svcs": [
+    "http",
+    "smtp",
+    "snmp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "dns-servers",
+   "dst": "voip",
+   "svcs": [
+    "imap",
+    "ssh",
+    "smtp"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "voip",
+   "dst": "engineering"
+  },
+  {
+   "type": "allow_except",
+   "src": "dns-servers",
+   "dst": "library",
+   "broad": "high-tcp",
+   "ex": [
+    "mysql",
+    "postgres"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "research",
+   "allowed": [
+    [
+     "dev-lab",
+     "syslog"
+    ]
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "research",
+   "dst": "library",
+   "svcs": [
+    "ssh",
+    "mysql"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "research",
+   "svcs": [
+    "http",
+    "https"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "research",
+   "dst": "library",
+   "svcs": [
+    "smtp",
+    "smb"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "research",
+   "svcs": [
+    "dns"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "engineering",
+   "dst": "admin",
+   "svcs": [
+    "snmp"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "dns-servers",
+   "dst": "research",
+   "broad": "any-udp",
+   "ex": [
+    "snmp",
+    "tftp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "research",
+   "dst": "library",
+   "svcs": [
+    "http"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "hr",
+   "dst": "engineering"
+  }
+ ],
+ "wall_s": 485.1100206375122
+}

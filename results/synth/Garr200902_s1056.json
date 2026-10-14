@@ -1,0 +1,617 @@
+{
+ "id": "Garr200902_s1056",
+ "n_intents": 32,
+ "n_gt_rules": 65,
+ "n_zones": 6,
+ "rules": {
+  "eq": false,
+  "mismatch": 0.09875,
+  "n_rules": 42,
+  "fail": 0,
+  "s": 196.70074319839478,
+  "calls": 2,
+  "prompt": 3635,
+  "completion": 5337
+ },
+ "ir0": {
+  "eq": false,
+  "mismatch": 0.04275,
+  "n_rules": 58,
+  "fail": 0,
+  "s": 98.0624783039093,
+  "calls": 32,
+  "prompt": 20052,
+  "completion": 1247,
+  "intent_acc": 0.90625
+ },
+ "ir": {
+  "eq": true,
+  "mismatch": 0.0,
+  "n_rules": 65,
+  "fail": 0,
+  "s": 79.3608295917511,
+  "calls": 32,
+  "prompt": 34484,
+  "completion": 860,
+  "intent_acc": 1.0
+ },
+ "fw": {
+  "eq": true,
+  "mismatch": 0.0,
+  "n_rules": 65,
+  "fail": 0,
+  "s": 221.40550184249878,
+  "verify_s": 142.04467225074768,
+  "calls": 66,
+  "verify_calls": 34,
+  "flagged": 0,
+  "accepted": 0,
+  "repairs": [],
+  "intent_acc": 1.0
+ },
+ "ir_out": [
+  {
+   "type": "allow_except",
+   "src": "nvr",
+   "dst": "ntp-servers",
+   "broad": "any-tcp",
+   "ex": [
+    "ftp",
+    "smb"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "ntp-servers",
+   "dst": "nvr"
+  },
+  {
+   "type": "allow_except",
+   "src": "printers",
+   "dst": "guest-wifi",
+   "broad": "any-tcp",
+   "ex": [
+    "ftp",
+    "rdp",
+    "smb"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "engineering",
+   "svcs": [
+    "dns"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "nvr",
+   "dst": "printers"
+  },
+  {
+   "type": "public",
+   "dst": "voip",
+   "svcs": [
+    "http",
+    "https"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "guest-wifi",
+   "dst": "nvr",
+   "svcs": [
+    "ldap",
+    "rdp",
+    "ntp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "ntp-servers",
+   "dst": "printers",
+   "svcs": [
+    "mysql",
+    "smb",
+    "snmp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "guest-wifi",
+   "dst": "nvr",
+   "svcs": [
+    "rtsp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "voip",
+   "dst": "nvr",
+   "svcs": [
+    "smb",
+    "rdp",
+    "dns"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "printers",
+   "svcs": [
+    "dns"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "guest-wifi",
+   "dst": "ntp-servers",
+   "svcs": [
+    "postgres",
+    "ntp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "ntp-servers",
+   "dst": "nvr",
+   "svcs": [
+    "https",
+    "ldap",
+    "snmp"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "nvr",
+   "svcs": [
+    "https"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "printers",
+   "dst": "guest-wifi",
+   "svcs": [
+    "imap"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "voip",
+   "dst": "engineering",
+   "svcs": [
+    "snmp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "ntp-servers",
+   "dst": "nvr",
+   "svcs": [
+    "http",
+    "rdp",
+    "postgres"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "guest-wifi",
+   "dst": "nvr",
+   "svcs": [
+    "rtsp",
+    "ntp",
+    "https"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "printers",
+   "allowed": [
+    [
+     "engineering",
+     "dns"
+    ],
+    [
+     "voip",
+     "dns"
+    ]
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "engineering",
+   "dst": "nvr",
+   "svcs": [
+    "mysql",
+    "smb",
+    "ldap"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "engineering",
+   "dst": "nvr",
+   "svcs": [
+    "ldap"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "nvr",
+   "dst": "ntp-servers",
+   "svcs": [
+    "ntp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "voip",
+   "dst": "printers",
+   "svcs": [
+    "postgres"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "voip",
+   "dst": "ntp-servers",
+   "svcs": [
+    "snmp",
+    "dns",
+    "syslog"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "printers",
+   "svcs": [
+    "dns"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "nvr",
+   "dst": "printers",
+   "svcs": [
+    "mysql",
+    "https"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "ntp-servers",
+   "dst": "voip",
+   "svcs": [
+    "smtp",
+    "ntp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "nvr",
+   "dst": "ntp-servers",
+   "svcs": [
+    "http",
+    "https",
+    "postgres"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "engineering",
+   "dst": "guest-wifi",
+   "svcs": [
+    "smtp",
+    "ssh"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "engineering",
+   "dst": "ntp-servers",
+   "svcs": [
+    "postgres",
+    "rdp",
+    "smtp"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "voip",
+   "svcs": [
+    "https",
+    "ntp"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "nvr",
+   "svcs": [
+    "dns"
+   ]
+  }
+ ],
+ "fw_out": [
+  {
+   "type": "allow_except",
+   "src": "nvr",
+   "dst": "ntp-servers",
+   "broad": "any-tcp",
+   "ex": [
+    "ftp",
+    "smb"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "ntp-servers",
+   "dst": "nvr"
+  },
+  {
+   "type": "allow_except",
+   "src": "printers",
+   "dst": "guest-wifi",
+   "broad": "any-tcp",
+   "ex": [
+    "ftp",
+    "rdp",
+    "smb"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "engineering",
+   "svcs": [
+    "dns"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "nvr",
+   "dst": "printers"
+  },
+  {
+   "type": "public",
+   "dst": "voip",
+   "svcs": [
+    "http",
+    "https"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "guest-wifi",
+   "dst": "nvr",
+   "svcs": [
+    "ldap",
+    "rdp",
+    "ntp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "ntp-servers",
+   "dst": "printers",
+   "svcs": [
+    "mysql",
+    "smb",
+    "snmp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "guest-wifi",
+   "dst": "nvr",
+   "svcs": [
+    "rtsp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "voip",
+   "dst": "nvr",
+   "svcs": [
+    "smb",
+    "rdp",
+    "dns"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "printers",
+   "svcs": [
+    "dns"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "guest-wifi",
+   "dst": "ntp-servers",
+   "svcs": [
+    "postgres",
+    "ntp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "ntp-servers",
+   "dst": "nvr",
+   "svcs": [
+    "https",
+    "ldap",
+    "snmp"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "nvr",
+   "svcs": [
+    "https"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "printers",
+   "dst": "guest-wifi",
+   "svcs": [
+    "imap"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "voip",
+   "dst": "engineering",
+   "svcs": [
+    "snmp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "ntp-servers",
+   "dst": "nvr",
+   "svcs": [
+    "http",
+    "rdp",
+    "postgres"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "guest-wifi",
+   "dst": "nvr",
+   "svcs": [
+    "rtsp",
+    "ntp",
+    "https"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "printers",
+   "allowed": [
+    [
+     "engineering",
+     "dns"
+    ],
+    [
+     "voip",
+     "dns"
+    ]
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "engineering",
+   "dst": "nvr",
+   "svcs": [
+    "mysql",
+    "smb",
+    "ldap"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "engineering",
+   "dst": "nvr",
+   "svcs": [
+    "ldap"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "nvr",
+   "dst": "ntp-servers",
+   "svcs": [
+    "ntp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "voip",
+   "dst": "printers",
+   "svcs": [
+    "postgres"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "voip",
+   "dst": "ntp-servers",
+   "svcs": [
+    "snmp",
+    "dns",
+    "syslog"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "printers",
+   "svcs": [
+    "dns"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "nvr",
+   "dst": "printers",
+   "svcs": [
+    "mysql",
+    "https"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "ntp-servers",
+   "dst": "voip",
+   "svcs": [
+    "smtp",
+    "ntp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "nvr",
+   "dst": "ntp-servers",
+   "svcs": [
+    "http",
+    "https",
+    "postgres"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "engineering",
+   "dst": "guest-wifi",
+   "svcs": [
+    "smtp",
+    "ssh"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "engineering",
+   "dst": "ntp-servers",
+   "svcs": [
+    "postgres",
+    "rdp",
+    "smtp"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "voip",
+   "svcs": [
+    "https",
+    "ntp"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "nvr",
+   "svcs": [
+    "dns"
+   ]
+  }
+ ],
+ "wall_s": 516.6245067119598
+}

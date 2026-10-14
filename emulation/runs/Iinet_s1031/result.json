@@ -1,0 +1,66 @@
+{
+ "id": "Iinet_s1031",
+ "up": {
+  "n_routers": 31,
+  "n_links": 35,
+  "n_zones": 10,
+  "setup_s": 56.891082525253296,
+  "converged": true,
+  "converge_s": 3.0570688247680664,
+  "ecmp_nexthops": 287
+ },
+ "deploy_fireweaver": {
+  "cfgset": "fireweaver",
+  "deploy_s": 18.71768307685852,
+  "per_router_max_s": 9.66213846206665,
+  "rules_installed": 465,
+  "rules_expected": 465
+ },
+ "probe_fireweaver": {
+  "n": 2758,
+  "delivered": 172,
+  "send_s": 10.067038297653198
+ },
+ "conf_fireweaver": {
+  "n": 2758,
+  "conform": 2758,
+  "leaks": 0,
+  "wrongly_blocked": 0
+ },
+ "deploy_ecmp1": {
+  "cfgset": "ecmp1",
+  "deploy_s": 15.489927053451538,
+  "per_router_max_s": 7.837054014205933,
+  "rules_installed": 465,
+  "rules_expected": 465
+ },
+ "probe_ecmp1": {
+  "n": 2758,
+  "delivered": 175,
+  "send_s": 10.078002691268921
+ },
+ "conf_ecmp1": {
+  "n": 2758,
+  "conform": 2755,
+  "leaks": 3,
+  "wrongly_blocked": 0
+ },
+ "deploy_none": {
+  "cfgset": "none",
+  "deploy_s": 15.771899461746216,
+  "per_router_max_s": 8.521230936050415,
+  "rules_installed": 0,
+  "rules_expected": 0
+ },
+ "probe_none": {
+  "n": 2758,
+  "delivered": 2758,
+  "send_s": 1.7651731967926025
+ },
+ "conf_none": {
+  "n": 2758,
+  "conform": 172,
+  "leaks": 2586,
+  "wrongly_blocked": 0
+ }
+}

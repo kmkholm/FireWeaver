@@ -1,0 +1,321 @@
+{
+ "id": "Highwinds_s1058",
+ "n_intents": 15,
+ "n_gt_rules": 30,
+ "n_zones": 10,
+ "rules": {
+  "eq": false,
+  "mismatch": 0.0205,
+  "n_rules": 30,
+  "fail": 0,
+  "s": 31.65413761138916,
+  "calls": 1,
+  "prompt": 905,
+  "completion": 894
+ },
+ "ir0": {
+  "eq": false,
+  "mismatch": 0.00225,
+  "n_rules": 28,
+  "fail": 0,
+  "s": 44.91339087486267,
+  "calls": 16,
+  "prompt": 10265,
+  "completion": 536,
+  "intent_acc": 0.9333333333333333
+ },
+ "ir": {
+  "eq": true,
+  "mismatch": 0.0,
+  "n_rules": 30,
+  "fail": 0,
+  "s": 38.37118434906006,
+  "calls": 15,
+  "prompt": 16341,
+  "completion": 403,
+  "intent_acc": 1.0
+ },
+ "fw": {
+  "eq": true,
+  "mismatch": 0.0,
+  "n_rules": 30,
+  "fail": 0,
+  "s": 93.80362844467163,
+  "verify_s": 55.43244457244873,
+  "calls": 31,
+  "verify_calls": 16,
+  "flagged": 0,
+  "accepted": 0,
+  "repairs": [],
+  "intent_acc": 1.0
+ },
+ "ir_out": [
+  {
+   "type": "allow",
+   "src": "nvr",
+   "dst": "cameras",
+   "svcs": [
+    "smtp",
+    "http"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "backup",
+   "dst": "ntp-servers",
+   "svcs": [
+    "ldap"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "nvr",
+   "dst": "student-lab"
+  },
+  {
+   "type": "allow",
+   "src": "ntp-servers",
+   "dst": "engineering",
+   "svcs": [
+    "https",
+    "mysql"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "hr",
+   "dst": "scada",
+   "svcs": [
+    "smb",
+    "syslog",
+    "dns"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "nvr",
+   "dst": "backup",
+   "svcs": [
+    "https",
+    "smtp",
+    "smb"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "scada",
+   "svcs": [
+    "dns"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "cameras",
+   "dst": "engineering",
+   "svcs": [
+    "syslog",
+    "http"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "nvr",
+   "dst": "ntp-servers",
+   "broad": "any-tcp",
+   "ex": [
+    "rdp",
+    "ftp"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "scada",
+   "dst": "student-lab",
+   "broad": "any-udp",
+   "ex": [
+    "tftp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "student-lab",
+   "dst": "hr",
+   "svcs": [
+    "imap",
+    "snmp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "scada",
+   "dst": "printers",
+   "svcs": [
+    "ldap",
+    "mysql"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "backup",
+   "allowed": [
+    [
+     "engineering",
+     "dns"
+    ]
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "scada",
+   "allowed": [
+    [
+     "student-lab",
+     "https"
+    ]
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "ntp-servers",
+   "svcs": [
+    "http",
+    "https"
+   ]
+  }
+ ],
+ "fw_out": [
+  {
+   "type": "allow",
+   "src": "nvr",
+   "dst": "cameras",
+   "svcs": [
+    "smtp",
+    "http"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "backup",
+   "dst": "ntp-servers",
+   "svcs": [
+    "ldap"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "nvr",
+   "dst": "student-lab"
+  },
+  {
+   "type": "allow",
+   "src": "ntp-servers",
+   "dst": "engineering",
+   "svcs": [
+    "https",
+    "mysql"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "hr",
+   "dst": "scada",
+   "svcs": [
+    "smb",
+    "syslog",
+    "dns"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "nvr",
+   "dst": "backup",
+   "svcs": [
+    "https",
+    "smtp",
+    "smb"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "scada",
+   "svcs": [
+    "dns"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "cameras",
+   "dst": "engineering",
+   "svcs": [
+    "syslog",
+    "http"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "nvr",
+   "dst": "ntp-servers",
+   "broad": "any-tcp",
+   "ex": [
+    "rdp",
+    "ftp"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "scada",
+   "dst": "student-lab",
+   "broad": "any-udp",
+   "ex": [
+    "tftp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "student-lab",
+   "dst": "hr",
+   "svcs": [
+    "imap",
+    "snmp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "scada",
+   "dst": "printers",
+   "svcs": [
+    "ldap",
+    "mysql"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "backup",
+   "allowed": [
+    [
+     "engineering",
+     "dns"
+    ]
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "scada",
+   "allowed": [
+    [
+     "student-lab",
+     "https"
+    ]
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "ntp-servers",
+   "svcs": [
+    "http",
+    "https"
+   ]
+  }
+ ],
+ "wall_s": 170.6877794265747
+}

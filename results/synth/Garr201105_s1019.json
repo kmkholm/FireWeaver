@@ -1,0 +1,183 @@
+{
+ "id": "Garr201105_s1019",
+ "n_intents": 8,
+ "n_gt_rules": 12,
+ "n_zones": 10,
+ "rules": {
+  "eq": false,
+  "mismatch": 0.0115,
+  "n_rules": 13,
+  "fail": 0,
+  "s": 14.62380051612854,
+  "calls": 1,
+  "prompt": 667,
+  "completion": 402
+ },
+ "ir0": {
+  "eq": false,
+  "mismatch": 0.0005,
+  "n_rules": 11,
+  "fail": 0,
+  "s": 19.663811206817627,
+  "calls": 9,
+  "prompt": 5735,
+  "completion": 273,
+  "intent_acc": 0.875
+ },
+ "ir": {
+  "eq": true,
+  "mismatch": 0.0,
+  "n_rules": 12,
+  "fail": 0,
+  "s": 32.077529191970825,
+  "calls": 8,
+  "prompt": 8661,
+  "completion": 184,
+  "intent_acc": 1.0
+ },
+ "fw": {
+  "eq": true,
+  "mismatch": 0.0,
+  "n_rules": 12,
+  "fail": 0,
+  "s": 51.95249700546265,
+  "verify_s": 19.87496852874756,
+  "calls": 16,
+  "verify_calls": 8,
+  "flagged": 0,
+  "accepted": 0,
+  "repairs": [],
+  "intent_acc": 1.0
+ },
+ "ir_out": [
+  {
+   "type": "allow",
+   "src": "ntp-servers",
+   "dst": "database",
+   "svcs": [
+    "postgres"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "admin",
+   "allowed": [
+    [
+     "database",
+     "dns"
+    ]
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "mail",
+   "svcs": [
+    "dns",
+    "http"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "guest-wifi",
+   "dst": "research",
+   "svcs": [
+    "http"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "hr",
+   "dst": "cameras",
+   "broad": "high-tcp",
+   "ex": [
+    "rdp"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "admin",
+   "svcs": [
+    "ntp",
+    "dns"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "hr",
+   "svcs": [
+    "ntp"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "hr",
+   "dst": "admin"
+  }
+ ],
+ "fw_out": [
+  {
+   "type": "allow",
+   "src": "ntp-servers",
+   "dst": "database",
+   "svcs": [
+    "postgres"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "admin",
+   "allowed": [
+    [
+     "database",
+     "dns"
+    ]
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "mail",
+   "svcs": [
+    "dns",
+    "http"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "guest-wifi",
+   "dst": "research",
+   "svcs": [
+    "http"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "hr",
+   "dst": "cameras",
+   "broad": "high-tcp",
+   "ex": [
+    "rdp"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "admin",
+   "svcs": [
+    "ntp",
+    "dns"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "hr",
+   "svcs": [
+    "ntp"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "hr",
+   "dst": "admin"
+  }
+ ],
+ "wall_s": 86.47605419158936
+}

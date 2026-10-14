@@ -1,0 +1,60 @@
+Aarnet_s1026                 n=16 | rules eq=0 mm=0.0473 | ir0 eq=0 mm=0.0032 ia=0.88 | ir eq=1 mm=0.0000 ia=1.00 | fw eq=1 mm=0.0000 ia=1.00 | flag 0 acc 0 | 62s
+Aarnet_s1039                 n=29 | rules eq=0 mm=0.0413 | ir0 eq=0 mm=0.0092 ia=0.97 | ir eq=1 mm=0.0000 ia=1.00 | fw eq=1 mm=0.0000 ia=1.00 | flag 1 acc 0 | 181s
+Arn_s1034                    n=15 | rules eq=0 mm=0.0272 | ir0 eq=0 mm=0.0010 ia=0.93 | ir eq=1 mm=0.0000 ia=1.00 | fw eq=1 mm=0.0000 ia=1.00 | flag 0 acc 0 | 109s
+Bbnplanet_s1002              n=16 | rules eq=0 mm=0.1113 | ir0 eq=1 mm=0.0000 ia=1.00 | ir eq=1 mm=0.0000 ia=1.00 | fw eq=1 mm=0.0000 ia=1.00 | flag 0 acc 0 | 97s
+Bbnplanet_s1028              n= 8 | rules eq=0 mm=0.0187 | ir0 eq=1 mm=0.0000 ia=1.00 | ir eq=1 mm=0.0000 ia=1.00 | fw eq=1 mm=0.0000 ia=1.00 | flag 1 acc 0 | 48s
+Belnet2003_s1014             n= 8 | rules eq=0 mm=0.0090 | ir0 eq=0 mm=0.0018 ia=0.75 | ir eq=1 mm=0.0000 ia=1.00 | fw eq=1 mm=0.0000 ia=1.00 | flag 0 acc 0 | 50s
+Belnet2004_s1006             n= 8 | rules eq=0 mm=0.0015 | ir0 eq=1 mm=0.0000 ia=1.00 | ir eq=1 mm=0.0000 ia=1.00 | fw eq=1 mm=0.0000 ia=1.00 | flag 0 acc 0 | 43s
+Belnet2005_s1054             n= 7 | rules eq=0 mm=0.0003 | ir0 eq=1 mm=0.0000 ia=1.00 | ir eq=1 mm=0.0000 ia=1.00 | fw eq=1 mm=0.0000 ia=1.00 | flag 0 acc 0 | 46s
+BtEurope_s1012               n= 8 | rules eq=0 mm=0.0018 | ir0 eq=0 mm=0.0130 ia=0.75 | ir eq=1 mm=0.0000 ia=1.00 | fw eq=1 mm=0.0000 ia=1.00 | flag 0 acc 0 | 56s
+BtEurope_s1032               n=31 | rules eq=0 mm=0.0143 | ir0 eq=0 mm=0.0057 ia=0.90 | ir eq=1 mm=0.0000 ia=1.00 | fw eq=1 mm=0.0000 ia=0.97 | flag 2 acc 1 | 193s
+BtLatinAmerica_s1051         n=31 | rules eq=0 mm=0.0617 | ir0 eq=0 mm=0.0350 ia=0.84 | ir eq=1 mm=0.0000 ia=1.00 | fw eq=1 mm=0.0000 ia=1.00 | flag 0 acc 0 | 345s
+Cernet_s1005                 n=16 | rules eq=0 mm=0.0077 | ir0 eq=0 mm=0.0003 ia=0.88 | ir eq=1 mm=0.0000 ia=1.00 | fw eq=1 mm=0.0000 ia=1.00 | flag 1 acc 0 | 108s
+Cesnet1999_s1048             n=15 | rules eq=0 mm=0.0065 | ir0 eq=0 mm=0.0015 ia=0.80 | ir eq=1 mm=0.0000 ia=1.00 | fw eq=1 mm=0.0000 ia=1.00 | flag 2 acc 0 | 118s
+Claranet_s1013               n=16 | rules eq=0 mm=0.0092 | ir0 eq=1 mm=0.0000 ia=1.00 | ir eq=1 mm=0.0000 ia=1.00 | fw eq=1 mm=0.0000 ia=1.00 | flag 0 acc 0 | 88s
+Digex_s1052                  n= 8 | rules eq=0 mm=0.0147 | ir0 eq=1 mm=0.0000 ia=1.00 | ir eq=1 mm=0.0000 ia=1.00 | fw eq=1 mm=0.0000 ia=1.00 | flag 0 acc 0 | 74s
+EliBackbone_s1008            n=15 | rules eq=0 mm=0.0112 | ir0 eq=0 mm=0.0015 ia=0.93 | ir eq=0 mm=0.0065 ia=0.87 | fw eq=0 mm=0.0065 ia=0.87 | flag 1 acc 0 | 173s
+Eunetworks_s1053             n= 7 | rules eq=0 mm=0.0060 | ir0 eq=0 mm=0.0000 ia=0.86 | ir eq=1 mm=0.0000 ia=1.00 | fw eq=0 mm=0.0000 ia=0.86 | flag 1 acc 1 | 87s
+Evolink_s1042                n= 7 | rules eq=0 mm=0.0118 | ir0 eq=1 mm=0.0000 ia=1.00 | ir eq=1 mm=0.0000 ia=1.00 | fw eq=1 mm=0.0000 ia=1.00 | flag 0 acc 0 | 65s
+Gambia_s1041                 n=16 | rules eq=0 mm=0.0075 | ir0 eq=0 mm=0.0030 ia=0.81 | ir eq=1 mm=0.0000 ia=1.00 | fw eq=1 mm=0.0000 ia=1.00 | flag 0 acc 0 | 188s
+Garr200109_s1023             n=31 | rules eq=0 mm=0.0210 | ir0 eq=0 mm=0.0100 ia=0.87 | ir eq=1 mm=0.0000 ia=1.00 | fw eq=1 mm=0.0000 ia=1.00 | flag 1 acc 0 | 524s
+Garr200212_s1044             n= 8 | rules eq=0 mm=0.0222 | ir0 eq=0 mm=0.0025 ia=0.88 | ir eq=1 mm=0.0000 ia=1.00 | fw eq=1 mm=0.0000 ia=1.00 | flag 0 acc 0 | 239s
+Garr200404_s1003             n=30 | rules eq=0 mm=0.0522 | ir0 eq=0 mm=0.0008 ia=0.97 | ir eq=1 mm=0.0000 ia=1.00 | fw eq=1 mm=0.0000 ia=1.00 | flag 3 acc 0 | 362s
+Garr200404_s1045             n=31 | rules eq=0 mm=0.0123 | ir0 eq=0 mm=0.0018 ia=0.90 | ir eq=1 mm=0.0000 ia=1.00 | fw eq=0 mm=0.0000 ia=0.97 | flag 2 acc 1 | 350s
+Garr200902_s1056             n=32 | rules eq=0 mm=0.0988 | ir0 eq=0 mm=0.0428 ia=0.91 | ir eq=1 mm=0.0000 ia=1.00 | fw eq=1 mm=0.0000 ia=1.00 | flag 0 acc 0 | 517s
+Garr200908_s1017             n= 8 | rules eq=0 mm=0.0018 | ir0 eq=0 mm=0.0018 ia=0.88 | ir eq=1 mm=0.0000 ia=1.00 | fw eq=1 mm=0.0000 ia=1.00 | flag 1 acc 0 | 94s
+Garr201102_s1035             n=14 | rules eq=0 mm=0.0037 | ir0 eq=0 mm=0.0018 ia=0.86 | ir eq=0 mm=0.0013 ia=0.93 | fw eq=0 mm=0.0013 ia=0.93 | flag 0 acc 0 | 151s
+Garr201105_s1019             n= 8 | rules eq=0 mm=0.0115 | ir0 eq=0 mm=0.0005 ia=0.88 | ir eq=1 mm=0.0000 ia=1.00 | fw eq=1 mm=0.0000 ia=1.00 | flag 0 acc 0 | 86s
+Garr201105_s1025             n=27 | rules eq=0 mm=0.0442 | ir0 eq=0 mm=0.0103 ia=0.81 | ir eq=1 mm=0.0000 ia=1.00 | fw eq=0 mm=0.0005 ia=0.96 | flag 3 acc 1 | 576s
+Garr201109_s1011             n=16 | rules eq=0 mm=0.0190 | ir0 eq=0 mm=0.0045 ia=0.75 | ir eq=1 mm=0.0000 ia=1.00 | fw eq=1 mm=0.0000 ia=1.00 | flag 1 acc 0 | 365s
+Garr201201_s1016             n=30 | rules eq=0 mm=0.0362 | ir0 eq=0 mm=0.0010 ia=0.93 | ir eq=1 mm=0.0000 ia=1.00 | fw eq=1 mm=0.0000 ia=1.00 | flag 0 acc 0 | 717s
+Geant2010_s1018              n= 8 | rules eq=0 mm=0.0032 | ir0 eq=0 mm=0.0115 ia=0.38 | ir eq=1 mm=0.0000 ia=1.00 | fw eq=1 mm=0.0000 ia=1.00 | flag 0 acc 0 | 117s
+Globenet_s1055               n= 8 | rules eq=0 mm=0.0112 | ir0 eq=0 mm=0.0175 ia=0.62 | ir eq=1 mm=0.0000 ia=1.00 | fw eq=1 mm=0.0000 ia=1.00 | flag 0 acc 0 | 88s
+Harnet_s1022                 n= 8 | rules eq=0 mm=0.0005 | ir0 eq=1 mm=0.0000 ia=1.00 | ir eq=1 mm=0.0000 ia=1.00 | fw eq=1 mm=0.0000 ia=1.00 | flag 1 acc 0 | 92s
+HiberniaGlobal_s1030         n=14 | rules eq=0 mm=0.0125 | ir0 eq=0 mm=0.0030 ia=0.86 | ir eq=1 mm=0.0000 ia=1.00 | fw eq=0 mm=0.0003 ia=0.93 | flag 1 acc 1 | 169s
+HiberniaUk_s1033             n=16 | rules eq=0 mm=0.0020 | ir0 eq=0 mm=0.0053 ia=0.81 | ir eq=1 mm=0.0000 ia=1.00 | fw eq=1 mm=0.0000 ia=1.00 | flag 0 acc 0 | 167s
+Highwinds_s1058              n=15 | rules eq=0 mm=0.0205 | ir0 eq=0 mm=0.0022 ia=0.93 | ir eq=1 mm=0.0000 ia=1.00 | fw eq=1 mm=0.0000 ia=1.00 | flag 0 acc 0 | 171s
+HurricaneElectric_s1047      n=16 | rules eq=0 mm=0.0118 | ir0 eq=0 mm=0.0005 ia=0.88 | ir eq=1 mm=0.0000 ia=0.94 | fw eq=1 mm=0.0000 ia=0.94 | flag 0 acc 0 | 187s
+HurricaneElectric_s1059      n=30 | rules eq=0 mm=0.0360 | ir0 eq=0 mm=0.0120 ia=0.90 | ir eq=1 mm=0.0000 ia=1.00 | fw eq=1 mm=0.0000 ia=1.00 | flag 0 acc 0 | 485s
+Iinet_s1031                  n= 8 | rules eq=0 mm=0.0190 | ir0 eq=0 mm=0.0107 ia=0.75 | ir eq=1 mm=0.0000 ia=1.00 | fw eq=1 mm=0.0000 ia=1.00 | flag 0 acc 0 | 106s
+Internode_s1057              n=16 | rules eq=0 mm=0.0088 | ir0 eq=0 mm=0.0013 ia=0.88 | ir eq=1 mm=0.0000 ia=1.00 | fw eq=1 mm=0.0000 ia=1.00 | flag 1 acc 0 | 196s
+Karen_s1001                  n=16 | rules eq=0 mm=0.0145 | ir0 eq=0 mm=0.0008 ia=0.94 | ir eq=1 mm=0.0000 ia=1.00 | fw eq=1 mm=0.0000 ia=1.00 | flag 0 acc 0 | 191s
+KentmanApr2007_s1010         n=16 | rules eq=0 mm=0.0047 | ir0 eq=0 mm=0.0037 ia=0.69 | ir eq=1 mm=0.0000 ia=1.00 | fw eq=1 mm=0.0000 ia=1.00 | flag 1 acc 0 | 218s
+KentmanJul2005_s1015         n= 8 | rules eq=0 mm=0.0035 | ir0 eq=1 mm=0.0000 ia=1.00 | ir eq=1 mm=0.0000 ia=1.00 | fw eq=1 mm=0.0000 ia=1.00 | flag 1 acc 0 | 117s
+Latnet_s1037                 n=15 | rules eq=0 mm=0.0040 | ir0 eq=0 mm=0.0005 ia=0.93 | ir eq=1 mm=0.0000 ia=1.00 | fw eq=1 mm=0.0000 ia=1.00 | flag 0 acc 0 | 186s
+Myren_s1027                  n= 7 | rules eq=0 mm=0.0022 | ir0 eq=0 mm=0.0000 ia=0.86 | ir eq=1 mm=0.0000 ia=1.00 | fw eq=1 mm=0.0000 ia=1.00 | flag 0 acc 0 | 89s
+Navigata_s1004               n=30 | rules eq=0 mm=0.0190 | ir0 eq=0 mm=0.0055 ia=0.83 | ir eq=1 mm=0.0000 ia=0.97 | fw eq=1 mm=0.0000 ia=0.97 | flag 0 acc 0 | 749s
+Navigata_s1029               n= 8 | rules eq=0 mm=0.0097 | ir0 eq=0 mm=0.0065 ia=0.62 | ir eq=1 mm=0.0000 ia=1.00 | fw eq=1 mm=0.0000 ia=1.00 | flag 0 acc 0 | 125s
+Ntelos_s1046                 n=15 | rules eq=0 mm=0.0340 | ir0 eq=0 mm=0.0103 ia=0.87 | ir eq=1 mm=0.0000 ia=1.00 | fw eq=1 mm=0.0000 ia=1.00 | flag 0 acc 0 | 205s
+Oxford_s1009                 n=14 | rules eq=0 mm=0.1353 | ir0 eq=0 mm=0.0057 ia=0.93 | ir eq=1 mm=0.0000 ia=1.00 | fw eq=1 mm=0.0000 ia=1.00 | flag 0 acc 0 | 195s
+RedBestel_s1024              n=15 | rules eq=0 mm=0.0158 | ir0 eq=0 mm=0.0008 ia=0.93 | ir eq=1 mm=0.0000 ia=1.00 | fw eq=1 mm=0.0000 ia=1.00 | flag 0 acc 0 | 168s
+RoedunetFibre_s1000          n= 8 | rules eq=0 mm=0.0027 | ir0 eq=0 mm=0.0073 ia=0.88 | ir eq=1 mm=0.0000 ia=1.00 | fw eq=1 mm=0.0000 ia=1.00 | flag 0 acc 0 | 97s
+Sago_s1036                   n= 6 | rules eq=0 mm=0.0075 | ir0 eq=0 mm=0.0032 ia=0.67 | ir eq=1 mm=0.0000 ia=1.00 | fw eq=1 mm=0.0000 ia=1.00 | flag 0 acc 0 | 145s
+Sinet_s1021                  n=30 | rules eq=0 mm=0.0125 | ir0 eq=0 mm=0.0030 ia=0.90 | ir eq=1 mm=0.0000 ia=1.00 | fw eq=1 mm=0.0000 ia=1.00 | flag 0 acc 0 | 530s
+Sinet_s1040                  n=32 | rules eq=0 mm=0.0560 | ir0 eq=0 mm=0.0248 ia=0.78 | ir eq=1 mm=0.0000 ia=1.00 | fw eq=1 mm=0.0000 ia=1.00 | flag 1 acc 0 | 598s
+TLex_s1043                   n=30 | rules eq=0 mm=0.0357 | ir0 eq=0 mm=0.0125 ia=0.87 | ir eq=1 mm=0.0000 ia=1.00 | fw eq=1 mm=0.0000 ia=1.00 | flag 0 acc 0 | 337s
+Uninet_s1038                 n=30 | rules eq=0 mm=0.0138 | ir0 eq=0 mm=0.0020 ia=0.90 | ir eq=1 mm=0.0000 ia=1.00 | fw eq=1 mm=0.0000 ia=1.00 | flag 0 acc 0 | 464s
+UsSignal_s1049               n=29 | rules eq=0 mm=0.0645 | ir0 eq=0 mm=0.0065 ia=0.86 | ir eq=1 mm=0.0000 ia=1.00 | fw eq=1 mm=0.0000 ia=1.00 | flag 0 acc 0 | 356s
+Uunet_s1050                  n= 8 | rules eq=0 mm=0.0008 | ir0 eq=0 mm=0.0032 ia=0.62 | ir eq=1 mm=0.0000 ia=1.00 | fw eq=1 mm=0.0000 ia=1.00 | flag 1 acc 0 | 105s
+Vinaren_s1007                n=27 | rules eq=0 mm=0.0077 | ir0 eq=0 mm=0.0043 ia=0.78 | ir eq=1 mm=0.0000 ia=1.00 | fw eq=1 mm=0.0000 ia=1.00 | flag 1 acc 0 | 454s
+Vinaren_s1020                n=28 | rules eq=0 mm=0.0357 | ir0 eq=0 mm=0.0015 ia=0.96 | ir eq=1 mm=0.0000 ia=1.00 | fw eq=1 mm=0.0000 ia=1.00 | flag 0 acc 0 | 312s

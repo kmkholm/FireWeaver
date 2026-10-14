@@ -1,0 +1,562 @@
+{
+ "id": "Garr201105_s1019",
+ "topology": "Garr201105",
+ "n_nodes": 59,
+ "edges": [
+  [
+   0,
+   51
+  ],
+  [
+   1,
+   46
+  ],
+  [
+   2,
+   50
+  ],
+  [
+   2,
+   54
+  ],
+  [
+   2,
+   6
+  ],
+  [
+   2,
+   45
+  ],
+  [
+   2,
+   14
+  ],
+  [
+   2,
+   16
+  ],
+  [
+   2,
+   17
+  ],
+  [
+   2,
+   18
+  ],
+  [
+   2,
+   22
+  ],
+  [
+   2,
+   30
+  ],
+  [
+   3,
+   43
+  ],
+  [
+   3,
+   44
+  ],
+  [
+   3,
+   45
+  ],
+  [
+   3,
+   39
+  ],
+  [
+   4,
+   50
+  ],
+  [
+   5,
+   45
+  ],
+  [
+   5,
+   57
+  ],
+  [
+   6,
+   49
+  ],
+  [
+   6,
+   46
+  ],
+  [
+   6,
+   47
+  ],
+  [
+   7,
+   20
+  ],
+  [
+   8,
+   45
+  ],
+  [
+   9,
+   43
+  ],
+  [
+   10,
+   43
+  ],
+  [
+   11,
+   45
+  ],
+  [
+   12,
+   43
+  ],
+  [
+   13,
+   16
+  ],
+  [
+   14,
+   21
+  ],
+  [
+   15,
+   16
+  ],
+  [
+   16,
+   18
+  ],
+  [
+   18,
+   33
+  ],
+  [
+   18,
+   19
+  ],
+  [
+   18,
+   20
+  ],
+  [
+   18,
+   21
+  ],
+  [
+   18,
+   22
+  ],
+  [
+   20,
+   50
+  ],
+  [
+   23,
+   30
+  ],
+  [
+   24,
+   25
+  ],
+  [
+   25,
+   50
+  ],
+  [
+   25,
+   26
+  ],
+  [
+   25,
+   27
+  ],
+  [
+   25,
+   28
+  ],
+  [
+   25,
+   30
+  ],
+  [
+   29,
+   30
+  ],
+  [
+   30,
+   33
+  ],
+  [
+   31,
+   33
+  ],
+  [
+   32,
+   33
+  ],
+  [
+   32,
+   52
+  ],
+  [
+   33,
+   34
+  ],
+  [
+   33,
+   35
+  ],
+  [
+   34,
+   56
+  ],
+  [
+   36,
+   45
+  ],
+  [
+   37,
+   45
+  ],
+  [
+   38,
+   40
+  ],
+  [
+   39,
+   40
+  ],
+  [
+   40,
+   43
+  ],
+  [
+   40,
+   50
+  ],
+  [
+   40,
+   55
+  ],
+  [
+   40,
+   42
+  ],
+  [
+   41,
+   55
+  ],
+  [
+   42,
+   45
+  ],
+  [
+   43,
+   45
+  ],
+  [
+   43,
+   50
+  ],
+  [
+   43,
+   51
+  ],
+  [
+   44,
+   45
+  ],
+  [
+   45,
+   46
+  ],
+  [
+   45,
+   51
+  ],
+  [
+   45,
+   47
+  ],
+  [
+   48,
+   49
+  ],
+  [
+   49,
+   50
+  ],
+  [
+   49,
+   53
+  ],
+  [
+   50,
+   58
+  ]
+ ],
+ "zones": {
+  "vpn-users": {
+   "router": 17,
+   "prefixes": [
+    "62.159.136.0/23",
+    "198.227.94.128/25"
+   ]
+  },
+  "research": {
+   "router": 31,
+   "prefixes": [
+    "164.163.125.128/25",
+    "121.239.108.128/26"
+   ]
+  },
+  "mail": {
+   "router": 7,
+   "prefixes": [
+    "35.115.175.0/24",
+    "203.61.128.0/17"
+   ]
+  },
+  "finance": {
+   "router": 15,
+   "prefixes": [
+    "89.179.166.128/25"
+   ]
+  },
+  "database": {
+   "router": 13,
+   "prefixes": [
+    "123.239.188.0/22",
+    "144.231.221.0/24",
+    "9.148.102.128/25"
+   ]
+  },
+  "admin": {
+   "router": 4,
+   "prefixes": [
+    "183.57.130.0/23",
+    "120.212.0.0/18"
+   ]
+  },
+  "cameras": {
+   "router": 0,
+   "prefixes": [
+    "139.16.235.0/25",
+    "180.140.206.144/28",
+    "235.35.252.128/28"
+   ]
+  },
+  "guest-wifi": {
+   "router": 29,
+   "prefixes": [
+    "191.72.224.0/25",
+    "241.105.166.0/25",
+    "59.235.181.0/24"
+   ]
+  },
+  "hr": {
+   "router": 27,
+   "prefixes": [
+    "98.48.52.0/23",
+    "238.164.88.0/23"
+   ]
+  },
+  "ntp-servers": {
+   "router": 37,
+   "prefixes": [
+    "53.228.195.128/25",
+    "99.96.12.0/23"
+   ]
+  }
+ },
+ "zone_text": [
+  "vpn-users: hosts 62.159.136.0/23, 198.227.94.128/25 attached to router R17",
+  "research: hosts 164.163.125.128/25, 121.239.108.128/26 attached to router R31",
+  "mail: hosts 35.115.175.0/24, 203.61.128.0/17 attached to router R7",
+  "finance: hosts 89.179.166.128/25 attached to router R15",
+  "database: hosts 123.239.188.0/22, 144.231.221.0/24, 9.148.102.128/25 attached to router R13",
+  "admin: hosts 183.57.130.0/23, 120.212.0.0/18 attached to router R4",
+  "cameras: hosts 139.16.235.0/25, 180.140.206.144/28, 235.35.252.128/28 attached to router R0",
+  "guest-wifi: hosts 191.72.224.0/25, 241.105.166.0/25, 59.235.181.0/24 attached to router R29",
+  "hr: hosts 98.48.52.0/23, 238.164.88.0/23 attached to router R27",
+  "ntp-servers: hosts 53.228.195.128/25, 99.96.12.0/23 attached to router R37"
+ ],
+ "intents": [
+  {
+   "type": "allow",
+   "src": "ntp-servers",
+   "dst": "database",
+   "svcs": [
+    "postgres"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "admin",
+   "allowed": [
+    [
+     "database",
+     "dns"
+    ]
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "mail",
+   "svcs": [
+    "dns",
+    "http"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "guest-wifi",
+   "dst": "research",
+   "svcs": [
+    "http"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "hr",
+   "dst": "cameras",
+   "broad": "high-tcp",
+   "ex": [
+    "rdp"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "admin",
+   "svcs": [
+    "ntp",
+    "dns"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "hr",
+   "svcs": [
+    "ntp"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "hr",
+   "dst": "admin"
+  }
+ ],
+ "nl": [
+  "database must accept PostgreSQL (TCP 5432) from ntp-servers.",
+  "admin is isolated: it may only reach database on DNS over UDP 53, and nothing else.",
+  "mail offers DNS over UDP 53 and HTTP (TCP 80) to every zone.",
+  "Hosts in guest-wifi may reach research over HTTP (TCP 80).",
+  "hr may use TCP ports 1024-65535 towards cameras, except RDP (TCP 3389), which must be blocked.",
+  "Any zone may connect to admin over NTP (UDP 123) and DNS over UDP 53.",
+  "Make NTP (UDP 123) on hr reachable from all internal zones.",
+  "hr must never reach admin, regardless of any other rule."
+ ],
+ "gt": [
+  {
+   "src": "hr",
+   "dst": "admin",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "hr",
+   "dst": "cameras",
+   "proto": "tcp",
+   "dlo": 3389,
+   "dhi": 3389,
+   "action": "deny"
+  },
+  {
+   "src": "ntp-servers",
+   "dst": "database",
+   "proto": "tcp",
+   "dlo": 5432,
+   "dhi": 5432,
+   "action": "permit"
+  },
+  {
+   "src": "guest-wifi",
+   "dst": "research",
+   "proto": "tcp",
+   "dlo": 80,
+   "dhi": 80,
+   "action": "permit"
+  },
+  {
+   "src": "hr",
+   "dst": "cameras",
+   "proto": "tcp",
+   "dlo": 1024,
+   "dhi": 65535,
+   "action": "permit"
+  },
+  {
+   "src": "admin",
+   "dst": "database",
+   "proto": "udp",
+   "dlo": 53,
+   "dhi": 53,
+   "action": "permit"
+  },
+  {
+   "src": "admin",
+   "dst": "*",
+   "proto": "*",
+   "dlo": 0,
+   "dhi": 65535,
+   "action": "deny"
+  },
+  {
+   "src": "*",
+   "dst": "mail",
+   "proto": "udp",
+   "dlo": 53,
+   "dhi": 53,
+   "action": "permit"
+  },
+  {
+   "src": "*",
+   "dst": "mail",
+   "proto": "tcp",
+   "dlo": 80,
+   "dhi": 80,
+   "action": "permit"
+  },
+  {
+   "src": "*",
+   "dst": "admin",
+   "proto": "udp",
+   "dlo": 123,
+   "dhi": 123,
+   "action": "permit"
+  },
+  {
+   "src": "*",
+   "dst": "admin",
+   "proto": "udp",
+   "dlo": 53,
+   "dhi": 53,
+   "action": "permit"
+  },
+  {
+   "src": "*",
+   "dst": "hr",
+   "proto": "udp",
+   "dlo": 123,
+   "dhi": 123,
+   "action": "permit"
+  }
+ ]
+}

@@ -1,0 +1,624 @@
+{
+ "id": "Garr200109_s1023",
+ "n_intents": 31,
+ "n_gt_rules": 63,
+ "n_zones": 10,
+ "rules": {
+  "eq": false,
+  "mismatch": 0.021,
+  "n_rules": 85,
+  "fail": 0,
+  "s": 240.62719178199768,
+  "calls": 2,
+  "prompt": 3543,
+  "completion": 6679
+ },
+ "ir0": {
+  "eq": false,
+  "mismatch": 0.01,
+  "n_rules": 54,
+  "fail": 0,
+  "s": 84.52739977836609,
+  "calls": 32,
+  "prompt": 20621,
+  "completion": 1239,
+  "intent_acc": 0.8709677419354839
+ },
+ "ir": {
+  "eq": true,
+  "mismatch": 0.0,
+  "n_rules": 62,
+  "fail": 0,
+  "s": 73.4112069606781,
+  "calls": 31,
+  "prompt": 33864,
+  "completion": 836,
+  "intent_acc": 1.0
+ },
+ "fw": {
+  "eq": true,
+  "mismatch": 0.0,
+  "n_rules": 62,
+  "fail": 0,
+  "s": 198.15317797660828,
+  "verify_s": 124.74197125434875,
+  "calls": 67,
+  "verify_calls": 36,
+  "flagged": 1,
+  "accepted": 0,
+  "repairs": [
+   {
+    "k": 5,
+    "was_ok": true,
+    "now_ok": true,
+    "history": [
+     2,
+     2,
+     2
+    ],
+    "calls": 2,
+    "accepted": false
+   }
+  ],
+  "intent_acc": 1.0
+ },
+ "ir_out": [
+  {
+   "type": "allow",
+   "src": "nvr",
+   "dst": "backup",
+   "svcs": [
+    "rdp",
+    "syslog"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "student-lab",
+   "dst": "partners",
+   "broad": "any-tcp",
+   "ex": [
+    "ftp",
+    "smb",
+    "rdp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "partners",
+   "dst": "backup",
+   "svcs": [
+    "ldap",
+    "dns"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "backup",
+   "allowed": [
+    [
+     "finance",
+     "https"
+    ]
+   ]
+  },
+  {
+   "type": "block",
+   "src": "nvr",
+   "dst": "dmz-web"
+  },
+  {
+   "type": "isolate",
+   "src": "vpn-users",
+   "allowed": [
+    [
+     "finance",
+     "dns"
+    ],
+    [
+     "partners",
+     "ntp"
+    ]
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "backup",
+   "dst": "mail",
+   "svcs": [
+    "postgres",
+    "dns",
+    "mysql"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "mail",
+   "dst": "backup",
+   "svcs": [
+    "rtsp",
+    "http"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "dns-servers",
+   "dst": "partners",
+   "svcs": [
+    "http"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "backup",
+   "dst": "dns-servers",
+   "broad": "any-tcp",
+   "ex": [
+    "smb",
+    "ftp",
+    "rdp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "dmz-web",
+   "dst": "mail",
+   "svcs": [
+    "imap",
+    "rtsp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "mail",
+   "dst": "dev-lab",
+   "svcs": [
+    "ldap"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "vpn-users",
+   "svcs": [
+    "https",
+    "ntp"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "student-lab",
+   "svcs": [
+    "https"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "mail",
+   "dst": "finance",
+   "svcs": [
+    "dns",
+    "https"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "dmz-web",
+   "allowed": [
+    [
+     "mail",
+     "syslog"
+    ],
+    [
+     "student-lab",
+     "https"
+    ]
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "student-lab",
+   "allowed": [
+    [
+     "dev-lab",
+     "https"
+    ],
+    [
+     "partners",
+     "https"
+    ]
+   ]
+  },
+  {
+   "type": "block",
+   "src": "vpn-users",
+   "dst": "dns-servers"
+  },
+  {
+   "type": "public",
+   "dst": "backup",
+   "svcs": [
+    "http",
+    "ntp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "vpn-users",
+   "dst": "finance",
+   "svcs": [
+    "http",
+    "ssh"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "finance",
+   "dst": "dev-lab",
+   "svcs": [
+    "ntp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "dmz-web",
+   "dst": "student-lab",
+   "svcs": [
+    "rdp",
+    "snmp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "vpn-users",
+   "dst": "mail",
+   "svcs": [
+    "https",
+    "dns"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "student-lab",
+   "dst": "finance",
+   "svcs": [
+    "rdp",
+    "ldap"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "nvr",
+   "dst": "dns-servers",
+   "svcs": [
+    "syslog",
+    "rdp"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "vpn-users",
+   "dst": "partners",
+   "broad": "any-udp",
+   "ex": [
+    "tftp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "finance",
+   "dst": "dmz-web",
+   "svcs": [
+    "https"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "dev-lab",
+   "dst": "mail"
+  },
+  {
+   "type": "allow_except",
+   "src": "dmz-web",
+   "dst": "mail",
+   "broad": "any-udp",
+   "ex": [
+    "tftp"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "nvr",
+   "dst": "backup"
+  },
+  {
+   "type": "allow_except",
+   "src": "dmz-web",
+   "dst": "student-lab",
+   "broad": "high-tcp",
+   "ex": [
+    "mysql",
+    "postgres"
+   ]
+  }
+ ],
+ "fw_out": [
+  {
+   "type": "allow",
+   "src": "nvr",
+   "dst": "backup",
+   "svcs": [
+    "rdp",
+    "syslog"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "student-lab",
+   "dst": "partners",
+   "broad": "any-tcp",
+   "ex": [
+    "ftp",
+    "smb",
+    "rdp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "partners",
+   "dst": "backup",
+   "svcs": [
+    "ldap",
+    "dns"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "backup",
+   "allowed": [
+    [
+     "finance",
+     "https"
+    ]
+   ]
+  },
+  {
+   "type": "block",
+   "src": "nvr",
+   "dst": "dmz-web"
+  },
+  {
+   "type": "isolate",
+   "src": "vpn-users",
+   "allowed": [
+    [
+     "finance",
+     "dns"
+    ],
+    [
+     "partners",
+     "ntp"
+    ]
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "backup",
+   "dst": "mail",
+   "svcs": [
+    "postgres",
+    "dns",
+    "mysql"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "mail",
+   "dst": "backup",
+   "svcs": [
+    "rtsp",
+    "http"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "dns-servers",
+   "dst": "partners",
+   "svcs": [
+    "http"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "backup",
+   "dst": "dns-servers",
+   "broad": "any-tcp",
+   "ex": [
+    "smb",
+    "ftp",
+    "rdp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "dmz-web",
+   "dst": "mail",
+   "svcs": [
+    "imap",
+    "rtsp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "mail",
+   "dst": "dev-lab",
+   "svcs": [
+    "ldap"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "vpn-users",
+   "svcs": [
+    "https",
+    "ntp"
+   ]
+  },
+  {
+   "type": "public",
+   "dst": "student-lab",
+   "svcs": [
+    "https"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "mail",
+   "dst": "finance",
+   "svcs": [
+    "dns",
+    "https"
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "dmz-web",
+   "allowed": [
+    [
+     "mail",
+     "syslog"
+    ],
+    [
+     "student-lab",
+     "https"
+    ]
+   ]
+  },
+  {
+   "type": "isolate",
+   "src": "student-lab",
+   "allowed": [
+    [
+     "dev-lab",
+     "https"
+    ],
+    [
+     "partners",
+     "https"
+    ]
+   ]
+  },
+  {
+   "type": "block",
+   "src": "vpn-users",
+   "dst": "dns-servers"
+  },
+  {
+   "type": "public",
+   "dst": "backup",
+   "svcs": [
+    "http",
+    "ntp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "vpn-users",
+   "dst": "finance",
+   "svcs": [
+    "http",
+    "ssh"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "finance",
+   "dst": "dev-lab",
+   "svcs": [
+    "ntp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "dmz-web",
+   "dst": "student-lab",
+   "svcs": [
+    "rdp",
+    "snmp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "vpn-users",
+   "dst": "mail",
+   "svcs": [
+    "https",
+    "dns"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "student-lab",
+   "dst": "finance",
+   "svcs": [
+    "rdp",
+    "ldap"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "nvr",
+   "dst": "dns-servers",
+   "svcs": [
+    "syslog",
+    "rdp"
+   ]
+  },
+  {
+   "type": "allow_except",
+   "src": "vpn-users",
+   "dst": "partners",
+   "broad": "any-udp",
+   "ex": [
+    "tftp"
+   ]
+  },
+  {
+   "type": "allow",
+   "src": "finance",
+   "dst": "dmz-web",
+   "svcs": [
+    "https"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "dev-lab",
+   "dst": "mail"
+  },
+  {
+   "type": "allow_except",
+   "src": "dmz-web",
+   "dst": "mail",
+   "broad": "any-udp",
+   "ex": [
+    "tftp"
+   ]
+  },
+  {
+   "type": "block",
+   "src": "nvr",
+   "dst": "backup"
+  },
+  {
+   "type": "allow_except",
+   "src": "dmz-web",
+   "dst": "student-lab",
+   "broad": "high-tcp",
+   "ex": [
+    "mysql",
+    "postgres"
+   ]
+  }
+ ],
+ "wall_s": 523.8185625076294
+}
