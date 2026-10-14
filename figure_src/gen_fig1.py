@@ -1,166 +1,130 @@
-"""Figure 1 (draw.io) - FireWeaver overview, original layout (not the stage-band template):
-an L-shaped "loom": the intent plane runs left->right along the top, the network plane (placement on a router graph
-with two ECMP paths and capacity bars) fills the right, the deployment/verification plane closes the loop along the
-bottom, and two feedback threads (red, dashed) return counterexamples to the LLM repair and to the placement.
-python gen_fig1.py  -> figures/Figure1.drawio/.pdf/.png"""
+"""Figure 1 (draw.io, stage-flow style of the paper2drawio-v2 skill) - FireWeaver methodology.
+Row 1: Stage 1 inputs -> Stage 2 per-sentence LLM translation -> Stage 3 compiler + rule blocks
+Row 2: Stage 4 capacity-aware ECMP placement -> Stage 5 render + network-wide verification -> testbed evaluation
+Row 3: zoom-in detail panels: placement ILP (equations + toy graph) and network-wide Z3 check (equations).
+Short labels only; numbers copied from the paper.   python gen_fig1.py -> figures/Figure1.drawio/.pdf/.png"""
 import os, subprocess
 from figlib import Fig, FONT
 
 HERE = os.path.dirname(os.path.abspath(__file__)); OUT = os.path.join(HERE, "..", "figures"); os.makedirs(OUT, exist_ok=True)
-f = Fig(page_w=1880, page_h=1000, scale=0.76, name="Figure1")
-
-INK, GREY, RED = "#1b1b1b", "#5f6b7a", "#c0392b"
-NAVY, NAVY_L = "#1f3b73", "#e3eaf7"
-TEAL, TEAL_L = "#0f766e", "#dff3f1"
-AMB, AMB_L = "#b45309", "#fdf0dc"
-PLUM, PLUM_L = "#6b3fa0", "#efe7f8"
-OK, OK_L, NO, NO_L, UN_L = "#2e7d32", "#dcefdc", "#b71c1c", "#f8dcdc", "#eeeeee"
-BLK = ["#3a7bd5", "#e07a1f", "#2aa198", "#c2185b", "#7b5ea7", "#8d6e3f"]
+f = Fig(page_w=1540, page_h=800, scale=0.6, name="Figure1")      # designed on a 2560 x 1300 canvas
 it = lambda s: f"<i>{s}</i>"
 
 
-def box(x, y, w, h, label, fill="#ffffff", stroke=INK, fs=14, bold=False, arc=10, dashed=False, sw=1.2, color=INK, align="center"):
-    st = (f"rounded=1;arcSize={arc};whiteSpace=wrap;html=1;fillColor={fill};strokeColor={stroke};strokeWidth={sw};"
-          f"fontSize={fs};fontColor={color};align={align};spacingLeft=6;spacingRight=6;" + FONT)
-    if bold: st += "fontStyle=1;"
-    if dashed: st += "dashed=1;"
-    return f.vertex(label, st, x, y, w, h)
+def T(x, y, w, h, s, fs=17, bold=False, align="center", color="#000000"):
+    return f.text(x, y, w, h, s, fs=fs, bold=bold, align=align, color=color)
 
 
-def plane(x, y, w, h, num, title, col, fill):
-    f.vertex("", f"rounded=1;arcSize=3;whiteSpace=wrap;html=1;fillColor={fill};strokeColor={col};strokeWidth=2;" + FONT, x, y, w, h)
-    f.vertex(num, f"ellipse;whiteSpace=wrap;html=1;fillColor={col};strokeColor=none;fontColor=#ffffff;fontSize=20;fontStyle=1;" + FONT,
-             x + 14, y + 12, 38, 38)
-    f.text(x + 60, y + 10, w - 80, 42, title, fs=20, bold=True, align="left", color=col)
+def A(pts, head=True, dashed=False, sw=1.8, color="#000000"):
+    return f.arrow(pts, head=head, dashed=dashed, sw=sw, color=color)
 
 
-def A(pts, color=INK, sw=1.6, dashed=False, head=True):
-    f.arrow(pts, head=head, dashed=dashed, sw=sw, color=color)
+def pill(x, y, w, h, s, role, fs=17):
+    return f.box(x, y, w, h, s, role, fs=fs, arc=45)
 
 
-def lab(x, y, w, h, s, fs=13, align="center", color=INK, bold=False):
-    f.text(x, y, w, h, s, fs=fs, align=align, color=color, bold=bold)
+# ===================================================================== ROW 1
+# ---- Stage 1: inputs
+f.stage(8, 10, 540, 390, "Stage 1: Intent Input", "green")
+f.box(30, 80, 495, 92, "Natural-language intents<br>(one sentence per intent)", "gray", fs=18)
+f.box(30, 190, 495, 86, "Zone inventory<br>(zone → router, prefixes)", "gray", fs=18)
+f.box(30, 294, 495, 86, "Topology <i>G</i> = (<i>R</i>, <i>E</i>)<br>(Topology Zoo, ClassBench prefixes)", "gray", fs=18)
+A([(548, 205), (688, 205)])
+T(552, 112, 132, 86, "<b>Output:</b><br>" + it("s") + "<sub>1</sub> … " + it("s") + "<sub><i>n</i></sub>", fs=17)
 
+# ---- Stage 2: per-sentence LLM translation
+f.stage(688, 10, 872, 390, "Stage 2: Per-Sentence LLM Translation", "blue")
+f.stacked_box(712, 92, 300, 128, "<b>Qwen3-8B</b> (Q4_K_M)<br>llama.cpp · greedy<br>JSON output", "blue", n=3, fs=18)
+A([(1012, 156), (1045, 156)])
+f.box(1045, 112, 222, 90, "Validator<br>type · zones · services", "lightgreen", fs=15)
+A([(1152, 202), (1152, 250), (862, 250), (862, 222)], color="#c0392b")
+T(880, 252, 270, 30, "invalid → re-ask (≤ 2)", fs=15, color="#c0392b")
+T(712, 300, 540, 70, "1 call per sentence<br>7 placeholder examples", fs=16)
+A([(1267, 157), (1278, 157), (1278, 216), (1290, 216)])
+T(1290, 68, 255, 28, "<b>Typed IR</b>", fs=16)
+for i, (lab, role) in enumerate([("allow(" + it("s, d, S") + ")", "green"), ("allow_except(" + it("s, d, b, X") + ")", "lightgreen"),
+                                 ("block(" + it("s, d") + ")", "red"), ("isolate(" + it("s, A") + ")", "peach"),
+                                 ("public(" + it("d, S") + ")", "lavender")]):
+    pill(1290, 98 + 58 * i, 258, 48, lab, role, fs=15)
+A([(1560, 205), (1700, 205)])
+T(1564, 112, 132, 86, "<b>Output:</b><br>" + it("τ") + "<sub>1</sub> … " + it("τ") + "<sub><i>n</i></sub>", fs=17)
 
-def circ(cx, cy, r, label, fill="#ffffff", stroke=INK, fs=13, sw=1.4):
-    return f.vertex(label, f"ellipse;whiteSpace=wrap;html=1;fillColor={fill};strokeColor={stroke};strokeWidth={sw};fontSize={fs};" + FONT,
-                    cx - r, cy - r, 2 * r, 2 * r)
+# ---- Stage 3: compiler + blocks
+f.stage(1700, 10, 852, 390, "Stage 3: Compiler and Rule Blocks", "teal")
+f.box(1722, 88, 330, 112, "Precedence compiler<br>block ≻ except ≻ allow<br>≻ isolate ≻ public", "teal", fs=17)
+A([(2052, 144), (2092, 144)])
+f.box(2092, 88, 440, 112, "Zone policy Π<br>(first match, default deny)", "lightteal", fs=18)
+A([(2312, 200), (2312, 250)])
+f.stacked_box(2092, 252, 440, 118, "Prefix-pair blocks " + it("B") + "<sub><i>p,p</i>′</sub><br>disjoint · idempotent · cost " + it("c<sub>b</sub>"), "teal", n=3, fs=17)
+T(1722, 240, 330, 34, "one block per prefix pair", fs=15)
+f.strip(1745, 286, n=8, cw=36, ch=34, colors=["#3a7bd5", "#e07a1f", "#2aa198", "#c2185b", "#7b5ea7", "#8d6e3f", "#5f95cc", "#f2b27a"])
+A([(2034, 303), (2092, 303)])
+T(1722, 330, 340, 50, "+ 1-entry deny block for<br>deny-only pairs", fs=15)
 
+# ---- row 1 -> row 2
+A([(2312, 370), (2312, 432), (400, 432), (400, 470)])
+T(1000, 402, 1100, 30, "<b>Output:</b> blocks {" + it("B<sub>b</sub>") + ", " + it("c<sub>b</sub>") + "} · all equal-cost paths ℰ(" + it("s, d") + ")", fs=17)
 
-def line(p, q, color="#9aa5b1", sw=2.0, dashed=False):
-    f.arrow([p, q], head=False, sw=sw, color=color, dashed=dashed)
+# ===================================================================== ROW 2
+# ---- Stage 4: placement
+f.stage(8, 470, 892, 390, "Stage 4: ECMP-Aware Placement", "purple")
+f.box(30, 545, 390, 90, "All equal-cost paths ℰ(" + it("s, d") + ")<br>(up to 28 per pair)", "lightblue", fs=17)
+f.box(30, 655, 390, 90, "Router capacity " + it("C<sub>r</sub>") + "<br>(ACL / TCAM entries)", "lightblue", fs=17)
+A([(420, 590), (465, 590)]); A([(420, 700), (465, 700)])
+f.stacked_box(465, 548, 410, 190, "<b>Placement ILP</b><br>" + it("x<sub>br</sub>") + " ∈ {0, 1}<br>SciPy · HiGHS (≤ 30 s)", "purple", n=3, fs=20)
+T(465, 770, 410, 40, "baselines: greedy · ingress · egress", fs=15)
+A([(875, 640), (955, 640), (955, 585), (1035, 585)])
+T(902, 650, 104, 50, "<b>Output:</b><br>" + it("x") + "*", fs=15)
 
+# ---- Stage 5: render + verification
+f.stage(1010, 470, 752, 390, "Stage 5: Render and Verify", "orange")
+f.box(1035, 545, 330, 80, "Render<br>iptables-restore per router", "peach", fs=17)
+A([(1200, 625), (1200, 658)])
+f.box(1035, 658, 330, 76, "Independent parser<br>(no access to blocks)", "lightgreen", fs=17)
+A([(1365, 696), (1400, 696)])
+f.box(1400, 545, 340, 190, "<b>Network-wide Z3</b><br>per (" + it("s, d") + ") and path π<br>full 5-tuple header<br><br>unsat → deploy<br>sat → witness", "darkorange", fs=17)
+A([(1570, 545), (1570, 450), (760, 450), (760, 540)], color="#c0392b")
+T(1300, 451, 260, 20, "witness → re-place", fs=14, color="#c0392b", align="right")
+A([(1740, 640), (1842, 640)])
+T(1762, 584, 80, 50, "<b>Output:</b><br>verified", fs=14)
 
-# =====================================================================================================================
-# (1) INTENT PLANE  (top, full width up to the network plane)
-plane(10, 10, 1470, 470, "1", "Intent plane: one typed object per sentence, compiled deterministically", NAVY, NAVY_L)
-# NL intents (stacked "documents")
-for k in range(3):
-    f.vertex("", f"shape=document;whiteSpace=wrap;html=1;boundedLbl=1;size=0.08;fillColor=#ffffff;strokeColor={GREY};" + FONT,
-             40 + 10 * k, 80 + 10 * k, 330, 300)
-box(70, 104, 300, 262,
-    "<b>Natural-language intents</b><br><br><div style='text-align:left'>"
-    "• finance may reach database over PostgreSQL (TCP 5432).<br>"
-    "• dev-lab may use any TCP port towards ops, except Telnet (TCP 23), which must be blocked.<br>"
-    "• cameras is isolated: it may only reach nvr on RTSP (TCP 554), and nothing else.<br>"
-    "• guest-wifi must never reach finance, regardless of any other rule.</div>",
-    "#ffffff", "none", fs=11, align="center")
-lab(30, 405, 360, 50, "zone inventory: zone → router, prefixes<br>(Topology Zoo graph, ClassBench prefixes)", fs=12, color=GREY)
-A([(392, 230), (440, 230)], NAVY, 2.2)
-# LLM
-f.vertex("<b>Qwen3-8B</b><br>(local, llama.cpp,<br>greedy, JSON)", "shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;size=0.18;"
-         f"fillColor={NAVY};strokeColor={NAVY};fontColor=#ffffff;fontSize=14;" + FONT, 445, 170, 190, 120)
-lab(425, 96, 230, 66, "type-selection rules +<br>7 placeholder examples;<br>one call per sentence", fs=12, color=GREY)
-A([(640, 230), (690, 230)], NAVY, 2.2)
-# typed IR chips
-chips = [("allow(" + it("s, d, S") + ")", OK_L, OK), ("allow_except(" + it("s, d, b, E") + ")", "#e8f0dc", "#558b2f"),
-         ("block(" + it("s, d") + ")", NO_L, NO), ("isolate(" + it("s, A") + ")", AMB_L, AMB), ("public(" + it("d, S") + ")", PLUM_L, PLUM)]
-lab(660, 72, 300, 30, "<b>typed IR</b> (one per sentence)", fs=14, color=NAVY)
-for i, (t, fc, sc) in enumerate(chips):
-    box(695, 108 + 56 * i, 240, 44, t, fc, sc, fs=13, arc=40)
-A([(945, 230), (990, 230)], NAVY, 2.2)
-box(995, 160, 175, 140, "<b>Deterministic compiler</b><br><span style='font-size:12px'>precedence:<br>block ≻ except ≻ allow<br>≻ isolate ≻ public</span>",
-    "#ffffff", NAVY, fs=14)
-A([(1175, 230), (1215, 230)], NAVY, 2.2)
-# zone policy table
-lab(1195, 72, 280, 30, "<b>zone policy</b> Π (first match)", fs=14, color=NAVY)
-rows = [("guest", "fin", "*", "deny", NO), ("dev", "ops", "tcp/23", "deny", NO), ("fin", "db", "tcp/5432", "permit", OK),
-        ("dev", "ops", "tcp/*", "permit", OK), ("cam", "nvr", "tcp/554", "permit", OK), ("cam", "*", "*", "deny", NO)]
-for i, (s, d, p, a, c) in enumerate(rows):
-    y = 108 + 40 * i
-    box(1195, y, 222, 34, f"<span style='font-family:Consolas'>{s} → {d} {p}</span>", "#ffffff", "#b0bccd", fs=11, arc=6, align="left")
-    box(1418, y + 5, 42, 24, a[0].upper(), c, c, fs=11, arc=30, color="#ffffff", bold=True)
-lab(1195, 352, 270, 26, "implicit default deny between zones", fs=12, color=GREY)
+# ---- Testbed evaluation
+f.stage(1842, 470, 710, 390, "Evaluation: Emulated Testbed", "pink")
+f.box(1862, 545, 325, 90, "FRR 10.2.1 routers<br>OSPF · ECMP (L4 hash)", "pink", fs=17)
+f.box(2207, 545, 325, 90, "iptables FORWARD<br>per router", "pink", fs=17)
+f.box(1862, 655, 325, 80, "Zone hosts<br>(network namespaces)", "pink", fs=17)
+f.box(2207, 655, 325, 80, "Probes<br>UDP · TCP-SYN · ICMP", "pink", fs=17)
+f.box(1862, 755, 670, 80, "Conformance · leaks · convergence<br>push time · update latency", "white", fs=16)
 
-# (2) deterministic validator panel inside the intent plane
-box(430, 384, 1030, 84, "", "#ffffff", NAVY, dashed=True, arc=6)
-lab(440, 386, 1010, 24, "<b>deterministic validator</b> (no second LLM opinion): every object is checked before compilation", fs=12, color=NAVY, align="left")
-for j, (t, c) in enumerate([("type ∈ 5 types", OK_L), ("zones ∈ inventory", OK_L), ("services ∈ catalogue", OK_L), ("fields complete", OK_L)]):
-    box(445 + 172 * j, 414, 160, 40, t, c, OK, fs=12, arc=30)
-lab(1135, 410, 320, 50, "on failure: error message back to the model, re-ask ≤ 2", fs=12, align="left", color=GREY)
+# ===================================================================== ROW 3: detail panels
+f.stage(8, 900, 1012, 392, "Detailed Placement Program", "lavender")
+f.zoom_link((465, 738), (8, 900)); f.zoom_link((875, 738), (1020, 900))
+f.box(30, 965, 590, 70, "min Σ<sub><i>b,r</i></sub> " + it("c<sub>b</sub> x<sub>br</sub>") + " (1 + α " + it("h<sub>br</sub>") + ")", "white", fs=20)
+f.box(30, 1048, 590, 70, "Σ<sub><i>r</i>∈π</sub> " + it("x<sub>br</sub>") + " ≥ 1 &nbsp; ∀ " + it("b") + ", ∀ π ∈ ℰ(" + it("b") + ")", "lightblue", fs=20)
+f.box(30, 1131, 590, 70, "Σ<sub><i>b</i></sub> " + it("c<sub>b</sub> x<sub>br</sub>") + " ≤ " + it("C<sub>r</sub>") + " &nbsp; ∀ " + it("r"), "orange", fs=20)
+T(30, 1212, 590, 60, "cover every equal-cost path · respect capacity<br>α = 0.05 · " + it("h") + " = hop index (early drop)", fs=15)
+G = {0: (680, 1110), 1: (790, 1020), 2: (790, 1200), 3: (900, 1020), 4: (900, 1200), 5: (990, 1110)}
+for a, b in [(0, 1), (1, 3), (3, 5)]: A([G[a], G[b]], head=False, sw=4, color="#3a7bd5")
+for a, b in [(0, 2), (2, 4), (4, 5)]: A([G[a], G[b]], head=False, sw=4, color="#e07a1f", dashed=True)
+for r, (x, y) in G.items(): f.circle(x, y, 24, f"R{r}", fs=15)
+for (x, y), c in [(G[0], "#2aa198"), (G[1], "#c2185b"), (G[2], "#7b5ea7")]:
+    f.box(x - 14, y - 58, 28, 26, "", c, arc=25)
+T(640, 1258, 370, 30, "<span style='color:#3a7bd5'>━</span> π<sub>1</sub> &nbsp; <span style='color:#e07a1f'>┅</span> π<sub>2</sub> &nbsp; ■ block", fs=15)
 
-# =====================================================================================================================
-# (2) BLOCKS  (left of the bottom half)
-plane(10, 500, 420, 760, "2", "Disjoint rule blocks", TEAL, TEAL_L)
-lab(30, 560, 380, 60, "Π restricted to one (source prefix, destination prefix) pair + explicit trailing deny", fs=13, align="left")
-for k in range(6):
-    y = 630 + 70 * k
-    box(40, y, 54, 54, it("b") + f"<sub>{k + 1}</sub>", BLK[k], BLK[k], fs=15, color="#ffffff", bold=True, arc=12)
-    lab(104, y, 300, 54, ["10.0.16.0/20 → 10.0.66.0/25 : 3 rules", "10.0.16.0/20 → 10.0.32.0/21 : 1 rule (deny)", "10.0.4.0/22 → 10.0.66.0/25 : 2 rules",
-                          "10.0.8.0/22 → 10.0.48.0/20 : 4 rules", "10.0.64.0/26 → 10.0.4.0/22 : 1 rule", "10.0.72.0/24 → 10.0.8.0/22 : 2 rules"][k], fs=12, align="left")
-lab(30, 1062, 390, 180, "blocks never overlap in header space and are idempotent ⇒ a block may sit on <b>any</b> router of the pair's paths, "
-    "duplicates are harmless; cost " + it("c<sub>b</sub>") + " = #entries", fs=13, align="left", color=TEAL)
-A([(220, 482), (220, 500)], TEAL, 2.0)
-
-# =====================================================================================================================
-# (3) NETWORK PLANE: capacity-aware placement on the router graph
-plane(450, 500, 1030, 430, "3", "Capacity-aware placement over all ECMP paths (ILP)", AMB, AMB_L)
-R = {0: (520, 735), 1: (640, 640), 2: (640, 830), 3: (780, 640), 4: (780, 830), 5: (920, 735), 6: (1040, 650), 7: (1040, 830)}
-E = [(0, 1), (0, 2), (1, 3), (2, 4), (3, 5), (4, 5), (5, 6), (5, 7), (6, 7), (1, 2)]
-for a, b in E: line(R[a], R[b])
-line(R[0], R[1], "#3a7bd5", 5); line(R[1], R[3], "#3a7bd5", 5); line(R[3], R[5], "#3a7bd5", 5)
-line(R[0], R[2], "#e07a1f", 5, dashed=True); line(R[2], R[4], "#e07a1f", 5, dashed=True); line(R[4], R[5], "#e07a1f", 5, dashed=True)
-for r, (x, y) in R.items(): circ(x, y, 26, f"R{r}", "#ffffff", INK, 13, 1.8)
-# placed blocks as tiles + capacity bars
-tiles = {1: [0, 3], 2: [0], 0: [2, 4], 5: [1], 6: [5], 7: [3]}
-for r, bs in tiles.items():
-    x, y = R[r]
-    for i, b in enumerate(bs):
-        box(x - 24 + 25 * i, y - 60, 22, 22, "", BLK[b], BLK[b], arc=20)
-    f.vertex("", f"whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor={GREY};" + FONT, x + 30, y - 22, 10, 44)
-    fill = 44 * min(1, 0.35 + 0.3 * len(bs))
-    f.vertex("", f"whiteSpace=wrap;html=1;fillColor={AMB};strokeColor=none;" + FONT, x + 30, y + 22 - fill, 10, fill)
-lab(470, 893, 620, 30, "<span style='color:#3a7bd5'>━</span> path π<sub>1</sub> &nbsp; <span style='color:#e07a1f'>┅</span> path π<sub>2</sub> (equal cost) &nbsp; ▮ router load / " + it("C<sub>r</sub>") + " &nbsp; ■ placed block", fs=12, align="left")
-box(1100, 560, 365, 300,
-    "<b>min</b> Σ<sub><i>b,r</i></sub> <i>c<sub>b</sub> x<sub>br</sub></i> (1 + α <i>h<sub>br</sub></i>)<br><br>"
-    "Σ<sub><i>r</i>∈π</sub> <i>x<sub>br</sub></i> ≥ 1 &nbsp; ∀ π ∈ ECMP(<i>b</i>)<br>"
-    "Σ<sub><i>b</i></sub> <i>c<sub>b</sub> x<sub>br</sub></i> ≤ <i>C<sub>r</sub></i> &nbsp; ∀ <i>r</i><br>"
-    "<i>x<sub>br</sub></i> ∈ {0, 1}<br><br><span style='font-size:12px;color:#5f6b7a'>every equal-cost path crosses a holder;<br>"
-    "per-router entry budget; early drop (<i>h</i> = hop index)</span>", "#ffffff", AMB, fs=15, align="center")
-A([(430, 760), (490, 745)], TEAL, 2.0)
-
-# =====================================================================================================================
-# (4) DEPLOY + VERIFY (bottom right)
-plane(450, 950, 1030, 310, "4", "Render, verify, emulate", PLUM, PLUM_L)
-box(475, 1010, 270, 150, "<span style='font-family:Consolas;font-size:11px'>*filter<br>:FORWARD ACCEPT<br>-A FORWARD -m conntrack ...<br>"
-    "-A FORWARD -s 10.0.16.0/20<br>&nbsp;&nbsp;-d 10.0.66.0/25 -p tcp<br>&nbsp;&nbsp;--dport 5432 -j ACCEPT<br>...</span>", "#ffffff", PLUM, fs=11, align="left")
-lab(475, 1165, 270, 40, "iptables-restore per router", fs=12, color=GREY)
-A([(750, 1085), (790, 1085)], PLUM, 2.0)
-box(795, 1010, 330, 150, "<b>Z3, full 5-tuple</b> (src 32 b, dst 32 b, proto 8 b, port 16 b)<br>"
-    "∀ <i>s, d</i>, ∀ π ∈ ECMP(<i>s, d</i>):<br>∧<sub><i>r</i>∈π</sub> dev<sub><i>r</i></sub>(<i>h</i>) ≡ Π(<i>h</i>)<br>"
-    "<span style='font-size:12px'>unsat ⇒ verified · sat ⇒ packet witness</span>", "#ffffff", PLUM, fs=13)
-A([(1130, 1085), (1170, 1085)], PLUM, 2.0)
-box(1175, 1010, 290, 150, "<b>GNS3 VM testbed</b><br><span style='font-size:11px'>FRR 10.2 routers: OSPF, ECMP (L4 hash),<br>iptables; zone hosts as namespaces;<br>"
-    "UDP, TCP-SYN, ICMP probes<br>captured at the destination</span>", "#ffffff", PLUM, fs=13)
-lab(795, 1178, 670, 70, "KPIs: header-space equivalence, feasible capacity, entries / duplicates, drop position, "
-    "solve and verification time, deployment latency, probe conformance and leaks", fs=12, align="left", color=PLUM)
-A([(960, 930), (960, 1006)], AMB, 2.0)
-
-# feedback threads (red, dashed)
-A([(1100, 1008), (1100, 934)], RED, 1.8, dashed=True)
-lab(1108, 950, 200, 26, "witness → re-place", fs=12, color=RED, align="left")
-A([(540, 384), (540, 292)], RED, 1.8, dashed=True)
-lab(408, 312, 128, 50, "invalid →<br>re-ask", fs=12, color=RED, align="right")
+f.stage(1050, 900, 1502, 392, "Detailed Network-Wide Verification", "lavender")
+f.zoom_link((1400, 735), (1050, 900)); f.zoom_link((1740, 735), (1820, 900))
+T(1075, 958, 400, 30, "header " + it("h") + " (bit-vectors)", fs=16, align="left")
+x = 1075
+for lab, w, c in [("src (32 bit)", 250, "#7fa8d8"), ("dst (32 bit)", 250, "#f2b27a"), ("proto (8)", 118, "#a8d8b0"), ("port (16)", 140, "#c9c0d0")]:
+    f.box(x, 992, w, 46, lab, c, fs=14, arc=6); x += w + 6
+f.box(1075, 1060, 780, 66, "dev<sub><i>r</i></sub>(" + it("h") + ") = first match of parsed rules of " + it("r") + ", else forward", "lightblue", fs=18)
+f.box(1075, 1140, 780, 66, "deliv<sub>π</sub>(" + it("h") + ") = ∧<sub><i>r</i> ∈ π</sub> dev<sub><i>r</i></sub>(" + it("h") + ")", "yellow", fs=19)
+f.box(1890, 960, 640, 120, "<b>SAT?</b><br>src ∈ " + it("P") + "(" + it("s") + ") ∧ dst ∈ " + it("P") + "(" + it("d") + ")<br>∧ deliv<sub>π</sub>(" + it("h") + ") ≠ Π(" + it("s, d, h") + ")", "orange", fs=19)
+A([(1855, 1173), (1872, 1173), (1872, 1020), (1890, 1020)])
+f.box(1890, 1100, 310, 106, "unsat ∀ (" + it("s, d") + "), π<br>⇒ deployment ≡ Π", "green", fs=18)
+f.box(2220, 1100, 310, 106, "sat ⇒ witness<br>packet + path π", "red", fs=18)
+A([(2045, 1080), (2045, 1100)]); A([(2375, 1080), (2375, 1100)])
+T(1075, 1222, 1455, 50, "per zone pair and per equal-cost path · prefix membership as masked equality", fs=15)
 
 path = os.path.join(OUT, "Figure1.drawio"); f.save(path, name="Figure1")
 exe = r"C:\Program Files\draw.io\draw.io.exe"
