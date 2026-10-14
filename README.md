@@ -27,7 +27,7 @@ over source/destination address, protocol and port on every equal-cost path. The
 | `figure_src/`, `figures/` | figure generators and figures |
 
 ## Data sources (redistributed unchanged, with attribution)
-* Internet Topology Zoo, Knight et al., IEEE JSAC 2011 (GitHub mirror `sk2/topologyzoo`): `data/topologyzoo/`
+* Internet Topology Zoo, Knight et al., IEEE JSAC 2011: not redistributed; the scenarios store the links they use. To regenerate the scenarios, clone the mirror: `git clone https://github.com/sk2/topologyzoo data/topologyzoo`
 * ClassBench seed filters, Taylor and Turner, IEEE/ACM ToN 2007 (1k sets): `data/classbench/1k_1/`
 * NetConfEval tasks (`NetConfEval/NetConfEval` on Hugging Face, MIT): `data/netconfeval/`
 

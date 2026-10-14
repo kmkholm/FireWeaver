@@ -181,3 +181,5 @@
 {"i": 180, "batch_size": 20, "n_types": 1, "n_sent": 21, "batch_s": 0.6865384578704834, "batch_tok": 11, "ir_s": 21.601508855819702, "ir_tok": 650, "ir_fail": 0, "label": true, "batch_pred": false, "ir_pred": true}
 {"i": 181, "batch_size": 20, "n_types": 1, "n_sent": 20, "batch_s": 0.694237470626831, "batch_tok": 11, "ir_s": 20.566704511642456, "ir_tok": 617, "ir_fail": 0, "label": false, "batch_pred": false, "ir_pred": false}
 {"i": 182, "batch_size": 20, "n_types": 1, "n_sent": 21, "batch_s": 0.7152259349822998, "batch_tok": 11, "ir_s": 21.527701377868652, "ir_tok": 648, "ir_fail": 0, "label": true, "batch_pred": true, "ir_pred": true}
+{"i": 183, "batch_size": 20, "n_types": 1, "n_sent": 20, "batch_s": 0.7227017879486084, "batch_tok": 11, "ir_s": 20.395237684249878, "ir_tok": 617, "ir_fail": 0, "label": false, "batch_pred": false, "ir_pred": false}
+{"i": 184, "batch_size": 20, "n_types": 1, "n_sent": 21, "batch_s": 0.8123574256896973, "batch_tok": 11, "ir_s": 21.74255394935608, "ir_tok": 652, "ir_fail": 0, "label": true, "batch_pred": true, "ir_pred": true}
