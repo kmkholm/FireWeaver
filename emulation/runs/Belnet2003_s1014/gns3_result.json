@@ -1,0 +1,58 @@
+{
+ "id": "Belnet2003_s1014",
+ "platform": "GNS3 2.2.61 project (Docker nodes)",
+ "gns3_start_s": 29.599088430404663,
+ "config": {
+  "config_s": 28.880908250808716,
+  "converged": true,
+  "converge_s": 117.0576844215393,
+  "dataplane_ready": true,
+  "dataplane_s": 11.987939357757568,
+  "ecmp_nexthops": 1102
+ },
+ "deploy_fireweaver": {
+  "cfgset": "fireweaver",
+  "deploy_s": 8.217718601226807,
+  "rules_installed": 780,
+  "rules_expected": 780
+ },
+ "probe_fireweaver": {
+  "n": 2606,
+  "conform": 2606,
+  "leaks": 0,
+  "wrongly_blocked": 0,
+  "send_s": 13.93289566040039
+ },
+ "deploy_ecmp1": {
+  "cfgset": "ecmp1",
+  "deploy_s": 13.501921653747559,
+  "rules_installed": 780,
+  "rules_expected": 780
+ },
+ "probe_ecmp1": {
+  "n": 2606,
+  "conform": 2521,
+  "leaks": 85,
+  "wrongly_blocked": 0,
+  "send_s": 13.21717643737793
+ },
+ "deploy_none": {
+  "cfgset": "none",
+  "deploy_s": 11.234489917755127,
+  "rules_installed": 0,
+  "rules_expected": 0
+ },
+ "probe_none": {
+  "n": 2606,
+  "conform": 116,
+  "leaks": 2490,
+  "wrongly_blocked": 0,
+  "send_s": 6.334439992904663
+ },
+ "deploy_final": {
+  "cfgset": "fireweaver",
+  "deploy_s": 8.76517128944397,
+  "rules_installed": 780,
+  "rules_expected": 780
+ }
+}
