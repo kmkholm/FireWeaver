@@ -1,0 +1,127 @@
+{
+ "id": "TLex_s1043",
+ "up": {
+  "n_routers": 12,
+  "n_links": 13,
+  "n_zones": 10,
+  "setup_s": 148.071391582489,
+  "converged": true,
+  "converge_s": 7.6560304164886475,
+  "dataplane_ready": true,
+  "dataplane_s": 1.3020853996276855,
+  "ecmp_nexthops": 28
+ },
+ "base": {
+  "n_intents": 27,
+  "llm_s": 14.488150358200073,
+  "verified": true,
+  "push": {
+   "routers": 12,
+   "push_s": 2.334015130996704,
+   "per_router_max_s": 2.3183176517486572
+  }
+ },
+ "updates": [
+  {
+   "sentence": "library must accept DNS over UDP 53 and RDP (TCP 3389) and PostgreSQL (TCP 5432) from iot-sensors.",
+   "llm_s": 0.8515288829803467,
+   "ir": {
+    "type": "allow",
+    "src": "iot-sensors",
+    "dst": "library",
+    "svcs": [
+     "dns",
+     "rdp",
+     "postgres"
+    ]
+   },
+   "ir_correct": true,
+   "compile_s": 0.00067138671875,
+   "place_s": 0.011320114135742188,
+   "place_mode": "incremental",
+   "blocks_replaced": 6,
+   "render_s": 0.002052783966064453,
+   "verify_s": 3.492926836013794,
+   "verified": true,
+   "checks": 94,
+   "routers_touched": 2,
+   "pipeline_s": 4.360872983932495,
+   "push": {
+    "routers": 2,
+    "push_s": 0.22325897216796875,
+    "per_router_max_s": 0.21633267402648926
+   },
+   "push_wall_s": 0.6206309795379639,
+   "end_to_end_s": 5.373762845993042,
+   "probes": 57,
+   "conform": 57,
+   "affected_pairs": 1
+  },
+  {
+   "sentence": "cameras offers HTTP (TCP 80) and NTP (UDP 123) to every zone.",
+   "llm_s": 0.6568989753723145,
+   "ir": {
+    "type": "public",
+    "dst": "cameras",
+    "svcs": [
+     "http",
+     "ntp"
+    ]
+   },
+   "ir_correct": true,
+   "compile_s": 0.0006837844848632812,
+   "place_s": 0.011649847030639648,
+   "place_mode": "incremental",
+   "blocks_replaced": 12,
+   "render_s": 0.003071308135986328,
+   "verify_s": 3.548567771911621,
+   "verified": true,
+   "checks": 94,
+   "routers_touched": 7,
+   "pipeline_s": 4.230895757675171,
+   "push": {
+    "routers": 7,
+    "push_s": 1.4886679649353027,
+    "per_router_max_s": 1.4806773662567139
+   },
+   "push_wall_s": 1.93589186668396,
+   "end_to_end_s": 6.561053991317749,
+   "probes": 225,
+   "conform": 225,
+   "affected_pairs": 5
+  },
+  {
+   "sentence": "library must accept SMTP (TCP 25) from database.",
+   "llm_s": 0.7393920421600342,
+   "ir": {
+    "type": "allow",
+    "src": "database",
+    "dst": "library",
+    "svcs": [
+     "smtp"
+    ]
+   },
+   "ir_correct": true,
+   "compile_s": 0.0007174015045166016,
+   "place_s": 0.00834798812866211,
+   "place_mode": "incremental",
+   "blocks_replaced": 9,
+   "render_s": 0.0016598701477050781,
+   "verify_s": 3.7307982444763184,
+   "verified": true,
+   "checks": 94,
+   "routers_touched": 2,
+   "pipeline_s": 4.482635974884033,
+   "push": {
+    "routers": 2,
+    "push_s": 0.2212972640991211,
+    "per_router_max_s": 0.2208108901977539
+   },
+   "push_wall_s": 0.6810803413391113,
+   "end_to_end_s": 5.504081726074219,
+   "probes": 53,
+   "conform": 53,
+   "affected_pairs": 1
+  }
+ ]
+}

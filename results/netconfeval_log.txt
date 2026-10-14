@@ -25,3 +25,10 @@ conflict 120 {'batch_s': 0.4041590690612793, 'ir_s': 3.1796069145202637, 'label'
 conflict 140 {'batch_s': 0.3995544910430908, 'ir_s': 3.110988140106201, 'label': True, 'batch_pred': True, 'ir_pred': True}
 conflict 160 {'batch_s': 0.4754970073699951, 'ir_s': 6.268423795700073, 'label': True, 'batch_pred': True, 'ir_pred': True}
 conflict 180 {'batch_s': 0.6865384578704834, 'ir_s': 21.601508855819702, 'label': True, 'batch_pred': False, 'ir_pred': True}
+conflict 200 {'batch_s': 0.4211111068725586, 'ir_s': 4.329419136047363, 'label': False, 'batch_pred': False, 'ir_pred': False}
+conflict 220 {'batch_s': 0.4130232334136963, 'ir_s': 4.379488945007324, 'label': False, 'batch_pred': False, 'ir_pred': False}
+conflict 240 {'batch_s': 0.4150669574737549, 'ir_s': 4.439500093460083, 'label': False, 'batch_pred': False, 'ir_pred': False}
+conflict 260 {'batch_s': 0.4887537956237793, 'ir_s': 8.612348794937134, 'label': False, 'batch_pred': False, 'ir_pred': False}
+conflict 280 {'batch_s': 1.270845890045166, 'ir_s': 45.86233425140381, 'label': True, 'batch_pred': True, 'ir_pred': True}
+conflict 300 {'batch_s': 0.5426144599914551, 'ir_s': 10.35098385810852, 'label': False, 'batch_pred': False, 'ir_pred': False}
+conflict 320 {'batch_s': 0.9200217723846436, 'ir_s': 31.821880340576172, 'label': True, 'batch_pred': True, 'ir_pred': True}

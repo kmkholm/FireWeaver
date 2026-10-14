@@ -1,0 +1,128 @@
+{
+ "id": "Belnet2003_s1014",
+ "up": {
+  "n_routers": 23,
+  "n_links": 39,
+  "n_zones": 10,
+  "setup_s": 29.1898353099823,
+  "converged": true,
+  "converge_s": 3.6759033203125,
+  "dataplane_ready": true,
+  "dataplane_s": 1.0458471775054932,
+  "ecmp_nexthops": 1102
+ },
+ "base": {
+  "n_intents": 5,
+  "llm_s": 3.124080181121826,
+  "verified": true,
+  "push": {
+   "routers": 23,
+   "push_s": 4.538766384124756,
+   "per_router_max_s": 4.49343466758728
+  }
+ },
+ "updates": [
+  {
+   "sentence": "Block FTP (TCP 21) from vpn-users to library; the rest of any TCP port between them is allowed.",
+   "llm_s": 0.891254186630249,
+   "ir": {
+    "type": "allow_except",
+    "src": "vpn-users",
+    "dst": "library",
+    "broad": "any-tcp",
+    "ex": [
+     "ftp"
+    ]
+   },
+   "ir_correct": true,
+   "compile_s": 0.00034332275390625,
+   "place_s": 0.009643077850341797,
+   "place_mode": "incremental",
+   "blocks_replaced": 6,
+   "render_s": 0.003966808319091797,
+   "verify_s": 6.2174084186553955,
+   "verified": true,
+   "checks": 160,
+   "routers_touched": 2,
+   "pipeline_s": 7.124787330627441,
+   "push": {
+    "routers": 2,
+    "push_s": 0.38688111305236816,
+    "per_router_max_s": 0.3841826915740967
+   },
+   "push_wall_s": 0.8040382862091064,
+   "end_to_end_s": 8.289783000946045,
+   "probes": 37,
+   "conform": 37,
+   "affected_pairs": 1
+  },
+  {
+   "sentence": "vpn-users must accept PostgreSQL (TCP 5432) from dns-servers.",
+   "llm_s": 0.809734582901001,
+   "ir": {
+    "type": "allow",
+    "src": "dns-servers",
+    "dst": "vpn-users",
+    "svcs": [
+     "postgres"
+    ]
+   },
+   "ir_correct": true,
+   "compile_s": 0.00039887428283691406,
+   "place_s": 0.01768779754638672,
+   "place_mode": "incremental",
+   "blocks_replaced": 6,
+   "render_s": 0.003360748291015625,
+   "verify_s": 6.326619625091553,
+   "verified": true,
+   "checks": 160,
+   "routers_touched": 1,
+   "pipeline_s": 7.1598687171936035,
+   "push": {
+    "routers": 1,
+    "push_s": 0.1592106819152832,
+    "per_router_max_s": 0.15838193893432617
+   },
+   "push_wall_s": 0.6315510272979736,
+   "end_to_end_s": 8.204991579055786,
+   "probes": 37,
+   "conform": 37,
+   "affected_pairs": 1
+  },
+  {
+   "sentence": "Apart from ntp-servers on DNS over UDP 53, all traffic originating in vpn-users must be dropped.",
+   "llm_s": 1.2088017463684082,
+   "ir": {
+    "type": "isolate",
+    "src": "vpn-users",
+    "allowed": [
+     [
+      "ntp-servers",
+      "dns"
+     ]
+    ]
+   },
+   "ir_correct": true,
+   "compile_s": 0.0003876686096191406,
+   "place_s": 0.0096893310546875,
+   "place_mode": "incremental",
+   "blocks_replaced": 14,
+   "render_s": 0.0034105777740478516,
+   "verify_s": 6.462740898132324,
+   "verified": true,
+   "checks": 160,
+   "routers_touched": 1,
+   "pipeline_s": 7.690674543380737,
+   "push": {
+    "routers": 1,
+    "push_s": 0.1136178970336914,
+    "per_router_max_s": 0.11264610290527344
+   },
+   "push_wall_s": 0.5752935409545898,
+   "end_to_end_s": 8.683954238891602,
+   "probes": 127,
+   "conform": 127,
+   "affected_pairs": 3
+  }
+ ]
+}

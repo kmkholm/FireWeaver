@@ -1,0 +1,129 @@
+{
+ "id": "Geant2010_s1018",
+ "up": {
+  "n_routers": 37,
+  "n_links": 56,
+  "n_zones": 10,
+  "setup_s": 40.3776650428772,
+  "converged": true,
+  "converge_s": 5.355856657028198,
+  "dataplane_ready": true,
+  "dataplane_s": 1.0547969341278076,
+  "ecmp_nexthops": 1063
+ },
+ "base": {
+  "n_intents": 5,
+  "llm_s": 3.7642571926116943,
+  "verified": true,
+  "push": {
+   "routers": 37,
+   "push_s": 7.557980537414551,
+   "per_router_max_s": 7.067039251327515
+  }
+ },
+ "updates": [
+  {
+   "sentence": "Any zone may connect to library over HTTP (TCP 80).",
+   "llm_s": 0.637129545211792,
+   "ir": {
+    "type": "public",
+    "dst": "library",
+    "svcs": [
+     "http"
+    ]
+   },
+   "ir_correct": true,
+   "compile_s": 0.0006968975067138672,
+   "place_s": 0.15921306610107422,
+   "place_mode": "full",
+   "blocks_replaced": 12,
+   "render_s": 0.014445066452026367,
+   "verify_s": 2.599052667617798,
+   "verified": true,
+   "checks": 154,
+   "routers_touched": 24,
+   "pipeline_s": 3.417548656463623,
+   "push": {
+    "routers": 24,
+    "push_s": 4.673066854476929,
+    "per_router_max_s": 4.493763446807861
+   },
+   "push_wall_s": 5.137909650802612,
+   "end_to_end_s": 8.956608295440674,
+   "probes": 259,
+   "conform": 259,
+   "affected_pairs": 7
+  },
+  {
+   "sentence": "backup must accept IMAP (TCP 143) and RTSP (TCP 554) and PostgreSQL (TCP 5432) from library.",
+   "llm_s": 0.6960294246673584,
+   "ir": {
+    "type": "allow",
+    "src": "library",
+    "dst": "backup",
+    "svcs": [
+     "imap",
+     "rtsp",
+     "postgres"
+    ]
+   },
+   "ir_correct": true,
+   "compile_s": 0.0003685951232910156,
+   "place_s": 0.0015110969543457031,
+   "place_mode": "incremental",
+   "blocks_replaced": 2,
+   "render_s": 0.0017096996307373047,
+   "verify_s": 2.8702914714813232,
+   "verified": true,
+   "checks": 154,
+   "routers_touched": 1,
+   "pipeline_s": 3.572354555130005,
+   "push": {
+    "routers": 1,
+    "push_s": 0.18385672569274902,
+    "per_router_max_s": 0.1832273006439209
+   },
+   "push_wall_s": 0.5773217678070068,
+   "end_to_end_s": 4.5535054206848145,
+   "probes": 61,
+   "conform": 61,
+   "affected_pairs": 1
+  },
+  {
+   "sentence": "Block SMB (TCP 445), Telnet (TCP 23), RDP (TCP 3389) from partners to printers; the rest of any TCP port between them is allowed.",
+   "llm_s": 1.0099411010742188,
+   "ir": {
+    "type": "allow_except",
+    "src": "partners",
+    "dst": "printers",
+    "broad": "any-tcp",
+    "ex": [
+     "smb",
+     "telnet",
+     "rdp"
+    ]
+   },
+   "ir_correct": true,
+   "compile_s": 0.0003674030303955078,
+   "place_s": 0.13664674758911133,
+   "place_mode": "full",
+   "blocks_replaced": 4,
+   "render_s": 0.007844686508178711,
+   "verify_s": 2.6806936264038086,
+   "verified": true,
+   "checks": 154,
+   "routers_touched": 25,
+   "pipeline_s": 3.838057518005371,
+   "push": {
+    "routers": 25,
+    "push_s": 4.778022289276123,
+    "per_router_max_s": 4.7278361320495605
+   },
+   "push_wall_s": 5.246357440948486,
+   "end_to_end_s": 9.437814950942993,
+   "probes": 61,
+   "conform": 61,
+   "affected_pairs": 1
+  }
+ ]
+}

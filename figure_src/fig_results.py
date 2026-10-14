@@ -166,22 +166,23 @@ def netconfeval():
     T = [json.loads(l) for l in open(pt)] if os.path.exists(pt) else []
     Cf = [json.loads(l) for l in open(pc)] if os.path.exists(pc) else []
     if not T: return None
-    fig, ax = plt.subplots(1, 3, figsize=(7.2, 2.4), gridspec_kw=dict(wspace=0.45))
+    fig, ax = plt.subplots(1, 3, figsize=(7.6, 2.6), gridspec_kw=dict(wspace=0.75))
     bs = sorted({r["batch_size"] for r in T})
     for v in ("batch", "ir"):
         y = [100 * np.mean([r[f"{v}_exact"] for r in T if r["batch_size"] == b]) for b in bs]
-        ax[0].plot(bs, y, "-o", ms=3, color=C[v if v == "batch" else "fw"], label="whole batch" if v == "batch" else "per-sentence IR")
-    ax[0].set_xscale("log"); ax[0].set_xlabel("requirements per batch"); ax[0].set_ylabel("exact specification (%)"); ax[0].legend(fontsize=7); panel(ax[0], "(a)")
+        ax[0].plot(bs, y, "-o", ms=3, color=C["batch"] if v == "batch" else C["ir"], label="whole batch" if v == "batch" else "FireWeaver (per sentence)")
+    ax[0].set_xscale("log"); ax[0].set_xlabel("requirements per batch"); ax[0].set_ylabel("exact specification (%)"); ax[0].set_ylim(-5, 115)
+    ax[0].legend(fontsize=6.5, loc="upper center", bbox_to_anchor=(0.5, -0.3), ncol=1); panel(ax[0], "(a)")
     if Cf:
         for j, v in enumerate(("batch", "ir")):
             y = [r["label"] for r in Cf]; p = [bool(r[f"{v}_pred"]) for r in Cf]
             cm = np.array([[sum((not a) and (not b) for a, b in zip(y, p)), sum((not a) and b for a, b in zip(y, p))],
                            [sum(a and (not b) for a, b in zip(y, p)), sum(a and b for a, b in zip(y, p))]])
             a = ax[1 + j]; a.imshow(cm, cmap="Greens" if v == "ir" else "Reds", vmin=0, vmax=cm.sum() / 2)
-            for (i, k), val in np.ndenumerate(cm): a.text(k, i, str(val), ha="center", va="center", fontsize=9)
-            a.set_xticks([0, 1]); a.set_xticklabels(["no conflict", "conflict"], fontsize=7.5); a.set_yticks([0, 1]); a.set_yticklabels(["no conflict", "conflict"], fontsize=7.5)
-            a.set_xlabel("predicted"); a.set_ylabel("true"); a.set_title("whole batch" if v == "batch" else "per-sentence IR + check", fontsize=8.5)
-            a.spines[:].set_visible(True); panel(a, "(b)" if j == 0 else "(c)")
+            for (i, k), val in np.ndenumerate(cm): a.text(k, i, str(val), ha="center", va="center", fontsize=9, color="white" if val > cm.sum() / 4 else "black")
+            a.set_xticks([0, 1]); a.set_xticklabels(["none", "conflict"], fontsize=7.5); a.set_yticks([0, 1]); a.set_yticklabels(["none", "conflict"], fontsize=7.5)
+            a.set_xlabel("predicted"); a.set_ylabel("true"); a.set_title("whole batch" if v == "batch" else "FireWeaver (per sentence)", fontsize=8, pad=8)
+            a.spines[:].set_visible(True); a.text(-0.42, 1.12, "(b)" if j == 0 else "(c)", transform=a.transAxes, fontsize=11, fontweight="bold", va="bottom")
     save(fig, "Figure6")
     return T, Cf
 
